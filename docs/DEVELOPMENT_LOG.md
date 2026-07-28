@@ -342,3 +342,144 @@ This includes:
 ---
 
 This log reflects the work completed on **27 July 2026** and establishes a clear checkpoint before transitioning from database design to implementation.
+
+Here's a concise but detailed **Work Log for 28 July 2026**.
+
+---
+
+## **Date:** 28 July 2026
+
+### **Objective**
+
+Continue the development of the synthetic dataset generation pipeline for the **EcoLinkAI – AI-Powered Circular Economy Waste Exchange Network using MC-GNN** project by implementing the foundational relational datasets.
+
+---
+
+## **Work Completed**
+
+### **1. Completed Companies Dataset**
+
+* Finalized the `generate_companies.py` script.
+* Generated synthetic company records with realistic attributes including:
+
+  * Company ID
+  * Company Name
+  * Industry Sector
+  * Registration Number
+  * Contact Information
+  * Headquarters Location
+  * Trust Score
+  * Verification Status
+  * Company Size
+* Performed data validation to ensure:
+
+  * No duplicate Company IDs
+  * No duplicate Registration Numbers
+  * No duplicate Emails
+  * No missing values
+* Exported the dataset as:
+
+  * `datasets/csv/companies.csv`
+
+---
+
+### **2. Developed Plants Dataset**
+
+* Created metadata file:
+
+  * `plant_types.json`
+* Implemented `generate_plants.py`.
+* Established a **one-to-many relationship** between companies and plants.
+* Generated **1–3 plants for each company**.
+* Included attributes such as:
+
+  * Plant ID
+  * Company ID
+  * Plant Name
+  * Plant Type
+  * District
+  * State
+  * Country
+* Validated generated data.
+* Exported:
+
+  * `datasets/csv/plants.csv`
+
+---
+
+### **3. Developed Materials Dataset**
+
+* Created metadata files:
+
+  * `materials.json`
+  * `material_types.json`
+  * `measurement_units.json`
+  * `boolean_values.json`
+* Implemented `generate_materials.py`.
+* Generated multiple material records for every plant.
+* Enhanced the dataset schema by adding:
+
+  * Material Type
+  * Measurement Unit
+  * Recyclable Flag
+  * Hazardous Flag
+* Final material dataset consists of **9 attributes**, making it suitable for later MC-GNN feature engineering.
+* Validated generated data and exported:
+
+  * `datasets/csv/materials.csv`
+
+---
+
+### **4. Dataset Pipeline Enhancement**
+
+* Strengthened the relational hierarchy of the project:
+
+```text
+Companies
+    │
+    ▼
+Plants
+    │
+    ▼
+Materials
+```
+
+* Established foreign-key relationships between datasets to support future modules.
+
+---
+
+### **5. Development Environment Improvements**
+
+* Resolved Python virtual environment conflicts.
+* Consolidated development into a single project virtual environment.
+* Installed backend dependencies required for FastAPI and SQLAlchemy.
+* Eliminated IDE import resolution issues.
+
+---
+
+### **6. Git Version Control**
+
+* Added newly created dataset generators and metadata files to the repository.
+* Prepared commits for the completed Companies, Plants, and Materials dataset generation modules.
+* Repository is ready to be pushed after verification.
+
+---
+
+## **Deliverables Completed**
+
+* `generate_companies.py`
+* `generate_plants.py`
+* `generate_materials.py`
+* `companies.csv`
+* `plants.csv`
+* `materials.csv`
+* Additional metadata JSON files for plants and materials.
+
+---
+
+## **Plan for Next Session (29 July 2026)**
+
+* Begin implementation of the **Waste Listings Dataset**.
+* Design realistic waste availability records linked to materials and plants.
+* Include attributes such as quantity, purity, pricing, urgency, storage conditions, listing status, and environmental indicators.
+* Prepare the dataset as the primary input for the MC-GNN recommendation model.
