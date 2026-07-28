@@ -1,0 +1,79 @@
+{
+  "table": "companies",
+  "primary_key": "company_id",
+  "columns": [
+    {
+      "name": "company_id",
+      "type": "string",
+      "nullable": false,
+      "unique": true
+    },
+    {
+      "name": "company_name",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "industry_sector",
+      "type": "enum",
+      "nullable": false
+    },
+    {
+      "name": "industry_subsector",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "registration_number",
+      "type": "string",
+      "nullable": false,
+      "unique": true
+    },
+    {
+      "name": "email",
+      "type": "string"
+    },
+    {
+      "name": "phone",
+      "type": "string"
+    },
+    {
+      "name": "website",
+      "type": "string"
+    },
+    {
+      "name": "head_office",
+      "type": "string"
+    },
+    {
+      "name": "district",
+      "type": "string"
+    },
+    {
+      "name": "state",
+      "type": "string"
+    },
+    {
+      "name": "country",
+      "type": "string"
+    },
+    {
+      "name": "trust_score",
+      "type": "integer",
+      "min": 60,
+      "max": 100
+    },
+    {
+      "name": "verification_status",
+      "type": "enum"
+    },
+    {
+      "name": "established_year",
+      "type": "integer"
+    },
+    {
+      "name": "company_size",
+      "type": "enum"
+    }
+  ]
+}
