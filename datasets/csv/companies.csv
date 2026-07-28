@@ -1,0 +1,21 @@
+company_id,company_name,industry_sector,industry_subsector,registration_number,email,phone,website,head_office,district,state,country,trust_score,verification_status,established_year,company_size
+C001,Saran-Sankaran,Food Processing,General,CIN269646727,saran-sankaran@industry.in,+911547193703,https://www.saran-sankaran.com,Khammam,Kollam,Kerala,India,87,Verified,2007,Micro
+C002,Sule-Sarma,Automotive,General,CIN810283077,sule-sarma@ecolink.ai,+914220376619,https://www.sule-sarma.com,Ahmednagar,Palakkad,Kerala,India,70,Verified,1996,Micro
+C003,Barman-Dave,Waste Management,General,CIN362934738,barman-dave@company.com,7997381977,https://www.barman-dave.com,Nashik,Kasaragod,Kerala,India,64,Verified,2001,Medium
+C004,Mistry-Dar,Automotive,General,CIN328801786,mistry-dar@gmail.com,7196219691,https://www.mistry-dar.com,Bhavnagar,Kozhikode,Kerala,India,78,Verified,1993,Large
+C005,Gole Inc,Textiles,General,CIN662617018,goleinc@company.com,02107995525,https://www.goleinc.com,Shivpuri,Kozhikode,Kerala,India,63,Verified,2000,Medium
+C006,Vala-Ram,Chemical,General,CIN818506294,vala-ram@gmail.com,2198173494,https://www.vala-ram.com,Thrissur,Idukki,Kerala,India,76,Pending,1992,Micro
+C007,Bhagat and Sons,Agriculture,General,CIN525195352,bhagatandsons@industry.in,+912524674816,https://www.bhagatandsons.com,Hapur,Idukki,Kerala,India,94,Pending,2013,Micro
+C008,Sachar-Kapur,Waste Management,General,CIN160483428,sachar-kapur@gmail.com,+914225151695,https://www.sachar-kapur.com,Agra,Thiruvananthapuram,Kerala,India,70,Under Review,2009,Large
+C009,"Sathe, Joshi and Minhas",Automotive,General,CIN139547431,sathejoshiandminhas@industry.in,7452252375,https://www.sathejoshiandminhas.com,Malegaon,Pathanamthitta,Kerala,India,85,Pending,2018,Small
+C010,Parmar Inc,Renewable Energy,General,CIN866436809,parmarinc@ecolink.ai,3859639918,https://www.parmarinc.com,Sirsa,Thiruvananthapuram,Kerala,India,62,Pending,2015,Small
+C011,Modi and Sons,Plastic,General,CIN368220707,modiandsons@ecolink.ai,0751407094,https://www.modiandsons.com,Khammam,Malappuram,Kerala,India,98,Under Review,2000,Medium
+C012,Wable-Chopra,Food Processing,General,CIN667569483,wable-chopra@industry.in,2961900224,https://www.wable-chopra.com,Allahabad,Palakkad,Kerala,India,86,Pending,1995,Small
+C013,Panchal and Sons,Automotive,General,CIN104378683,panchalandsons@ecolink.ai,+915861528885,https://www.panchalandsons.com,Mathura,Kozhikode,Kerala,India,91,Under Review,2021,Small
+C014,Gala Group,Electronics,General,CIN394845609,galagroup@industry.in,08770347233,https://www.galagroup.com,Visakhapatnam,Wayanad,Kerala,India,92,Under Review,2012,Micro
+C015,Nazareth-Khatri,Manufacturing,General,CIN660626109,nazareth-khatri@gmail.com,+917088599630,https://www.nazareth-khatri.com,Kolhapur,Thiruvananthapuram,Kerala,India,100,Under Review,2006,Small
+C016,Deshmukh-Chokshi,Food Processing,General,CIN362413603,deshmukh-chokshi@company.com,+910162830469,https://www.deshmukh-chokshi.com,Gaya,Idukki,Kerala,India,96,Under Review,2013,Small
+C017,Sethi Ltd,Construction Materials,General,CIN805323335,sethiltd@industry.in,06748862719,https://www.sethiltd.com,Kulti,Kozhikode,Kerala,India,69,Verified,2001,Medium
+C018,Vyas Ltd,Manufacturing,General,CIN975026169,vyasltd@ecolink.ai,5891748117,https://www.vyasltd.com,Solapur,Wayanad,Kerala,India,76,Verified,2018,Large
+C019,Kota PLC,Rubber,General,CIN508104773,kotaplc@gmail.com,+918443781310,https://www.kotaplc.com,Sirsa,Kozhikode,Kerala,India,70,Under Review,2020,Small
+C020,Kalla-Balakrishnan,Electronics,General,CIN488697030,kalla-balakrishnan@gmail.com,+910581934313,https://www.kalla-balakrishnan.com,Jabalpur,Ernakulam,Kerala,India,70,Verified,1996,Medium

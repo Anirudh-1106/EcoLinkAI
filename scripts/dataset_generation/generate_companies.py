@@ -26,16 +26,13 @@ company_sizes = load_json(
 verification_status = load_json(
     METADATA_DIR / "verification_status.json"
 )
-print("Loading industry_sectors...")
+
 industry_sectors = load_json(METADATA_DIR / "industry_sectors.json")
 
-print("Loading districts...")
 districts = load_json(METADATA_DIR / "kerala_districts.json")
 
-print("Loading company_sizes...")
 company_sizes = load_json(METADATA_DIR / "company_sizes.json")
 
-print("Loading verification_status...")
 verification_status = load_json(METADATA_DIR / "verification_status.json")
 companies = []
 for i in range(1, 21):
@@ -99,3 +96,13 @@ print(df["email"].duplicated().sum())
 
 print("\nChecking for Missing Values...")
 print(df.isnull().sum())
+
+# -------------------------------
+# Export Companies Dataset
+# -------------------------------
+
+output_file = CSV_DIR / "companies.csv"
+
+df.to_csv(output_file, index=False)
+
+print(f"\nCompanies dataset exported successfully to:\n{output_file}")
