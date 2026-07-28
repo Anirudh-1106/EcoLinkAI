@@ -1,0 +1,142 @@
+material_id,plant_id,company_id,material_name,material_category,material_type,unit,recyclable,hazardous
+M001,P001,C001,PET Bottles,PET,Waste,piece,Yes,Yes
+M002,P001,C001,Organic Compost,Organic,Waste,kg,No,No
+M003,P001,C001,Fly Ash,Fly,Waste,litre,Yes,Yes
+M004,P001,C001,Aluminium Scrap,Aluminium,By-product,litre,Yes,Yes
+M005,P002,C002,Aluminium Scrap,Aluminium,Waste,ton,No,Yes
+M006,P002,C002,E-Waste,E-Waste,Raw Material,kg,No,Yes
+M007,P003,C002,Copper Scrap,Copper,Waste,piece,No,Yes
+M008,P003,C002,Rubber Waste,Rubber,Waste,kg,No,No
+M009,P003,C002,Textile Waste,Textile,By-product,kg,No,Yes
+M010,P003,C002,Construction Debris,Construction,Recycled Material,kg,Yes,Yes
+M011,P003,C002,Cotton Fiber,Cotton,By-product,litre,No,Yes
+M012,P004,C002,Rubber Waste,Rubber,Raw Material,litre,Yes,Yes
+M013,P004,C002,Paper Waste,Paper,By-product,ton,No,No
+M014,P004,C002,Steel Scrap,Steel,Waste,ton,No,Yes
+M015,P004,C002,PET Bottles,PET,Waste,kg,Yes,No
+M016,P004,C002,Glass Scrap,Glass,Waste,piece,No,Yes
+M017,P005,C003,Organic Compost,Organic,Recycled Material,kg,No,No
+M018,P005,C003,Textile Waste,Textile,Recycled Material,ton,Yes,Yes
+M019,P005,C003,LDPE Plastic,LDPE,Waste,piece,Yes,No
+M020,P005,C003,Food Waste,Food,By-product,litre,Yes,Yes
+M021,P005,C003,Construction Debris,Construction,Raw Material,kg,No,No
+M022,P006,C003,LDPE Plastic,LDPE,By-product,ton,Yes,Yes
+M023,P006,C003,HDPE Plastic,HDPE,By-product,ton,Yes,No
+M024,P006,C003,Cardboard,Cardboard,By-product,ton,Yes,No
+M025,P007,C003,Aluminium Scrap,Aluminium,Recycled Material,litre,Yes,Yes
+M026,P007,C003,Copper Scrap,Copper,By-product,piece,No,No
+M027,P007,C003,Plastic Scrap,Plastic,Recycled Material,kg,No,No
+M028,P007,C003,Steel Scrap,Steel,Recycled Material,ton,Yes,No
+M029,P007,C003,Organic Compost,Organic,Raw Material,ton,Yes,Yes
+M030,P008,C004,Paper Waste,Paper,Recycled Material,piece,Yes,No
+M031,P008,C004,Metal Scrap,Metal,Recycled Material,piece,Yes,Yes
+M032,P008,C004,Construction Debris,Construction,Raw Material,piece,Yes,No
+M033,P008,C004,LDPE Plastic,LDPE,By-product,kg,No,No
+M034,P008,C004,Aluminium Scrap,Aluminium,Recycled Material,piece,No,No
+M035,P009,C005,Organic Compost,Organic,Recycled Material,litre,Yes,Yes
+M036,P009,C005,PET Bottles,PET,Waste,litre,No,No
+M037,P009,C005,Paper Waste,Paper,By-product,kg,No,Yes
+M038,P009,C005,E-Waste,E-Waste,By-product,piece,No,No
+M039,P010,C006,Metal Scrap,Metal,Recycled Material,piece,Yes,No
+M040,P010,C006,Aluminium Scrap,Aluminium,Waste,piece,Yes,Yes
+M041,P011,C006,Plastic Scrap,Plastic,Waste,piece,No,Yes
+M042,P011,C006,Textile Waste,Textile,Waste,kg,No,No
+M043,P011,C006,Food Waste,Food,Raw Material,ton,Yes,Yes
+M044,P011,C006,Paper Waste,Paper,Waste,piece,No,Yes
+M045,P012,C007,Food Waste,Food,By-product,litre,Yes,Yes
+M046,P012,C007,Steel Scrap,Steel,Raw Material,ton,Yes,Yes
+M047,P012,C007,Glass Scrap,Glass,Waste,ton,No,Yes
+M048,P012,C007,Construction Debris,Construction,Waste,ton,Yes,No
+M049,P013,C007,Cardboard,Cardboard,Recycled Material,kg,No,No
+M050,P013,C007,Paper Waste,Paper,Recycled Material,litre,No,No
+M051,P013,C007,Copper Scrap,Copper,Recycled Material,ton,Yes,No
+M052,P013,C007,Construction Debris,Construction,By-product,ton,No,Yes
+M053,P014,C008,Paper Waste,Paper,By-product,kg,No,Yes
+M054,P014,C008,Construction Debris,Construction,Raw Material,ton,No,Yes
+M055,P014,C008,Steel Scrap,Steel,Recycled Material,piece,No,Yes
+M056,P015,C008,Copper Scrap,Copper,Raw Material,kg,No,Yes
+M057,P015,C008,Construction Debris,Construction,Recycled Material,litre,No,Yes
+M058,P015,C008,Organic Compost,Organic,By-product,litre,Yes,No
+M059,P015,C008,Rubber Waste,Rubber,Raw Material,kg,Yes,No
+M060,P015,C008,Plastic Scrap,Plastic,By-product,litre,No,No
+M061,P016,C009,HDPE Plastic,HDPE,Waste,kg,No,No
+M062,P016,C009,Organic Compost,Organic,Waste,litre,No,No
+M063,P016,C009,LDPE Plastic,LDPE,Waste,ton,Yes,No
+M064,P016,C009,Aluminium Scrap,Aluminium,Recycled Material,litre,Yes,No
+M065,P016,C009,Construction Debris,Construction,Waste,piece,Yes,No
+M066,P017,C009,Aluminium Scrap,Aluminium,Raw Material,litre,Yes,Yes
+M067,P017,C009,Wood Chips,Wood,By-product,litre,No,No
+M068,P018,C010,HDPE Plastic,HDPE,Raw Material,kg,Yes,Yes
+M069,P018,C010,Cotton Fiber,Cotton,Recycled Material,litre,No,No
+M070,P018,C010,Glass Scrap,Glass,Recycled Material,kg,Yes,No
+M071,P018,C010,Aluminium Scrap,Aluminium,Raw Material,ton,Yes,No
+M072,P018,C010,PET Bottles,PET,Recycled Material,kg,Yes,No
+M073,P019,C010,Steel Scrap,Steel,By-product,kg,No,Yes
+M074,P019,C010,Fly Ash,Fly,Recycled Material,kg,No,No
+M075,P019,C010,Glass Scrap,Glass,Waste,ton,No,Yes
+M076,P019,C010,Metal Scrap,Metal,By-product,ton,Yes,Yes
+M077,P019,C010,Copper Scrap,Copper,By-product,kg,No,Yes
+M078,P020,C011,Paper Waste,Paper,Recycled Material,litre,Yes,Yes
+M079,P020,C011,Copper Scrap,Copper,By-product,litre,Yes,Yes
+M080,P020,C011,Aluminium Scrap,Aluminium,By-product,piece,Yes,No
+M081,P021,C011,Cotton Fiber,Cotton,Waste,piece,Yes,No
+M082,P021,C011,Steel Scrap,Steel,Waste,litre,No,Yes
+M083,P022,C012,Wood Chips,Wood,By-product,kg,Yes,No
+M084,P022,C012,Construction Debris,Construction,By-product,kg,Yes,Yes
+M085,P022,C012,Fly Ash,Fly,Recycled Material,kg,No,Yes
+M086,P022,C012,PET Bottles,PET,Recycled Material,kg,Yes,Yes
+M087,P022,C012,Glass Scrap,Glass,Recycled Material,kg,No,No
+M088,P023,C012,Organic Compost,Organic,By-product,litre,No,No
+M089,P023,C012,LDPE Plastic,LDPE,Waste,piece,Yes,No
+M090,P023,C012,Glass Scrap,Glass,Recycled Material,piece,Yes,No
+M091,P023,C012,Steel Scrap,Steel,By-product,litre,Yes,Yes
+M092,P024,C012,Rubber Waste,Rubber,Recycled Material,kg,No,Yes
+M093,P024,C012,Glass Scrap,Glass,Waste,ton,No,No
+M094,P025,C013,Paper Waste,Paper,Recycled Material,piece,Yes,No
+M095,P025,C013,Food Waste,Food,By-product,ton,Yes,No
+M096,P025,C013,Steel Scrap,Steel,Recycled Material,piece,No,Yes
+M097,P025,C013,Textile Waste,Textile,By-product,kg,Yes,Yes
+M098,P025,C013,Fly Ash,Fly,Raw Material,ton,Yes,Yes
+M099,P026,C014,LDPE Plastic,LDPE,Recycled Material,ton,Yes,Yes
+M100,P026,C014,Aluminium Scrap,Aluminium,Raw Material,litre,No,No
+M101,P027,C014,Rubber Waste,Rubber,Waste,litre,Yes,No
+M102,P027,C014,LDPE Plastic,LDPE,Recycled Material,piece,No,No
+M103,P028,C015,LDPE Plastic,LDPE,Recycled Material,litre,No,Yes
+M104,P028,C015,Food Waste,Food,Recycled Material,piece,No,Yes
+M105,P028,C015,Glass Scrap,Glass,Raw Material,litre,No,Yes
+M106,P029,C016,Rubber Waste,Rubber,Waste,kg,No,Yes
+M107,P029,C016,Construction Debris,Construction,Raw Material,ton,No,Yes
+M108,P029,C016,Food Waste,Food,By-product,piece,No,No
+M109,P029,C016,E-Waste,E-Waste,Raw Material,ton,Yes,No
+M110,P029,C016,Cardboard,Cardboard,Recycled Material,kg,Yes,No
+M111,P030,C016,E-Waste,E-Waste,By-product,ton,Yes,No
+M112,P030,C016,Metal Scrap,Metal,Recycled Material,ton,No,No
+M113,P030,C016,Glass Scrap,Glass,Waste,ton,No,No
+M114,P031,C016,Aluminium Scrap,Aluminium,Recycled Material,kg,No,No
+M115,P031,C016,Copper Scrap,Copper,By-product,ton,No,Yes
+M116,P031,C016,Metal Scrap,Metal,By-product,kg,No,No
+M117,P032,C017,Aluminium Scrap,Aluminium,Waste,piece,No,No
+M118,P032,C017,E-Waste,E-Waste,By-product,litre,No,Yes
+M119,P032,C017,LDPE Plastic,LDPE,By-product,litre,Yes,No
+M120,P032,C017,Glass Scrap,Glass,Waste,piece,Yes,No
+M121,P032,C017,Food Waste,Food,Waste,kg,No,Yes
+M122,P033,C017,Fly Ash,Fly,Raw Material,kg,No,No
+M123,P033,C017,Cotton Fiber,Cotton,Raw Material,kg,Yes,No
+M124,P033,C017,Paper Waste,Paper,Waste,kg,Yes,No
+M125,P033,C017,Organic Compost,Organic,Recycled Material,kg,No,Yes
+M126,P034,C018,Wood Chips,Wood,Recycled Material,piece,Yes,No
+M127,P034,C018,Cotton Fiber,Cotton,By-product,kg,No,Yes
+M128,P035,C018,Paper Waste,Paper,Waste,litre,No,No
+M129,P035,C018,Organic Compost,Organic,By-product,kg,No,No
+M130,P036,C019,Wood Chips,Wood,By-product,ton,No,No
+M131,P036,C019,PET Bottles,PET,Recycled Material,litre,Yes,No
+M132,P037,C019,Cardboard,Cardboard,Raw Material,litre,No,No
+M133,P037,C019,Metal Scrap,Metal,Recycled Material,kg,No,No
+M134,P037,C019,Rubber Waste,Rubber,Raw Material,ton,No,No
+M135,P037,C019,Copper Scrap,Copper,By-product,litre,Yes,No
+M136,P038,C019,Wood Chips,Wood,Raw Material,kg,No,No
+M137,P038,C019,Textile Waste,Textile,Recycled Material,kg,Yes,Yes
+M138,P038,C019,Food Waste,Food,Waste,piece,Yes,Yes
+M139,P039,C020,Paper Waste,Paper,By-product,litre,Yes,Yes
+M140,P039,C020,Plastic Scrap,Plastic,By-product,litre,No,No
+M141,P039,C020,Textile Waste,Textile,By-product,litre,Yes,No

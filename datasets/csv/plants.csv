@@ -1,0 +1,40 @@
+plant_id,company_id,plant_name,plant_type,district,state,country
+P001,C001,Saran-Sankaran Plant 1,Research Facility,Kollam,Kerala,India
+P002,C002,Sule-Sarma Plant 2,Assembly Unit,Palakkad,Kerala,India
+P003,C002,Sule-Sarma Plant 3,Assembly Unit,Palakkad,Kerala,India
+P004,C002,Sule-Sarma Plant 4,Processing Plant,Palakkad,Kerala,India
+P005,C003,Barman-Dave Plant 5,Assembly Unit,Kasaragod,Kerala,India
+P006,C003,Barman-Dave Plant 6,Assembly Unit,Kasaragod,Kerala,India
+P007,C003,Barman-Dave Plant 7,Research Facility,Kasaragod,Kerala,India
+P008,C004,Mistry-Dar Plant 8,Assembly Unit,Kozhikode,Kerala,India
+P009,C005,Gole Inc Plant 9,Distribution Center,Kozhikode,Kerala,India
+P010,C006,Vala-Ram Plant 10,Recycling Facility,Idukki,Kerala,India
+P011,C006,Vala-Ram Plant 11,Research Facility,Idukki,Kerala,India
+P012,C007,Bhagat and Sons Plant 12,Warehouse,Idukki,Kerala,India
+P013,C007,Bhagat and Sons Plant 13,Distribution Center,Idukki,Kerala,India
+P014,C008,Sachar-Kapur Plant 14,Recycling Facility,Thiruvananthapuram,Kerala,India
+P015,C008,Sachar-Kapur Plant 15,Recycling Facility,Thiruvananthapuram,Kerala,India
+P016,C009,"Sathe, Joshi and Minhas Plant 16",Research Facility,Pathanamthitta,Kerala,India
+P017,C009,"Sathe, Joshi and Minhas Plant 17",Warehouse,Pathanamthitta,Kerala,India
+P018,C010,Parmar Inc Plant 18,Recycling Facility,Thiruvananthapuram,Kerala,India
+P019,C010,Parmar Inc Plant 19,Warehouse,Thiruvananthapuram,Kerala,India
+P020,C011,Modi and Sons Plant 20,Recycling Facility,Malappuram,Kerala,India
+P021,C011,Modi and Sons Plant 21,Warehouse,Malappuram,Kerala,India
+P022,C012,Wable-Chopra Plant 22,Warehouse,Palakkad,Kerala,India
+P023,C012,Wable-Chopra Plant 23,Distribution Center,Palakkad,Kerala,India
+P024,C012,Wable-Chopra Plant 24,Assembly Unit,Palakkad,Kerala,India
+P025,C013,Panchal and Sons Plant 25,Research Facility,Kozhikode,Kerala,India
+P026,C014,Gala Group Plant 26,Recycling Facility,Wayanad,Kerala,India
+P027,C014,Gala Group Plant 27,Recycling Facility,Wayanad,Kerala,India
+P028,C015,Nazareth-Khatri Plant 28,Research Facility,Thiruvananthapuram,Kerala,India
+P029,C016,Deshmukh-Chokshi Plant 29,Manufacturing Plant,Idukki,Kerala,India
+P030,C016,Deshmukh-Chokshi Plant 30,Assembly Unit,Idukki,Kerala,India
+P031,C016,Deshmukh-Chokshi Plant 31,Research Facility,Idukki,Kerala,India
+P032,C017,Sethi Ltd Plant 32,Manufacturing Plant,Kozhikode,Kerala,India
+P033,C017,Sethi Ltd Plant 33,Processing Plant,Kozhikode,Kerala,India
+P034,C018,Vyas Ltd Plant 34,Warehouse,Wayanad,Kerala,India
+P035,C018,Vyas Ltd Plant 35,Manufacturing Plant,Wayanad,Kerala,India
+P036,C019,Kota PLC Plant 36,Distribution Center,Kozhikode,Kerala,India
+P037,C019,Kota PLC Plant 37,Manufacturing Plant,Kozhikode,Kerala,India
+P038,C019,Kota PLC Plant 38,Warehouse,Kozhikode,Kerala,India
+P039,C020,Kalla-Balakrishnan Plant 39,Warehouse,Ernakulam,Kerala,India
