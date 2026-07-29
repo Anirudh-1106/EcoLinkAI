@@ -1,0 +1,854 @@
+request_id,waste_id,requester_company_id,supplier_company_id,requested_quantity,request_date,expected_pickup_date,offered_price_per_unit,request_status,transportation_mode,priority,remarks
+REQ00001,WST00001,C012,C001,836.7,2026-06-21,2026-06-30,244.14,Rejected,Rail,Medium,Trial order
+REQ00002,WST00001,C009,C001,1266.35,2026-07-11,2026-07-23,309.02,Accepted,Road,Low,No additional remarks
+REQ00003,WST00002,C011,C001,4075.97,2026-07-02,2026-07-14,36.99,Accepted,Road,High,Long-term procurement
+REQ00004,WST00002,C017,C001,2148.19,2026-05-02,2026-05-16,28.68,Pending,Road,Medium,Long-term procurement
+REQ00005,WST00002,C017,C001,3709.74,2026-05-02,2026-05-12,30.86,Accepted,Road,Low,Long-term procurement
+REQ00006,WST00003,C008,C001,2256.34,2026-06-23,2026-06-26,246.69,Rejected,Rail,Medium,For recycling process
+REQ00007,WST00003,C003,C001,951.12,2026-04-09,2026-04-25,219.28,Accepted,Road,Medium,Requested for pilot testing
+REQ00008,WST00003,C019,C001,1359.29,2026-05-04,2026-05-11,209.6,Accepted,Road,High,Requested as secondary raw material
+REQ00009,WST00003,C013,C001,1935.81,2026-07-06,2026-07-23,219.41,Cancelled,Road,Medium,Requested for pilot testing
+REQ00010,WST00004,C002,C001,805.1,2026-04-22,2026-05-03,272.5,Pending,Road,Low,Bulk procurement
+REQ00011,WST00005,C004,C001,2649.43,2026-05-02,2026-05-15,296.49,Pending,Road,Low,Bulk procurement
+REQ00012,WST00005,C018,C001,1774.98,2026-05-16,2026-06-01,251.55,Accepted,Road,High,Need immediate pickup
+REQ00013,WST00006,C011,C001,2914.97,2026-05-12,2026-05-19,85.64,Accepted,Road,High,For recycling process
+REQ00014,WST00006,C014,C001,2203.97,2026-07-17,2026-07-20,93.1,Pending,Road,Low,Bulk procurement
+REQ00015,WST00007,C019,C001,1255.84,2026-06-02,2026-06-14,195.29,Rejected,Sea,High,Price negotiation required
+REQ00016,WST00007,C004,C001,935.46,2026-05-29,2026-05-31,154.82,Accepted,Road,High,No additional remarks
+REQ00017,WST00007,C018,C001,929.64,2026-06-29,2026-07-10,195.24,Pending,Road,High,Requested as secondary raw material
+REQ00018,WST00007,C003,C001,1553.04,2026-05-25,2026-06-03,194.12,Rejected,Road,Medium,Requested for pilot testing
+REQ00019,WST00008,C003,C001,2211.78,2026-07-15,2026-07-28,386.45,Accepted,Road,Low,Trial order
+REQ00020,WST00008,C008,C001,4508.57,2026-05-21,2026-06-01,411.25,Accepted,Road,High,Need immediate pickup
+REQ00021,WST00008,C018,C001,1079.24,2026-04-06,2026-04-17,482.44,Pending,Rail,High,Requested for pilot testing
+REQ00022,WST00009,C018,C001,1166.96,2026-06-29,2026-07-14,122.03,Rejected,Road,High,Requested as secondary raw material
+REQ00023,WST00010,C014,C001,1385.62,2026-05-26,2026-06-05,249.2,Accepted,Sea,Low,Urgent production requirement
+REQ00024,WST00010,C018,C001,981.84,2026-04-09,2026-04-12,227.69,Rejected,Road,Low,Requested for pilot testing
+REQ00025,WST00010,C012,C001,2223.38,2026-04-27,2026-05-09,240.23,Accepted,Road,Low,Bulk procurement
+REQ00026,WST00010,C013,C001,1075.45,2026-07-28,2026-08-04,265.37,Pending,Rail,Medium,Trial order
+REQ00027,WST00011,C002,C001,2465.75,2026-07-24,2026-08-04,269.16,Rejected,Road,High,Requested for pilot testing
+REQ00028,WST00011,C004,C001,3309.14,2026-05-19,2026-06-02,274.42,Accepted,Road,Medium,Requested for pilot testing
+REQ00029,WST00012,C003,C002,657.7,2026-05-22,2026-06-06,284.55,Accepted,Road,High,For recycling process
+REQ00030,WST00012,C019,C002,745.4,2026-04-07,2026-04-18,242.45,Accepted,Road,Low,Requested as secondary raw material
+REQ00031,WST00012,C014,C002,1365.82,2026-05-21,2026-06-03,256.27,Accepted,Road,Medium,Requested as secondary raw material
+REQ00032,WST00013,C012,C002,1224.85,2026-07-03,2026-07-10,89.03,Accepted,Road,Low,Requested as secondary raw material
+REQ00033,WST00013,C008,C002,517.45,2026-05-29,2026-06-15,117.95,Accepted,Road,Low,Trial order
+REQ00034,WST00013,C012,C002,1031.8,2026-07-07,2026-07-21,93.66,Accepted,Road,High,Trial order
+REQ00035,WST00014,C016,C002,438.87,2026-07-07,2026-07-13,159.66,Pending,Road,Medium,Long-term procurement
+REQ00036,WST00014,C012,C002,1000.22,2026-04-04,2026-04-21,168.89,Accepted,Road,High,Long-term procurement
+REQ00037,WST00015,C008,C002,1888.3,2026-05-06,2026-05-21,19.99,Cancelled,Road,Medium,Trial order
+REQ00038,WST00015,C003,C002,2276.57,2026-05-10,2026-05-12,25.16,Cancelled,Road,Low,Need immediate pickup
+REQ00039,WST00015,C001,C002,2480.44,2026-07-09,2026-07-27,22.73,Rejected,Sea,Low,Requested as secondary raw material
+REQ00040,WST00016,C010,C002,3620.79,2026-05-26,2026-06-14,227.29,Accepted,Road,Low,Requested as secondary raw material
+REQ00041,WST00016,C003,C002,1935.18,2026-06-29,2026-07-09,194.59,Pending,Road,High,Long-term procurement
+REQ00042,WST00016,C020,C002,2473.88,2026-05-14,2026-05-25,237.87,Accepted,Road,Low,Long-term procurement
+REQ00043,WST00017,C017,C002,1884.78,2026-05-06,2026-05-11,543.39,Pending,Rail,Low,Price negotiation required
+REQ00044,WST00017,C003,C002,1953.85,2026-06-21,2026-07-02,566.55,Pending,Road,High,Need immediate pickup
+REQ00045,WST00018,C010,C002,2646.63,2026-06-10,2026-06-30,410.84,Pending,Sea,Medium,Need immediate pickup
+REQ00046,WST00018,C010,C002,1985.25,2026-06-16,2026-06-24,375.71,Pending,Road,High,Urgent production requirement
+REQ00047,WST00018,C012,C002,3849.19,2026-06-26,2026-07-15,422.15,Pending,Rail,Low,Long-term procurement
+REQ00048,WST00019,C019,C002,1408.57,2026-04-05,2026-04-23,236.65,Cancelled,Rail,Low,Price negotiation required
+REQ00049,WST00020,C009,C002,971.62,2026-07-17,2026-08-06,462.71,Pending,Road,Low,Long-term procurement
+REQ00050,WST00021,C020,C002,1420.02,2026-05-01,2026-05-14,153.27,Rejected,Road,High,Requested as secondary raw material
+REQ00051,WST00021,C008,C002,833.77,2026-06-14,2026-06-17,143.6,Accepted,Road,Low,Urgent production requirement
+REQ00052,WST00022,C018,C002,769.14,2026-05-14,2026-05-29,211.17,Pending,Rail,Medium,No additional remarks
+REQ00053,WST00022,C003,C002,2748.86,2026-04-08,2026-04-17,204.09,Accepted,Road,High,Urgent production requirement
+REQ00054,WST00022,C003,C002,935.34,2026-07-03,2026-07-21,222.08,Accepted,Road,Medium,Urgent production requirement
+REQ00055,WST00023,C005,C002,865.94,2026-05-21,2026-05-23,141.31,Accepted,Road,High,Trial order
+REQ00056,WST00023,C020,C002,770.36,2026-05-12,2026-05-14,150.02,Pending,Road,High,Long-term procurement
+REQ00057,WST00024,C020,C002,1041.95,2026-06-24,2026-06-27,23.94,Accepted,Rail,Medium,Bulk procurement
+REQ00058,WST00024,C004,C002,1028.74,2026-07-08,2026-07-19,19.44,Rejected,Road,High,Price negotiation required
+REQ00059,WST00025,C013,C002,615.06,2026-06-03,2026-06-12,228.75,Pending,Road,High,Bulk procurement
+REQ00060,WST00025,C004,C002,188.44,2026-05-02,2026-05-05,228.21,Rejected,Road,Medium,Trial order
+REQ00061,WST00025,C008,C002,610.57,2026-06-06,2026-06-22,207.61,Rejected,Sea,High,Long-term procurement
+REQ00062,WST00026,C018,C002,2171.23,2026-06-04,2026-06-24,500.11,Accepted,Rail,Medium,Long-term procurement
+REQ00063,WST00027,C008,C002,3280.02,2026-04-09,2026-04-29,130.12,Pending,Road,Medium,For recycling process
+REQ00064,WST00027,C006,C002,1235.83,2026-06-05,2026-06-16,129.14,Accepted,Road,Medium,Price negotiation required
+REQ00065,WST00027,C015,C002,2072.1,2026-04-17,2026-04-27,135.31,Accepted,Road,Medium,Urgent production requirement
+REQ00066,WST00027,C012,C002,1764.62,2026-05-09,2026-05-28,121.62,Accepted,Road,High,Urgent production requirement
+REQ00067,WST00028,C007,C002,257.49,2026-04-12,2026-04-24,224.52,Pending,Road,Medium,Urgent production requirement
+REQ00068,WST00028,C020,C002,67.91,2026-05-28,2026-06-07,231.22,Accepted,Road,Medium,For recycling process
+REQ00069,WST00028,C010,C002,96.61,2026-07-09,2026-07-16,257.64,Accepted,Road,Low,Urgent production requirement
+REQ00070,WST00028,C019,C002,205.08,2026-07-27,2026-08-08,251.54,Rejected,Sea,High,For recycling process
+REQ00071,WST00029,C006,C002,1018.08,2026-05-08,2026-05-11,258.91,Cancelled,Road,Medium,Urgent production requirement
+REQ00072,WST00029,C017,C002,1399.86,2026-05-18,2026-05-25,275.01,Pending,Road,Low,Requested as secondary raw material
+REQ00073,WST00029,C018,C002,1973.03,2026-06-04,2026-06-22,275.03,Accepted,Road,Low,Bulk procurement
+REQ00074,WST00030,C014,C002,934.41,2026-07-01,2026-07-10,262.38,Accepted,Road,High,Requested as secondary raw material
+REQ00075,WST00030,C019,C002,1859.36,2026-06-29,2026-07-08,314.96,Accepted,Road,High,For recycling process
+REQ00076,WST00031,C017,C002,2520.88,2026-06-05,2026-06-18,255.01,Accepted,Rail,High,Bulk procurement
+REQ00077,WST00031,C006,C002,1298.19,2026-05-13,2026-05-16,247.49,Cancelled,Sea,Low,Trial order
+REQ00078,WST00031,C014,C002,3866.87,2026-05-14,2026-05-21,252.96,Pending,Road,High,Bulk procurement
+REQ00079,WST00032,C011,C002,1650.53,2026-05-07,2026-05-15,448.49,Accepted,Road,Low,Requested as secondary raw material
+REQ00080,WST00032,C006,C002,2329.92,2026-05-29,2026-06-07,566.59,Accepted,Road,Medium,No additional remarks
+REQ00081,WST00032,C011,C002,1277.39,2026-05-26,2026-06-14,473.68,Cancelled,Sea,Medium,Price negotiation required
+REQ00082,WST00032,C003,C002,2607.14,2026-06-16,2026-07-05,506.51,Accepted,Road,High,No additional remarks
+REQ00083,WST00033,C018,C002,679.43,2026-05-26,2026-05-30,318.12,Accepted,Road,High,Price negotiation required
+REQ00084,WST00033,C006,C002,1139.18,2026-05-18,2026-06-02,303.77,Cancelled,Road,Medium,No additional remarks
+REQ00085,WST00034,C013,C002,268.8,2026-04-22,2026-05-02,59.92,Accepted,Road,Low,No additional remarks
+REQ00086,WST00034,C001,C002,89.23,2026-05-13,2026-06-01,56.28,Accepted,Road,Low,Long-term procurement
+REQ00087,WST00034,C003,C002,210.56,2026-05-31,2026-06-05,55.07,Accepted,Road,Medium,For recycling process
+REQ00088,WST00034,C019,C002,92.78,2026-07-04,2026-07-06,60.78,Pending,Road,High,Trial order
+REQ00089,WST00035,C020,C002,1451.23,2026-07-06,2026-07-23,60.11,Accepted,Road,High,Bulk procurement
+REQ00090,WST00035,C001,C002,2396.3,2026-05-19,2026-05-25,67.7,Pending,Road,Low,No additional remarks
+REQ00091,WST00035,C011,C002,880.13,2026-06-15,2026-06-19,75.84,Rejected,Road,Medium,For recycling process
+REQ00092,WST00036,C003,C002,2260.96,2026-05-04,2026-05-24,479.61,Pending,Road,Low,Price negotiation required
+REQ00093,WST00036,C020,C002,1926.74,2026-06-04,2026-06-13,544.28,Accepted,Road,Low,Need immediate pickup
+REQ00094,WST00037,C005,C002,3414.66,2026-07-11,2026-07-18,190.33,Rejected,Road,Medium,Requested as secondary raw material
+REQ00095,WST00037,C004,C002,2417.54,2026-04-11,2026-04-25,215.64,Accepted,Road,High,Need immediate pickup
+REQ00096,WST00037,C019,C002,2142.39,2026-06-15,2026-06-18,229.87,Rejected,Road,Low,Requested as secondary raw material
+REQ00097,WST00038,C011,C002,250.06,2026-05-13,2026-05-25,514.32,Rejected,Rail,Low,Long-term procurement
+REQ00098,WST00038,C014,C002,174.44,2026-05-03,2026-05-21,508.89,Accepted,Road,Medium,Price negotiation required
+REQ00099,WST00038,C008,C002,373.06,2026-07-22,2026-08-01,424.82,Accepted,Road,High,Bulk procurement
+REQ00100,WST00039,C020,C002,1318.02,2026-05-08,2026-05-10,204.61,Accepted,Road,Low,Bulk procurement
+REQ00101,WST00039,C003,C002,1923.12,2026-04-04,2026-04-20,264.79,Accepted,Road,High,Price negotiation required
+REQ00102,WST00039,C015,C002,2728.34,2026-07-04,2026-07-23,249.71,Accepted,Rail,Low,Trial order
+REQ00103,WST00040,C004,C002,4435.12,2026-04-04,2026-04-21,464.75,Rejected,Road,Low,Price negotiation required
+REQ00104,WST00040,C011,C002,1741.54,2026-07-28,2026-08-01,433.42,Accepted,Rail,Medium,Urgent production requirement
+REQ00105,WST00040,C013,C002,3038.19,2026-04-27,2026-05-10,528.64,Accepted,Road,Low,Long-term procurement
+REQ00106,WST00041,C010,C003,2201.14,2026-04-15,2026-04-27,372.29,Pending,Road,Low,For recycling process
+REQ00107,WST00041,C018,C003,2736.9,2026-05-11,2026-05-19,359.66,Accepted,Road,Medium,Requested as secondary raw material
+REQ00108,WST00042,C004,C003,2254.96,2026-05-02,2026-05-14,230.45,Accepted,Road,Low,Need immediate pickup
+REQ00109,WST00043,C012,C003,1801.41,2026-07-11,2026-07-25,290.76,Pending,Road,Medium,Price negotiation required
+REQ00110,WST00043,C008,C003,1839.6,2026-06-21,2026-07-04,297.22,Pending,Road,Low,No additional remarks
+REQ00111,WST00043,C008,C003,4305.07,2026-06-21,2026-07-11,327.67,Pending,Road,High,Urgent production requirement
+REQ00112,WST00043,C006,C003,3388.53,2026-04-09,2026-04-17,291.01,Pending,Road,Medium,Trial order
+REQ00113,WST00044,C004,C003,304.56,2026-05-11,2026-05-31,216.79,Accepted,Rail,Medium,No additional remarks
+REQ00114,WST00044,C004,C003,239.07,2026-04-19,2026-05-04,198.3,Pending,Road,High,Requested as secondary raw material
+REQ00115,WST00044,C010,C003,88.88,2026-04-21,2026-05-08,185.1,Pending,Road,Low,No additional remarks
+REQ00116,WST00045,C012,C003,1774.97,2026-06-27,2026-07-02,165.96,Pending,Sea,High,Urgent production requirement
+REQ00117,WST00045,C012,C003,843.52,2026-05-09,2026-05-16,144.78,Pending,Road,Low,Need immediate pickup
+REQ00118,WST00045,C010,C003,1943.17,2026-04-11,2026-04-20,159.94,Cancelled,Road,Medium,No additional remarks
+REQ00119,WST00045,C019,C003,2694.0,2026-07-18,2026-08-02,135.82,Accepted,Road,Low,Requested as secondary raw material
+REQ00120,WST00046,C012,C003,2077.66,2026-06-29,2026-07-10,95.77,Accepted,Road,Low,Need immediate pickup
+REQ00121,WST00046,C017,C003,2554.79,2026-04-26,2026-05-04,80.96,Pending,Rail,Medium,Long-term procurement
+REQ00122,WST00046,C018,C003,1613.33,2026-07-25,2026-08-05,79.1,Cancelled,Road,Low,Requested as secondary raw material
+REQ00123,WST00047,C018,C003,3584.06,2026-06-07,2026-06-24,389.93,Accepted,Road,High,Urgent production requirement
+REQ00124,WST00047,C016,C003,1295.24,2026-07-04,2026-07-09,409.0,Rejected,Road,Low,For recycling process
+REQ00125,WST00047,C011,C003,3347.94,2026-07-17,2026-07-23,332.47,Accepted,Road,Low,Long-term procurement
+REQ00126,WST00047,C018,C003,3072.52,2026-07-16,2026-08-03,377.41,Cancelled,Rail,Medium,Requested for pilot testing
+REQ00127,WST00048,C005,C003,3093.57,2026-06-27,2026-07-03,248.07,Rejected,Road,High,Trial order
+REQ00128,WST00048,C009,C003,3483.97,2026-04-06,2026-04-09,238.14,Pending,Rail,Low,Urgent production requirement
+REQ00129,WST00049,C017,C003,1327.7,2026-05-11,2026-05-30,372.24,Rejected,Road,High,Requested as secondary raw material
+REQ00130,WST00049,C014,C003,284.98,2026-04-10,2026-04-15,383.73,Pending,Road,Medium,For recycling process
+REQ00131,WST00050,C017,C003,723.54,2026-07-27,2026-08-09,317.58,Pending,Road,Low,Requested as secondary raw material
+REQ00132,WST00050,C002,C003,709.08,2026-07-28,2026-08-02,286.91,Accepted,Sea,Medium,No additional remarks
+REQ00133,WST00050,C020,C003,438.43,2026-07-08,2026-07-21,369.71,Cancelled,Road,Low,Price negotiation required
+REQ00134,WST00050,C002,C003,689.42,2026-04-18,2026-05-04,334.07,Accepted,Road,Medium,Bulk procurement
+REQ00135,WST00051,C009,C003,3716.28,2026-04-08,2026-04-16,489.24,Accepted,Sea,Medium,For recycling process
+REQ00136,WST00051,C008,C003,4792.73,2026-05-16,2026-06-04,439.53,Pending,Road,High,Requested for pilot testing
+REQ00137,WST00052,C013,C003,1768.05,2026-07-06,2026-07-24,74.34,Pending,Road,Low,Urgent production requirement
+REQ00138,WST00052,C002,C003,1327.28,2026-06-21,2026-07-11,68.07,Accepted,Rail,Medium,Bulk procurement
+REQ00139,WST00052,C010,C003,2675.57,2026-06-11,2026-06-30,61.04,Cancelled,Road,High,For recycling process
+REQ00140,WST00053,C019,C003,197.82,2026-07-25,2026-08-02,455.9,Accepted,Road,Medium,Trial order
+REQ00141,WST00053,C001,C003,699.75,2026-06-12,2026-06-27,459.49,Rejected,Sea,Medium,Urgent production requirement
+REQ00142,WST00053,C012,C003,604.24,2026-07-10,2026-07-18,526.94,Rejected,Rail,Medium,For recycling process
+REQ00143,WST00054,C013,C003,696.54,2026-05-24,2026-05-28,73.63,Pending,Road,Medium,Price negotiation required
+REQ00144,WST00054,C020,C003,858.18,2026-06-30,2026-07-05,87.22,Pending,Road,Medium,Requested for pilot testing
+REQ00145,WST00055,C007,C003,433.13,2026-07-09,2026-07-14,300.66,Pending,Rail,Medium,Urgent production requirement
+REQ00146,WST00055,C007,C003,685.71,2026-07-09,2026-07-28,366.62,Accepted,Road,Medium,Bulk procurement
+REQ00147,WST00056,C001,C003,146.4,2026-05-24,2026-06-06,112.39,Pending,Rail,High,For recycling process
+REQ00148,WST00056,C007,C003,59.05,2026-05-23,2026-06-09,117.39,Rejected,Road,Low,Trial order
+REQ00149,WST00056,C014,C003,91.18,2026-07-11,2026-07-27,103.0,Cancelled,Road,High,Requested for pilot testing
+REQ00150,WST00056,C008,C003,136.26,2026-04-09,2026-04-16,112.86,Rejected,Road,Medium,For recycling process
+REQ00151,WST00057,C016,C003,271.48,2026-05-31,2026-06-04,9.22,Rejected,Road,Medium,No additional remarks
+REQ00152,WST00057,C010,C003,311.3,2026-04-03,2026-04-11,10.02,Pending,Rail,Low,Requested as secondary raw material
+REQ00153,WST00057,C014,C003,332.57,2026-04-01,2026-04-10,10.16,Pending,Sea,Medium,Requested as secondary raw material
+REQ00154,WST00057,C016,C003,178.61,2026-04-08,2026-04-24,9.07,Cancelled,Road,High,Bulk procurement
+REQ00155,WST00058,C007,C003,1647.92,2026-07-15,2026-08-03,29.96,Pending,Rail,High,Requested as secondary raw material
+REQ00156,WST00058,C007,C003,848.81,2026-07-19,2026-07-29,29.47,Accepted,Rail,Medium,Need immediate pickup
+REQ00157,WST00058,C007,C003,1067.66,2026-06-06,2026-06-15,27.1,Accepted,Rail,Medium,Urgent production requirement
+REQ00158,WST00059,C020,C003,105.92,2026-07-24,2026-08-09,79.15,Accepted,Road,High,Need immediate pickup
+REQ00159,WST00059,C019,C003,82.65,2026-03-31,2026-04-12,74.41,Pending,Rail,High,Bulk procurement
+REQ00160,WST00059,C015,C003,183.59,2026-05-20,2026-06-02,66.75,Accepted,Road,High,Requested for pilot testing
+REQ00161,WST00059,C010,C003,258.42,2026-06-16,2026-06-26,69.55,Rejected,Road,High,Long-term procurement
+REQ00162,WST00060,C004,C003,3517.79,2026-05-09,2026-05-25,242.29,Rejected,Road,Low,Trial order
+REQ00163,WST00060,C013,C003,2116.12,2026-07-28,2026-08-12,214.58,Cancelled,Rail,Low,Bulk procurement
+REQ00164,WST00060,C008,C003,1665.86,2026-04-02,2026-04-12,249.69,Rejected,Road,Low,Urgent production requirement
+REQ00165,WST00060,C006,C003,3278.9,2026-04-12,2026-04-18,260.1,Accepted,Road,High,Bulk procurement
+REQ00166,WST00061,C015,C003,1561.26,2026-04-14,2026-04-29,398.54,Cancelled,Road,Medium,No additional remarks
+REQ00167,WST00061,C019,C003,725.32,2026-04-05,2026-04-13,367.75,Pending,Road,Low,Bulk procurement
+REQ00168,WST00061,C004,C003,837.17,2026-07-12,2026-07-28,358.73,Cancelled,Road,Low,Price negotiation required
+REQ00169,WST00062,C019,C003,2744.62,2026-04-12,2026-04-27,7.52,Accepted,Road,Low,Requested as secondary raw material
+REQ00170,WST00062,C015,C003,2974.51,2026-06-12,2026-06-21,6.72,Pending,Road,High,Trial order
+REQ00171,WST00063,C005,C003,1289.87,2026-07-16,2026-07-18,208.45,Accepted,Road,Medium,Requested for pilot testing
+REQ00172,WST00063,C012,C003,1980.39,2026-07-26,2026-08-10,173.1,Rejected,Road,Medium,Trial order
+REQ00173,WST00063,C008,C003,790.4,2026-04-13,2026-04-19,167.57,Rejected,Road,Medium,Price negotiation required
+REQ00174,WST00064,C002,C003,868.57,2026-06-11,2026-06-16,202.6,Cancelled,Road,Low,Price negotiation required
+REQ00175,WST00064,C016,C003,1273.8,2026-07-21,2026-08-02,190.76,Cancelled,Road,High,Long-term procurement
+REQ00176,WST00065,C010,C003,2465.27,2026-06-30,2026-07-15,276.57,Accepted,Road,Medium,No additional remarks
+REQ00177,WST00066,C006,C003,2323.55,2026-05-25,2026-06-06,333.81,Accepted,Road,Low,Need immediate pickup
+REQ00178,WST00067,C007,C003,3423.21,2026-04-23,2026-05-11,49.25,Rejected,Road,Medium,Long-term procurement
+REQ00179,WST00067,C005,C003,2288.0,2026-06-24,2026-07-13,47.97,Accepted,Road,Low,Requested as secondary raw material
+REQ00180,WST00067,C011,C003,1033.57,2026-04-24,2026-05-03,52.68,Rejected,Road,High,Bulk procurement
+REQ00181,WST00067,C006,C003,1900.57,2026-04-08,2026-04-14,47.79,Accepted,Road,Medium,Requested as secondary raw material
+REQ00182,WST00068,C010,C003,4267.07,2026-06-06,2026-06-12,68.37,Pending,Road,Low,Bulk procurement
+REQ00183,WST00068,C012,C003,3398.65,2026-07-03,2026-07-12,67.41,Accepted,Sea,High,Bulk procurement
+REQ00184,WST00069,C007,C003,814.59,2026-05-02,2026-05-19,372.7,Pending,Road,High,Need immediate pickup
+REQ00185,WST00069,C005,C003,1425.29,2026-04-19,2026-04-25,389.03,Pending,Road,Medium,Need immediate pickup
+REQ00186,WST00070,C019,C003,1756.49,2026-07-16,2026-07-18,9.1,Accepted,Rail,High,Need immediate pickup
+REQ00187,WST00070,C007,C003,677.9,2026-05-11,2026-05-17,10.42,Accepted,Sea,Low,Price negotiation required
+REQ00188,WST00071,C005,C004,494.93,2026-07-04,2026-07-12,362.09,Pending,Road,Medium,Bulk procurement
+REQ00189,WST00071,C012,C004,561.51,2026-05-23,2026-06-01,315.97,Pending,Road,Low,For recycling process
+REQ00190,WST00071,C006,C004,968.16,2026-04-30,2026-05-03,361.98,Cancelled,Road,Medium,Requested as secondary raw material
+REQ00191,WST00071,C003,C004,806.14,2026-04-14,2026-04-27,374.36,Pending,Road,Medium,Price negotiation required
+REQ00192,WST00072,C003,C004,2254.63,2026-04-28,2026-05-13,108.55,Pending,Road,High,Requested for pilot testing
+REQ00193,WST00072,C019,C004,1236.26,2026-04-20,2026-05-01,106.64,Accepted,Road,Medium,Trial order
+REQ00194,WST00073,C014,C004,2111.36,2026-04-28,2026-05-14,375.59,Pending,Road,High,For recycling process
+REQ00195,WST00073,C012,C004,1934.17,2026-07-11,2026-07-19,314.42,Pending,Road,Medium,Price negotiation required
+REQ00196,WST00074,C003,C004,176.0,2026-04-15,2026-04-29,267.49,Accepted,Sea,High,Trial order
+REQ00197,WST00074,C018,C004,224.42,2026-07-25,2026-07-28,215.15,Accepted,Rail,High,Price negotiation required
+REQ00198,WST00074,C002,C004,66.82,2026-06-30,2026-07-20,226.75,Accepted,Rail,High,No additional remarks
+REQ00199,WST00074,C007,C004,243.82,2026-05-19,2026-06-05,249.79,Pending,Road,Low,Long-term procurement
+REQ00200,WST00075,C014,C004,4012.4,2026-07-23,2026-08-10,353.48,Accepted,Road,Medium,Urgent production requirement
+REQ00201,WST00075,C003,C004,3559.13,2026-04-16,2026-04-25,321.82,Accepted,Road,High,Price negotiation required
+REQ00202,WST00075,C018,C004,2577.38,2026-05-25,2026-06-14,376.02,Rejected,Rail,High,Urgent production requirement
+REQ00203,WST00076,C019,C004,2618.24,2026-07-10,2026-07-18,373.22,Accepted,Sea,Low,No additional remarks
+REQ00204,WST00077,C016,C004,2657.14,2026-07-23,2026-08-07,53.81,Pending,Road,Medium,Price negotiation required
+REQ00205,WST00077,C016,C004,624.02,2026-04-08,2026-04-22,56.81,Accepted,Road,High,Long-term procurement
+REQ00206,WST00077,C006,C004,2171.45,2026-05-17,2026-05-22,61.65,Pending,Road,Medium,Bulk procurement
+REQ00207,WST00078,C013,C004,585.17,2026-04-22,2026-05-12,290.22,Rejected,Road,Low,For recycling process
+REQ00208,WST00078,C014,C004,1569.44,2026-05-14,2026-05-18,265.68,Pending,Road,Low,Requested as secondary raw material
+REQ00209,WST00079,C014,C004,305.02,2026-04-10,2026-04-25,161.69,Cancelled,Road,High,Bulk procurement
+REQ00210,WST00079,C005,C004,252.68,2026-07-02,2026-07-04,157.66,Pending,Road,High,Requested for pilot testing
+REQ00211,WST00080,C016,C004,600.41,2026-07-13,2026-07-31,51.19,Rejected,Rail,High,Long-term procurement
+REQ00212,WST00080,C005,C004,741.98,2026-07-18,2026-07-26,53.45,Pending,Road,Medium,Need immediate pickup
+REQ00213,WST00080,C014,C004,202.2,2026-06-26,2026-07-08,46.88,Pending,Road,Medium,Long-term procurement
+REQ00214,WST00081,C006,C004,349.57,2026-04-14,2026-04-20,454.12,Accepted,Rail,Low,For recycling process
+REQ00215,WST00082,C014,C004,694.67,2026-06-23,2026-07-11,335.12,Pending,Road,Medium,Long-term procurement
+REQ00216,WST00082,C018,C004,602.0,2026-07-14,2026-07-27,329.65,Accepted,Road,High,Requested for pilot testing
+REQ00217,WST00083,C018,C004,1268.79,2026-05-15,2026-05-22,218.97,Pending,Road,Medium,Urgent production requirement
+REQ00218,WST00084,C001,C005,2325.67,2026-07-18,2026-07-28,304.13,Pending,Road,High,Long-term procurement
+REQ00219,WST00084,C011,C005,1020.6,2026-06-22,2026-06-27,248.62,Rejected,Road,Medium,For recycling process
+REQ00220,WST00084,C001,C005,1212.91,2026-05-24,2026-05-30,335.7,Accepted,Road,Low,Long-term procurement
+REQ00221,WST00085,C013,C005,651.82,2026-06-26,2026-07-12,265.74,Accepted,Rail,Medium,Requested for pilot testing
+REQ00222,WST00086,C018,C005,1867.3,2026-04-05,2026-04-10,134.76,Cancelled,Road,Low,Price negotiation required
+REQ00223,WST00086,C010,C005,487.84,2026-05-29,2026-06-02,174.34,Accepted,Rail,Medium,Long-term procurement
+REQ00224,WST00086,C016,C005,456.85,2026-04-11,2026-04-24,141.34,Pending,Road,High,Bulk procurement
+REQ00225,WST00087,C015,C005,1349.63,2026-07-18,2026-08-03,13.52,Cancelled,Road,Low,Urgent production requirement
+REQ00226,WST00087,C011,C005,1369.67,2026-04-24,2026-05-06,15.43,Accepted,Road,Low,Bulk procurement
+REQ00227,WST00088,C009,C005,1732.4,2026-07-28,2026-08-13,394.87,Accepted,Road,Low,Bulk procurement
+REQ00228,WST00089,C003,C005,4193.75,2026-04-24,2026-04-26,241.24,Accepted,Road,Medium,Bulk procurement
+REQ00229,WST00089,C012,C005,2911.2,2026-06-13,2026-06-27,204.48,Rejected,Rail,Medium,Requested for pilot testing
+REQ00230,WST00090,C014,C005,2827.8,2026-05-13,2026-05-31,437.27,Accepted,Road,Medium,Price negotiation required
+REQ00231,WST00090,C017,C005,999.85,2026-07-16,2026-07-29,416.53,Rejected,Road,High,Requested for pilot testing
+REQ00232,WST00090,C004,C005,1453.61,2026-07-24,2026-08-02,350.13,Rejected,Road,Low,Need immediate pickup
+REQ00233,WST00091,C003,C005,4135.64,2026-07-07,2026-07-18,303.54,Accepted,Rail,Low,Bulk procurement
+REQ00234,WST00091,C016,C005,1623.61,2026-07-07,2026-07-15,267.26,Accepted,Road,Low,Urgent production requirement
+REQ00235,WST00091,C003,C005,1386.99,2026-05-24,2026-06-02,320.7,Accepted,Sea,Medium,Trial order
+REQ00236,WST00091,C020,C005,3087.24,2026-04-11,2026-04-15,323.67,Accepted,Road,Medium,Urgent production requirement
+REQ00237,WST00092,C011,C005,1822.4,2026-07-02,2026-07-17,507.28,Accepted,Rail,High,Bulk procurement
+REQ00238,WST00092,C003,C005,2717.99,2026-06-17,2026-07-06,516.09,Accepted,Road,High,For recycling process
+REQ00239,WST00093,C002,C006,1962.78,2026-06-10,2026-06-18,60.01,Rejected,Road,Low,For recycling process
+REQ00240,WST00093,C016,C006,2870.38,2026-07-27,2026-08-10,50.44,Accepted,Road,Medium,Need immediate pickup
+REQ00241,WST00093,C003,C006,1448.91,2026-07-19,2026-07-23,50.91,Cancelled,Road,High,Requested for pilot testing
+REQ00242,WST00093,C002,C006,1398.64,2026-07-24,2026-07-28,55.76,Accepted,Rail,High,Need immediate pickup
+REQ00243,WST00094,C016,C006,778.74,2026-06-27,2026-07-07,139.46,Pending,Road,High,Need immediate pickup
+REQ00244,WST00094,C004,C006,864.49,2026-04-10,2026-04-22,134.34,Pending,Sea,Medium,Price negotiation required
+REQ00245,WST00094,C019,C006,342.8,2026-07-25,2026-08-06,137.66,Pending,Road,High,Need immediate pickup
+REQ00246,WST00094,C003,C006,569.0,2026-05-20,2026-06-01,147.16,Cancelled,Road,High,Requested for pilot testing
+REQ00247,WST00095,C019,C006,3757.1,2026-05-07,2026-05-27,418.82,Cancelled,Road,Low,No additional remarks
+REQ00248,WST00095,C014,C006,1163.03,2026-07-09,2026-07-17,428.89,Accepted,Sea,Low,Requested for pilot testing
+REQ00249,WST00096,C018,C006,1002.62,2026-04-16,2026-04-18,54.67,Accepted,Rail,Medium,Urgent production requirement
+REQ00250,WST00096,C020,C006,326.04,2026-04-06,2026-04-09,72.56,Accepted,Road,Medium,Requested for pilot testing
+REQ00251,WST00096,C016,C006,755.71,2026-04-26,2026-05-10,58.38,Accepted,Rail,Low,No additional remarks
+REQ00252,WST00097,C008,C006,2893.27,2026-03-31,2026-04-08,221.13,Accepted,Road,Low,For recycling process
+REQ00253,WST00097,C013,C006,1556.66,2026-06-23,2026-07-13,278.96,Cancelled,Rail,Medium,No additional remarks
+REQ00254,WST00098,C014,C006,1661.02,2026-05-23,2026-05-26,494.81,Accepted,Road,Medium,Price negotiation required
+REQ00255,WST00098,C010,C006,1484.57,2026-04-22,2026-04-27,496.13,Pending,Rail,Medium,Trial order
+REQ00256,WST00098,C017,C006,1677.98,2026-06-16,2026-06-21,497.74,Accepted,Road,High,Requested as secondary raw material
+REQ00257,WST00099,C018,C006,3359.79,2026-04-22,2026-05-11,227.78,Accepted,Road,Low,Need immediate pickup
+REQ00258,WST00099,C019,C006,2030.76,2026-04-13,2026-04-30,222.48,Pending,Road,Medium,Need immediate pickup
+REQ00259,WST00100,C001,C006,697.32,2026-04-30,2026-05-14,211.0,Accepted,Road,Low,Requested for pilot testing
+REQ00260,WST00100,C019,C006,1486.4,2026-05-28,2026-06-07,227.75,Accepted,Road,Medium,Requested for pilot testing
+REQ00261,WST00101,C011,C006,97.15,2026-06-08,2026-06-20,49.27,Pending,Road,Medium,Price negotiation required
+REQ00262,WST00101,C011,C006,115.45,2026-05-15,2026-05-27,46.46,Rejected,Rail,Low,No additional remarks
+REQ00263,WST00101,C005,C006,130.42,2026-05-11,2026-05-25,43.7,Accepted,Road,Medium,Requested as secondary raw material
+REQ00264,WST00102,C011,C006,1223.68,2026-04-23,2026-05-12,394.02,Rejected,Road,High,Need immediate pickup
+REQ00265,WST00102,C016,C006,1439.99,2026-07-25,2026-08-11,402.5,Pending,Road,High,Price negotiation required
+REQ00266,WST00103,C017,C006,1087.67,2026-07-13,2026-08-02,412.51,Rejected,Sea,Medium,Requested for pilot testing
+REQ00267,WST00103,C005,C006,3561.8,2026-06-22,2026-07-06,370.84,Accepted,Road,High,No additional remarks
+REQ00268,WST00103,C015,C006,1825.18,2026-06-12,2026-06-21,423.72,Pending,Road,Low,Bulk procurement
+REQ00269,WST00104,C010,C006,1573.76,2026-06-02,2026-06-07,192.88,Accepted,Road,Low,Long-term procurement
+REQ00270,WST00104,C012,C006,1132.04,2026-04-10,2026-04-20,229.62,Pending,Sea,High,Trial order
+REQ00271,WST00105,C017,C006,1723.14,2026-06-05,2026-06-16,374.02,Pending,Rail,Medium,Price negotiation required
+REQ00272,WST00106,C003,C006,466.7,2026-07-07,2026-07-23,165.99,Rejected,Road,Low,Requested for pilot testing
+REQ00273,WST00107,C016,C006,877.72,2026-05-28,2026-06-02,285.31,Pending,Rail,Medium,For recycling process
+REQ00274,WST00107,C012,C006,721.57,2026-04-27,2026-05-13,341.26,Accepted,Road,Medium,Trial order
+REQ00275,WST00108,C002,C007,273.77,2026-04-16,2026-05-01,92.09,Pending,Road,High,Urgent production requirement
+REQ00276,WST00108,C013,C007,231.37,2026-05-23,2026-06-05,86.1,Accepted,Rail,Low,Need immediate pickup
+REQ00277,WST00108,C010,C007,92.56,2026-04-22,2026-04-24,76.95,Cancelled,Rail,Medium,Need immediate pickup
+REQ00278,WST00108,C015,C007,292.79,2026-04-21,2026-05-05,74.64,Pending,Sea,High,Urgent production requirement
+REQ00279,WST00109,C011,C007,2795.02,2026-07-08,2026-07-19,73.71,Accepted,Rail,High,Need immediate pickup
+REQ00280,WST00109,C020,C007,3233.01,2026-04-16,2026-05-05,71.65,Rejected,Road,High,Bulk procurement
+REQ00281,WST00109,C012,C007,4223.72,2026-06-19,2026-07-01,63.6,Cancelled,Sea,Medium,For recycling process
+REQ00282,WST00110,C003,C007,2431.72,2026-06-12,2026-06-18,137.32,Accepted,Sea,Medium,Bulk procurement
+REQ00283,WST00110,C005,C007,1485.82,2026-04-14,2026-04-19,158.64,Pending,Road,Low,Trial order
+REQ00284,WST00110,C001,C007,974.88,2026-04-11,2026-04-19,152.78,Rejected,Rail,Medium,Requested for pilot testing
+REQ00285,WST00111,C015,C007,3151.8,2026-06-27,2026-07-10,358.7,Accepted,Road,Low,Urgent production requirement
+REQ00286,WST00112,C002,C007,1300.73,2026-05-29,2026-06-06,268.4,Accepted,Road,Low,Need immediate pickup
+REQ00287,WST00113,C009,C007,785.32,2026-07-04,2026-07-12,70.65,Accepted,Road,Low,No additional remarks
+REQ00288,WST00114,C009,C007,192.49,2026-07-10,2026-07-13,404.4,Rejected,Rail,Low,Long-term procurement
+REQ00289,WST00114,C002,C007,158.98,2026-04-02,2026-04-22,347.4,Rejected,Rail,High,Requested as secondary raw material
+REQ00290,WST00114,C016,C007,261.7,2026-06-23,2026-06-30,421.16,Pending,Sea,High,Need immediate pickup
+REQ00291,WST00114,C002,C007,254.32,2026-04-26,2026-05-03,373.1,Pending,Road,Low,Price negotiation required
+REQ00292,WST00115,C019,C007,4390.43,2026-05-03,2026-05-14,382.62,Pending,Road,Low,Bulk procurement
+REQ00293,WST00115,C013,C007,4271.81,2026-04-16,2026-04-22,379.21,Pending,Road,Low,Bulk procurement
+REQ00294,WST00115,C020,C007,1468.54,2026-05-27,2026-06-09,385.23,Rejected,Road,Low,Trial order
+REQ00295,WST00116,C013,C007,1905.59,2026-07-14,2026-07-19,411.1,Pending,Road,Medium,No additional remarks
+REQ00296,WST00116,C008,C007,1379.48,2026-06-08,2026-06-23,361.71,Accepted,Road,Low,Requested for pilot testing
+REQ00297,WST00117,C015,C007,502.3,2026-05-04,2026-05-14,12.97,Accepted,Road,High,For recycling process
+REQ00298,WST00117,C013,C007,439.06,2026-06-15,2026-06-25,13.08,Pending,Rail,Low,Urgent production requirement
+REQ00299,WST00117,C019,C007,214.11,2026-05-28,2026-06-11,12.19,Accepted,Road,Low,Need immediate pickup
+REQ00300,WST00117,C009,C007,193.54,2026-06-05,2026-06-24,13.35,Accepted,Road,Medium,Price negotiation required
+REQ00301,WST00118,C006,C007,1185.94,2026-05-27,2026-05-29,374.56,Cancelled,Rail,Medium,No additional remarks
+REQ00302,WST00118,C017,C007,2135.84,2026-04-13,2026-04-19,419.77,Accepted,Rail,High,For recycling process
+REQ00303,WST00119,C002,C007,200.45,2026-05-18,2026-05-22,35.12,Accepted,Road,Medium,No additional remarks
+REQ00304,WST00119,C020,C007,196.81,2026-04-14,2026-04-16,31.93,Pending,Rail,Medium,Long-term procurement
+REQ00305,WST00119,C011,C007,152.68,2026-06-10,2026-06-19,31.38,Accepted,Road,Low,Trial order
+REQ00306,WST00120,C002,C007,1628.92,2026-04-15,2026-04-19,55.24,Pending,Road,Low,For recycling process
+REQ00307,WST00120,C013,C007,795.46,2026-04-03,2026-04-21,48.06,Pending,Sea,Low,No additional remarks
+REQ00308,WST00121,C014,C007,1357.34,2026-05-14,2026-05-20,193.07,Cancelled,Road,Medium,No additional remarks
+REQ00309,WST00121,C008,C007,1055.3,2026-07-13,2026-07-21,187.91,Pending,Road,Medium,Long-term procurement
+REQ00310,WST00122,C016,C007,2057.33,2026-05-19,2026-05-28,360.88,Accepted,Road,Medium,Urgent production requirement
+REQ00311,WST00122,C012,C007,1141.82,2026-05-10,2026-05-25,333.4,Accepted,Rail,Medium,No additional remarks
+REQ00312,WST00123,C003,C007,252.37,2026-07-02,2026-07-14,474.31,Accepted,Road,Medium,Requested as secondary raw material
+REQ00313,WST00123,C016,C007,620.71,2026-04-01,2026-04-03,414.48,Pending,Road,Medium,No additional remarks
+REQ00314,WST00124,C006,C007,2323.63,2026-06-12,2026-07-01,366.62,Pending,Road,High,For recycling process
+REQ00315,WST00124,C012,C007,1753.58,2026-05-08,2026-05-14,400.34,Pending,Road,High,Requested as secondary raw material
+REQ00316,WST00124,C012,C007,2100.41,2026-06-13,2026-07-02,404.51,Cancelled,Rail,Medium,Long-term procurement
+REQ00317,WST00124,C010,C007,1569.58,2026-04-23,2026-04-29,373.39,Rejected,Road,Low,Requested as secondary raw material
+REQ00318,WST00125,C003,C007,544.71,2026-07-10,2026-07-17,90.58,Accepted,Road,Low,For recycling process
+REQ00319,WST00126,C005,C007,665.12,2026-06-05,2026-06-23,339.34,Pending,Road,Medium,No additional remarks
+REQ00320,WST00127,C019,C007,1201.43,2026-04-25,2026-04-28,301.49,Accepted,Road,Low,Trial order
+REQ00321,WST00127,C017,C007,449.76,2026-07-18,2026-07-27,291.13,Rejected,Road,Low,Price negotiation required
+REQ00322,WST00127,C019,C007,1208.93,2026-06-04,2026-06-10,225.69,Accepted,Road,Medium,Long-term procurement
+REQ00323,WST00127,C003,C007,1511.23,2026-04-27,2026-04-30,261.1,Pending,Rail,Low,For recycling process
+REQ00324,WST00128,C011,C007,3046.5,2026-05-10,2026-05-18,356.02,Accepted,Road,High,For recycling process
+REQ00325,WST00129,C008,C007,1329.45,2026-06-18,2026-06-22,341.58,Cancelled,Rail,Medium,Price negotiation required
+REQ00326,WST00129,C006,C007,866.69,2026-04-16,2026-04-21,398.01,Accepted,Rail,Medium,Price negotiation required
+REQ00327,WST00129,C010,C007,2805.32,2026-04-25,2026-05-13,369.04,Rejected,Rail,High,Need immediate pickup
+REQ00328,WST00129,C006,C007,2382.43,2026-05-28,2026-06-01,428.24,Accepted,Sea,High,Bulk procurement
+REQ00329,WST00130,C014,C008,2022.62,2026-06-13,2026-06-20,53.9,Pending,Road,Medium,For recycling process
+REQ00330,WST00130,C003,C008,675.51,2026-06-30,2026-07-07,48.77,Pending,Rail,High,For recycling process
+REQ00331,WST00131,C009,C008,1584.76,2026-04-28,2026-05-17,308.24,Accepted,Road,Low,For recycling process
+REQ00332,WST00132,C001,C008,477.47,2026-04-13,2026-04-21,446.38,Pending,Road,Low,For recycling process
+REQ00333,WST00132,C001,C008,459.66,2026-07-26,2026-08-05,553.92,Pending,Road,Medium,Requested as secondary raw material
+REQ00334,WST00132,C001,C008,230.43,2026-05-01,2026-05-20,451.57,Accepted,Road,Low,Bulk procurement
+REQ00335,WST00132,C020,C008,223.15,2026-06-07,2026-06-10,537.63,Accepted,Road,High,Long-term procurement
+REQ00336,WST00133,C006,C008,1290.68,2026-07-24,2026-07-30,44.2,Cancelled,Road,Low,Requested for pilot testing
+REQ00337,WST00133,C003,C008,2260.58,2026-05-26,2026-06-09,46.28,Pending,Road,High,Bulk procurement
+REQ00338,WST00133,C015,C008,1024.03,2026-05-11,2026-05-24,38.68,Accepted,Road,Medium,Price negotiation required
+REQ00339,WST00133,C001,C008,2982.27,2026-05-08,2026-05-10,39.94,Rejected,Road,Medium,Trial order
+REQ00340,WST00134,C019,C008,791.53,2026-06-17,2026-06-27,238.91,Accepted,Rail,Medium,Price negotiation required
+REQ00341,WST00134,C011,C008,934.26,2026-06-22,2026-06-24,229.92,Accepted,Road,Medium,Requested as secondary raw material
+REQ00342,WST00135,C003,C008,3302.73,2026-06-23,2026-07-07,408.54,Pending,Road,Low,Bulk procurement
+REQ00343,WST00135,C004,C008,1555.68,2026-05-16,2026-06-05,371.88,Accepted,Road,Low,Long-term procurement
+REQ00344,WST00136,C003,C008,986.28,2026-04-18,2026-04-21,378.51,Accepted,Road,High,Trial order
+REQ00345,WST00136,C006,C008,3785.49,2026-07-07,2026-07-13,408.72,Cancelled,Road,High,Price negotiation required
+REQ00346,WST00136,C002,C008,2351.68,2026-06-12,2026-06-25,390.29,Pending,Road,High,For recycling process
+REQ00347,WST00137,C011,C008,274.41,2026-05-31,2026-06-19,20.71,Pending,Road,Medium,Urgent production requirement
+REQ00348,WST00138,C012,C008,1079.44,2026-07-15,2026-07-20,72.98,Accepted,Road,Low,No additional remarks
+REQ00349,WST00138,C002,C008,1616.53,2026-07-10,2026-07-27,89.59,Accepted,Road,Medium,No additional remarks
+REQ00350,WST00138,C013,C008,1138.72,2026-07-01,2026-07-20,95.81,Rejected,Road,High,Long-term procurement
+REQ00351,WST00138,C001,C008,1324.42,2026-04-11,2026-04-22,85.21,Cancelled,Rail,High,Price negotiation required
+REQ00352,WST00139,C005,C008,926.06,2026-04-09,2026-04-21,475.53,Pending,Road,Medium,Price negotiation required
+REQ00353,WST00140,C004,C008,1370.62,2026-05-24,2026-06-13,134.48,Rejected,Rail,Medium,Requested as secondary raw material
+REQ00354,WST00141,C004,C008,1467.05,2026-05-18,2026-05-28,248.64,Pending,Road,High,Bulk procurement
+REQ00355,WST00141,C012,C008,1575.37,2026-04-14,2026-04-20,298.24,Pending,Road,Medium,No additional remarks
+REQ00356,WST00141,C004,C008,1453.25,2026-04-08,2026-04-18,275.48,Accepted,Road,Low,Requested for pilot testing
+REQ00357,WST00142,C014,C008,2125.98,2026-05-22,2026-06-11,118.45,Rejected,Road,Low,Long-term procurement
+REQ00358,WST00142,C004,C008,1140.77,2026-05-29,2026-06-01,116.79,Accepted,Road,Low,Requested as secondary raw material
+REQ00359,WST00143,C019,C008,3594.2,2026-04-21,2026-05-08,17.42,Rejected,Road,High,For recycling process
+REQ00360,WST00143,C013,C008,3595.78,2026-06-26,2026-07-01,17.62,Cancelled,Rail,High,Price negotiation required
+REQ00361,WST00143,C015,C008,2304.19,2026-04-28,2026-05-12,17.84,Pending,Road,High,Price negotiation required
+REQ00362,WST00144,C018,C008,4300.65,2026-06-17,2026-07-01,406.56,Accepted,Road,High,Bulk procurement
+REQ00363,WST00145,C019,C008,186.3,2026-06-15,2026-06-29,280.84,Pending,Road,High,Price negotiation required
+REQ00364,WST00146,C019,C008,3708.68,2026-05-15,2026-05-22,30.75,Accepted,Rail,High,For recycling process
+REQ00365,WST00146,C010,C008,4269.55,2026-07-22,2026-07-31,35.36,Accepted,Road,Medium,No additional remarks
+REQ00366,WST00147,C018,C008,2268.09,2026-05-16,2026-05-18,541.1,Pending,Road,Medium,Requested for pilot testing
+REQ00367,WST00147,C004,C008,1116.09,2026-05-10,2026-05-29,477.58,Accepted,Sea,Low,No additional remarks
+REQ00368,WST00147,C014,C008,1430.72,2026-05-03,2026-05-11,483.25,Accepted,Road,Medium,Need immediate pickup
+REQ00369,WST00147,C019,C008,1659.89,2026-05-14,2026-05-16,421.47,Pending,Road,Low,Urgent production requirement
+REQ00370,WST00148,C001,C008,2698.14,2026-04-07,2026-04-10,91.93,Pending,Road,Medium,Price negotiation required
+REQ00371,WST00148,C011,C008,2273.65,2026-07-07,2026-07-25,93.75,Accepted,Road,Medium,No additional remarks
+REQ00372,WST00148,C016,C008,763.13,2026-07-17,2026-07-21,77.05,Accepted,Road,High,Trial order
+REQ00373,WST00149,C014,C008,1184.11,2026-04-25,2026-05-15,332.62,Accepted,Sea,Medium,Requested for pilot testing
+REQ00374,WST00150,C016,C009,1107.97,2026-04-19,2026-04-30,148.75,Rejected,Rail,Low,Requested for pilot testing
+REQ00375,WST00150,C014,C009,557.05,2026-06-10,2026-06-28,149.7,Pending,Road,Low,Need immediate pickup
+REQ00376,WST00150,C008,C009,257.36,2026-04-26,2026-05-16,149.79,Pending,Road,High,For recycling process
+REQ00377,WST00150,C002,C009,816.24,2026-04-22,2026-05-03,127.2,Pending,Road,Medium,No additional remarks
+REQ00378,WST00151,C020,C009,838.6,2026-07-21,2026-08-08,360.56,Accepted,Road,High,No additional remarks
+REQ00379,WST00152,C002,C009,2574.33,2026-04-22,2026-05-02,443.97,Accepted,Road,High,For recycling process
+REQ00380,WST00152,C005,C009,3257.77,2026-06-15,2026-07-02,361.04,Accepted,Road,Medium,For recycling process
+REQ00381,WST00153,C003,C009,525.59,2026-07-07,2026-07-22,442.57,Cancelled,Road,Low,Trial order
+REQ00382,WST00153,C017,C009,525.74,2026-04-29,2026-05-10,514.98,Rejected,Rail,High,Need immediate pickup
+REQ00383,WST00154,C016,C009,863.93,2026-07-07,2026-07-21,264.54,Cancelled,Road,Low,Price negotiation required
+REQ00384,WST00154,C016,C009,1037.2,2026-07-03,2026-07-10,256.08,Pending,Road,Low,Long-term procurement
+REQ00385,WST00155,C003,C009,95.15,2026-06-30,2026-07-04,297.53,Pending,Road,Low,Long-term procurement
+REQ00386,WST00155,C017,C009,79.75,2026-05-30,2026-06-14,249.8,Pending,Road,Low,Price negotiation required
+REQ00387,WST00156,C007,C009,104.5,2026-07-24,2026-08-04,395.11,Pending,Road,Low,Long-term procurement
+REQ00388,WST00156,C020,C009,106.6,2026-07-01,2026-07-04,401.25,Accepted,Sea,Medium,Need immediate pickup
+REQ00389,WST00156,C002,C009,78.04,2026-04-11,2026-05-01,426.5,Pending,Road,Low,For recycling process
+REQ00390,WST00156,C017,C009,81.13,2026-06-05,2026-06-17,425.73,Accepted,Sea,Medium,Trial order
+REQ00391,WST00157,C001,C009,337.84,2026-04-10,2026-04-23,114.09,Rejected,Road,Medium,Requested as secondary raw material
+REQ00392,WST00157,C003,C009,417.06,2026-06-10,2026-06-12,99.27,Accepted,Road,High,Trial order
+REQ00393,WST00158,C015,C009,204.11,2026-06-08,2026-06-28,17.83,Pending,Road,Low,Need immediate pickup
+REQ00394,WST00158,C011,C009,107.15,2026-04-15,2026-04-25,15.41,Accepted,Road,Low,Long-term procurement
+REQ00395,WST00159,C001,C009,3266.97,2026-07-16,2026-07-30,461.5,Rejected,Sea,Medium,Need immediate pickup
+REQ00396,WST00160,C003,C009,134.27,2026-06-06,2026-06-23,182.83,Accepted,Road,Low,Need immediate pickup
+REQ00397,WST00160,C002,C009,100.39,2026-07-15,2026-07-19,202.12,Accepted,Rail,Low,Requested for pilot testing
+REQ00398,WST00160,C015,C009,368.59,2026-05-27,2026-06-06,180.13,Accepted,Road,High,Urgent production requirement
+REQ00399,WST00160,C017,C009,111.31,2026-06-15,2026-06-19,185.2,Accepted,Road,Low,Need immediate pickup
+REQ00400,WST00161,C002,C009,78.07,2026-04-14,2026-05-04,49.52,Cancelled,Sea,High,For recycling process
+REQ00401,WST00161,C016,C009,237.14,2026-04-03,2026-04-20,53.19,Pending,Road,Medium,Price negotiation required
+REQ00402,WST00161,C019,C009,109.76,2026-07-05,2026-07-17,55.71,Accepted,Road,High,No additional remarks
+REQ00403,WST00162,C011,C009,3765.18,2026-07-26,2026-07-28,108.29,Accepted,Road,High,No additional remarks
+REQ00404,WST00162,C012,C009,2687.08,2026-04-19,2026-04-27,91.68,Pending,Road,Medium,For recycling process
+REQ00405,WST00162,C018,C009,1882.18,2026-06-25,2026-07-06,98.7,Accepted,Rail,Medium,Bulk procurement
+REQ00406,WST00162,C016,C009,3635.55,2026-04-30,2026-05-13,99.65,Pending,Road,Low,Urgent production requirement
+REQ00407,WST00163,C016,C009,1364.53,2026-04-02,2026-04-08,38.87,Accepted,Road,Medium,Price negotiation required
+REQ00408,WST00163,C012,C009,1458.82,2026-07-19,2026-08-05,37.92,Pending,Rail,Low,Long-term procurement
+REQ00409,WST00163,C008,C009,1460.55,2026-07-12,2026-07-15,32.93,Accepted,Road,Medium,Bulk procurement
+REQ00410,WST00163,C004,C009,1711.27,2026-07-07,2026-07-15,36.98,Accepted,Road,Medium,Urgent production requirement
+REQ00411,WST00164,C015,C009,684.74,2026-06-26,2026-07-16,247.02,Cancelled,Rail,Low,No additional remarks
+REQ00412,WST00164,C017,C009,1699.07,2026-05-18,2026-05-24,235.07,Pending,Road,Low,No additional remarks
+REQ00413,WST00164,C007,C009,411.31,2026-05-06,2026-05-26,255.2,Accepted,Road,Low,Need immediate pickup
+REQ00414,WST00165,C019,C009,845.12,2026-07-05,2026-07-16,254.97,Pending,Rail,Low,For recycling process
+REQ00415,WST00165,C005,C009,1590.78,2026-04-23,2026-05-08,279.69,Accepted,Rail,Low,Price negotiation required
+REQ00416,WST00166,C002,C010,270.92,2026-06-02,2026-06-16,195.76,Cancelled,Road,High,No additional remarks
+REQ00417,WST00167,C005,C010,557.76,2026-07-04,2026-07-18,319.28,Pending,Rail,Medium,No additional remarks
+REQ00418,WST00168,C003,C010,1491.08,2026-07-21,2026-07-27,70.37,Pending,Road,Medium,Price negotiation required
+REQ00419,WST00168,C013,C010,1550.99,2026-05-01,2026-05-05,62.98,Pending,Road,High,For recycling process
+REQ00420,WST00169,C019,C010,2639.72,2026-05-06,2026-05-21,31.19,Accepted,Rail,Medium,Trial order
+REQ00421,WST00169,C015,C010,1032.98,2026-06-22,2026-07-03,41.65,Pending,Road,Low,Need immediate pickup
+REQ00422,WST00170,C016,C010,816.12,2026-04-16,2026-05-02,111.15,Accepted,Road,Medium,Need immediate pickup
+REQ00423,WST00171,C012,C010,635.24,2026-05-21,2026-06-06,87.67,Rejected,Sea,Low,Trial order
+REQ00424,WST00171,C003,C010,602.84,2026-07-12,2026-07-15,73.49,Pending,Road,High,For recycling process
+REQ00425,WST00171,C009,C010,639.62,2026-07-28,2026-08-17,69.97,Cancelled,Road,Low,For recycling process
+REQ00426,WST00172,C018,C010,839.09,2026-06-12,2026-06-25,297.12,Pending,Road,High,Requested for pilot testing
+REQ00427,WST00172,C012,C010,1024.52,2026-07-02,2026-07-07,313.8,Accepted,Rail,High,Urgent production requirement
+REQ00428,WST00172,C013,C010,2733.35,2026-07-02,2026-07-07,263.59,Pending,Road,Medium,Trial order
+REQ00429,WST00172,C015,C010,2802.44,2026-06-04,2026-06-12,282.46,Accepted,Road,High,Bulk procurement
+REQ00430,WST00173,C009,C010,1437.05,2026-07-22,2026-07-24,362.06,Accepted,Road,Medium,For recycling process
+REQ00431,WST00173,C007,C010,582.78,2026-06-29,2026-07-13,373.6,Accepted,Rail,High,Price negotiation required
+REQ00432,WST00174,C007,C010,1482.47,2026-06-30,2026-07-09,254.77,Pending,Rail,Low,For recycling process
+REQ00433,WST00175,C004,C010,1853.19,2026-07-26,2026-08-03,11.11,Pending,Road,Medium,Requested for pilot testing
+REQ00434,WST00175,C020,C010,684.7,2026-05-28,2026-06-17,13.46,Pending,Road,High,Requested as secondary raw material
+REQ00435,WST00175,C013,C010,1304.65,2026-06-25,2026-07-02,12.87,Pending,Road,Medium,Bulk procurement
+REQ00436,WST00176,C009,C010,368.39,2026-05-14,2026-06-01,9.95,Pending,Road,High,Requested for pilot testing
+REQ00437,WST00176,C006,C010,522.85,2026-06-17,2026-06-21,9.15,Cancelled,Road,High,Urgent production requirement
+REQ00438,WST00177,C007,C010,1750.51,2026-04-09,2026-04-21,104.29,Pending,Rail,High,For recycling process
+REQ00439,WST00177,C002,C010,2967.31,2026-07-18,2026-08-04,119.85,Rejected,Rail,High,Long-term procurement
+REQ00440,WST00177,C001,C010,2508.79,2026-07-02,2026-07-04,104.38,Accepted,Road,Medium,Requested as secondary raw material
+REQ00441,WST00177,C005,C010,1159.46,2026-06-28,2026-07-17,113.15,Pending,Road,Low,Price negotiation required
+REQ00442,WST00178,C003,C010,3405.94,2026-06-10,2026-06-14,181.99,Cancelled,Road,Medium,No additional remarks
+REQ00443,WST00178,C018,C010,1435.12,2026-03-31,2026-04-15,230.09,Pending,Road,Medium,Bulk procurement
+REQ00444,WST00178,C017,C010,2947.93,2026-07-09,2026-07-22,189.96,Pending,Road,Low,For recycling process
+REQ00445,WST00178,C009,C010,1094.75,2026-07-25,2026-08-12,215.19,Pending,Rail,Medium,Need immediate pickup
+REQ00446,WST00179,C016,C010,543.24,2026-04-11,2026-04-26,415.68,Pending,Road,Low,Price negotiation required
+REQ00447,WST00179,C004,C010,529.48,2026-06-16,2026-07-04,402.22,Pending,Road,Low,No additional remarks
+REQ00448,WST00180,C018,C010,282.61,2026-05-16,2026-05-23,296.22,Rejected,Road,Medium,Price negotiation required
+REQ00449,WST00180,C011,C010,175.03,2026-04-10,2026-04-25,278.9,Cancelled,Road,High,Long-term procurement
+REQ00450,WST00180,C006,C010,241.71,2026-05-23,2026-06-05,321.0,Pending,Rail,High,Trial order
+REQ00451,WST00181,C009,C010,706.92,2026-04-04,2026-04-16,52.12,Accepted,Rail,Medium,Need immediate pickup
+REQ00452,WST00182,C019,C010,4098.99,2026-04-02,2026-04-15,148.85,Accepted,Road,Low,Need immediate pickup
+REQ00453,WST00183,C019,C010,3966.45,2026-06-11,2026-06-13,396.54,Rejected,Sea,High,Long-term procurement
+REQ00454,WST00183,C019,C010,3922.78,2026-07-12,2026-07-24,377.0,Rejected,Road,Low,Bulk procurement
+REQ00455,WST00184,C001,C010,1222.97,2026-06-01,2026-06-21,382.12,Rejected,Rail,Low,Bulk procurement
+REQ00456,WST00184,C005,C010,1324.32,2026-04-05,2026-04-20,338.07,Accepted,Road,Low,Long-term procurement
+REQ00457,WST00184,C006,C010,2926.32,2026-06-25,2026-07-03,364.26,Pending,Road,High,Bulk procurement
+REQ00458,WST00184,C016,C010,2108.14,2026-07-25,2026-08-05,388.4,Accepted,Road,Low,Urgent production requirement
+REQ00459,WST00185,C008,C010,2778.17,2026-06-29,2026-07-06,25.57,Pending,Rail,Medium,Need immediate pickup
+REQ00460,WST00186,C011,C010,2629.81,2026-05-16,2026-06-02,309.43,Accepted,Rail,Medium,Bulk procurement
+REQ00461,WST00186,C007,C010,927.21,2026-07-23,2026-07-28,337.23,Accepted,Rail,Medium,Requested for pilot testing
+REQ00462,WST00186,C011,C010,3377.03,2026-07-01,2026-07-16,299.3,Pending,Rail,Medium,Urgent production requirement
+REQ00463,WST00186,C011,C010,947.41,2026-07-21,2026-07-30,380.8,Rejected,Sea,Medium,For recycling process
+REQ00464,WST00187,C020,C010,2627.88,2026-06-20,2026-07-05,304.62,Rejected,Road,High,Need immediate pickup
+REQ00465,WST00187,C001,C010,3054.01,2026-06-14,2026-06-20,323.23,Pending,Road,Medium,For recycling process
+REQ00466,WST00187,C011,C010,3015.31,2026-06-02,2026-06-22,291.57,Cancelled,Road,High,Requested for pilot testing
+REQ00467,WST00187,C017,C010,3485.5,2026-04-23,2026-05-12,299.97,Pending,Sea,Medium,Need immediate pickup
+REQ00468,WST00188,C009,C010,4674.76,2026-07-21,2026-07-30,342.11,Pending,Road,Medium,Trial order
+REQ00469,WST00188,C009,C010,3485.26,2026-04-09,2026-04-20,384.24,Pending,Road,Medium,Bulk procurement
+REQ00470,WST00188,C020,C010,3419.34,2026-06-17,2026-06-23,371.5,Pending,Road,High,Need immediate pickup
+REQ00471,WST00188,C012,C010,3681.07,2026-06-11,2026-06-23,412.82,Cancelled,Sea,Low,For recycling process
+REQ00472,WST00189,C002,C010,113.19,2026-04-09,2026-04-29,229.68,Accepted,Sea,High,Price negotiation required
+REQ00473,WST00190,C007,C010,1547.8,2026-07-05,2026-07-10,526.24,Rejected,Road,High,For recycling process
+REQ00474,WST00191,C001,C011,82.92,2026-06-16,2026-07-04,344.99,Accepted,Road,Medium,Urgent production requirement
+REQ00475,WST00191,C018,C011,75.51,2026-05-23,2026-06-12,359.78,Pending,Road,Low,Requested for pilot testing
+REQ00476,WST00191,C013,C011,43.64,2026-05-08,2026-05-15,385.95,Accepted,Road,Medium,Long-term procurement
+REQ00477,WST00192,C019,C011,1095.86,2026-05-11,2026-05-16,146.9,Pending,Sea,High,Bulk procurement
+REQ00478,WST00193,C005,C011,832.91,2026-06-18,2026-07-04,184.19,Rejected,Rail,High,No additional remarks
+REQ00479,WST00194,C020,C011,2133.94,2026-05-18,2026-05-25,420.7,Accepted,Road,Low,Long-term procurement
+REQ00480,WST00194,C008,C011,1519.05,2026-05-18,2026-06-07,419.86,Rejected,Road,Low,Long-term procurement
+REQ00481,WST00194,C004,C011,2069.79,2026-05-13,2026-05-20,484.24,Accepted,Rail,High,No additional remarks
+REQ00482,WST00195,C008,C011,992.2,2026-04-27,2026-05-16,137.3,Pending,Sea,High,For recycling process
+REQ00483,WST00195,C008,C011,1228.27,2026-07-14,2026-07-28,107.6,Accepted,Rail,High,Requested for pilot testing
+REQ00484,WST00195,C010,C011,1390.67,2026-06-19,2026-06-28,132.63,Rejected,Road,Low,Requested for pilot testing
+REQ00485,WST00195,C018,C011,2043.14,2026-05-12,2026-05-31,123.91,Pending,Road,Low,Long-term procurement
+REQ00486,WST00196,C008,C011,671.21,2026-04-13,2026-04-23,126.12,Accepted,Road,Medium,Urgent production requirement
+REQ00487,WST00196,C016,C011,178.84,2026-05-28,2026-06-16,121.64,Pending,Road,Low,Long-term procurement
+REQ00488,WST00196,C008,C011,196.91,2026-04-26,2026-05-06,129.36,Pending,Road,Medium,Bulk procurement
+REQ00489,WST00197,C003,C011,2095.3,2026-07-01,2026-07-17,532.71,Rejected,Road,Low,No additional remarks
+REQ00490,WST00197,C009,C011,1892.95,2026-06-28,2026-07-04,473.29,Pending,Road,Low,Long-term procurement
+REQ00491,WST00197,C003,C011,4279.87,2026-07-07,2026-07-27,558.91,Accepted,Road,Low,No additional remarks
+REQ00492,WST00198,C010,C011,1160.64,2026-04-22,2026-05-07,413.04,Rejected,Road,Low,Trial order
+REQ00493,WST00198,C017,C011,2909.49,2026-05-25,2026-05-31,439.8,Rejected,Road,Medium,Long-term procurement
+REQ00494,WST00199,C012,C011,454.53,2026-07-25,2026-08-06,339.27,Pending,Rail,Medium,Price negotiation required
+REQ00495,WST00199,C019,C011,657.01,2026-04-26,2026-05-15,357.07,Pending,Rail,Low,Requested as secondary raw material
+REQ00496,WST00199,C008,C011,993.54,2026-06-05,2026-06-07,271.21,Accepted,Road,Medium,Bulk procurement
+REQ00497,WST00199,C003,C011,213.58,2026-04-09,2026-04-20,344.96,Rejected,Road,Medium,Requested for pilot testing
+REQ00498,WST00200,C001,C011,1105.59,2026-07-01,2026-07-18,14.6,Accepted,Road,High,For recycling process
+REQ00499,WST00200,C002,C011,794.46,2026-05-15,2026-05-22,16.25,Pending,Road,Medium,Urgent production requirement
+REQ00500,WST00200,C001,C011,570.49,2026-07-28,2026-08-03,16.52,Rejected,Sea,Low,Urgent production requirement
+REQ00501,WST00200,C006,C011,728.89,2026-04-21,2026-05-05,13.3,Pending,Road,Low,Urgent production requirement
+REQ00502,WST00201,C007,C011,1081.65,2026-06-07,2026-06-21,299.3,Pending,Road,Low,Price negotiation required
+REQ00503,WST00201,C010,C011,959.62,2026-06-20,2026-07-02,278.77,Pending,Road,Medium,Need immediate pickup
+REQ00504,WST00201,C004,C011,1301.73,2026-05-27,2026-06-12,354.51,Pending,Sea,Medium,Need immediate pickup
+REQ00505,WST00202,C016,C012,2390.75,2026-07-01,2026-07-04,534.09,Rejected,Sea,High,No additional remarks
+REQ00506,WST00203,C015,C012,811.31,2026-05-10,2026-05-16,352.12,Pending,Road,Low,Price negotiation required
+REQ00507,WST00203,C009,C012,2620.7,2026-06-19,2026-06-27,316.84,Rejected,Road,High,Requested as secondary raw material
+REQ00508,WST00204,C003,C012,3883.68,2026-07-22,2026-08-06,243.18,Pending,Road,High,No additional remarks
+REQ00509,WST00204,C010,C012,3602.21,2026-04-24,2026-05-06,260.29,Accepted,Road,High,Urgent production requirement
+REQ00510,WST00205,C002,C012,342.25,2026-03-31,2026-04-16,348.05,Pending,Road,Medium,Need immediate pickup
+REQ00511,WST00205,C006,C012,258.4,2026-04-20,2026-05-09,348.39,Pending,Road,High,Bulk procurement
+REQ00512,WST00205,C010,C012,445.74,2026-06-13,2026-06-24,393.8,Accepted,Road,High,Urgent production requirement
+REQ00513,WST00205,C007,C012,110.86,2026-05-11,2026-05-24,327.98,Pending,Road,Low,No additional remarks
+REQ00514,WST00206,C004,C012,1840.72,2026-05-17,2026-05-28,422.47,Accepted,Road,High,For recycling process
+REQ00515,WST00206,C019,C012,735.7,2026-04-17,2026-04-21,504.4,Pending,Road,High,Trial order
+REQ00516,WST00206,C002,C012,2165.47,2026-07-01,2026-07-15,485.75,Accepted,Road,High,Requested for pilot testing
+REQ00517,WST00206,C015,C012,2019.51,2026-07-04,2026-07-18,491.96,Accepted,Road,Medium,Requested for pilot testing
+REQ00518,WST00207,C013,C012,749.77,2026-07-26,2026-08-02,35.5,Pending,Road,High,Trial order
+REQ00519,WST00207,C015,C012,479.22,2026-04-05,2026-04-17,36.77,Accepted,Rail,Medium,Trial order
+REQ00520,WST00207,C015,C012,1624.04,2026-05-18,2026-06-02,33.1,Pending,Rail,Low,Long-term procurement
+REQ00521,WST00207,C014,C012,348.59,2026-05-23,2026-05-31,35.46,Accepted,Road,High,Bulk procurement
+REQ00522,WST00208,C008,C012,3605.94,2026-04-03,2026-04-17,250.96,Accepted,Road,High,No additional remarks
+REQ00523,WST00208,C005,C012,1311.22,2026-05-12,2026-05-22,258.51,Pending,Road,Medium,Requested as secondary raw material
+REQ00524,WST00208,C015,C012,1643.0,2026-06-03,2026-06-21,259.53,Accepted,Road,Medium,Requested as secondary raw material
+REQ00525,WST00209,C019,C012,2212.75,2026-05-09,2026-05-13,217.13,Pending,Road,Low,Requested for pilot testing
+REQ00526,WST00209,C009,C012,837.33,2026-04-22,2026-05-10,209.65,Pending,Road,Medium,Long-term procurement
+REQ00527,WST00210,C008,C012,4216.58,2026-04-11,2026-04-16,444.74,Rejected,Road,Medium,Bulk procurement
+REQ00528,WST00210,C015,C012,4653.59,2026-05-14,2026-05-20,440.05,Cancelled,Rail,High,For recycling process
+REQ00529,WST00211,C002,C012,406.76,2026-04-13,2026-04-21,530.95,Accepted,Road,Low,Trial order
+REQ00530,WST00211,C004,C012,1245.89,2026-07-04,2026-07-21,543.32,Pending,Road,Medium,Requested as secondary raw material
+REQ00531,WST00211,C014,C012,626.54,2026-04-01,2026-04-06,450.05,Accepted,Road,High,Bulk procurement
+REQ00532,WST00212,C002,C012,89.03,2026-05-30,2026-06-16,429.79,Accepted,Road,High,Urgent production requirement
+REQ00533,WST00212,C004,C012,25.01,2026-05-02,2026-05-06,376.41,Pending,Road,Medium,For recycling process
+REQ00534,WST00212,C006,C012,86.52,2026-05-21,2026-06-09,328.96,Pending,Road,Medium,Price negotiation required
+REQ00535,WST00212,C006,C012,82.93,2026-05-05,2026-05-07,370.8,Rejected,Road,High,Urgent production requirement
+REQ00536,WST00213,C008,C012,2314.95,2026-06-28,2026-07-10,411.76,Cancelled,Road,High,Need immediate pickup
+REQ00537,WST00213,C011,C012,1230.61,2026-04-04,2026-04-20,527.5,Accepted,Sea,Medium,Urgent production requirement
+REQ00538,WST00213,C016,C012,2978.75,2026-06-30,2026-07-19,454.27,Cancelled,Road,High,No additional remarks
+REQ00539,WST00214,C007,C012,2995.63,2026-04-14,2026-04-25,352.77,Rejected,Road,Medium,Requested as secondary raw material
+REQ00540,WST00214,C008,C012,1043.75,2026-04-07,2026-04-27,369.67,Accepted,Road,Medium,Trial order
+REQ00541,WST00215,C020,C012,408.77,2026-06-27,2026-07-17,436.0,Rejected,Road,High,Urgent production requirement
+REQ00542,WST00215,C006,C012,901.72,2026-06-01,2026-06-13,477.55,Cancelled,Rail,Medium,No additional remarks
+REQ00543,WST00216,C005,C012,2448.44,2026-07-03,2026-07-05,156.16,Pending,Road,High,Urgent production requirement
+REQ00544,WST00216,C017,C012,1917.6,2026-04-10,2026-04-14,181.31,Accepted,Road,High,Price negotiation required
+REQ00545,WST00216,C011,C012,2419.44,2026-06-26,2026-07-01,178.28,Accepted,Road,High,Trial order
+REQ00546,WST00217,C013,C012,820.97,2026-04-19,2026-04-30,479.74,Accepted,Road,High,Bulk procurement
+REQ00547,WST00217,C005,C012,1375.14,2026-05-02,2026-05-14,473.52,Pending,Road,Medium,Long-term procurement
+REQ00548,WST00217,C011,C012,1738.65,2026-06-05,2026-06-09,420.45,Accepted,Road,High,No additional remarks
+REQ00549,WST00217,C001,C012,597.48,2026-06-18,2026-07-04,428.84,Accepted,Road,Medium,Bulk procurement
+REQ00550,WST00218,C002,C012,897.77,2026-05-18,2026-05-27,265.52,Pending,Road,Medium,Trial order
+REQ00551,WST00218,C015,C012,541.73,2026-07-13,2026-07-31,263.68,Cancelled,Rail,Medium,Need immediate pickup
+REQ00552,WST00218,C010,C012,1421.68,2026-04-28,2026-05-04,296.52,Rejected,Road,High,Requested for pilot testing
+REQ00553,WST00219,C011,C012,984.89,2026-06-25,2026-07-14,62.54,Accepted,Rail,Medium,Long-term procurement
+REQ00554,WST00219,C020,C012,1308.49,2026-05-09,2026-05-13,61.8,Pending,Road,Medium,Trial order
+REQ00555,WST00220,C009,C012,1363.62,2026-05-13,2026-05-21,257.52,Rejected,Road,Medium,Trial order
+REQ00556,WST00221,C004,C012,2275.18,2026-07-09,2026-07-26,262.6,Accepted,Road,Low,Bulk procurement
+REQ00557,WST00221,C011,C012,2146.97,2026-04-04,2026-04-19,265.51,Pending,Rail,High,For recycling process
+REQ00558,WST00221,C006,C012,1207.84,2026-05-20,2026-05-31,234.27,Accepted,Rail,Low,Bulk procurement
+REQ00559,WST00221,C003,C012,785.12,2026-04-04,2026-04-23,258.21,Rejected,Road,Low,Price negotiation required
+REQ00560,WST00222,C020,C012,331.4,2026-05-06,2026-05-12,215.07,Pending,Road,Medium,Trial order
+REQ00561,WST00222,C016,C012,319.87,2026-05-26,2026-06-13,241.49,Pending,Rail,Low,Need immediate pickup
+REQ00562,WST00223,C011,C012,3456.11,2026-07-13,2026-07-18,335.26,Accepted,Road,Low,Bulk procurement
+REQ00563,WST00223,C007,C012,2779.94,2026-04-14,2026-04-22,346.44,Accepted,Rail,Medium,For recycling process
+REQ00564,WST00223,C005,C012,2877.04,2026-07-11,2026-07-26,384.96,Accepted,Road,High,For recycling process
+REQ00565,WST00224,C002,C012,274.52,2026-05-22,2026-06-08,392.56,Accepted,Road,Low,For recycling process
+REQ00566,WST00225,C007,C012,238.04,2026-05-11,2026-05-13,25.45,Accepted,Road,Medium,Bulk procurement
+REQ00567,WST00225,C003,C012,620.73,2026-06-21,2026-07-03,25.2,Pending,Road,Medium,Urgent production requirement
+REQ00568,WST00225,C016,C012,254.58,2026-06-29,2026-07-12,27.31,Pending,Road,Medium,Bulk procurement
+REQ00569,WST00226,C017,C012,2282.59,2026-06-11,2026-06-17,343.2,Pending,Rail,Low,Price negotiation required
+REQ00570,WST00227,C020,C012,1316.96,2026-04-10,2026-04-28,315.38,Accepted,Rail,High,Requested for pilot testing
+REQ00571,WST00227,C009,C012,872.05,2026-07-26,2026-08-11,330.25,Cancelled,Road,High,No additional remarks
+REQ00572,WST00227,C008,C012,714.95,2026-05-13,2026-05-18,364.74,Accepted,Road,High,Trial order
+REQ00573,WST00227,C018,C012,2181.73,2026-06-15,2026-06-24,367.21,Cancelled,Road,Medium,For recycling process
+REQ00574,WST00228,C009,C012,1476.38,2026-04-18,2026-04-27,456.81,Accepted,Rail,Medium,Price negotiation required
+REQ00575,WST00228,C005,C012,1423.71,2026-06-08,2026-06-25,498.15,Accepted,Road,High,Need immediate pickup
+REQ00576,WST00228,C004,C012,2586.35,2026-06-29,2026-07-09,489.11,Pending,Road,High,Need immediate pickup
+REQ00577,WST00228,C003,C012,1426.32,2026-07-26,2026-07-30,479.71,Accepted,Road,Medium,Price negotiation required
+REQ00578,WST00229,C002,C013,2745.88,2026-06-19,2026-06-23,341.42,Rejected,Road,Medium,For recycling process
+REQ00579,WST00229,C010,C013,1274.5,2026-06-03,2026-06-13,377.51,Pending,Road,Medium,Need immediate pickup
+REQ00580,WST00229,C017,C013,3393.18,2026-05-29,2026-06-01,336.78,Rejected,Road,Low,No additional remarks
+REQ00581,WST00229,C011,C013,2918.0,2026-04-14,2026-04-20,349.42,Accepted,Road,Low,Trial order
+REQ00582,WST00230,C016,C013,1038.61,2026-06-29,2026-07-07,202.85,Cancelled,Rail,High,Trial order
+REQ00583,WST00231,C003,C013,549.54,2026-07-13,2026-07-30,9.95,Rejected,Road,Medium,Requested for pilot testing
+REQ00584,WST00231,C005,C013,374.77,2026-07-11,2026-07-26,10.44,Pending,Road,High,Trial order
+REQ00585,WST00231,C007,C013,322.38,2026-05-04,2026-05-14,12.68,Accepted,Road,High,Bulk procurement
+REQ00586,WST00232,C012,C013,994.64,2026-07-12,2026-08-01,77.89,Pending,Road,High,Requested as secondary raw material
+REQ00587,WST00232,C019,C013,1945.65,2026-07-05,2026-07-10,75.81,Accepted,Road,Low,Urgent production requirement
+REQ00588,WST00233,C003,C013,2358.32,2026-05-21,2026-05-28,542.48,Rejected,Road,High,Need immediate pickup
+REQ00589,WST00233,C003,C013,1628.15,2026-04-17,2026-04-28,500.31,Pending,Road,Medium,Long-term procurement
+REQ00590,WST00233,C008,C013,1423.2,2026-06-24,2026-07-12,482.8,Pending,Road,Medium,Requested for pilot testing
+REQ00591,WST00233,C015,C013,3614.89,2026-06-28,2026-07-11,442.96,Pending,Road,Low,Long-term procurement
+REQ00592,WST00234,C018,C013,1220.45,2026-04-15,2026-04-21,370.58,Rejected,Road,Low,Requested for pilot testing
+REQ00593,WST00235,C002,C013,2026.03,2026-04-28,2026-05-13,248.42,Rejected,Rail,Low,Requested as secondary raw material
+REQ00594,WST00235,C003,C013,2598.31,2026-04-03,2026-04-06,215.58,Accepted,Road,Medium,Requested for pilot testing
+REQ00595,WST00236,C011,C013,1692.51,2026-06-29,2026-07-05,269.0,Pending,Road,High,Price negotiation required
+REQ00596,WST00236,C009,C013,2524.83,2026-06-09,2026-06-12,276.52,Accepted,Road,Low,Need immediate pickup
+REQ00597,WST00236,C014,C013,779.56,2026-07-05,2026-07-07,287.98,Accepted,Sea,Medium,Need immediate pickup
+REQ00598,WST00237,C006,C013,2299.67,2026-05-06,2026-05-24,336.37,Cancelled,Sea,Low,Requested for pilot testing
+REQ00599,WST00237,C008,C013,764.24,2026-04-14,2026-04-27,299.11,Cancelled,Road,High,Bulk procurement
+REQ00600,WST00237,C001,C013,1369.03,2026-04-14,2026-04-20,365.38,Accepted,Road,Low,Price negotiation required
+REQ00601,WST00238,C003,C013,114.55,2026-07-09,2026-07-29,119.71,Accepted,Rail,High,No additional remarks
+REQ00602,WST00238,C020,C013,305.61,2026-07-19,2026-07-21,128.89,Cancelled,Sea,Medium,Price negotiation required
+REQ00603,WST00238,C003,C013,442.99,2026-06-02,2026-06-12,98.92,Accepted,Rail,Medium,For recycling process
+REQ00604,WST00239,C015,C013,2267.43,2026-04-27,2026-05-06,455.62,Accepted,Road,High,Price negotiation required
+REQ00605,WST00239,C004,C013,1597.61,2026-03-31,2026-04-11,399.36,Pending,Road,Low,Requested as secondary raw material
+REQ00606,WST00239,C015,C013,2798.7,2026-06-29,2026-07-11,447.24,Rejected,Rail,Medium,No additional remarks
+REQ00607,WST00240,C018,C013,784.88,2026-04-11,2026-04-23,198.37,Rejected,Rail,Medium,Price negotiation required
+REQ00608,WST00240,C005,C013,2025.36,2026-06-03,2026-06-15,205.58,Pending,Rail,Low,No additional remarks
+REQ00609,WST00241,C003,C013,1209.16,2026-06-18,2026-07-01,202.62,Rejected,Road,High,Urgent production requirement
+REQ00610,WST00242,C004,C013,920.53,2026-05-15,2026-05-29,365.83,Accepted,Rail,Low,Requested for pilot testing
+REQ00611,WST00243,C008,C014,112.84,2026-06-23,2026-07-02,40.21,Rejected,Road,Medium,Requested as secondary raw material
+REQ00612,WST00244,C003,C014,2277.55,2026-06-02,2026-06-05,259.73,Accepted,Road,High,Trial order
+REQ00613,WST00244,C005,C014,2556.6,2026-06-17,2026-06-29,252.79,Pending,Road,Low,Trial order
+REQ00614,WST00244,C018,C014,1015.5,2026-07-11,2026-07-28,262.79,Accepted,Road,Medium,Requested for pilot testing
+REQ00615,WST00244,C001,C014,545.66,2026-06-21,2026-07-10,270.81,Pending,Road,High,Requested for pilot testing
+REQ00616,WST00245,C015,C014,1136.38,2026-04-28,2026-05-06,158.57,Accepted,Road,High,Need immediate pickup
+REQ00617,WST00246,C008,C014,399.41,2026-07-07,2026-07-27,68.84,Pending,Road,High,Bulk procurement
+REQ00618,WST00246,C019,C014,779.17,2026-05-31,2026-06-18,68.35,Pending,Rail,High,Trial order
+REQ00619,WST00246,C006,C014,398.03,2026-07-23,2026-08-10,70.56,Rejected,Road,High,Need immediate pickup
+REQ00620,WST00246,C008,C014,250.67,2026-05-17,2026-05-31,81.69,Pending,Sea,Medium,Price negotiation required
+REQ00621,WST00247,C010,C014,2779.83,2026-07-21,2026-08-10,300.58,Accepted,Road,Medium,Long-term procurement
+REQ00622,WST00247,C018,C014,2304.34,2026-06-03,2026-06-05,293.15,Accepted,Road,High,Requested as secondary raw material
+REQ00623,WST00248,C007,C014,3382.14,2026-05-04,2026-05-17,67.77,Pending,Road,Medium,Bulk procurement
+REQ00624,WST00248,C009,C014,3127.05,2026-04-15,2026-04-29,75.46,Rejected,Sea,Medium,Bulk procurement
+REQ00625,WST00248,C012,C014,3052.7,2026-07-27,2026-08-11,72.74,Accepted,Road,Low,Need immediate pickup
+REQ00626,WST00248,C002,C014,1807.63,2026-05-18,2026-05-30,72.61,Cancelled,Rail,High,Bulk procurement
+REQ00627,WST00249,C003,C014,785.06,2026-05-03,2026-05-17,22.01,Pending,Road,Medium,Requested for pilot testing
+REQ00628,WST00249,C006,C014,1590.75,2026-04-19,2026-04-25,22.63,Rejected,Road,Medium,Urgent production requirement
+REQ00629,WST00249,C003,C014,1361.41,2026-06-16,2026-07-06,18.53,Pending,Road,Medium,No additional remarks
+REQ00630,WST00250,C018,C014,3180.69,2026-04-15,2026-04-29,388.53,Rejected,Rail,Medium,Bulk procurement
+REQ00631,WST00250,C016,C014,2656.34,2026-06-17,2026-06-22,475.29,Rejected,Road,Medium,No additional remarks
+REQ00632,WST00250,C005,C014,3205.69,2026-05-10,2026-05-13,395.84,Accepted,Rail,Medium,For recycling process
+REQ00633,WST00250,C008,C014,790.1,2026-04-30,2026-05-20,404.0,Cancelled,Rail,Medium,Price negotiation required
+REQ00634,WST00251,C002,C014,333.33,2026-07-08,2026-07-16,66.97,Cancelled,Rail,Low,Price negotiation required
+REQ00635,WST00252,C015,C014,1485.33,2026-05-18,2026-05-21,134.33,Accepted,Road,Low,Bulk procurement
+REQ00636,WST00252,C001,C014,634.03,2026-05-21,2026-05-27,142.93,Accepted,Road,Low,Bulk procurement
+REQ00637,WST00252,C018,C014,414.68,2026-05-14,2026-06-02,150.95,Accepted,Road,Low,Bulk procurement
+REQ00638,WST00253,C015,C014,3070.59,2026-04-07,2026-04-15,149.3,Rejected,Road,High,Long-term procurement
+REQ00639,WST00253,C008,C014,1647.02,2026-04-30,2026-05-08,148.11,Pending,Sea,Medium,Urgent production requirement
+REQ00640,WST00254,C018,C014,1125.77,2026-04-07,2026-04-23,417.62,Pending,Road,High,Need immediate pickup
+REQ00641,WST00254,C009,C014,2657.92,2026-06-22,2026-07-03,445.66,Accepted,Rail,Medium,No additional remarks
+REQ00642,WST00255,C008,C015,333.98,2026-05-20,2026-05-30,11.44,Accepted,Road,High,For recycling process
+REQ00643,WST00255,C009,C015,1387.62,2026-07-25,2026-07-29,11.0,Accepted,Rail,Medium,Long-term procurement
+REQ00644,WST00255,C005,C015,1148.21,2026-06-24,2026-07-08,9.89,Rejected,Road,High,Price negotiation required
+REQ00645,WST00255,C011,C015,666.97,2026-07-03,2026-07-22,11.36,Accepted,Road,Low,Trial order
+REQ00646,WST00256,C017,C015,2937.89,2026-04-18,2026-05-06,461.71,Pending,Road,Medium,Price negotiation required
+REQ00647,WST00257,C014,C015,79.83,2026-04-16,2026-04-22,11.69,Pending,Road,Medium,Urgent production requirement
+REQ00648,WST00257,C007,C015,189.11,2026-04-02,2026-04-14,12.41,Cancelled,Road,Low,Trial order
+REQ00649,WST00257,C018,C015,167.41,2026-05-21,2026-06-03,11.14,Cancelled,Road,Medium,Urgent production requirement
+REQ00650,WST00258,C018,C015,1762.7,2026-05-25,2026-06-13,464.38,Rejected,Road,Low,No additional remarks
+REQ00651,WST00258,C006,C015,2335.81,2026-06-01,2026-06-08,361.06,Accepted,Rail,Medium,Long-term procurement
+REQ00652,WST00259,C003,C015,145.68,2026-04-03,2026-04-23,226.35,Rejected,Road,Low,Need immediate pickup
+REQ00653,WST00260,C001,C015,1327.76,2026-04-25,2026-05-11,474.64,Pending,Road,Low,Price negotiation required
+REQ00654,WST00260,C019,C015,681.61,2026-06-02,2026-06-20,406.39,Pending,Road,High,No additional remarks
+REQ00655,WST00261,C002,C016,413.44,2026-06-21,2026-07-08,27.29,Accepted,Road,Medium,Long-term procurement
+REQ00656,WST00262,C005,C016,3662.34,2026-06-17,2026-06-30,435.64,Rejected,Road,High,Requested as secondary raw material
+REQ00657,WST00262,C015,C016,3616.97,2026-06-04,2026-06-17,424.19,Pending,Rail,Low,Long-term procurement
+REQ00658,WST00263,C008,C016,3465.32,2026-04-15,2026-04-19,249.73,Pending,Road,High,Urgent production requirement
+REQ00659,WST00264,C009,C016,193.68,2026-04-16,2026-05-04,213.47,Rejected,Rail,Low,Bulk procurement
+REQ00660,WST00264,C017,C016,215.58,2026-05-01,2026-05-04,256.97,Accepted,Rail,Low,Trial order
+REQ00661,WST00264,C011,C016,133.94,2026-06-27,2026-07-02,244.06,Accepted,Rail,Medium,Trial order
+REQ00662,WST00265,C015,C016,2222.3,2026-07-25,2026-08-10,342.68,Pending,Road,High,Requested for pilot testing
+REQ00663,WST00265,C015,C016,2151.21,2026-04-16,2026-05-06,320.17,Pending,Road,Low,Requested as secondary raw material
+REQ00664,WST00265,C019,C016,2170.59,2026-06-20,2026-06-25,296.58,Pending,Road,Medium,Long-term procurement
+REQ00665,WST00265,C017,C016,962.91,2026-06-15,2026-07-03,281.52,Rejected,Road,Low,Long-term procurement
+REQ00666,WST00266,C010,C016,911.97,2026-04-15,2026-04-21,448.73,Pending,Rail,High,Requested for pilot testing
+REQ00667,WST00266,C017,C016,643.0,2026-05-18,2026-06-01,445.62,Accepted,Road,Low,Bulk procurement
+REQ00668,WST00266,C007,C016,967.38,2026-04-24,2026-05-10,433.29,Accepted,Road,Medium,Long-term procurement
+REQ00669,WST00267,C008,C016,657.0,2026-05-02,2026-05-08,554.68,Accepted,Road,Medium,For recycling process
+REQ00670,WST00268,C015,C016,3612.5,2026-05-18,2026-05-31,402.0,Accepted,Road,Low,Urgent production requirement
+REQ00671,WST00269,C007,C016,2739.73,2026-05-04,2026-05-23,369.53,Rejected,Road,Low,Need immediate pickup
+REQ00672,WST00269,C010,C016,1058.02,2026-07-22,2026-08-09,489.95,Pending,Road,Low,No additional remarks
+REQ00673,WST00270,C001,C016,835.94,2026-06-09,2026-06-13,135.23,Rejected,Road,Low,Long-term procurement
+REQ00674,WST00271,C009,C016,3248.97,2026-07-10,2026-07-30,106.98,Accepted,Sea,Low,Price negotiation required
+REQ00675,WST00272,C019,C016,1154.84,2026-07-23,2026-08-10,568.71,Pending,Sea,Low,Requested for pilot testing
+REQ00676,WST00272,C013,C016,786.87,2026-05-26,2026-06-15,442.23,Accepted,Road,Medium,Requested as secondary raw material
+REQ00677,WST00272,C004,C016,916.33,2026-05-17,2026-05-31,545.11,Accepted,Road,Low,No additional remarks
+REQ00678,WST00272,C015,C016,936.91,2026-06-01,2026-06-13,528.14,Accepted,Road,Low,Requested as secondary raw material
+REQ00679,WST00273,C017,C016,1517.63,2026-04-11,2026-04-25,251.22,Accepted,Road,Medium,No additional remarks
+REQ00680,WST00273,C005,C016,1156.31,2026-06-08,2026-06-28,224.69,Pending,Road,Medium,For recycling process
+REQ00681,WST00274,C001,C016,1186.93,2026-04-27,2026-05-03,16.82,Pending,Road,Medium,Bulk procurement
+REQ00682,WST00274,C005,C016,1220.9,2026-06-22,2026-06-30,15.06,Accepted,Road,Medium,For recycling process
+REQ00683,WST00274,C005,C016,2362.63,2026-05-04,2026-05-18,16.71,Pending,Road,High,Bulk procurement
+REQ00684,WST00274,C019,C016,2799.29,2026-04-20,2026-05-02,15.46,Pending,Road,High,Urgent production requirement
+REQ00685,WST00275,C005,C016,2770.5,2026-06-10,2026-06-18,241.0,Accepted,Rail,Medium,Price negotiation required
+REQ00686,WST00275,C011,C016,2644.89,2026-06-29,2026-07-12,233.11,Accepted,Road,High,Urgent production requirement
+REQ00687,WST00275,C007,C016,2544.72,2026-03-31,2026-04-05,192.14,Accepted,Rail,Low,Urgent production requirement
+REQ00688,WST00275,C012,C016,2293.3,2026-07-07,2026-07-09,204.63,Cancelled,Road,Medium,Long-term procurement
+REQ00689,WST00276,C006,C016,1676.15,2026-06-22,2026-06-26,225.5,Accepted,Road,Medium,Need immediate pickup
+REQ00690,WST00276,C010,C016,2543.12,2026-07-28,2026-08-13,177.68,Accepted,Road,High,Need immediate pickup
+REQ00691,WST00276,C014,C016,2611.21,2026-05-01,2026-05-13,208.75,Accepted,Road,Medium,Requested as secondary raw material
+REQ00692,WST00277,C019,C016,2857.31,2026-05-05,2026-05-08,77.48,Accepted,Rail,Low,No additional remarks
+REQ00693,WST00277,C010,C016,4724.96,2026-06-14,2026-07-01,89.65,Pending,Road,High,Price negotiation required
+REQ00694,WST00277,C015,C016,1163.39,2026-04-22,2026-05-04,88.77,Accepted,Road,Medium,Trial order
+REQ00695,WST00277,C015,C016,3876.07,2026-04-04,2026-04-08,80.61,Rejected,Road,Low,Need immediate pickup
+REQ00696,WST00278,C012,C016,1270.17,2026-07-09,2026-07-17,151.56,Accepted,Road,High,Long-term procurement
+REQ00697,WST00278,C004,C016,761.14,2026-05-18,2026-06-01,164.27,Pending,Road,Medium,No additional remarks
+REQ00698,WST00278,C005,C016,1107.7,2026-05-24,2026-06-06,136.91,Accepted,Road,High,For recycling process
+REQ00699,WST00278,C013,C016,1192.6,2026-07-03,2026-07-11,141.82,Cancelled,Rail,Low,For recycling process
+REQ00700,WST00279,C019,C016,1156.22,2026-06-13,2026-06-27,53.59,Pending,Road,High,Need immediate pickup
+REQ00701,WST00280,C019,C016,399.86,2026-05-06,2026-05-26,419.85,Pending,Road,Medium,Price negotiation required
+REQ00702,WST00281,C003,C016,141.97,2026-06-18,2026-07-02,188.84,Pending,Road,High,Trial order
+REQ00703,WST00282,C018,C016,3634.66,2026-06-10,2026-06-28,72.46,Pending,Road,Low,Trial order
+REQ00704,WST00282,C007,C016,1622.47,2026-04-14,2026-04-29,62.73,Pending,Road,Medium,For recycling process
+REQ00705,WST00283,C013,C016,2922.61,2026-07-02,2026-07-21,500.61,Accepted,Road,Low,Bulk procurement
+REQ00706,WST00284,C015,C016,461.41,2026-07-22,2026-07-28,152.2,Accepted,Rail,Medium,Urgent production requirement
+REQ00707,WST00284,C009,C016,405.64,2026-07-06,2026-07-19,172.32,Accepted,Road,High,Urgent production requirement
+REQ00708,WST00284,C018,C016,413.01,2026-07-16,2026-08-04,170.86,Accepted,Sea,Medium,Need immediate pickup
+REQ00709,WST00285,C012,C016,889.64,2026-07-07,2026-07-11,79.57,Pending,Road,Low,Requested as secondary raw material
+REQ00710,WST00285,C011,C016,619.36,2026-06-10,2026-06-16,80.02,Rejected,Road,Medium,Trial order
+REQ00711,WST00286,C014,C016,1086.52,2026-04-10,2026-04-29,152.95,Rejected,Road,Low,Price negotiation required
+REQ00712,WST00286,C012,C016,1818.75,2026-07-11,2026-07-23,182.55,Rejected,Road,Medium,No additional remarks
+REQ00713,WST00287,C007,C017,3008.67,2026-06-17,2026-06-29,30.56,Rejected,Road,High,No additional remarks
+REQ00714,WST00287,C001,C017,760.61,2026-04-05,2026-04-10,35.18,Pending,Road,Medium,No additional remarks
+REQ00715,WST00287,C018,C017,2911.92,2026-05-08,2026-05-25,35.58,Cancelled,Road,Medium,Requested for pilot testing
+REQ00716,WST00287,C003,C017,1015.64,2026-07-17,2026-07-23,32.22,Pending,Road,High,Price negotiation required
+REQ00717,WST00288,C019,C017,3389.48,2026-05-29,2026-06-03,466.1,Pending,Road,High,Need immediate pickup
+REQ00718,WST00288,C019,C017,850.59,2026-04-30,2026-05-05,503.14,Accepted,Road,High,Need immediate pickup
+REQ00719,WST00288,C003,C017,1349.28,2026-04-13,2026-04-21,451.7,Accepted,Road,Medium,Trial order
+REQ00720,WST00288,C008,C017,1264.65,2026-07-16,2026-07-26,470.76,Pending,Road,Medium,Trial order
+REQ00721,WST00289,C001,C017,4556.74,2026-04-19,2026-04-29,520.02,Accepted,Road,Medium,Requested as secondary raw material
+REQ00722,WST00290,C005,C017,75.88,2026-04-13,2026-04-27,516.87,Rejected,Road,High,Need immediate pickup
+REQ00723,WST00290,C001,C017,116.78,2026-06-24,2026-07-03,542.45,Accepted,Road,Medium,Need immediate pickup
+REQ00724,WST00290,C016,C017,85.17,2026-04-03,2026-04-22,438.62,Rejected,Road,Medium,Urgent production requirement
+REQ00725,WST00291,C002,C017,1292.72,2026-06-13,2026-06-18,216.16,Accepted,Road,High,Urgent production requirement
+REQ00726,WST00291,C018,C017,2191.23,2026-07-21,2026-07-24,200.09,Pending,Road,Low,Trial order
+REQ00727,WST00291,C010,C017,3918.96,2026-06-24,2026-06-29,192.5,Accepted,Road,High,Requested as secondary raw material
+REQ00728,WST00292,C009,C017,840.11,2026-07-09,2026-07-26,97.49,Accepted,Rail,High,Trial order
+REQ00729,WST00292,C011,C017,3185.85,2026-06-10,2026-06-13,103.68,Pending,Road,High,Trial order
+REQ00730,WST00292,C012,C017,1633.5,2026-06-03,2026-06-13,101.05,Pending,Road,Medium,Need immediate pickup
+REQ00731,WST00293,C007,C017,3417.01,2026-06-27,2026-07-17,205.2,Accepted,Road,High,Long-term procurement
+REQ00732,WST00293,C006,C017,1802.36,2026-06-06,2026-06-22,208.88,Accepted,Sea,Medium,For recycling process
+REQ00733,WST00293,C007,C017,4226.07,2026-06-16,2026-06-27,204.04,Pending,Rail,Low,Requested for pilot testing
+REQ00734,WST00293,C014,C017,982.6,2026-07-15,2026-08-02,225.3,Pending,Road,Medium,Requested as secondary raw material
+REQ00735,WST00294,C003,C017,2092.41,2026-06-10,2026-06-15,453.46,Accepted,Road,Medium,Requested as secondary raw material
+REQ00736,WST00294,C015,C017,3634.32,2026-04-07,2026-04-14,461.24,Accepted,Rail,High,No additional remarks
+REQ00737,WST00294,C005,C017,3402.18,2026-05-03,2026-05-15,376.83,Pending,Road,Medium,Requested as secondary raw material
+REQ00738,WST00295,C014,C017,1922.99,2026-07-18,2026-07-27,468.4,Rejected,Road,Low,Urgent production requirement
+REQ00739,WST00295,C006,C017,769.66,2026-05-21,2026-05-29,483.37,Cancelled,Road,High,Requested for pilot testing
+REQ00740,WST00295,C016,C017,1679.96,2026-05-20,2026-06-07,408.55,Pending,Road,High,For recycling process
+REQ00741,WST00295,C015,C017,2438.2,2026-07-10,2026-07-24,473.3,Accepted,Rail,High,No additional remarks
+REQ00742,WST00296,C020,C017,166.68,2026-04-27,2026-05-10,362.71,Pending,Road,High,Trial order
+REQ00743,WST00296,C014,C017,99.05,2026-07-09,2026-07-23,318.76,Pending,Rail,High,Requested as secondary raw material
+REQ00744,WST00296,C013,C017,226.7,2026-04-18,2026-05-01,350.98,Accepted,Rail,High,Price negotiation required
+REQ00745,WST00297,C011,C017,2762.56,2026-06-09,2026-06-27,402.22,Pending,Road,High,Long-term procurement
+REQ00746,WST00297,C004,C017,2601.6,2026-06-05,2026-06-14,321.64,Rejected,Road,Low,Requested for pilot testing
+REQ00747,WST00297,C013,C017,3211.08,2026-07-08,2026-07-22,416.24,Cancelled,Road,Medium,Price negotiation required
+REQ00748,WST00298,C020,C017,1825.0,2026-04-25,2026-05-01,428.87,Pending,Road,Low,Price negotiation required
+REQ00749,WST00299,C007,C017,149.16,2026-05-22,2026-05-29,479.32,Accepted,Sea,Medium,Long-term procurement
+REQ00750,WST00299,C009,C017,641.68,2026-07-06,2026-07-14,492.13,Pending,Road,Low,Urgent production requirement
+REQ00751,WST00299,C015,C017,590.25,2026-07-09,2026-07-29,466.88,Accepted,Road,Low,Trial order
+REQ00752,WST00300,C020,C017,1241.58,2026-05-30,2026-06-03,219.6,Accepted,Road,Low,Requested as secondary raw material
+REQ00753,WST00300,C010,C017,1986.55,2026-06-12,2026-06-30,187.55,Pending,Road,Medium,Need immediate pickup
+REQ00754,WST00301,C005,C017,3270.94,2026-07-28,2026-08-12,417.03,Cancelled,Road,Medium,No additional remarks
+REQ00755,WST00302,C006,C017,819.49,2026-07-02,2026-07-16,246.4,Pending,Road,High,For recycling process
+REQ00756,WST00302,C006,C017,1103.28,2026-05-24,2026-06-11,243.21,Accepted,Road,Low,For recycling process
+REQ00757,WST00302,C010,C017,935.26,2026-04-18,2026-05-08,277.67,Cancelled,Sea,High,For recycling process
+REQ00758,WST00302,C016,C017,647.67,2026-05-16,2026-06-05,276.01,Rejected,Road,Medium,Price negotiation required
+REQ00759,WST00303,C015,C017,1357.59,2026-04-11,2026-04-25,109.54,Accepted,Road,Low,Requested as secondary raw material
+REQ00760,WST00304,C002,C017,1246.81,2026-06-23,2026-06-28,94.41,Accepted,Road,Low,Long-term procurement
+REQ00761,WST00304,C004,C017,860.93,2026-05-06,2026-05-13,75.41,Pending,Road,Low,Urgent production requirement
+REQ00762,WST00304,C011,C017,1117.68,2026-05-10,2026-05-27,75.92,Accepted,Road,High,Long-term procurement
+REQ00763,WST00305,C003,C017,1492.27,2026-06-13,2026-06-16,214.98,Pending,Road,Low,Long-term procurement
+REQ00764,WST00305,C010,C017,1395.26,2026-06-24,2026-06-26,236.48,Cancelled,Rail,Medium,Requested as secondary raw material
+REQ00765,WST00305,C007,C017,1918.11,2026-07-20,2026-08-07,238.37,Accepted,Road,Medium,Trial order
+REQ00766,WST00305,C018,C017,1612.98,2026-04-02,2026-04-21,251.32,Rejected,Road,Medium,Requested for pilot testing
+REQ00767,WST00306,C006,C017,586.11,2026-06-28,2026-07-18,409.23,Accepted,Rail,Low,Urgent production requirement
+REQ00768,WST00307,C011,C018,2819.5,2026-04-05,2026-04-20,120.44,Accepted,Road,High,Requested for pilot testing
+REQ00769,WST00307,C016,C018,677.02,2026-06-19,2026-06-30,97.7,Pending,Road,Medium,Trial order
+REQ00770,WST00307,C006,C018,2624.17,2026-07-28,2026-08-06,96.63,Pending,Road,Medium,Trial order
+REQ00771,WST00308,C005,C018,1033.5,2026-03-31,2026-04-13,317.05,Rejected,Road,Medium,Long-term procurement
+REQ00772,WST00308,C005,C018,1232.58,2026-05-02,2026-05-22,356.23,Pending,Sea,High,Need immediate pickup
+REQ00773,WST00309,C015,C018,2810.81,2026-05-26,2026-05-28,349.16,Pending,Road,High,Urgent production requirement
+REQ00774,WST00309,C001,C018,2507.24,2026-04-30,2026-05-05,320.12,Pending,Road,High,Need immediate pickup
+REQ00775,WST00309,C010,C018,1105.82,2026-03-31,2026-04-04,318.49,Cancelled,Road,High,Price negotiation required
+REQ00776,WST00310,C003,C018,691.11,2026-07-15,2026-07-23,363.13,Accepted,Road,High,Long-term procurement
+REQ00777,WST00310,C008,C018,1585.0,2026-05-05,2026-05-24,416.51,Pending,Road,High,Requested as secondary raw material
+REQ00778,WST00310,C020,C018,1414.19,2026-06-25,2026-06-27,403.81,Rejected,Road,Medium,Requested for pilot testing
+REQ00779,WST00310,C020,C018,541.75,2026-06-28,2026-07-01,449.25,Accepted,Road,High,For recycling process
+REQ00780,WST00311,C015,C018,2617.85,2026-04-15,2026-04-18,341.6,Pending,Road,Low,Bulk procurement
+REQ00781,WST00312,C012,C018,3051.15,2026-07-07,2026-07-21,136.88,Rejected,Road,High,Requested as secondary raw material
+REQ00782,WST00313,C004,C018,1721.5,2026-05-07,2026-05-19,147.8,Pending,Road,Low,For recycling process
+REQ00783,WST00313,C004,C018,868.9,2026-07-06,2026-07-25,159.9,Accepted,Road,Medium,Bulk procurement
+REQ00784,WST00313,C015,C018,1676.4,2026-05-30,2026-06-01,152.99,Pending,Road,High,Urgent production requirement
+REQ00785,WST00314,C017,C018,2510.15,2026-06-09,2026-06-21,449.55,Cancelled,Road,Medium,Trial order
+REQ00786,WST00314,C010,C018,3878.02,2026-07-15,2026-08-02,447.43,Pending,Road,Medium,No additional remarks
+REQ00787,WST00315,C016,C018,3483.59,2026-06-23,2026-07-09,96.63,Accepted,Road,Medium,Bulk procurement
+REQ00788,WST00315,C010,C018,1358.16,2026-05-07,2026-05-21,114.2,Pending,Road,High,Long-term procurement
+REQ00789,WST00316,C005,C019,1547.98,2026-07-23,2026-07-25,98.55,Cancelled,Rail,High,For recycling process
+REQ00790,WST00316,C002,C019,1486.14,2026-04-13,2026-04-28,95.44,Rejected,Rail,Medium,Long-term procurement
+REQ00791,WST00316,C006,C019,1437.43,2026-05-29,2026-06-04,96.1,Pending,Rail,High,Need immediate pickup
+REQ00792,WST00316,C008,C019,719.77,2026-06-24,2026-07-02,104.63,Rejected,Sea,Medium,Need immediate pickup
+REQ00793,WST00317,C016,C019,1810.2,2026-05-10,2026-05-25,242.95,Pending,Road,Medium,Requested as secondary raw material
+REQ00794,WST00318,C018,C019,2107.64,2026-05-25,2026-05-28,32.82,Accepted,Sea,High,Long-term procurement
+REQ00795,WST00318,C013,C019,2424.77,2026-06-18,2026-06-21,34.38,Pending,Road,Low,Urgent production requirement
+REQ00796,WST00318,C007,C019,4225.8,2026-04-13,2026-04-21,40.74,Pending,Road,Low,Trial order
+REQ00797,WST00318,C017,C019,4018.16,2026-06-07,2026-06-20,37.87,Accepted,Road,High,Bulk procurement
+REQ00798,WST00319,C004,C019,1232.34,2026-05-03,2026-05-16,52.03,Pending,Sea,High,Urgent production requirement
+REQ00799,WST00320,C007,C019,174.36,2026-05-21,2026-06-04,466.51,Accepted,Road,Low,Requested for pilot testing
+REQ00800,WST00320,C011,C019,521.37,2026-07-22,2026-08-08,470.9,Accepted,Rail,Medium,Trial order
+REQ00801,WST00321,C011,C019,2193.3,2026-05-21,2026-05-23,487.38,Accepted,Road,High,For recycling process
+REQ00802,WST00321,C003,C019,895.06,2026-06-13,2026-06-23,480.66,Cancelled,Road,High,No additional remarks
+REQ00803,WST00321,C014,C019,2510.24,2026-06-06,2026-06-21,502.81,Rejected,Road,Medium,Requested for pilot testing
+REQ00804,WST00321,C015,C019,2442.25,2026-04-04,2026-04-13,418.35,Accepted,Rail,Medium,Need immediate pickup
+REQ00805,WST00322,C002,C019,2226.22,2026-05-05,2026-05-19,190.9,Accepted,Rail,Medium,For recycling process
+REQ00806,WST00322,C012,C019,2464.56,2026-07-06,2026-07-25,187.7,Accepted,Rail,Low,Long-term procurement
+REQ00807,WST00323,C012,C019,156.55,2026-04-01,2026-04-15,342.81,Pending,Road,Medium,For recycling process
+REQ00808,WST00324,C014,C019,797.82,2026-06-08,2026-06-22,73.98,Accepted,Road,High,Need immediate pickup
+REQ00809,WST00324,C003,C019,1102.52,2026-07-12,2026-07-16,75.11,Rejected,Rail,Medium,Trial order
+REQ00810,WST00325,C007,C019,954.99,2026-05-06,2026-05-08,56.36,Accepted,Sea,Low,Bulk procurement
+REQ00811,WST00325,C003,C019,1558.67,2026-05-31,2026-06-02,47.89,Cancelled,Road,Low,Need immediate pickup
+REQ00812,WST00326,C005,C019,741.43,2026-07-21,2026-07-25,474.83,Pending,Road,Medium,Long-term procurement
+REQ00813,WST00326,C001,C019,769.13,2026-06-01,2026-06-20,523.42,Pending,Road,High,Requested as secondary raw material
+REQ00814,WST00326,C016,C019,954.81,2026-04-27,2026-05-17,468.97,Accepted,Rail,High,For recycling process
+REQ00815,WST00327,C008,C019,678.79,2026-04-19,2026-04-21,240.23,Accepted,Road,High,Long-term procurement
+REQ00816,WST00328,C017,C019,883.37,2026-05-13,2026-05-29,276.05,Accepted,Road,Medium,Long-term procurement
+REQ00817,WST00328,C008,C019,1873.96,2026-06-21,2026-07-05,259.9,Cancelled,Road,Medium,Requested as secondary raw material
+REQ00818,WST00328,C003,C019,1915.39,2026-07-09,2026-07-20,229.69,Accepted,Road,High,For recycling process
+REQ00819,WST00328,C015,C019,2052.43,2026-07-26,2026-08-09,301.23,Pending,Sea,Medium,No additional remarks
+REQ00820,WST00329,C006,C019,1522.43,2026-05-13,2026-05-18,378.06,Accepted,Road,High,Need immediate pickup
+REQ00821,WST00330,C002,C019,1450.37,2026-04-01,2026-04-07,101.25,Accepted,Road,High,For recycling process
+REQ00822,WST00330,C002,C019,3845.32,2026-05-03,2026-05-18,92.02,Pending,Road,Low,Long-term procurement
+REQ00823,WST00330,C012,C019,803.48,2026-07-11,2026-07-23,98.95,Accepted,Road,Low,Requested as secondary raw material
+REQ00824,WST00331,C008,C019,875.09,2026-06-27,2026-07-09,468.46,Accepted,Road,Medium,Long-term procurement
+REQ00825,WST00332,C015,C019,1494.72,2026-04-15,2026-04-25,345.14,Rejected,Road,Medium,Requested for pilot testing
+REQ00826,WST00332,C009,C019,1581.94,2026-05-11,2026-05-14,368.88,Pending,Road,Medium,Bulk procurement
+REQ00827,WST00332,C016,C019,549.4,2026-04-22,2026-05-08,292.1,Cancelled,Road,Medium,Long-term procurement
+REQ00828,WST00333,C008,C019,699.1,2026-05-04,2026-05-07,137.45,Accepted,Road,Low,Urgent production requirement
+REQ00829,WST00334,C005,C019,1369.99,2026-05-23,2026-05-31,328.04,Rejected,Rail,Low,For recycling process
+REQ00830,WST00335,C012,C019,1702.55,2026-05-13,2026-05-25,423.6,Pending,Rail,High,Price negotiation required
+REQ00831,WST00335,C004,C019,2249.42,2026-06-24,2026-07-06,426.49,Cancelled,Road,Low,Bulk procurement
+REQ00832,WST00336,C018,C019,647.05,2026-07-01,2026-07-19,444.98,Accepted,Road,Low,No additional remarks
+REQ00833,WST00336,C014,C019,619.49,2026-05-27,2026-06-11,558.77,Rejected,Road,Low,Need immediate pickup
+REQ00834,WST00336,C007,C019,1659.83,2026-06-19,2026-07-04,458.59,Pending,Road,High,Requested for pilot testing
+REQ00835,WST00337,C016,C019,1866.54,2026-05-09,2026-05-22,252.48,Pending,Road,High,For recycling process
+REQ00836,WST00338,C008,C019,3519.15,2026-04-08,2026-04-19,157.55,Pending,Road,Medium,Urgent production requirement
+REQ00837,WST00339,C006,C020,2298.75,2026-04-29,2026-05-02,83.85,Pending,Road,High,Urgent production requirement
+REQ00838,WST00340,C016,C020,538.33,2026-07-03,2026-07-20,97.33,Accepted,Road,Medium,Urgent production requirement
+REQ00839,WST00340,C003,C020,450.34,2026-06-27,2026-07-02,104.77,Accepted,Rail,Low,Requested for pilot testing
+REQ00840,WST00341,C019,C020,374.06,2026-04-20,2026-04-28,226.16,Accepted,Road,Medium,Requested as secondary raw material
+REQ00841,WST00341,C019,C020,422.06,2026-06-15,2026-06-28,246.12,Rejected,Road,High,Price negotiation required
+REQ00842,WST00341,C011,C020,1063.39,2026-07-23,2026-08-06,215.52,Accepted,Sea,Medium,Trial order
+REQ00843,WST00342,C007,C020,456.76,2026-05-26,2026-06-01,213.07,Accepted,Road,Low,Need immediate pickup
+REQ00844,WST00342,C013,C020,872.44,2026-07-22,2026-08-03,222.96,Cancelled,Road,Medium,Long-term procurement
+REQ00845,WST00342,C018,C020,1422.83,2026-04-17,2026-04-19,218.32,Pending,Road,Medium,Long-term procurement
+REQ00846,WST00343,C011,C020,2944.59,2026-04-01,2026-04-12,561.74,Accepted,Road,Low,Trial order
+REQ00847,WST00343,C009,C020,938.2,2026-06-24,2026-07-07,541.37,Accepted,Road,High,Urgent production requirement
+REQ00848,WST00344,C013,C020,1259.33,2026-05-31,2026-06-08,56.97,Pending,Rail,Low,Requested for pilot testing
+REQ00849,WST00344,C001,C020,1844.79,2026-05-23,2026-06-09,49.44,Rejected,Road,High,Price negotiation required
+REQ00850,WST00345,C019,C020,2054.52,2026-04-01,2026-04-10,444.78,Pending,Road,High,Trial order
+REQ00851,WST00345,C003,C020,533.98,2026-05-02,2026-05-04,461.45,Pending,Road,Medium,Bulk procurement
+REQ00852,WST00346,C017,C020,120.31,2026-07-04,2026-07-14,471.0,Accepted,Road,High,For recycling process
+REQ00853,WST00346,C007,C020,159.2,2026-05-14,2026-05-22,428.39,Accepted,Road,Medium,Urgent production requirement
