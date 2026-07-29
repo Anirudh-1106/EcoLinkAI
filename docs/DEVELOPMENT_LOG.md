@@ -483,3 +483,154 @@ Materials
 * Design realistic waste availability records linked to materials and plants.
 * Include attributes such as quantity, purity, pricing, urgency, storage conditions, listing status, and environmental indicators.
 * Prepare the dataset as the primary input for the MC-GNN recommendation model.
+
+Perfect. Here's a log entry in the same style as the previous ones.
+
+---
+
+# **Project Log – July 29, 2026**
+
+## **Objective**
+
+Continue the synthetic dataset generation pipeline for the EcoLinkAI project by implementing the business interaction datasets and validating the generated data. Also reviewed and refined the overall MC-GNN system architecture.
+
+---
+
+## **Tasks Completed**
+
+### **1. Exchange Requests Dataset**
+
+* Designed the `exchange_requests.csv` schema.
+* Created supporting metadata files:
+
+  * `request_statuses.json`
+  * `transportation_modes.json`
+  * `request_priorities.json`
+  * `request_remarks.json`
+* Implemented `generate_exchange_requests.py`.
+* Generated realistic exchange requests between companies while ensuring:
+
+  * Requester company is different from supplier company.
+  * Requested quantity does not exceed available waste quantity.
+  * Offered prices vary around the asking price.
+  * Realistic request status distribution.
+* Improved transportation mode generation using weighted probabilities:
+
+  * Road (~70%)
+  * Rail (~20%)
+  * Sea (~10%)
+* Successfully generated and validated **853 exchange requests** with no duplicate IDs or missing values.
+
+---
+
+### **2. Transactions Dataset**
+
+* Designed the `transactions.csv` schema.
+* Created metadata files:
+
+  * `delivery_statuses.json`
+  * `payment_statuses.json`
+* Implemented `generate_transactions.py`.
+* Generated transactions **only from accepted exchange requests** to maintain realistic business workflow.
+* Added transaction-related information including:
+
+  * Final quantity
+  * Final agreed price
+  * Transportation cost
+  * Carbon saving estimate
+  * Delivery status
+  * Payment status
+* Successfully generated **345 transactions** with complete referential integrity and no validation issues.
+
+---
+
+### **3. Reviews Dataset**
+
+* Designed the `reviews.csv` schema.
+* Created metadata files:
+
+  * `review_comments.json`
+  * `recommendation_options.json`
+* Implemented `generate_reviews.py`.
+* Generated one buyer review for each completed transaction.
+* Included:
+
+  * Rating (1–5)
+  * Review comment
+  * Review date
+  * Recommendation status
+* Successfully generated **345 reviews** with no duplicate IDs or missing values.
+
+---
+
+### **4. Dataset Validation**
+
+Validated all newly generated datasets by checking:
+
+* Dataset dimensions
+* Duplicate primary keys
+* Missing values
+* Status distributions
+* Business logic consistency
+* Referential integrity between datasets
+
+All datasets passed validation successfully.
+
+---
+
+### **5. Architecture Review**
+
+Reviewed the complete MC-GNN workflow and refined the system design.
+
+Key architectural decisions:
+
+* Historical datasets will be used **only for model training**.
+* During deployment:
+
+  * New waste listings will be processed by the MC-GNN.
+  * The model will recommend suitable exchange partners **before** any transaction occurs.
+* Decided **not** to generate static `graph_nodes.csv` and `graph_edges.csv`.
+* The heterogeneous graph will instead be constructed dynamically from PostgreSQL during model training using PyTorch Geometric.
+
+---
+
+## **Current Dataset Progress**
+
+| Dataset           | Status      |
+| ----------------- | ----------- |
+| Companies         | ✅ Completed |
+| Plants            | ✅ Completed |
+| Materials         | ✅ Completed |
+| Waste Listings    | ✅ Completed |
+| Exchange Requests | ✅ Completed |
+| Transactions      | ✅ Completed |
+| Reviews           | ✅ Completed |
+
+---
+
+## **Current Statistics**
+
+| Dataset           | Records |
+| ----------------- | ------: |
+| Companies         |      20 |
+| Plants            |      40 |
+| Materials         |     141 |
+| Waste Listings    |     346 |
+| Exchange Requests |     853 |
+| Transactions      |     345 |
+| Reviews           |     345 |
+
+**Total records generated:** **2,090**
+
+---
+
+## **Next Steps**
+
+* Design PostgreSQL database schema.
+* Import all generated datasets into PostgreSQL.
+* Build the graph dynamically from the relational database.
+* Perform feature engineering for node and edge attributes.
+* Implement and train the MC-GNN recommendation model.
+
+---
+
