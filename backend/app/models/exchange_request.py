@@ -179,7 +179,7 @@ class ExchangeRequest(BaseModel):
         back_populates="exchange_requests",
     )
 
-    exchange: Mapped["Exchange" | None] = relationship(
+    exchange: Mapped[Exchange | None] = relationship(
         back_populates="exchange_request",
         uselist=False,
         cascade="all, delete-orphan",

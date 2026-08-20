@@ -3,30 +3,16 @@ from __future__ import annotations
 from sqlalchemy import Boolean, Enum, Numeric, String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from app.models.base import BaseModel
 from app.enums.transport import VehicleType
-
-# ==========================================
-# ENUMS
-# ==========================================
-
-from enum import Enum as PyEnum
-
-
-class VehicleType(str, PyEnum):
-    MINI_TRUCK = "Mini Truck"
-    LIGHT_TRUCK = "Light Truck"
-    MEDIUM_TRUCK = "Medium Truck"
-    HEAVY_TRUCK = "Heavy Truck"
-    CONTAINER = "Container"
-
-
-# ==========================================
-# MODEL
-# ==========================================
+from app.models.base import BaseModel
 
 
 class TransportRate(BaseModel):
+    """
+    Stores transportation pricing information used by the
+    AI recommendation engine to estimate logistics costs.
+    """
+
     __tablename__ = "transport_rates"
 
     vehicle_type: Mapped[VehicleType] = mapped_column(

@@ -17,6 +17,7 @@ from app.models.base import BaseModel
 if TYPE_CHECKING:
     from app.models.industry_contact import IndustryContact
     from app.models.plant import Plant
+    from app.models.user import User
     from app.models.verification import Verification
 
 
@@ -107,6 +108,10 @@ class Company(BaseModel):
     verifications: Mapped[list["Verification"]] = relationship(
         back_populates="company",
         cascade="all, delete-orphan",
+    )
+
+    users: Mapped[list["User"]] = relationship(
+        back_populates="company",
     )
 
     def __repr__(self) -> str:

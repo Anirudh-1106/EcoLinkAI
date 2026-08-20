@@ -8,6 +8,8 @@ from .material import Material
 from .plant import Plant
 from .requirement import Requirement
 from .review import Review
+from .transport_rate import TransportRate
+from .user import User, UserRole
 from .verification import Verification
 from .waste_listing import WasteListing
 
@@ -23,6 +25,10 @@ __all__ = [
     "Requirement",
     "ExchangeRequest",
     "Exchange",
+    "TransportRate",
     "Review",
     "Analytics",
+    "User",
+    "UserRole",
 ]
+
