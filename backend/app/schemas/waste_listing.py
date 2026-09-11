@@ -56,6 +56,9 @@ class WasteListingResponse(BaseModel):
 
     # Joined fields
     plant_name: str | None = None
+    plant_district: str | None = None
+    plant_latitude: Decimal | None = None
+    plant_longitude: Decimal | None = None
     material_name: str | None = None
     company_name: str | None = None
     company_id: uuid.UUID | None = None
