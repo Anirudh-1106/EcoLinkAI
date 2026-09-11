@@ -20,6 +20,7 @@ class ExchangeRequestCreate(BaseModel):
     requested_quantity: Decimal = Field(gt=0)
     remarks: str | None = Field(None, max_length=1000)
     transportation_mode: str | None = None
+    recommendation_rank: int | None = Field(None, ge=1)
 
 
 class ExchangeRequestResponse(BaseModel):
@@ -44,6 +45,8 @@ class ExchangeRequestResponse(BaseModel):
     # Joined
     supplier_plant_name: str | None = None
     buyer_plant_name: str | None = None
+    supplier_company_id: uuid.UUID | None = None
+    buyer_company_id: uuid.UUID | None = None
     supplier_company_name: str | None = None
     buyer_company_name: str | None = None
     material_name: str | None = None

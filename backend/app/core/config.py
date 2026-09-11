@@ -51,10 +51,17 @@ class Settings:
         ]
 
         # ── AI / Model ────────────────────────────────────
-        self.MODEL_PATH: str = os.getenv(
+        # Resolved against BASE_DIR (backend/), not the process's cwd, so a
+        # relative MODEL_PATH in .env works regardless of where the server
+        # is launched from.
+        raw_model_path = os.getenv(
             "MODEL_PATH",
             str(BASE_DIR.parent / "ai" / "checkpoints"),
         )
+        model_path = Path(raw_model_path)
+        if not model_path.is_absolute():
+            model_path = (BASE_DIR / model_path).resolve()
+        self.MODEL_PATH: str = str(model_path)
 
         # ── Debug ─────────────────────────────────────────
         self.DEBUG: bool = (
