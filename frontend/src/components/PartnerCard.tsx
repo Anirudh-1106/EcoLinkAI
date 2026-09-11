@@ -30,6 +30,18 @@ export const PartnerCardComponent: React.FC<PartnerCardProps> = ({ partner, onSe
             <MapPin className="w-3.5 h-3.5 text-industrial-400" />
             <span>{partner.plant_name} ({partner.plant_district}, {partner.plant_state})</span>
           </p>
+          {partner.listing_quantity != null && (
+            <p className="text-xs text-industrial-300 mt-1">
+              <span className="text-eco-400 font-semibold">{partner.listing_quantity} {partner.listing_unit || 'KG'}</span>
+              {' available'}
+              {partner.listing_price_per_unit != null && (
+                <span> · ₹{partner.listing_price_per_unit}/{partner.listing_unit || 'unit'}</span>
+              )}
+              {partner.listing_purity != null && (
+                <span> · {partner.listing_purity}% purity</span>
+              )}
+            </p>
+          )}
         </div>
 
         {/* AI Compatibility Score Badge */}
@@ -93,7 +105,7 @@ export const PartnerCardComponent: React.FC<PartnerCardProps> = ({ partner, onSe
           onClick={() => onSelect(partner)}
           className="bg-eco-600 hover:bg-eco-500 text-white font-semibold text-xs px-4 py-2.5 rounded-xl transition-all shadow-md shadow-eco-600/20 flex items-center gap-2"
         >
-          <span>Send Exchange Request</span>
+          <span>Request to Buy</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>
