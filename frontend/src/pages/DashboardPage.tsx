@@ -3,21 +3,24 @@ import { Factory, Trash2, ClipboardList, ArrowRightLeft, Truck, Leaf, ShieldChec
 import { fetchApi } from '../api/client';
 import { DashboardStats } from '../types';
 import { StatCard } from '../components/StatCard';
+import { ErrorBanner } from '../components/ErrorBanner';
 import { Link } from 'react-router-dom';
 
 export const DashboardPage: React.FC = () => {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     fetchApi<DashboardStats>('/analytics/dashboard')
       .then((data) => setStats(data))
-      .catch((err) => console.error(err))
+      .catch((err) => setError(err.message || 'Failed to load dashboard stats'))
       .finally(() => setLoading(false));
   }, []);
 
   return (
     <div className="space-y-6">
+      {error && <ErrorBanner message={error} />}
       {/* Top Banner */}
       <div className="bg-gradient-to-r from-eco-950 via-industrial-900 to-industrial-900 border border-eco-500/20 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
         <div className="space-y-2">
@@ -35,7 +38,7 @@ export const DashboardPage: React.FC = () => {
           className="bg-eco-600 hover:bg-eco-500 text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-lg shadow-eco-600/30 flex items-center gap-2 shrink-0 transition-all"
         >
           <Sparkles className="w-4 h-4" />
-          <span>Find Suitable Partners</span>
+          <span>Find Suitable Sellers</span>
         </Link>
       </div>
 
@@ -90,7 +93,11 @@ export const DashboardPage: React.FC = () => {
         <StatCard
           title="Trust & Rating"
           value={stats ? `${stats.trust_score.toFixed(1)} / 100` : '...'}
-          subtitle={`Avg Rating: ${stats?.average_rating ? stats.average_rating.toFixed(1) : 5.0} ★`}
+          subtitle={
+            stats && stats.average_rating > 0
+              ? `Avg Rating: ${stats.average_rating.toFixed(1)} ★`
+              : 'No ratings yet'
+          }
           icon={ShieldCheck}
           color="amber"
         />

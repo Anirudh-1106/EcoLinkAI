@@ -5,16 +5,18 @@ import {
 import { BarChart3, Leaf, Sparkles, TrendingUp, Layers, Award } from 'lucide-react';
 import { fetchApi } from '../api/client';
 import { AIModelMetrics, MaterialDistribution, PlatformAnalytics } from '../types';
+import { ErrorBanner, EmptyState } from '../components/ErrorBanner';
 
 export const AnalyticsPage: React.FC = () => {
   const [platform, setPlatform] = useState<PlatformAnalytics | null>(null);
   const [distribution, setDistribution] = useState<MaterialDistribution[]>([]);
   const [aiMetrics, setAiMetrics] = useState<AIModelMetrics | null>(null);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    fetchApi<PlatformAnalytics>('/analytics/platform').then(setPlatform);
-    fetchApi<MaterialDistribution[]>('/analytics/materials-distribution').then(setDistribution);
-    fetchApi<AIModelMetrics>('/analytics/ai-metrics').then(setAiMetrics);
+    fetchApi<PlatformAnalytics>('/analytics/company').then(setPlatform).catch((err) => setError(err.message || 'Failed to load analytics'));
+    fetchApi<MaterialDistribution[]>('/analytics/materials-distribution').then(setDistribution).catch((err) => setError(err.message || 'Failed to load material distribution'));
+    fetchApi<AIModelMetrics>('/analytics/ai-metrics').then(setAiMetrics).catch((err) => setError(err.message || 'Failed to load AI metrics'));
   }, []);
 
   const COLORS = ['#22c55e', '#3b82f6', '#f59e0b', '#8b5cf6', '#ec4899', '#14b8a6'];
@@ -24,9 +26,11 @@ export const AnalyticsPage: React.FC = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white">Analytics & AI Insights</h1>
-          <p className="text-xs text-industrial-400">Platform performance, carbon impact, and MC-GNN evaluation metrics</p>
+          <p className="text-xs text-industrial-400">Your company's performance, carbon impact, and MC-GNN evaluation metrics</p>
         </div>
       </div>
+
+      {error && <ErrorBanner message={error} />}
 
       {/* Top AI Model Evaluation Card */}
       {aiMetrics && (
@@ -93,7 +97,7 @@ export const AnalyticsPage: React.FC = () => {
           <div className="bg-industrial-900 border border-industrial-800 rounded-2xl p-5 shadow-sm space-y-4">
             <h2 className="text-sm font-bold text-white flex items-center gap-2">
               <Leaf className="w-4 h-4 text-eco-400" />
-              <span>Platform Carbon & Sustainability Impact</span>
+              <span>Your Carbon & Sustainability Impact</span>
             </h2>
 
             <div className="space-y-3">

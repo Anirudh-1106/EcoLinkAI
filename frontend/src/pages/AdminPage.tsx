@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { ShieldCheck, Building2, Factory, Trash2, Layers, CheckCircle2, XCircle } from 'lucide-react';
 import { fetchApi } from '../api/client';
 import { Company, PlatformAnalytics } from '../types';
+import { ErrorBanner } from '../components/ErrorBanner';
 
 export const AdminPage: React.FC = () => {
   const [companies, setCompanies] = useState<Company[]>([]);
   const [platform, setPlatform] = useState<PlatformAnalytics | null>(null);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    fetchApi<{ items: Company[] }>('/companies').then((d) => setCompanies(d.items));
-    fetchApi<PlatformAnalytics>('/analytics/platform').then(setPlatform);
+    fetchApi<{ items: Company[] }>('/companies').then((d) => setCompanies(d.items)).catch((err) => setError(err.message || 'Failed to load companies'));
+    fetchApi<PlatformAnalytics>('/analytics/platform').then(setPlatform).catch((err) => setError(err.message || 'Failed to load platform analytics'));
   }, []);
 
   return (
@@ -20,6 +22,8 @@ export const AdminPage: React.FC = () => {
           <p className="text-xs text-industrial-400">Verify company credentials, monitor ecosystem statistics, and AI health</p>
         </div>
       </div>
+
+      {error && <ErrorBanner message={error} />}
 
       {/* Overview Cards */}
       {platform && (
