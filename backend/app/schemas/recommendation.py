@@ -100,3 +100,25 @@ class RequirementRecommendationResponse(BaseModel):
     recommendations: list[PartnerCard]
     model_version: str = "v1.0"
     inference_time_ms: float | None = None
+
+
+class SearchRecommendationRequest(BaseModel):
+    """Request for AI seller recommendations via marketplace search."""
+    material_query: str = Field(min_length=2, max_length=255)
+    buyer_plant_id: uuid.UUID
+    quantity_needed: float | None = Field(None, gt=0)
+    max_distance_km: Decimal | None = Field(None, ge=0)
+    max_results: int = Field(default=10, ge=1, le=50)
+
+
+class SearchRecommendationResponse(BaseModel):
+    """Full recommendation response for search-initiated flow (finding sellers)."""
+    material_query: str
+    material_name: str
+    buyer_plant_name: str
+    buyer_plant_latitude: Decimal
+    buyer_plant_longitude: Decimal
+    total_candidates: int
+    recommendations: list[PartnerCard]
+    model_version: str = "v1.0"
+    inference_time_ms: float | None = None

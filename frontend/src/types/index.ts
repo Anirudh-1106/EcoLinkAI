@@ -155,6 +155,18 @@ export interface RequirementRecommendationResponse {
   inference_time_ms?: number;
 }
 
+export interface SearchRecommendationResponse {
+  material_query: string;
+  material_name: string;
+  buyer_plant_name: string;
+  buyer_plant_latitude: number;
+  buyer_plant_longitude: number;
+  total_candidates: number;
+  recommendations: PartnerCard[];
+  model_version: string;
+  inference_time_ms?: number;
+}
+
 export interface ExchangeRequest {
   id: string;
   supplier_plant_id: string;

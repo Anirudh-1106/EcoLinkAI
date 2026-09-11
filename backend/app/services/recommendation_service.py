@@ -40,6 +40,8 @@ from app.schemas.recommendation import (
     RecommendationResponse,
     RequirementRecommendationRequest,
     RequirementRecommendationResponse,
+    SearchRecommendationRequest,
+    SearchRecommendationResponse,
 )
 from app.utils.distance import (
     estimate_carbon_saving,
@@ -953,3 +955,206 @@ def _build_seller_partner_card(rank: int, scored: dict, model_version: str) -> P
         explanation=explanation,
     )
 
+
+def get_recommendations_by_search(
+    db: Session,
+    request: SearchRecommendationRequest,
+) -> SearchRecommendationResponse:
+    """
+    Generate ranked seller recommendations from a free-text material search.
+
+    Creates a 'ghost requirement' in memory (not persisted) so the existing
+    scoring pipeline can be reused. This powers the Discover Sellers search bar.
+    """
+    start_time = time.time()
+
+    # ── 1. Load buyer plant ───────────────────────────
+    buyer_plant = (
+        db.query(Plant)
+        .options(joinedload(Plant.company))
+        .filter(Plant.id == request.buyer_plant_id)
+        .first()
+    )
+    if not buyer_plant:
+        raise ValueError("Buyer plant not found")
+
+    # ── 2. Find matching waste listings via ILIKE ─────
+    listings = (
+        db.query(WasteListing)
+        .options(
+            joinedload(WasteListing.plant).joinedload(Plant.company),
+            joinedload(WasteListing.material),
+        )
+        .join(Material, WasteListing.material_id == Material.id)
+        .filter(
+            Material.material_name.ilike(f"%{request.material_query}%"),
+            WasteListing.status == WasteStatus.AVAILABLE,
+        )
+        .all()
+    )
+
+    # ── 3. Build candidates with ghost requirement ────
+    candidates = []
+    for listing in listings:
+        seller_plant = listing.plant
+        # Skip same company
+        if str(seller_plant.company_id) == str(buyer_plant.company_id):
+            continue
+
+        dist = haversine_distance(
+            float(buyer_plant.latitude),
+            float(buyer_plant.longitude),
+            float(seller_plant.latitude),
+            float(seller_plant.longitude),
+        )
+
+        # Geographic filter
+        if request.max_distance_km and dist > float(request.max_distance_km):
+            continue
+
+        candidates.append({
+            "listing": listing,
+            "seller_plant": seller_plant,
+            "seller_company": seller_plant.company,
+            "distance_km": dist,
+        })
+
+    # ── 4. Score using ghost requirement ──────────────
+    # Build a lightweight ghost requirement object for scoring
+    ghost_quantity = request.quantity_needed if request.quantity_needed else None
+
+    scored = []
+    for candidate in candidates:
+        listing = candidate["listing"]
+        seller_plant = candidate["seller_plant"]
+        seller_company = candidate["seller_company"]
+        distance_km = candidate["distance_km"]
+
+        # Material compatibility is always 100 (matched by search)
+        material_compat = 100.0
+
+        # Quantity compatibility
+        if ghost_quantity:
+            qty_ratio = min(
+                float(listing.quantity) / ghost_quantity,
+                ghost_quantity / float(listing.quantity),
+            )
+            quantity_compat = qty_ratio * 100.0
+        else:
+            quantity_compat = 100.0  # User didn't specify, assume perfect match
+
+        # Quality — accept anything
+        quality_compat = 100.0
+
+        # Price — no budget constraint from search
+        price_compat = 100.0
+
+        # Distance score
+        distance_score = max(0, (1 - distance_km / 500.0)) * 100
+
+        # Trust
+        trust = float(seller_company.trust_score) if seller_company.trust_score else 50.0
+
+        # Historical exchanges
+        hist_count = (
+            db.query(func.count(ExchangeRequest.id))
+            .filter(
+                ExchangeRequest.status == ExchangeRequestStatus.ACCEPTED,
+                (
+                    (ExchangeRequest.supplier_plant_id == seller_plant.id)
+                    & (ExchangeRequest.buyer_plant_id == buyer_plant.id)
+                )
+                | (
+                    (ExchangeRequest.supplier_plant_id == buyer_plant.id)
+                    & (ExchangeRequest.buyer_plant_id == seller_plant.id)
+                ),
+            )
+            .scalar()
+            or 0
+        )
+        history_score = min(hist_count * 10, 100)
+
+        # Transport
+        quantity_tons = float(listing.quantity) / 1000.0
+        transport_cost = estimate_transport_cost(distance_km, max(quantity_tons, 0.1))
+        transport_emission = estimate_transport_emission(distance_km, max(quantity_tons, 0.1))
+
+        # Carbon
+        carbon_factor = (
+            float(listing.material.carbon_factor)
+            if listing.material.carbon_factor
+            else None
+        )
+        carbon_saving = estimate_carbon_saving(float(listing.quantity), carbon_factor)
+
+        # Weighted score (same weights as seller flow)
+        score = (
+            0.25 * material_compat
+            + 0.15 * quantity_compat
+            + 0.10 * quality_compat
+            + 0.10 * min(price_compat, 100)
+            + 0.15 * distance_score
+            + 0.10 * trust
+            + 0.05 * history_score
+            + 0.10 * min(carbon_saving / 100, 100)
+        )
+        score = min(max(score, 0), 100)
+
+        if distance_km < 100:
+            transport_feas = "Excellent"
+        elif distance_km < 250:
+            transport_feas = "High"
+        elif distance_km < 500:
+            transport_feas = "Moderate"
+        else:
+            transport_feas = "Low"
+
+        scored.append({
+            "score": score,
+            "candidate": candidate,
+            "features": {
+                "material_compat": material_compat,
+                "quantity_compat": quantity_compat,
+                "quality_compat": quality_compat,
+                "price_compat": price_compat,
+                "distance_km": round(distance_km, 2),
+                "distance_score": distance_score,
+                "trust": trust,
+                "history_score": history_score,
+                "hist_count": hist_count,
+                "transport_cost": round(transport_cost, 2),
+                "transport_emission": round(transport_emission, 2),
+                "carbon_saving": round(carbon_saving, 2),
+                "transport_feasibility": transport_feas,
+            },
+        })
+
+    # Sort by score descending
+    scored.sort(key=lambda x: x["score"], reverse=True)
+
+    # Build partner cards (reuse existing builder)
+    recommendations = []
+    for rank, item in enumerate(scored[: request.max_results], start=1):
+        card = _build_seller_partner_card(rank, item, _model_version)
+        recommendations.append(card)
+
+    elapsed_ms = (time.time() - start_time) * 1000
+
+    # Determine the primary material name from results
+    matched_material_name = (
+        scored[0]["candidate"]["listing"].material.material_name
+        if scored
+        else request.material_query
+    )
+
+    return SearchRecommendationResponse(
+        material_query=request.material_query,
+        material_name=matched_material_name,
+        buyer_plant_name=buyer_plant.plant_name,
+        buyer_plant_latitude=buyer_plant.latitude,
+        buyer_plant_longitude=buyer_plant.longitude,
+        total_candidates=len(candidates),
+        recommendations=recommendations,
+        model_version=_model_version,
+        inference_time_ms=round(elapsed_ms, 2),
+    )

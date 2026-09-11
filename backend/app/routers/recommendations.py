@@ -13,6 +13,8 @@ from app.schemas.recommendation import (
     RecommendationResponse,
     RequirementRecommendationRequest,
     RequirementRecommendationResponse,
+    SearchRecommendationRequest,
+    SearchRecommendationResponse,
 )
 from app.services import recommendation_service
 
@@ -57,4 +59,25 @@ def get_seller_recommendations(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Recommendation engine error: {str(e)}",
+        )
+
+
+@router.post("/by-search", response_model=SearchRecommendationResponse)
+def search_seller_recommendations(
+    request: SearchRecommendationRequest,
+    db: Annotated[Session, Depends(get_db)],
+):
+    """
+    Search for seller recommendations by material name.
+    Powers the Discover Sellers marketplace search bar.
+    Creates a ghost requirement in memory for AI scoring.
+    """
+    try:
+        return recommendation_service.get_recommendations_by_search(db, request)
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(e))
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Search recommendation engine error: {str(e)}",
         )

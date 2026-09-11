@@ -48,6 +48,46 @@ def get_categories(db: Annotated[Session, Depends(get_db)]):
     return material_service.get_material_categories(db)
 
 
+@router.get("/autocomplete")
+def autocomplete_materials(
+    db: Annotated[Session, Depends(get_db)],
+    q: str = Query("", min_length=2, max_length=100),
+):
+    """Autocomplete material names for search. Returns up to 10 matching names."""
+    import re
+    from app.models.material import Material
+    
+    # Fetch a larger pool since we will deduplicate in Python
+    results = (
+        db.query(Material.material_name)
+        .filter(
+            Material.material_name.ilike(f"%{q}%"),
+            Material.is_active.is_(True),
+        )
+        .limit(100)
+        .all()
+    )
+    
+    # Clean the names by removing synthetic (M###) suffixes and deduplicate
+    unique_suggestions = []
+    seen = set()
+    
+    for r in results:
+        raw_name = r[0]
+        # Strip out suffixes like " (M005)", " (M114)", etc.
+        clean_name = re.sub(r'\s*\([A-Z0-9]+\)$', '', raw_name).strip()
+        
+        if clean_name not in seen:
+            seen.add(clean_name)
+            unique_suggestions.append(clean_name)
+            
+        if len(unique_suggestions) >= 10:
+            break
+            
+    return {"suggestions": unique_suggestions}
+
+
+
 @router.get("/{material_id}", response_model=MaterialResponse)
 def get_material(
     material_id: uuid.UUID,
