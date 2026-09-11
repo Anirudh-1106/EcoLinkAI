@@ -63,6 +63,9 @@ export interface WasteListing {
   status: string;
   created_at: string;
   plant_name?: string;
+  plant_district?: string;
+  plant_latitude?: number;
+  plant_longitude?: number;
   material_name?: string;
   company_name?: string;
   company_id?: string;
@@ -109,9 +112,17 @@ export interface PartnerCard {
   plant_name: string;
   plant_district: string;
   plant_state: string;
+  plant_latitude: number;
+  plant_longitude: number;
   requirement_id?: string;
   required_quantity?: number;
   required_purity?: number;
+  waste_listing_id?: string;
+  listing_quantity?: number;
+  listing_purity?: number;
+  listing_price_per_unit?: number;
+  listing_unit?: string;
+  listing_quality_grade?: string;
   material_name: string;
   compatibility_score: number;
   distance_km: number;
@@ -124,6 +135,20 @@ export interface RecommendationResponse {
   waste_listing_id: string;
   material_name: string;
   supplier_plant_name: string;
+  supplier_plant_latitude: number;
+  supplier_plant_longitude: number;
+  total_candidates: number;
+  recommendations: PartnerCard[];
+  model_version: string;
+  inference_time_ms?: number;
+}
+
+export interface RequirementRecommendationResponse {
+  requirement_id: string;
+  material_name: string;
+  buyer_plant_name: string;
+  buyer_plant_latitude: number;
+  buyer_plant_longitude: number;
   total_candidates: number;
   recommendations: PartnerCard[];
   model_version: string;
@@ -148,6 +173,8 @@ export interface ExchangeRequest {
   created_at: string;
   supplier_plant_name?: string;
   buyer_plant_name?: string;
+  supplier_company_id?: string;
+  buyer_company_id?: string;
   supplier_company_name?: string;
   buyer_company_name?: string;
   material_name?: string;

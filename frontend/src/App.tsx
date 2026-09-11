@@ -38,6 +38,12 @@ const ProtectedRoute: React.FC = () => {
   return <AppLayout />;
 };
 
+const AdminRoute: React.FC = () => {
+  const { user } = useAuth();
+  if (user && user.role !== 'admin') return <Navigate to="/dashboard" replace />;
+  return <AdminPage />;
+};
+
 export const App: React.FC = () => {
   return (
     <AuthProvider>
@@ -59,7 +65,7 @@ export const App: React.FC = () => {
             <Route path="/transactions" element={<TransactionsPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/analytics" element={<AnalyticsPage />} />
-            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin" element={<AdminRoute />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/" replace />} />
