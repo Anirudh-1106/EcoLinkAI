@@ -26,6 +26,9 @@ def _to_response(w) -> WasteListingResponse:
     resp = WasteListingResponse.model_validate(w)
     if w.plant:
         resp.plant_name = w.plant.plant_name
+        resp.plant_district = w.plant.district
+        resp.plant_latitude = w.plant.latitude
+        resp.plant_longitude = w.plant.longitude
         if w.plant.company:
             resp.company_name = w.plant.company.company_name
             resp.company_id = w.plant.company.id

@@ -6,17 +6,19 @@ import uuid
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
 from app.core.security import get_current_user
+from app.models.exchange_request import ExchangeRequest
 from app.models.user import User
 from app.schemas.exchange import (
     ExchangeRequestAction,
     ExchangeRequestCreate,
     ExchangeRequestResponse,
 )
-from app.services import exchange_service, waste_listing_service
+from app.services import exchange_service, recommendation_service, waste_listing_service
 
 router = APIRouter(prefix="/exchange-requests", tags=["Exchange Requests"])
 
@@ -26,10 +28,12 @@ def _req_to_response(r) -> ExchangeRequestResponse:
     if r.supplier_plant:
         resp.supplier_plant_name = r.supplier_plant.plant_name
         if r.supplier_plant.company:
+            resp.supplier_company_id = r.supplier_plant.company.id
             resp.supplier_company_name = r.supplier_plant.company.company_name
     if r.buyer_plant:
         resp.buyer_plant_name = r.buyer_plant.plant_name
         if r.buyer_plant.company:
+            resp.buyer_company_id = r.buyer_plant.company.id
             resp.buyer_company_name = r.buyer_plant.company.company_name
     if r.waste_listing:
         resp.waste_quantity = r.waste_listing.quantity
@@ -38,22 +42,33 @@ def _req_to_response(r) -> ExchangeRequestResponse:
     return resp
 
 
+def _user_owns_request(current_user: User, r) -> bool:
+    if not current_user.company_id:
+        return False
+    supplier_company_id = r.supplier_plant.company_id if r.supplier_plant else None
+    buyer_company_id = r.buyer_plant.company_id if r.buyer_plant else None
+    return current_user.company_id in (supplier_company_id, buyer_company_id)
+
+
 @router.get("", response_model=list[ExchangeRequestResponse])
 def list_exchange_requests(
     db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(get_current_user)],
     page: int = Query(1, ge=1),
     page_size: int = Query(20, ge=1, le=100),
-    company_id: uuid.UUID | None = None,
     plant_id: uuid.UUID | None = None,
     status_filter: str | None = Query(None, alias="status"),
     role: str = "all",
 ):
-    """List exchange requests."""
+    """List exchange requests belonging to the current user's company."""
+    if not current_user.company_id:
+        return []
+
     items, total = exchange_service.get_exchange_requests(
         db,
         page=page,
         page_size=page_size,
-        company_id=company_id,
+        company_id=current_user.company_id,
         plant_id=plant_id,
         status=status_filter,
         role=role,
@@ -65,11 +80,14 @@ def list_exchange_requests(
 def get_exchange_request(
     request_id: uuid.UUID,
     db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(get_current_user)],
 ):
     """Get single exchange request details."""
     r = exchange_service.get_exchange_request(db, request_id)
     if not r:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Request not found")
+    if not _user_owns_request(current_user, r):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to view this request")
     return _req_to_response(r)
 
 
@@ -84,21 +102,48 @@ def create_exchange_request(
     if not listing:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Waste listing not found")
 
+    if db.query(ExchangeRequest).filter(
+        ExchangeRequest.waste_listing_id == data.waste_listing_id,
+        ExchangeRequest.requirement_id == data.requirement_id,
+    ).first():
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="An exchange request already exists for this listing and requirement",
+        )
+
     supplier_plant_id = listing.plant_id
 
-    req = exchange_service.create_exchange_request(
-        db,
-        data,
-        supplier_plant_id=supplier_plant_id,
-        compatibility_score=95.0,  # Default fallback if direct request
-        ai_confidence_score=90.0,
-        recommendation_rank=1,
-        distance_km=50.0,
-        estimated_transport_cost=float(data.offered_price_per_unit or 100) * float(data.requested_quantity),
-        estimated_carbon_emission=25.0,
-        estimated_carbon_saving=float(data.requested_quantity) * 1.2,
-        recommendation_reason="User selected partner recommendation",
-    )
+    try:
+        match = recommendation_service.score_candidate_pair(
+            db,
+            waste_listing_id=data.waste_listing_id,
+            buyer_plant_id=data.buyer_plant_id,
+            requirement_id=data.requirement_id,
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+
+    try:
+        req = exchange_service.create_exchange_request(
+            db,
+            data,
+            supplier_plant_id=supplier_plant_id,
+            compatibility_score=match["compatibility_score"],
+            ai_confidence_score=match["ai_score"],
+            recommendation_rank=data.recommendation_rank or 1,
+            distance_km=match["distance_km"],
+            estimated_transport_cost=match["estimated_transport_cost"],
+            estimated_carbon_emission=match["estimated_carbon_emission"],
+            estimated_carbon_saving=match["estimated_carbon_saving"],
+            recommendation_reason=data.remarks,
+        )
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="An exchange request already exists for this listing and requirement",
+        )
+
     full_req = exchange_service.get_exchange_request(db, req.id)
     return _req_to_response(full_req or req)
 
@@ -111,6 +156,16 @@ def handle_exchange_request_action(
     current_user: Annotated[User, Depends(get_current_user)],
 ):
     """Accept or reject an exchange request."""
+    existing = exchange_service.get_exchange_request(db, request_id)
+    if not existing:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Request not found")
+    supplier_company_id = existing.supplier_plant.company_id if existing.supplier_plant else None
+    if not current_user.company_id or current_user.company_id != supplier_company_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only the seller (supplier company) can accept or reject this request",
+        )
+
     if action_data.action == "accept":
         req = exchange_service.accept_exchange_request(db, request_id)
     else:
