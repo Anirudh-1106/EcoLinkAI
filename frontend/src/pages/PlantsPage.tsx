@@ -3,15 +3,17 @@ import { Factory, MapPin, Plus, AlertCircle } from 'lucide-react';
 import { fetchApi } from '../api/client';
 import { Plant } from '../types';
 import { MapView } from '../components/MapView';
+import { ErrorBanner, EmptyState } from '../components/ErrorBanner';
 
 export const PlantsPage: React.FC = () => {
   const [plants, setPlants] = useState<Plant[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     fetchApi<{ items: Plant[] }>('/plants')
       .then((data) => setPlants(data.items))
-      .catch((err) => console.error(err))
+      .catch((err) => setError(err.message || 'Failed to load plants'))
       .finally(() => setLoading(false));
   }, []);
 
@@ -31,6 +33,11 @@ export const PlantsPage: React.FC = () => {
           <p className="text-xs text-industrial-400">Manage physical operating facilities and location coordinates</p>
         </div>
       </div>
+
+      {error && <ErrorBanner message={error} />}
+      {!loading && !error && plants.length === 0 && (
+        <EmptyState message="No plants registered yet. Add a plant to start listing waste or requirements." />
+      )}
 
       {/* Map View */}
       {plants.length > 0 && (

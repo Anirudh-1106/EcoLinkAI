@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRightLeft, Check, X, MapPin, Sparkles, Clock } from 'lucide-react';
 import { fetchApi } from '../api/client';
+import { useAuth } from '../context/AuthContext';
 import { ExchangeRequest } from '../types';
+import { ErrorBanner, EmptyState } from '../components/ErrorBanner';
 
 export const ExchangeRequestsPage: React.FC = () => {
+  const { user } = useAuth();
   const [requests, setRequests] = useState<ExchangeRequest[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   const loadRequests = () => {
     setLoading(true);
     fetchApi<ExchangeRequest[]>('/exchange-requests')
-      .then((data) => setRequests(data))
-      .catch((err) => console.error(err))
+      .then((data) => {
+        setRequests(data);
+        setError('');
+      })
+      .catch((err) => setError(err.message || 'Failed to load exchange requests'))
       .finally(() => setLoading(false));
   };
 
@@ -40,6 +47,11 @@ export const ExchangeRequestsPage: React.FC = () => {
         </div>
       </div>
 
+      {error && <ErrorBanner message={error} />}
+      {!loading && !error && requests.length === 0 && (
+        <EmptyState message="No exchange requests yet. Send one from AI Recommendations to get started." />
+      )}
+
       <div className="space-y-4">
         {requests.map((req) => (
           <div key={req.id} className="bg-industrial-900 border border-industrial-800 rounded-2xl p-5 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -59,10 +71,11 @@ export const ExchangeRequestsPage: React.FC = () => {
               </div>
 
               <h3 className="font-bold text-white text-base">
-                {req.supplier_company_name} → {req.buyer_company_name}
+                <strong className="text-eco-400">{req.buyer_company_name}</strong> is requesting to buy this from{' '}
+                <strong className="text-white">{req.supplier_company_name}</strong>
               </h3>
               <p className="text-xs text-industrial-300">
-                Supplier Plant: <strong>{req.supplier_plant_name}</strong> | Buyer Plant: <strong>{req.buyer_plant_name}</strong>
+                Seller Plant: <strong>{req.supplier_plant_name}</strong> | Buyer Plant: <strong>{req.buyer_plant_name}</strong>
               </p>
               <p className="text-xs text-industrial-400 flex items-center gap-3">
                 <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> Distance: {req.distance_km} km</span>
@@ -76,7 +89,7 @@ export const ExchangeRequestsPage: React.FC = () => {
               )}
             </div>
 
-            {req.status === 'Pending' && (
+            {req.status === 'Pending' && req.supplier_company_id === user?.company_id && (
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={() => handleAction(req.id, 'accept')}
@@ -93,6 +106,9 @@ export const ExchangeRequestsPage: React.FC = () => {
                   <span>Reject</span>
                 </button>
               </div>
+            )}
+            {req.status === 'Pending' && req.supplier_company_id !== user?.company_id && (
+              <span className="text-[11px] text-industrial-400 italic shrink-0">Awaiting seller's response</span>
             )}
           </div>
         ))}
