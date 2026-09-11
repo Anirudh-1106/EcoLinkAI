@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Star, MessageSquare, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { fetchApi } from '../api/client';
 import { Review, Exchange } from '../types';
+import { ErrorBanner, EmptyState } from '../components/ErrorBanner';
 
 export const ReviewsPage: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -11,13 +12,19 @@ export const ReviewsPage: React.FC = () => {
   const [buyerRating, setBuyerRating] = useState(5);
   const [comment, setComment] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
+  const [error, setError] = useState('');
 
   const loadData = () => {
-    fetchApi<{ items: Review[] }>('/reviews').then((d) => setReviews(d.items));
-    fetchApi<{ items: Exchange[] }>('/exchanges').then((d) => {
-      setExchanges(d.items);
-      if (d.items.length > 0) setSelectedExchangeId(d.items[0].id);
-    });
+    fetchApi<{ items: Review[] }>('/reviews')
+      .then((d) => setReviews(d.items))
+      .catch((err) => setError(err.message || 'Failed to load reviews'));
+    fetchApi<{ items: Exchange[] }>('/exchanges')
+      .then((d) => {
+        const completed = d.items.filter((ex) => ex.exchange_status === 'Completed');
+        setExchanges(completed);
+        if (completed.length > 0) setSelectedExchangeId(completed[0].id);
+      })
+      .catch((err) => setError(err.message || 'Failed to load exchanges'));
   };
 
   useEffect(() => {
@@ -55,6 +62,8 @@ export const ReviewsPage: React.FC = () => {
         </div>
       </div>
 
+      {error && <ErrorBanner message={error} />}
+
       {/* Form */}
       <div className="bg-industrial-900 border border-industrial-800 rounded-2xl p-6 shadow-sm max-w-2xl space-y-4">
         <h2 className="text-base font-bold text-white flex items-center gap-2">
@@ -69,6 +78,11 @@ export const ReviewsPage: React.FC = () => {
           </div>
         )}
 
+        {exchanges.length === 0 ? (
+          <p className="text-xs text-industrial-400">
+            No completed exchanges yet. Reviews can be submitted once a transaction is marked completed.
+          </p>
+        ) : (
         <form onSubmit={handleSubmit} className="space-y-4 text-xs">
           <div>
             <label className="block font-semibold text-industrial-300 mb-1">Select Completed Exchange</label>
@@ -131,11 +145,13 @@ export const ReviewsPage: React.FC = () => {
             Submit Feedback
           </button>
         </form>
+        )}
       </div>
 
       {/* Review List */}
       <div className="space-y-3">
         <h2 className="text-sm font-semibold text-industrial-300 uppercase tracking-wider">Historical Exchange Feedback</h2>
+        {reviews.length === 0 && <EmptyState message="No reviews submitted yet." />}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {reviews.map((rev) => (
             <div key={rev.id} className="bg-industrial-900 border border-industrial-800 rounded-2xl p-4 space-y-2 text-xs">

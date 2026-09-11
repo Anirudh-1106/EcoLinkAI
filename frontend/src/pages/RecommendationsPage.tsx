@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { Sparkles, ArrowRight, CheckCircle2, AlertCircle, RefreshCw, Layers } from 'lucide-react';
 import { fetchApi } from '../api/client';
-import { PartnerCard, RecommendationResponse, WasteListing } from '../types';
+import { PartnerCard, RequirementRecommendationResponse, Requirement } from '../types';
 import { PartnerCardComponent } from '../components/PartnerCard';
 import { MapView } from '../components/MapView';
+import { useAuth } from '../context/AuthContext';
 
 export const RecommendationsPage: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const listingIdParam = searchParams.get('listing_id');
+  const requirementIdParam = searchParams.get('requirement_id');
+  const { user } = useAuth();
 
-  const [listings, setListings] = useState<WasteListing[]>([]);
-  const [selectedListingId, setSelectedListingId] = useState<string>(listingIdParam || '');
-  const [recommendations, setRecommendations] = useState<RecommendationResponse | null>(null);
+  const [requirements, setRequirements] = useState<Requirement[]>([]);
+  const [selectedRequirementId, setSelectedRequirementId] = useState<string>(requirementIdParam || '');
+  const [recommendations, setRecommendations] = useState<RequirementRecommendationResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [requestSuccess, setRequestSuccess] = useState('');
@@ -20,85 +22,91 @@ export const RecommendationsPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch available listings for dropdown
-    fetchApi<{ items: WasteListing[] }>('/waste-listings')
+    if (!user?.company_id) return;
+    
+    // Fetch buyer's requirements for dropdown
+    fetchApi<{ items: Requirement[] }>(`/requirements?company_id=${user.company_id}`)
       .then((data) => {
-        setListings(data.items);
-        if (!selectedListingId && data.items.length > 0) {
-          setSelectedListingId(data.items[0].id);
+        setRequirements(data.items);
+        if (!selectedRequirementId && data.items.length > 0) {
+          setSelectedRequirementId(data.items[0].id);
         }
       })
       .catch((err) => console.error(err));
   }, []);
 
   useEffect(() => {
-    if (selectedListingId) {
-      handleFetchRecommendations(selectedListingId);
+    if (selectedRequirementId) {
+      handleFetchRecommendations(selectedRequirementId);
     }
-  }, [selectedListingId]);
+  }, [selectedRequirementId]);
 
-  const handleFetchRecommendations = async (listingId: string) => {
+  const handleFetchRecommendations = async (requirementId: string) => {
     setLoading(true);
     setError('');
     setRequestSuccess('');
 
     try {
-      const data = await fetchApi<RecommendationResponse>('/recommendations', {
+      const data = await fetchApi<RequirementRecommendationResponse>('/recommendations/by-requirement', {
         method: 'POST',
         body: JSON.stringify({
-          waste_listing_id: listingId,
+          requirement_id: requirementId,
           max_results: 10,
         }),
       });
       setRecommendations(data);
     } catch (err: any) {
-      setError(err.message || 'Failed to fetch AI recommendations');
+      setError(err.message || 'Failed to fetch AI seller recommendations');
     } finally {
       setLoading(false);
     }
   };
 
   const handleSendExchangeRequest = async (partner: PartnerCard) => {
+    const selectedReq = requirements.find((r) => r.id === selectedRequirementId);
+    if (!selectedReq) return;
+
     try {
       await fetchApi('/exchange-requests', {
         method: 'POST',
         body: JSON.stringify({
-          waste_listing_id: selectedListingId,
-          buyer_plant_id: partner.plant_id,
-          requirement_id: partner.requirement_id,
-          requested_quantity: partner.required_quantity || 100,
-          offered_price_per_unit: 100,
-          remarks: `Request generated via AI recommendation (Rank #${partner.rank}, Match ${partner.ai_score}%)`,
+          waste_listing_id: partner.waste_listing_id,
+          buyer_plant_id: selectedReq.plant_id,
+          requirement_id: selectedRequirementId,
+          requested_quantity: partner.listing_quantity || selectedReq.quantity,
+          offered_price_per_unit: partner.listing_price_per_unit,
+          recommendation_rank: partner.rank,
+          remarks: `Purchase request via AI recommendation (Rank #${partner.rank}, Match ${partner.ai_score}%)`,
         }),
       });
 
-      setRequestSuccess(`Exchange request successfully sent to ${partner.company_name} (${partner.plant_name})!`);
+      setRequestSuccess(`Purchase request sent to ${partner.company_name} (${partner.plant_name})! Awaiting seller's response.`);
       setTimeout(() => navigate('/exchange-requests'), 1500);
     } catch (err: any) {
       alert(`Error sending request: ${err.message}`);
     }
   };
 
-  const selectedListing = listings.find((l) => l.id === selectedListingId);
+  const selectedRequirement = requirements.find((r) => r.id === selectedRequirementId);
 
-  // Map markers
-  const supplierMarker = selectedListing
+  // Map markers — buyer's plant (current user) and recommended seller plants
+  const buyerMarker = selectedRequirement && recommendations
     ? {
-        id: selectedListing.plant_id,
-        name: selectedListing.plant_name || 'Supplier Plant',
-        lat: 9.9816, // Default Ernakulam lat
-        lng: 76.2999,
-        district: 'Ernakulam',
-        isSupplier: true,
+        id: selectedRequirement.plant_id,
+        name: recommendations.buyer_plant_name || 'Your Plant',
+        lat: recommendations.buyer_plant_latitude,
+        lng: recommendations.buyer_plant_longitude,
+        district: '',
+        isSupplier: true, // reuse the "supplier" marker styling for "your" plant
       }
     : undefined;
 
-  const partnerMarkers = recommendations
-    ? recommendations.recommendations.slice(0, 3).map((p, idx) => ({
+  const sellerMarkers = recommendations
+    ? recommendations.recommendations.slice(0, 3).map((p) => ({
         id: p.plant_id,
         name: p.plant_name,
-        lat: 9.9816 + (idx + 1) * 0.15,
-        lng: 76.2999 + (idx + 1) * 0.12,
+        lat: p.plant_latitude,
+        lng: p.plant_longitude,
         district: p.plant_district,
       }))
     : [];
@@ -113,25 +121,25 @@ export const RecommendationsPage: React.FC = () => {
               <Sparkles className="w-3.5 h-3.5" />
               <span>Multi-Channel Graph Neural Network Engine</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-white">AI Partner Recommendations</h1>
+            <h1 className="text-2xl sm:text-3xl font-black text-white">AI Seller Recommendations</h1>
             <p className="text-xs sm:text-sm text-industrial-300 max-w-2xl mt-1">
-              Select a waste listing to run MC-GNN inference across multi-view graph relationships (material compatibility, logistics feasibility, trust history, and carbon impact).
+              Select a material requirement to find the best sellers with matching waste listings using MC-GNN inference across material compatibility, logistics, trust, and carbon impact.
             </p>
           </div>
 
-          {/* Waste Listing Selector Dropdown */}
+          {/* Requirement Selector Dropdown */}
           <div className="w-full md:w-auto min-w-[280px]">
             <label className="block text-xs font-semibold text-industrial-300 uppercase tracking-wider mb-1.5">
-              Select Waste Listing
+              Select Your Requirement
             </label>
             <select
-              value={selectedListingId}
-              onChange={(e) => setSelectedListingId(e.target.value)}
+              value={selectedRequirementId}
+              onChange={(e) => setSelectedRequirementId(e.target.value)}
               className="w-full bg-industrial-950 border border-industrial-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-eco-500 shadow-inner"
             >
-              {listings.map((l) => (
-                <option key={l.id} value={l.id}>
-                  {l.material_name} — {l.quantity} {l.unit} ({l.plant_name})
+              {requirements.map((r) => (
+                <option key={r.id} value={r.id}>
+                  {r.material_name} — {r.quantity} {r.unit} ({r.plant_name})
                 </option>
               ))}
             </select>
@@ -157,7 +165,7 @@ export const RecommendationsPage: React.FC = () => {
         <div className="bg-industrial-900 border border-industrial-800 rounded-2xl p-12 text-center text-industrial-400 space-y-3">
           <RefreshCw className="w-8 h-8 text-eco-400 animate-spin mx-auto" />
           <p className="text-sm font-semibold text-white">Running MC-GNN Graph Inference...</p>
-          <p className="text-xs text-industrial-400">Extracting multi-view embeddings & computing Hilbert-Schmidt attention scores</p>
+          <p className="text-xs text-industrial-400">Finding best sellers for your material requirement</p>
         </div>
       )}
 
@@ -170,8 +178,8 @@ export const RecommendationsPage: React.FC = () => {
                 <Layers className="w-4 h-4" />
                 <span>Model: {recommendations.model_version}</span>
               </span>
-              <span>Listing: <strong className="text-white">{recommendations.material_name}</strong></span>
-              <span>Candidates Evaluated: <strong className="text-white">{recommendations.total_candidates}</strong></span>
+              <span>Requirement: <strong className="text-white">{recommendations.material_name}</strong></span>
+              <span>Sellers Evaluated: <strong className="text-white">{recommendations.total_candidates}</strong></span>
             </div>
             {recommendations.inference_time_ms && (
               <span className="text-industrial-400">
@@ -181,19 +189,19 @@ export const RecommendationsPage: React.FC = () => {
           </div>
 
           {/* Map View of Routes */}
-          {partnerMarkers.length > 0 && (
+          {sellerMarkers.length > 0 && (
             <div className="space-y-2">
               <h2 className="text-sm font-semibold text-industrial-300 uppercase tracking-wider">
-                Geographic Logistics Routes (Supplier → Top Recommended Partners)
+                Geographic Logistics Routes (Your Plant → Top Recommended Sellers)
               </h2>
-              <MapView supplier={supplierMarker} partners={partnerMarkers} height="350px" />
+              <MapView supplier={buyerMarker} partners={sellerMarkers} height="350px" />
             </div>
           )}
 
-          {/* Ranked Partner Cards */}
+          {/* Ranked Seller Cards */}
           <div className="space-y-4">
             <h2 className="text-sm font-semibold text-industrial-300 uppercase tracking-wider">
-              Ranked Symbiosis Partner Candidates ({recommendations.recommendations.length})
+              Ranked Seller Candidates ({recommendations.recommendations.length})
             </h2>
 
             {recommendations.recommendations.map((partner) => (
