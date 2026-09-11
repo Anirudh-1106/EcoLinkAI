@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import uuid
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
@@ -20,13 +19,16 @@ router = APIRouter(prefix="/reviews", tags=["Reviews"])
 @router.get("", response_model=ReviewListResponse)
 def list_reviews(
     db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(get_current_user)],
     page: int = Query(1, ge=1),
     page_size: int = Query(20, ge=1, le=100),
-    company_id: uuid.UUID | None = None,
 ):
-    """List reviews."""
+    """List reviews belonging to the current user's company."""
+    if not current_user.company_id:
+        return ReviewListResponse(items=[], total=0, page=page, page_size=page_size)
+
     items, total = review_service.get_reviews(
-        db, page=page, page_size=page_size, company_id=company_id
+        db, page=page, page_size=page_size, company_id=current_user.company_id
     )
     return ReviewListResponse(
         items=[ReviewResponse.model_validate(r) for r in items],
