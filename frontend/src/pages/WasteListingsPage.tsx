@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Trash2, Sparkles, MapPin, Calendar, DollarSign, Tag } from 'lucide-react';
+import { Trash2, MapPin, Calendar, DollarSign, Tag } from 'lucide-react';
 import { fetchApi } from '../api/client';
 import { WasteListing } from '../types';
+import { ErrorBanner, EmptyState } from '../components/ErrorBanner';
+import { useAuth } from '../context/AuthContext';
 
 export const WasteListingsPage: React.FC = () => {
   const [listings, setListings] = useState<WasteListing[]>([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  const [error, setError] = useState('');
+  const { user } = useAuth();
 
   useEffect(() => {
-    fetchApi<{ items: WasteListing[] }>('/waste-listings')
+    if (!user?.company_id) return;
+
+    fetchApi<{ items: WasteListing[] }>(`/waste-listings?company_id=${user.company_id}`)
       .then((data) => setListings(data.items))
-      .catch((err) => console.error(err))
+      .catch((err) => setError(err.message || 'Failed to load waste listings'))
       .finally(() => setLoading(false));
   }, []);
 
@@ -21,9 +25,14 @@ export const WasteListingsPage: React.FC = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white">Waste Listings</h1>
-          <p className="text-xs text-industrial-400">Available industrial byproduct and waste supply</p>
+          <p className="text-xs text-industrial-400">Your listed industrial byproducts — buyers will find you through AI recommendations</p>
         </div>
       </div>
+
+      {error && <ErrorBanner message={error} />}
+      {!loading && !error && listings.length === 0 && (
+        <EmptyState message="No waste listings yet. Create one to start matching with partners." />
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {listings.map((item) => (
@@ -49,32 +58,28 @@ export const WasteListingsPage: React.FC = () => {
               <div className="grid grid-cols-3 gap-2 my-3 text-xs bg-industrial-950/60 p-2.5 rounded-xl border border-industrial-800/80">
                 <div>
                   <span className="text-[10px] text-industrial-400 uppercase font-semibold block">Purity</span>
-                  <span className="font-semibold text-white">{item.purity_percentage || 90}%</span>
+                  <span className="font-semibold text-white">
+                    {item.purity_percentage != null ? `${item.purity_percentage}%` : 'Not specified'}
+                  </span>
                 </div>
                 <div>
                   <span className="text-[10px] text-industrial-400 uppercase font-semibold block">Grade</span>
-                  <span className="font-semibold text-white">{item.quality_grade || 'Grade A'}</span>
+                  <span className="font-semibold text-white">{item.quality_grade || 'Not specified'}</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-industrial-400 uppercase font-semibold block">Asking Price</span>
-                  <span className="font-semibold text-white">₹{item.price_per_unit || 100}/{item.unit}</span>
+                  <span className="font-semibold text-white">
+                    {item.price_per_unit != null ? `₹${item.price_per_unit}/${item.unit}` : 'Negotiable'}
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center justify-between border-t border-industrial-800/80 pt-3.5 mt-2">
+            <div className="flex items-center border-t border-industrial-800/80 pt-3.5 mt-2">
               <span className="text-[11px] text-industrial-400 flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Expires: {item.available_until}</span>
               </span>
-
-              <button
-                onClick={() => navigate(`/recommendations?listing_id=${item.id}`)}
-                className="bg-eco-600 hover:bg-eco-500 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-all shadow-md shadow-eco-600/20 flex items-center gap-1.5"
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Find Suitable Partners</span>
-              </button>
             </div>
           </div>
         ))}

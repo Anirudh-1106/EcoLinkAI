@@ -76,7 +76,8 @@ for i in range(1, 21):
     }
 
     companies.append(company)
-    df = pd.DataFrame(companies)
+
+df = pd.DataFrame(companies)
 
 print(df.head())
 

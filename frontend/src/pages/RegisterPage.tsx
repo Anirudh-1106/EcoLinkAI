@@ -164,10 +164,15 @@ export const RegisterPage: React.FC = () => {
                 value={formData.gst_number}
                 onChange={handleChange}
                 required
+                minLength={15}
                 maxLength={15}
+                title="GST number must be exactly 15 characters"
                 placeholder="32ABCDE1234F1Z5"
                 className="w-full bg-industrial-950 border border-industrial-800 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-eco-500"
               />
+              <p className="text-[10px] text-industrial-400 mt-1">
+                Must be exactly 15 characters ({formData.gst_number.length}/15)
+              </p>
             </div>
             <div>
               <label className="block text-xs font-semibold text-industrial-300 uppercase tracking-wider mb-1">

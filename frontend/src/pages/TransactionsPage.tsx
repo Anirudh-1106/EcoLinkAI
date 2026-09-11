@@ -2,16 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { Truck, CheckCircle2, Clock, MapPin, DollarSign, Leaf } from 'lucide-react';
 import { fetchApi } from '../api/client';
 import { Exchange } from '../types';
+import { ErrorBanner, EmptyState } from '../components/ErrorBanner';
 
 export const TransactionsPage: React.FC = () => {
   const [exchanges, setExchanges] = useState<Exchange[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  const loadExchanges = () => {
+    setLoading(true);
+    fetchApi<{ items: Exchange[] }>('/exchanges')
+      .then((data) => {
+        setExchanges(data.items);
+        setError('');
+      })
+      .catch((err) => setError(err.message || 'Failed to load transactions'))
+      .finally(() => setLoading(false));
+  };
 
   useEffect(() => {
-    fetchApi<{ items: Exchange[] }>('/exchanges')
-      .then((data) => setExchanges(data.items))
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false));
+    loadExchanges();
   }, []);
 
   const handleUpdateStatus = async (exchangeId: string, status: string) => {
@@ -20,7 +30,7 @@ export const TransactionsPage: React.FC = () => {
         method: 'PUT',
         body: JSON.stringify({ exchange_status: status, shipment_status: 'Delivered' }),
       });
-      fetchApi<{ items: Exchange[] }>('/exchanges').then((data) => setExchanges(data.items));
+      loadExchanges();
     } catch (err: any) {
       alert(`Update error: ${err.message}`);
     }
@@ -34,6 +44,11 @@ export const TransactionsPage: React.FC = () => {
           <p className="text-xs text-industrial-400">Track active shipments, agreed pricing, and carbon savings</p>
         </div>
       </div>
+
+      {error && <ErrorBanner message={error} />}
+      {!loading && !error && exchanges.length === 0 && (
+        <EmptyState message="No transactions yet. Accepted exchange requests will appear here." />
+      )}
 
       <div className="space-y-4">
         {exchanges.map((ex) => (
@@ -77,7 +92,9 @@ export const TransactionsPage: React.FC = () => {
               <div className="flex items-center gap-4">
                 <span className="flex items-center gap-1 text-eco-400">
                   <Leaf className="w-3.5 h-3.5" />
-                  <span>Carbon Saved: {ex.actual_carbon_saving || 250} kg CO₂e</span>
+                  <span>
+                    Carbon Saved: {ex.actual_carbon_saving != null ? `${ex.actual_carbon_saving} kg CO₂e` : 'Pending completion'}
+                  </span>
                 </span>
                 {ex.delivered_at && (
                   <span className="text-industrial-400">Delivered: {new Date(ex.delivered_at).toLocaleDateString()}</span>
