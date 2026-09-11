@@ -25,12 +25,13 @@ router = APIRouter(prefix="/companies", tags=["Companies"])
 @router.get("", response_model=CompanyListResponse)
 def list_companies(
     db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(require_role(UserRole.ADMIN))],
     page: int = Query(1, ge=1),
     page_size: int = Query(20, ge=1, le=100),
     search: str | None = None,
     industry_type: str | None = None,
 ):
-    """List all active companies with optional search and industry filters."""
+    """List all active companies with optional search and industry filters (admin only)."""
     items, total = company_service.get_companies(
         db, page=page, page_size=page_size, search=search, industry_type=industry_type
     )
