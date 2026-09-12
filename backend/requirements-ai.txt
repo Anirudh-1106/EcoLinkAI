@@ -1,0 +1,13 @@
+# AI / MC-GNN inference dependencies.
+#
+# Kept separate from requirements.txt because these are heavy (torch is
+# ~200MB) and the API degrades gracefully to baseline scoring without them.
+# Install alongside the base requirements to enable MC-GNN inference:
+#     pip install -r requirements.txt -r requirements-ai.txt
+#
+# The CPU build is sufficient - inference is a single forward pass over a
+# small graph (tens of nodes) and needs no GPU.
+
+torch==2.13.0
+torch-geometric==2.8.0.post1
+numpy==2.5.1

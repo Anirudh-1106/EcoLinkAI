@@ -20,7 +20,7 @@ export const PartnerCardComponent: React.FC<PartnerCardProps> = ({ partner, onSe
               RANK #{partner.rank}
             </span>
             <span className="text-xs font-medium text-industrial-400 uppercase tracking-wider">
-              {partner.model_type.toUpperCase()} MODEL
+              {partner.model_type === 'mc_gnn' ? 'MC-GNN' : 'BASELINE'} MODEL
             </span>
           </div>
           <h3 className="text-lg font-bold text-white mt-1.5 group-hover:text-eco-400 transition-colors">
@@ -45,12 +45,22 @@ export const PartnerCardComponent: React.FC<PartnerCardProps> = ({ partner, onSe
         </div>
 
         {/* AI Compatibility Score Badge */}
-        <div className="text-right bg-industrial-950 border border-industrial-800 p-3 rounded-xl min-w-[120px]">
+        <div
+          className="text-right bg-industrial-950 border border-industrial-800 p-3 rounded-xl min-w-[120px]"
+          title={
+            partner.model_type === 'mc_gnn'
+              ? 'Likelihood this exchange is accepted, predicted by the MC-GNN from historical exchange outcomes.'
+              : 'Weighted compatibility score from the rule-based baseline model.'
+          }
+        >
           <div className="flex items-center justify-end gap-1 text-eco-400 text-xs font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
             <span>AI MATCH</span>
           </div>
           <div className="text-2xl font-black text-white mt-0.5">{partner.ai_score}%</div>
+          <div className="text-[10px] text-industrial-500 mt-0.5">
+            {partner.model_type === 'mc_gnn' ? 'predicted acceptance' : 'rule-based score'}
+          </div>
         </div>
       </div>
 

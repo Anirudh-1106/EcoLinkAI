@@ -17,7 +17,7 @@ from app.schemas.analytics import (
     MaterialDistribution,
     PlatformAnalytics,
 )
-from app.services import analytics_service
+from app.services import analytics_service, graph_cache, recommendation_service
 
 router = APIRouter(prefix="/analytics", tags=["Analytics & Dashboard"])
 
@@ -73,17 +73,39 @@ def get_material_distribution(
     return analytics_service.get_material_distribution(db, current_user.company_id)
 
 
+@router.get("/ai-status")
+def get_ai_runtime_status(
+    current_user: Annotated[User, Depends(require_role(UserRole.ADMIN))],
+):
+    """
+    Whether MC-GNN inference is actually live, and how fresh its cached graph is.
+
+    Reports the real runtime state rather than what the UI claims, so a silent
+    fallback to baseline scoring is visible instead of hidden.
+    """
+    return graph_cache.status()
+
+
 @router.get("/ai-metrics", response_model=AIModelMetrics)
-def get_ai_model_metrics():
-    """Get current AI model evaluation metrics."""
+def get_ai_model_metrics(db: Annotated[Session, Depends(get_db)]):
+    """
+    Current AI model evaluation metrics.
+
+    Ranking metrics are measured against the historical exchange-request
+    edges when the graph cache is refreshed; adoption figures are read
+    live from the database.
+    """
+    measured = graph_cache.metrics() or {}
+    adoption = analytics_service.get_recommendation_adoption(db)
+
     return AIModelMetrics(
-        model_version="MC-GNN v1.0",
-        last_trained="2026-07-29",
-        training_samples=853,
-        precision_at_5=0.88,
-        recall_at_5=0.82,
-        ndcg_at_5=0.89,
-        baseline_ndcg_at_5=0.71,
-        total_recommendations=1240,
-        recommendation_to_exchange_rate=40.4,
+        model_version=recommendation_service._model_version,
+        last_trained=graph_cache.checkpoint_mtime(),
+        training_samples=measured.get("training_samples", 0),
+        precision_at_5=measured.get("precision_at_5", 0.0),
+        recall_at_5=measured.get("recall_at_5", 0.0),
+        ndcg_at_5=measured.get("ndcg_at_5", 0.0),
+        baseline_ndcg_at_5=measured.get("baseline_ndcg_at_5", 0.0),
+        total_recommendations=adoption["total_recommendations"],
+        recommendation_to_exchange_rate=adoption["recommendation_to_exchange_rate"],
     )

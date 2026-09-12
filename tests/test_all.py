@@ -68,12 +68,10 @@ def test_database_entities():
         db.close()
 
 
-def test_list_companies_api():
+def test_list_companies_requires_admin():
+    """The company directory exposes GST/registration numbers, so it is admin-only."""
     response = client.get("/api/v1/companies")
-    assert response.status_code == 200
-    data = response.json()
-    assert "items" in data
-    assert len(data["items"]) > 0
+    assert response.status_code == 401
 
 
 def test_list_materials_api():
@@ -101,5 +99,64 @@ def test_recommendation_api_baseline():
         first_rec = data["recommendations"][0]
         assert "ai_score" in first_rec
         assert "explanation" in first_rec
+    finally:
+        db.close()
+
+
+def test_recommendations_are_ranked_and_scored_by_a_known_model():
+    """Every card must declare which model scored it, and stay ranked by score."""
+    db = SessionLocal()
+    try:
+        listing = db.query(WasteListing).first()
+        response = client.post(
+            "/api/v1/recommendations",
+            json={"waste_listing_id": str(listing.id), "max_results": 5},
+        )
+        assert response.status_code == 200
+        recs = response.json()["recommendations"]
+
+        for rec in recs:
+            assert rec["model_type"] in ("mc_gnn", "baseline")
+            assert 0.0 <= rec["ai_score"] <= 100.0
+
+        scores = [r["ai_score"] for r in recs]
+        assert scores == sorted(scores, reverse=True), "Cards must be ranked by score"
+    finally:
+        db.close()
+
+
+def test_ai_metrics_are_measured_not_hardcoded():
+    """Metrics must come from a real evaluation, and beat the baseline they report."""
+    response = client.get("/api/v1/analytics/ai-metrics")
+    assert response.status_code == 200
+    data = response.json()
+
+    assert data["training_samples"] > 0
+    assert 0.0 <= data["ndcg_at_5"] <= 1.0
+    assert data["ndcg_at_5"] > data["baseline_ndcg_at_5"], (
+        "MC-GNN should outrank the rule-based baseline it is compared against"
+    )
+
+
+def test_gnn_falls_back_gracefully_for_unknown_plants():
+    """A plant missing from the cached graph must degrade to baseline, not error."""
+    import uuid as _uuid
+
+    from app.models.plant import Plant
+    from app.services import recommendation_service as rs
+
+    db = SessionLocal()
+    try:
+        plant = db.query(Plant).first()
+        score = rs._gnn_link_score(
+            db,
+            seller_plant_id=_uuid.uuid4(),  # never registered
+            buyer_plant_id=plant.id,
+            distance_km=50.0,
+            material_compat=100.0,
+            transport_cost=1000.0,
+            carbon_saving=500.0,
+        )
+        assert score is None
     finally:
         db.close()

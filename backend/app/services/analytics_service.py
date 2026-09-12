@@ -209,6 +209,29 @@ def get_material_distribution(
     ]
 
 
+def get_recommendation_adoption(db: Session) -> dict:
+    """
+    How many AI recommendations were acted on platform-wide.
+
+    Every exchange request originates from a recommendation, so the count of
+    requests is the number of recommendations acted on, and the share that
+    reached an accepted state is the conversion rate.
+    """
+    total_requests = db.query(func.count(ExchangeRequest.id)).scalar() or 0
+    accepted = (
+        db.query(func.count(ExchangeRequest.id))
+        .filter(ExchangeRequest.status == ExchangeRequestStatus.ACCEPTED)
+        .scalar()
+        or 0
+    )
+    rate = (accepted / total_requests * 100) if total_requests > 0 else 0.0
+
+    return {
+        "total_recommendations": total_requests,
+        "recommendation_to_exchange_rate": round(rate, 1),
+    }
+
+
 def get_company_analytics(db: Session, company_id: uuid.UUID) -> PlatformAnalytics:
     """Get analytics for a specific company, shaped like PlatformAnalytics for reuse in the UI."""
     plant_ids = [

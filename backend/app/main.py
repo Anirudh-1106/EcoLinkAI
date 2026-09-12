@@ -40,7 +40,17 @@ logger = logging.getLogger("ecolinkai")
 async def lifespan(app: FastAPI):
     """Application startup and shutdown events."""
     logger.info("Initializing EcoLinkAI Backend...")
-    _try_load_model()
+    if _try_load_model():
+        # Warm the graph + node embeddings so the first recommendation
+        # request doesn't pay the graph-build cost.
+        from app.core.database import SessionLocal
+        from app.services import graph_cache
+
+        db = SessionLocal()
+        try:
+            graph_cache.warm(db)
+        finally:
+            db.close()
     yield
     logger.info("Shutting down EcoLinkAI Backend...")
 

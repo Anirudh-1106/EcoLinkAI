@@ -15,7 +15,6 @@ import logging
 import time
 import uuid
 from decimal import Decimal
-from pathlib import Path
 
 from sqlalchemy import func
 from sqlalchemy.orm import Session, joinedload
@@ -43,6 +42,7 @@ from app.schemas.recommendation import (
     SearchRecommendationRequest,
     SearchRecommendationResponse,
 )
+from app.services import graph_cache
 from app.utils.distance import (
     estimate_carbon_saving,
     estimate_transport_cost,
@@ -52,27 +52,82 @@ from app.utils.distance import (
 
 logger = logging.getLogger(__name__)
 
-# ── AI model loading ─────────────────────────────────
-_model = None
-_model_version = "baseline-v1.0"
+# ── AI model versions ────────────────────────────────
+MC_GNN_VERSION = "mc-gnn-v1.0"
+BASELINE_VERSION = "baseline-v1.0"
+
+_model_version = BASELINE_VERSION
 
 
 def _try_load_model():
-    """Attempt to load the trained MC-GNN model."""
-    global _model, _model_version
+    """
+    Load the trained MC-GNN checkpoint at application startup.
+
+    Only reports whether the checkpoint itself is loadable; the graph and
+    node embeddings needed for inference are built lazily (or warmed) by
+    app.services.graph_cache.
+    """
+    global _model_version
+    model = graph_cache._load_model()
+    _model_version = MC_GNN_VERSION if model is not None else BASELINE_VERSION
+    return model is not None
+
+
+def _gnn_link_score(
+    db: Session,
+    *,
+    seller_plant_id,
+    buyer_plant_id,
+    distance_km: float,
+    material_compat: float,
+    transport_cost: float,
+    carbon_saving: float,
+) -> float | None:
+    """
+    Score one seller -> buyer pair with the trained MC-GNN link predictor.
+
+    Edges are directed supplier -> buyer during training, so the same
+    orientation is used here. Edge features are normalised exactly as in
+    ai/features/edge_features.py; any divergence would feed the model
+    inputs it never saw during training.
+
+    Returns a 0-1 probability, or None when GNN inference is unavailable
+    (no checkpoint, torch missing, or a plant absent from the cached graph).
+    """
+    context = graph_cache.get_context(db)
+    if context is None:
+        return None
+
+    plant_id_to_idx = context["plant_id_to_idx"]
+    src = plant_id_to_idx.get(str(seller_plant_id))
+    dst = plant_id_to_idx.get(str(buyer_plant_id))
+    if src is None or dst is None:
+        # Plant registered after the cached graph was built.
+        return None
+
     try:
-        from app.core.config import settings
-        checkpoint_dir = Path(settings.MODEL_PATH)
-        model_path = checkpoint_dir / "mc_gnn_best.pt"
-        if model_path.exists():
-            import torch
-            _model = torch.load(model_path, map_location="cpu", weights_only=False)
-            _model_version = "mc-gnn-v1.0"
-            logger.info("MC-GNN model loaded successfully")
-        else:
-            logger.info("MC-GNN checkpoint not found, using baseline")
+        import torch
+
+        embeddings = context["embeddings"]
+        edge_attr = torch.tensor(
+            [[
+                min(distance_km / 500.0, 1.0),
+                material_compat / 100.0,
+                transport_cost / 10000.0,
+                carbon_saving / 1000.0,
+            ]],
+            dtype=torch.float,
+        )
+
+        with torch.no_grad():
+            features = torch.cat(
+                [embeddings[src].unsqueeze(0), embeddings[dst].unsqueeze(0), edge_attr],
+                dim=-1,
+            )
+            return float(context["model"].link_predictor(features).item())
     except Exception as e:
-        logger.warning(f"Could not load MC-GNN model: {e}. Using baseline.")
+        logger.warning("MC-GNN inference failed, falling back to baseline: %s", e)
+        return None
 
 
 def get_recommendations(
@@ -399,7 +454,7 @@ def _score_candidate(
 
     # ── Baseline weighted score ───────────────────────
     # Weights from constants/ai.py
-    score = (
+    baseline_score = (
         0.30 * material_compat
         + 0.15 * quantity_compat
         + 0.10 * quality_compat
@@ -408,8 +463,25 @@ def _score_candidate(
         + 0.10 * history_score
         + 0.10 * min(carbon_saving / 100, 100)
     )
+    baseline_score = min(max(baseline_score, 0), 100)
 
-    score = min(max(score, 0), 100)
+    # ── MC-GNN inference (falls back to baseline) ─────
+    gnn_prob = _gnn_link_score(
+        db,
+        seller_plant_id=supplier_plant.id,
+        buyer_plant_id=buyer_plant.id,
+        distance_km=distance_km,
+        material_compat=material_compat,
+        transport_cost=transport_cost,
+        carbon_saving=carbon_saving,
+    )
+
+    if gnn_prob is not None:
+        score = gnn_prob * 100.0
+        scoring_method = "mc_gnn"
+    else:
+        score = baseline_score
+        scoring_method = "baseline"
 
     # Transport feasibility label
     if distance_km < 100:
@@ -437,6 +509,8 @@ def _score_candidate(
             "transport_emission": round(transport_emission, 2),
             "carbon_saving": round(carbon_saving, 2),
             "transport_feasibility": transport_feas,
+            "scoring_method": scoring_method,
+            "baseline_score": round(baseline_score, 2),
         },
     }
 
@@ -498,7 +572,7 @@ def _build_partner_card(rank: int, scored: dict, model_version: str) -> PartnerC
     return PartnerCard(
         rank=rank,
         ai_score=round(scored["score"], 2),
-        model_type="baseline" if "baseline" in model_version else "mc_gnn",
+        model_type=features.get("scoring_method", "baseline"),
         company_id=buyer_company.id,
         company_name=buyer_company.company_name,
         plant_id=buyer_plant.id,
@@ -824,7 +898,7 @@ def _score_seller_candidate(
     carbon_saving = estimate_carbon_saving(float(listing.quantity), carbon_factor)
 
     # ── Baseline weighted score ───────────────────────
-    score = (
+    baseline_score = (
         0.25 * material_compat
         + 0.15 * quantity_compat
         + 0.10 * quality_compat
@@ -834,8 +908,25 @@ def _score_seller_candidate(
         + 0.05 * history_score
         + 0.10 * min(carbon_saving / 100, 100)
     )
+    baseline_score = min(max(baseline_score, 0), 100)
 
-    score = min(max(score, 0), 100)
+    # ── MC-GNN inference (falls back to baseline) ─────
+    gnn_prob = _gnn_link_score(
+        db,
+        seller_plant_id=seller_plant.id,
+        buyer_plant_id=buyer_plant.id,
+        distance_km=distance_km,
+        material_compat=material_compat,
+        transport_cost=transport_cost,
+        carbon_saving=carbon_saving,
+    )
+
+    if gnn_prob is not None:
+        score = gnn_prob * 100.0
+        scoring_method = "mc_gnn"
+    else:
+        score = baseline_score
+        scoring_method = "baseline"
 
     # Transport feasibility label
     if distance_km < 100:
@@ -864,6 +955,8 @@ def _score_seller_candidate(
             "transport_emission": round(transport_emission, 2),
             "carbon_saving": round(carbon_saving, 2),
             "transport_feasibility": transport_feas,
+            "scoring_method": scoring_method,
+            "baseline_score": round(baseline_score, 2),
         },
     }
 
@@ -932,7 +1025,7 @@ def _build_seller_partner_card(rank: int, scored: dict, model_version: str) -> P
     return PartnerCard(
         rank=rank,
         ai_score=round(scored["score"], 2),
-        model_type="baseline" if "baseline" in model_version else "mc_gnn",
+        model_type=features.get("scoring_method", "baseline"),
         company_id=seller_company.id,
         company_name=seller_company.company_name,
         plant_id=seller_plant.id,
@@ -1088,7 +1181,7 @@ def get_recommendations_by_search(
         carbon_saving = estimate_carbon_saving(float(listing.quantity), carbon_factor)
 
         # Weighted score (same weights as seller flow)
-        score = (
+        baseline_score = (
             0.25 * material_compat
             + 0.15 * quantity_compat
             + 0.10 * quality_compat
@@ -1098,7 +1191,25 @@ def get_recommendations_by_search(
             + 0.05 * history_score
             + 0.10 * min(carbon_saving / 100, 100)
         )
-        score = min(max(score, 0), 100)
+        baseline_score = min(max(baseline_score, 0), 100)
+
+        # ── MC-GNN inference (falls back to baseline) ─────
+        gnn_prob = _gnn_link_score(
+            db,
+            seller_plant_id=seller_plant.id,
+            buyer_plant_id=buyer_plant.id,
+            distance_km=distance_km,
+            material_compat=material_compat,
+            transport_cost=transport_cost,
+            carbon_saving=carbon_saving,
+        )
+
+        if gnn_prob is not None:
+            score = gnn_prob * 100.0
+            scoring_method = "mc_gnn"
+        else:
+            score = baseline_score
+            scoring_method = "baseline"
 
         if distance_km < 100:
             transport_feas = "Excellent"
@@ -1126,6 +1237,8 @@ def get_recommendations_by_search(
                 "transport_emission": round(transport_emission, 2),
                 "carbon_saving": round(carbon_saving, 2),
                 "transport_feasibility": transport_feas,
+                "scoring_method": scoring_method,
+                "baseline_score": round(baseline_score, 2),
             },
         })
 

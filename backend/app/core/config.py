@@ -63,6 +63,12 @@ class Settings:
             model_path = (BASE_DIR / model_path).resolve()
         self.MODEL_PATH: str = str(model_path)
 
+        # How long the cached industrial graph and its GNN node embeddings
+        # stay valid before being rebuilt from the database.
+        self.GRAPH_CACHE_TTL_SECONDS: int = int(
+            os.getenv("GRAPH_CACHE_TTL_SECONDS", "600")
+        )
+
         # ── Debug ─────────────────────────────────────────
         self.DEBUG: bool = (
             os.getenv("DEBUG", "False").strip().lower() == "true"
