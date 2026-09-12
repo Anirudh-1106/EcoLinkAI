@@ -138,6 +138,157 @@ def test_ai_metrics_are_measured_not_hardcoded():
     )
 
 
+def _two_rival_companies():
+    """A plant from one company plus a plant from a different company, with a token for the first."""
+    from app.core.security import create_access_token
+    from app.models.user import User
+
+    db = SessionLocal()
+    try:
+        attacker_plant = db.query(Plant).first()
+        victim_plant = (
+            db.query(Plant).filter(Plant.company_id != attacker_plant.company_id).first()
+        )
+        user = db.query(User).filter(User.company_id == attacker_plant.company_id).first()
+        token = create_access_token({"sub": str(user.id), "role": user.role.value})
+        return (
+            attacker_plant.id,
+            attacker_plant.company_id,
+            victim_plant.id,
+            {"Authorization": f"Bearer {token}"},
+        )
+    finally:
+        db.close()
+
+
+def test_cannot_edit_another_companys_waste_listing():
+    attacker_plant_id, _, victim_plant_id, headers = _two_rival_companies()
+    db = SessionLocal()
+    try:
+        victim_listing = (
+            db.query(WasteListing).filter(WasteListing.plant_id == victim_plant_id).first()
+        )
+        if victim_listing is None:
+            pytest.skip("Victim company has no waste listing to target")
+        listing_id = victim_listing.id
+    finally:
+        db.close()
+
+    response = client.put(f"/api/v1/waste-listings/{listing_id}", headers=headers,
+                          json={"price_per_unit": 1})
+    assert response.status_code == 403
+
+
+def test_cannot_create_waste_listing_on_another_companys_plant():
+    _, _, victim_plant_id, headers = _two_rival_companies()
+    db = SessionLocal()
+    try:
+        material_id = db.query(Material).first().id
+    finally:
+        db.close()
+
+    response = client.post("/api/v1/waste-listings", headers=headers, json={
+        "plant_id": str(victim_plant_id),
+        "material_id": str(material_id),
+        "quantity": 10,
+        "unit": "kg",
+        "available_from": "2026-01-01",
+        "available_until": "2027-01-01",
+    })
+    assert response.status_code == 403
+
+
+def test_cannot_edit_another_companys_requirement():
+    _, _, victim_plant_id, headers = _two_rival_companies()
+    db = SessionLocal()
+    try:
+        victim_req = (
+            db.query(Requirement).filter(Requirement.plant_id == victim_plant_id).first()
+        )
+        if victim_req is None:
+            pytest.skip("Victim company has no requirement to target")
+        req_id = victim_req.id
+    finally:
+        db.close()
+
+    response = client.put(f"/api/v1/requirements/{req_id}", headers=headers, json={"quantity": 1})
+    assert response.status_code == 403
+
+
+def test_cannot_raise_exchange_request_in_another_companys_name():
+    """Buying on behalf of a plant you don't own would let you impersonate that company."""
+    _, _, victim_plant_id, headers = _two_rival_companies()
+    db = SessionLocal()
+    try:
+        listing = db.query(WasteListing).first()
+        listing_id = listing.id
+    finally:
+        db.close()
+
+    response = client.post("/api/v1/exchange-requests", headers=headers, json={
+        "waste_listing_id": str(listing_id),
+        "buyer_plant_id": str(victim_plant_id),
+        "requested_quantity": 10,
+    })
+    assert response.status_code == 403
+
+
+def test_cannot_review_an_exchange_you_were_not_party_to():
+    """Reviews move trust scores, which feed recommendations - only participants may post one."""
+    from app.models.exchange import Exchange
+    from app.models.exchange_request import ExchangeRequest
+
+    _, attacker_company_id, _, headers = _two_rival_companies()
+    db = SessionLocal()
+    try:
+        own_plant_ids = [
+            p.id for p in db.query(Plant).filter(Plant.company_id == attacker_company_id)
+        ]
+        outsider_exchange = (
+            db.query(Exchange)
+            .join(ExchangeRequest, Exchange.exchange_request_id == ExchangeRequest.id)
+            .filter(
+                ~ExchangeRequest.supplier_plant_id.in_(own_plant_ids),
+                ~ExchangeRequest.buyer_plant_id.in_(own_plant_ids),
+            )
+            .first()
+        )
+        if outsider_exchange is None:
+            pytest.skip("No third-party exchange available to target")
+        exchange_id = outsider_exchange.id
+    finally:
+        db.close()
+
+    response = client.post("/api/v1/reviews", headers=headers, json={
+        "exchange_id": str(exchange_id),
+        "supplier_rating": 1,
+        "buyer_rating": 1,
+        "supplier_feedback": "x",
+        "buyer_feedback": "x",
+    })
+    assert response.status_code == 403
+
+
+def test_can_still_edit_own_waste_listing():
+    """The ownership checks must not lock companies out of their own data."""
+    attacker_plant_id, _, _, headers = _two_rival_companies()
+    db = SessionLocal()
+    try:
+        own_listing = (
+            db.query(WasteListing).filter(WasteListing.plant_id == attacker_plant_id).first()
+        )
+        if own_listing is None:
+            pytest.skip("Company has no waste listing of its own")
+        listing_id = own_listing.id
+        price = float(own_listing.price_per_unit) if own_listing.price_per_unit else 50.0
+    finally:
+        db.close()
+
+    response = client.put(f"/api/v1/waste-listings/{listing_id}", headers=headers,
+                          json={"price_per_unit": price})
+    assert response.status_code == 200
+
+
 def test_gnn_falls_back_gracefully_for_unknown_plants():
     """A plant missing from the cached graph must degrade to baseline, not error."""
     import uuid as _uuid
@@ -153,7 +304,7 @@ def test_gnn_falls_back_gracefully_for_unknown_plants():
             seller_plant_id=_uuid.uuid4(),  # never registered
             buyer_plant_id=plant.id,
             distance_km=50.0,
-            material_compat=100.0,
+            compatibility=100.0,
             transport_cost=1000.0,
             carbon_saving=500.0,
         )

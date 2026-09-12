@@ -73,13 +73,30 @@ def _try_load_model():
     return model is not None
 
 
+def composite_compatibility(
+    material_compat: float, quantity_compat: float, quality_compat: float
+) -> float:
+    """
+    Blend the three compatibility signals into a single 0-100 score.
+
+    This is the compatibility the MC-GNN consumes as an edge feature and that
+    gets stored on an exchange request. The identical blend is applied when
+    seeding historical requests (scripts/database/seed.py), so the model is
+    trained on and served the same quantity -- feeding it a figure here that
+    was computed differently during training would leave it reading a signal
+    it never actually learned.
+    """
+    score = 0.5 * material_compat + 0.3 * quantity_compat + 0.2 * quality_compat
+    return max(0.0, min(score, 100.0))
+
+
 def _gnn_link_score(
     db: Session,
     *,
     seller_plant_id,
     buyer_plant_id,
     distance_km: float,
-    material_compat: float,
+    compatibility: float,
     transport_cost: float,
     carbon_saving: float,
 ) -> float | None:
@@ -112,7 +129,7 @@ def _gnn_link_score(
         edge_attr = torch.tensor(
             [[
                 min(distance_km / 500.0, 1.0),
-                material_compat / 100.0,
+                compatibility / 100.0,
                 transport_cost / 10000.0,
                 carbon_saving / 1000.0,
             ]],
@@ -272,7 +289,7 @@ def score_candidate_pair(
     features = scored["features"]
     return {
         "ai_score": round(scored["score"], 2),
-        "compatibility_score": features["material_compat"],
+        "compatibility_score": features["compatibility"],
         "distance_km": features["distance_km"],
         "estimated_transport_cost": features["transport_cost"],
         "estimated_carbon_emission": features["transport_emission"],
@@ -466,12 +483,15 @@ def _score_candidate(
     baseline_score = min(max(baseline_score, 0), 100)
 
     # ── MC-GNN inference (falls back to baseline) ─────
+    compatibility = composite_compatibility(
+        material_compat, quantity_compat, quality_compat
+    )
     gnn_prob = _gnn_link_score(
         db,
         seller_plant_id=supplier_plant.id,
         buyer_plant_id=buyer_plant.id,
         distance_km=distance_km,
-        material_compat=material_compat,
+        compatibility=compatibility,
         transport_cost=transport_cost,
         carbon_saving=carbon_saving,
     )
@@ -500,6 +520,7 @@ def _score_candidate(
             "material_compat": material_compat,
             "quantity_compat": quantity_compat,
             "quality_compat": quality_compat,
+            "compatibility": round(compatibility, 2),
             "distance_km": round(distance_km, 2),
             "distance_score": distance_score,
             "trust": trust,
@@ -737,7 +758,7 @@ def score_seller_candidate_pair(
     features = scored["features"]
     return {
         "ai_score": round(scored["score"], 2),
-        "compatibility_score": features["material_compat"],
+        "compatibility_score": features["compatibility"],
         "distance_km": features["distance_km"],
         "estimated_transport_cost": features["transport_cost"],
         "estimated_carbon_emission": features["transport_emission"],
@@ -911,12 +932,15 @@ def _score_seller_candidate(
     baseline_score = min(max(baseline_score, 0), 100)
 
     # ── MC-GNN inference (falls back to baseline) ─────
+    compatibility = composite_compatibility(
+        material_compat, quantity_compat, quality_compat
+    )
     gnn_prob = _gnn_link_score(
         db,
         seller_plant_id=seller_plant.id,
         buyer_plant_id=buyer_plant.id,
         distance_km=distance_km,
-        material_compat=material_compat,
+        compatibility=compatibility,
         transport_cost=transport_cost,
         carbon_saving=carbon_saving,
     )
@@ -945,6 +969,7 @@ def _score_seller_candidate(
             "material_compat": material_compat,
             "quantity_compat": quantity_compat,
             "quality_compat": quality_compat,
+            "compatibility": round(compatibility, 2),
             "price_compat": price_compat,
             "distance_km": round(distance_km, 2),
             "distance_score": distance_score,
@@ -1194,12 +1219,15 @@ def get_recommendations_by_search(
         baseline_score = min(max(baseline_score, 0), 100)
 
         # ── MC-GNN inference (falls back to baseline) ─────
+        compatibility = composite_compatibility(
+            material_compat, quantity_compat, quality_compat
+        )
         gnn_prob = _gnn_link_score(
             db,
             seller_plant_id=seller_plant.id,
             buyer_plant_id=buyer_plant.id,
             distance_km=distance_km,
-            material_compat=material_compat,
+            compatibility=compatibility,
             transport_cost=transport_cost,
             carbon_saving=carbon_saving,
         )
@@ -1227,6 +1255,7 @@ def get_recommendations_by_search(
                 "material_compat": material_compat,
                 "quantity_compat": quantity_compat,
                 "quality_compat": quality_compat,
+                "compatibility": round(compatibility, 2),
                 "price_compat": price_compat,
                 "distance_km": round(distance_km, 2),
                 "distance_score": distance_score,

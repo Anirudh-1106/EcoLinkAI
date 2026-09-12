@@ -12,6 +12,7 @@ returns None and callers fall back to baseline scoring.
 
 from __future__ import annotations
 
+import json
 import logging
 import sys
 import threading
@@ -119,8 +120,45 @@ def _evaluate(model, data) -> dict | None:
 
 
 def metrics() -> dict | None:
-    """Latest measured evaluation metrics, or None if unavailable."""
-    return _state["metrics"]
+    """
+    Evaluation metrics for the model in production.
+
+    Prefers the held-out figures recorded when the checkpoint was promoted,
+    since those measure generalisation to edges the model never trained on.
+    Falls back to the in-sample evaluation only when a checkpoint predates
+    the versioned training pipeline and carries no metadata of its own.
+    """
+    promoted = _promoted_metadata()
+    if promoted:
+        recorded = promoted.get("metrics") or {}
+        baseline = promoted.get("baseline_metrics") or {}
+        if recorded:
+            return {
+                "precision_at_5": recorded.get("precision@5", 0.0),
+                "recall_at_5": recorded.get("recall@5", 0.0),
+                "ndcg_at_5": recorded.get("ndcg@5", 0.0),
+                "baseline_ndcg_at_5": baseline.get("ndcg@5", 0.0),
+                "training_samples": promoted.get("num_train_edges", 0),
+                "metric_type": promoted.get("metric_type", "held_out"),
+            }
+
+    in_sample = _state["metrics"]
+    if in_sample:
+        return {**in_sample, "metric_type": "in_sample"}
+    return None
+
+
+def _promoted_metadata() -> dict | None:
+    """Metadata written alongside the currently promoted checkpoint."""
+    try:
+        path = Path(settings.MODEL_PATH) / "mc_gnn_best.json"
+        if not path.exists():
+            return None
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        logger.warning("Could not read promoted checkpoint metadata: %s", e)
+        return None
 
 
 def checkpoint_mtime() -> str | None:

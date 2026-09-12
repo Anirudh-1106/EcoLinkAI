@@ -15,6 +15,8 @@ from __future__ import annotations
 
 import csv
 import logging
+import math
+import random
 import sys
 import uuid
 from datetime import datetime, date
@@ -50,11 +52,115 @@ from app.models.review import Review
 from app.models.transport_rate import TransportRate
 from app.models.user import User, UserRole
 from app.models.waste_listing import WasteListing
+from app.utils.distance import (
+    estimate_carbon_saving,
+    estimate_transport_cost,
+    estimate_transport_emission,
+    haversine_distance,
+)
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger("seed")
 
 CSV_DIR = PROJECT_ROOT / "datasets" / "csv"
+
+# Fixed seed so re-seeding reproduces an identical dataset.
+OUTCOME_SEED = 42
+
+# Tuned so the share of accepted requests lands near 40%, matching the mix the
+# platform's analytics were built around.
+ACCEPT_INTERCEPT = -5.1
+
+
+def _quantity_fit(listing_quantity: float, requested_quantity: float) -> float:
+    """How closely the requested amount matches what is on offer, 0-100."""
+    if listing_quantity <= 0 or requested_quantity <= 0:
+        return 50.0
+    ratio = min(
+        listing_quantity / requested_quantity,
+        requested_quantity / listing_quantity,
+    )
+    return ratio * 100.0
+
+
+def _quality_fit(listing_purity: float | None, required_purity: float | None) -> float:
+    """Whether the listing's purity clears the buyer's minimum, 0-100."""
+    if not required_purity or not listing_purity:
+        return 100.0
+    if listing_purity >= required_purity:
+        return 100.0
+    return (listing_purity / required_purity) * 100.0
+
+
+def _compatibility_score(quantity_compat: float, quality_compat: float) -> float:
+    """
+    How well a listing fits the request overall, as a 0-100 score.
+
+    Blends the three things a buyer weighs: the materials matching at all,
+    whether the quantities line up, and whether the purity clears their
+    minimum. Deliberately the same blend as composite_compatibility() in
+    recommendation_service, so the MC-GNN is trained on and served the same
+    quantity.
+    """
+    material_compat = 100.0  # listing and requirement share a material by construction
+    score = 0.5 * material_compat + 0.3 * quantity_compat + 0.2 * quality_compat
+    return max(0.0, min(score, 100.0))
+
+
+def _simulate_request_outcome(
+    rng: random.Random,
+    *,
+    distance_km: float,
+    quantity_compat: float,
+    buyer_trust: float,
+    price_ratio: float,
+    prior_successes: int = 0,
+) -> str:
+    """
+    Decide how a historical exchange request ended.
+
+    The outcome follows from the deal's actual merits -- how close the plants
+    are, how well the quantities and purity line up, how trusted the buyer is,
+    and how attractive the offered price is -- passed through a logistic curve
+    and then *sampled*. Sampling rather than thresholding matters: it leaves
+    the label correlated with the features without being a deterministic
+    function of them, because real negotiations also turn on things no dataset
+    records. A model can therefore learn a genuine signal here, but can never
+    reach a perfect score.
+
+    Requests that were never resolved are drawn separately, since "still
+    pending" is not a verdict on the match.
+    """
+    proximity = 1.0 - min(distance_km / 500.0, 1.0)
+    # Driven by the quantity fit rather than the blended compatibility score:
+    # the blend is half a constant (material match), which squeezes its range
+    # too narrow to carry a usable signal. The stored compatibility score is a
+    # linear function of this, so the model can still read it.
+    quantity_fit = max(0.0, min(quantity_compat / 100.0, 1.0))
+    trust = max(0.0, min(buyer_trust / 100.0, 1.0))
+    # Offers land between 0.85x and 1.15x the asking price; map that to 0-1.
+    price_appeal = max(0.0, min((price_ratio - 0.85) / 0.30, 1.0))
+    # Established partners deal with each other more readily; saturates so a
+    # long history helps but never guarantees the outcome.
+    rapport = min(prior_successes / 3.0, 1.0)
+
+    z = (
+        ACCEPT_INTERCEPT
+        + 2.60 * proximity
+        + 2.40 * quantity_fit
+        + 1.20 * trust
+        + 1.60 * rapport  # relational effect, only visible via graph structure
+        + 0.90 * price_appeal  # not visible to the model: irreducible noise
+        + rng.gauss(0.0, 0.35)  # unobserved factors, keeps the label noisy
+    )
+    p_accept = 1.0 / (1.0 + math.exp(-z))
+
+    if rng.random() < p_accept:
+        return "Accepted"
+
+    return rng.choices(
+        ["Rejected", "Pending", "Cancelled"], weights=[55, 30, 15], k=1
+    )[0]
 
 
 def seed_database():
@@ -80,6 +186,9 @@ def seed_database():
         company_map: dict[str, uuid.UUID] = {}
         plant_map: dict[str, uuid.UUID] = {}
         company_first_plant: dict[str, uuid.UUID] = {}
+        plant_coords: dict[uuid.UUID, tuple[float, float]] = {}
+        company_trust: dict[str, float] = {}
+        outcome_rng = random.Random(OUTCOME_SEED)
         material_map: dict[str, uuid.UUID] = {}
         waste_map: dict[str, uuid.UUID] = {}
         request_map: dict[str, uuid.UUID] = {}
@@ -121,6 +230,8 @@ def seed_database():
 
                     status_str = row.get("verification_status", "Pending")
                     status_enum = VerificationStatus.VERIFIED if status_str == "Verified" else VerificationStatus.PENDING
+
+                    company_trust[c_id] = float(row.get("trust_score", 75.0))
 
                     comp = Company(
                         id=u_id,
@@ -179,6 +290,7 @@ def seed_database():
                     # Add tiny jitter so plants in same district don't overlap exactly
                     lat = Decimal(str(round(base_lat + (idx % 10) * 0.015, 6)))
                     lon = Decimal(str(round(base_lon + (idx % 8) * 0.015, 6)))
+                    plant_coords[u_id] = (float(lat), float(lon))
 
                     plant = Plant(
                         id=u_id,
@@ -306,9 +418,19 @@ def seed_database():
         seen_matches = set()
         if req_file.exists():
             logger.info("Seeding Exchange Requests...")
+            # Successful trades between two companies make the next deal
+            # between them likelier, so requests are replayed in date order and
+            # the partnership history accumulates as we go. That relationship
+            # effect lives in the graph's structure rather than in any single
+            # row, which is precisely what a graph model can exploit and a
+            # per-row formula cannot.
+            partnership_history: dict[tuple[str, str], int] = {}
             with open(req_file, mode="r", encoding="utf-8") as f:
-                reader = csv.DictReader(f)
-                for row in reader:
+                rows = sorted(
+                    csv.DictReader(f),
+                    key=lambda r: r.get("request_date", ""),
+                )
+                for row in rows:
                     r_id = row["request_id"]
                     w_id = row["waste_id"]
                     u_id = uuid.uuid4()
@@ -352,7 +474,67 @@ def seed_database():
 
                     request_map[r_id] = u_id
 
-                    status_str = row.get("request_status", "Pending")
+                    # ── Real match features for this specific pairing ──
+                    # Previously these were fixed placeholders, identical on
+                    # every row, which left the MC-GNN with no variation to
+                    # learn from. They are now derived from the actual plants,
+                    # listing and requirement involved.
+                    sup_lat, sup_lon = plant_coords[sup_p_id]
+                    buy_lat, buy_lon = plant_coords[buyer_p_id]
+                    distance_km = haversine_distance(sup_lat, sup_lon, buy_lat, buy_lon)
+
+                    requested_qty = float(row["requested_quantity"])
+                    listing_qty = float(listing_obj.quantity) if listing_obj else requested_qty
+                    listing_purity = (
+                        float(listing_obj.purity_percentage)
+                        if listing_obj and listing_obj.purity_percentage is not None
+                        else None
+                    )
+                    required_purity = (
+                        float(req_obj.minimum_purity)
+                        if req_obj and req_obj.minimum_purity is not None
+                        else None
+                    )
+
+                    quantity_compat = _quantity_fit(listing_qty, requested_qty)
+                    quality_compat = _quality_fit(listing_purity, required_purity)
+                    compatibility = _compatibility_score(quantity_compat, quality_compat)
+
+                    quantity_tons = max(requested_qty / 1000.0, 0.1)
+                    transport_cost = estimate_transport_cost(distance_km, quantity_tons)
+                    transport_emission = estimate_transport_emission(distance_km, quantity_tons)
+                    carbon_factor = (
+                        float(listing_obj.material.carbon_factor)
+                        if listing_obj and listing_obj.material and listing_obj.material.carbon_factor
+                        else None
+                    )
+                    carbon_saving = estimate_carbon_saving(requested_qty, carbon_factor)
+
+                    # ── Outcome follows from those features ───────────
+                    # The generated CSV assigns a status by fixed-weight random
+                    # draw, with no bearing on the deal itself. Deriving it here
+                    # instead is what gives the dataset a signal worth learning.
+                    asking_price = (
+                        float(listing_obj.price_per_unit)
+                        if listing_obj and listing_obj.price_per_unit
+                        else 0.0
+                    )
+                    offered_price = float(row.get("offered_price_per_unit") or 0.0)
+                    price_ratio = (offered_price / asking_price) if asking_price > 0 else 1.0
+
+                    pair_key = (sup_c_id, req_c_id)
+                    status_str = _simulate_request_outcome(
+                        outcome_rng,
+                        distance_km=distance_km,
+                        quantity_compat=quantity_compat,
+                        buyer_trust=company_trust.get(req_c_id, 75.0),
+                        price_ratio=price_ratio,
+                        prior_successes=partnership_history.get(pair_key, 0),
+                    )
+                    if status_str == "Accepted":
+                        partnership_history[pair_key] = (
+                            partnership_history.get(pair_key, 0) + 1
+                        )
                     status_dict = {
                         "Pending": ExchangeRequestStatus.PENDING,
                         "Accepted": ExchangeRequestStatus.ACCEPTED,
@@ -367,13 +549,13 @@ def seed_database():
                         buyer_plant_id=buyer_p_id,
                         waste_listing_id=waste_map[w_id],
                         requirement_id=req_obj.id if req_obj else None,
-                        compatibility_score=Decimal("88.5"),
-                        ai_confidence_score=Decimal("85.0"),
+                        compatibility_score=Decimal(str(round(compatibility, 2))),
+                        ai_confidence_score=Decimal(str(round(compatibility, 2))),
                         recommendation_rank=1,
-                        distance_km=Decimal("45.0"),
-                        estimated_transport_cost=Decimal("1200.00"),
-                        estimated_carbon_emission=Decimal("18.5"),
-                        estimated_carbon_saving=Decimal("250.0"),
+                        distance_km=Decimal(str(round(distance_km, 2))),
+                        estimated_transport_cost=Decimal(str(round(transport_cost, 2))),
+                        estimated_carbon_emission=Decimal(str(round(transport_emission, 2))),
+                        estimated_carbon_saving=Decimal(str(round(carbon_saving, 2))),
                         recommendation_reason=f"Historical request: {row.get('remarks', 'Direct exchange match')}",
                         status=r_status,
                     )
@@ -450,4 +632,11 @@ def seed_database():
 
 
 if __name__ == "__main__":
+    # This loads the synthetic CSVs only. The real KINFRA companies live in
+    # datasets/kinfra_data.xlsx and are loaded separately, so a database built
+    # from here alone is missing them.
+    logger.warning(
+        "Loading synthetic CSV data only. "
+        "Use 'python -m scripts.database.rebuild' to load every dataset."
+    )
     seed_database()

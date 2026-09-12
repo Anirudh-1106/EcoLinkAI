@@ -7,11 +7,12 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
+from app.core.authorization import ensure_company_access
 from app.core.database import get_db
 from app.core.security import get_current_user
 from app.models.user import User
 from app.schemas.review import ReviewCreate, ReviewListResponse, ReviewResponse
-from app.services import review_service
+from app.services import exchange_service, review_service
 
 router = APIRouter(prefix="/reviews", tags=["Reviews"])
 
@@ -44,7 +45,23 @@ def create_review(
     db: Annotated[Session, Depends(get_db)],
     current_user: Annotated[User, Depends(get_current_user)],
 ):
-    """Submit a review for a completed exchange."""
+    """Submit a review for a completed exchange the caller took part in."""
+    # Reviews move both parties' trust scores, which in turn feed partner
+    # recommendations, so only the two companies involved may leave one.
+    exchange = exchange_service.get_exchange(db, data.exchange_id)
+    if not exchange:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Exchange not found",
+        )
+
+    req = exchange.exchange_request
+    ensure_company_access(
+        current_user,
+        req.supplier_plant.company_id if req and req.supplier_plant else None,
+        req.buyer_plant.company_id if req and req.buyer_plant else None,
+    )
+
     existing = review_service.get_reviews_for_exchange(db, data.exchange_id)
     if existing:
         raise HTTPException(

@@ -9,6 +9,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from app.core.authorization import ensure_plant_access
 from app.core.database import get_db
 from app.core.security import get_current_user
 from app.models.exchange_request import ExchangeRequest
@@ -98,6 +99,10 @@ def create_exchange_request(
     current_user: Annotated[User, Depends(get_current_user)],
 ):
     """Create an exchange request for a recommended waste listing."""
+    # The caller must own the plant they are buying for, otherwise a company
+    # could raise requests in another company's name.
+    ensure_plant_access(db, current_user, data.buyer_plant_id)
+
     listing = waste_listing_service.get_waste_listing(db, data.waste_listing_id)
     if not listing:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Waste listing not found")

@@ -8,6 +8,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
+from app.core.authorization import ensure_company_access, ensure_plant_access
 from app.core.database import get_db
 from app.core.security import get_current_user
 from app.models.user import User
@@ -79,7 +80,9 @@ def create_requirement(
     db: Annotated[Session, Depends(get_db)],
     current_user: Annotated[User, Depends(get_current_user)],
 ):
-    """Post a new material requirement."""
+    """Post a new material requirement for a plant the caller's company owns."""
+    ensure_plant_access(db, current_user, data.plant_id)
+
     r = requirement_service.create_requirement(db, data)
     full_r = requirement_service.get_requirement(db, r.id)
     return _to_response(full_r or r)
@@ -96,6 +99,8 @@ def update_requirement(
     r = requirement_service.get_requirement(db, requirement_id)
     if not r:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Requirement not found")
+
+    ensure_company_access(current_user, r.plant.company_id if r.plant else None)
 
     updated = requirement_service.update_requirement(db, requirement_id, data)
     full_r = requirement_service.get_requirement(db, requirement_id)

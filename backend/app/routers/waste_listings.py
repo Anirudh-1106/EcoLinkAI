@@ -8,6 +8,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
+from app.core.authorization import ensure_company_access, ensure_plant_access
 from app.core.database import get_db
 from app.core.security import get_current_user
 from app.models.user import User, UserRole
@@ -85,7 +86,9 @@ def create_waste_listing(
     db: Annotated[Session, Depends(get_db)],
     current_user: Annotated[User, Depends(get_current_user)],
 ):
-    """Create a new waste listing."""
+    """Create a new waste listing on a plant the caller's company owns."""
+    ensure_plant_access(db, current_user, data.plant_id)
+
     w = waste_listing_service.create_waste_listing(db, data)
     full_w = waste_listing_service.get_waste_listing(db, w.id)
     return _to_response(full_w or w)
@@ -102,6 +105,8 @@ def update_waste_listing(
     w = waste_listing_service.get_waste_listing(db, listing_id)
     if not w:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Listing not found")
+
+    ensure_company_access(current_user, w.plant.company_id if w.plant else None)
 
     updated = waste_listing_service.update_waste_listing(db, listing_id, data)
     full_w = waste_listing_service.get_waste_listing(db, listing_id)
