@@ -289,6 +289,98 @@ def test_can_still_edit_own_waste_listing():
     assert response.status_code == 200
 
 
+def test_cannot_review_an_exchange_that_is_not_completed():
+    """A review rates an outcome, and it moves trust scores, so it needs one to exist."""
+    from app.core.security import create_access_token
+    from app.models.exchange import Exchange
+    from app.models.exchange_request import ExchangeRequest
+    from app.models.user import User
+
+    from app.enums.exchange import ExchangeStatus
+
+    db = SessionLocal()
+    original_status = None
+    exchange_id = None
+    try:
+        # Seed data completes every exchange, so put one back in transit for
+        # the duration of the test rather than skipping and leaving the guard
+        # unexercised. Restored in the finally block below.
+        exchange = db.query(Exchange).first()
+        if exchange is None:
+            pytest.skip("No exchange available to target")
+
+        req = db.query(ExchangeRequest).filter(
+            ExchangeRequest.id == exchange.exchange_request_id
+        ).first()
+        buyer_plant = db.query(Plant).filter(Plant.id == req.buyer_plant_id).first()
+        # A participant, so the request is rejected for its status rather than
+        # for the caller lacking access.
+        user = db.query(User).filter(User.company_id == buyer_plant.company_id).first()
+        if user is None:
+            pytest.skip("Participating company has no user account")
+
+        token = create_access_token({"sub": str(user.id), "role": user.role.value})
+        exchange_id = exchange.id
+        original_status = exchange.exchange_status
+        exchange.exchange_status = ExchangeStatus.IN_TRANSIT
+        db.commit()
+
+        response = client.post(
+            "/api/v1/reviews",
+            headers={"Authorization": f"Bearer {token}"},
+            json={
+                "exchange_id": str(exchange_id),
+                "supplier_rating": 1,
+                "buyer_rating": 1,
+                "supplier_feedback": "x",
+                "buyer_feedback": "x",
+            },
+        )
+        assert response.status_code == 400
+        assert "completed" in response.json()["detail"].lower()
+    finally:
+        if exchange_id is not None and original_status is not None:
+            restore = db.query(Exchange).filter(Exchange.id == exchange_id).first()
+            if restore is not None:
+                restore.exchange_status = original_status
+                db.commit()
+        db.close()
+
+
+def test_category_matches_are_offered_but_rank_below_exact_matches():
+    """A related material is better than no seller at all, but must not outrank the real thing."""
+    from app.enums.exchange import RequirementStatus
+    from app.schemas.recommendation import RequirementRecommendationRequest
+    from app.services import recommendation_service as rs
+
+    db = SessionLocal()
+    try:
+        requirement = (
+            db.query(Requirement)
+            .join(Material, Requirement.material_id == Material.id)
+            .filter(Requirement.status == RequirementStatus.OPEN)
+            .first()
+        )
+        if requirement is None:
+            pytest.skip("No open requirement to recommend against")
+
+        response = rs.get_recommendations_by_requirement(
+            db,
+            RequirementRecommendationRequest(requirement_id=requirement.id, max_results=10),
+        )
+    finally:
+        db.close()
+
+    labels = [c.explanation.material_compatibility for c in response.recommendations]
+    scores = [c.ai_score for c in response.recommendations]
+
+    assert scores == sorted(scores, reverse=True), "Cards must stay ranked by score"
+
+    # Wherever both kinds are present, no category match may sit above an exact one.
+    if "Exact Match" in labels and "Same Category" in labels:
+        assert labels.index("Same Category") > labels.index("Exact Match")
+
+
 def test_gnn_falls_back_gracefully_for_unknown_plants():
     """A plant missing from the cached graph must degrade to baseline, not error."""
     import uuid as _uuid

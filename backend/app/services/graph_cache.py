@@ -36,6 +36,7 @@ _state: dict = {
     "edge_count": 0,
     "model_loaded": False,
     "load_failed": False,
+    "model_mtime": None,      # checkpoint mtime when loaded, to detect promotions
     "last_error": None,
     "metrics": None,          # evaluation of MC-GNN vs baseline, refreshed with the graph
 }
@@ -48,14 +49,36 @@ def _ensure_ai_importable() -> None:
         sys.path.insert(0, repo_root)
 
 
-def _load_model():
-    """Load the trained MC-GNN checkpoint. Returns the model or None."""
-    if _state["model"] is not None:
-        return _state["model"]
+def _checkpoint_mtime() -> float | None:
+    """Modification time of the production checkpoint, or None if absent."""
+    try:
+        path = Path(settings.MODEL_PATH) / "mc_gnn_best.pt"
+        return path.stat().st_mtime if path.exists() else None
+    except OSError:
+        return None
 
-    # Don't retry (and re-log) a known-bad load on every scored candidate;
-    # invalidate() clears this so a newly added checkpoint can be picked up.
-    if _state["load_failed"]:
+
+def _load_model():
+    """
+    Load the trained MC-GNN checkpoint. Returns the model or None.
+
+    Reloads when the checkpoint file on disk has changed, so a model promoted
+    by a retraining run is picked up by the next cache refresh instead of
+    needing the server restarted. Without this, automated promotion would
+    never actually reach production.
+    """
+    current_mtime = _checkpoint_mtime()
+
+    if _state["model"] is not None:
+        if current_mtime == _state["model_mtime"]:
+            return _state["model"]
+        logger.info("MC-GNN checkpoint changed on disk; reloading.")
+        _state["model"] = None
+
+    # Don't retry (and re-log) a known-bad load on every scored candidate,
+    # unless the checkpoint itself has since changed. invalidate() also clears
+    # this so a newly added checkpoint can be picked up.
+    if _state["load_failed"] and current_mtime == _state["model_mtime"]:
         return None
 
     try:
@@ -66,6 +89,7 @@ def _load_model():
         if not model_path.exists():
             _state["last_error"] = f"checkpoint not found at {model_path}"
             _state["load_failed"] = True
+            _state["model_mtime"] = None
             logger.info("MC-GNN checkpoint not found at %s, using baseline", model_path)
             return None
 
@@ -73,6 +97,8 @@ def _load_model():
         model.eval()
         _state["model"] = model
         _state["model_loaded"] = True
+        _state["load_failed"] = False
+        _state["model_mtime"] = current_mtime
         _state["last_error"] = None
         logger.info("MC-GNN model loaded successfully from %s", model_path)
         return model

@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 
 from app.core.authorization import ensure_company_access
 from app.core.database import get_db
+from app.enums.exchange import ExchangeStatus
 from app.core.security import get_current_user
 from app.models.user import User
 from app.schemas.review import ReviewCreate, ReviewListResponse, ReviewResponse
@@ -61,6 +62,19 @@ def create_review(
         req.supplier_plant.company_id if req and req.supplier_plant else None,
         req.buyer_plant.company_id if req and req.buyer_plant else None,
     )
+
+    # A review rates how an exchange actually went, so there has to be an
+    # outcome to rate. Without this an in-transit exchange could be rated --
+    # and since reviews move trust scores, that would let a party mark a
+    # counterpart down before they had a chance to deliver.
+    if exchange.exchange_status != ExchangeStatus.COMPLETED:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=(
+                "Only completed exchanges can be reviewed "
+                f"(this one is '{exchange.exchange_status.value}')"
+            ),
+        )
 
     existing = review_service.get_reviews_for_exchange(db, data.exchange_id)
     if existing:

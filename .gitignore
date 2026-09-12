@@ -56,3 +56,6 @@ dist/
 *.sqlite3
 ai/checkpoints/mc_gnn_2*.pt
 ai/checkpoints/mc_gnn_2*.json
+
+# Retraining job logs
+logs/

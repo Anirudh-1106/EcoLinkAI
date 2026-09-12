@@ -257,6 +257,16 @@ export interface MaterialDistribution {
   total_quantity: number;
 }
 
+export interface AIRuntimeStatus {
+  model_loaded: boolean;
+  graph_cached: boolean;
+  node_count: number;
+  edge_count: number;
+  age_seconds: number | null;
+  ttl_seconds: number;
+  last_error: string | null;
+}
+
 export interface AIModelMetrics {
   model_version: string;
   last_trained?: string;

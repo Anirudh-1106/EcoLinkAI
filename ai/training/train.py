@@ -446,11 +446,13 @@ def train_mc_gnn(
 
         # ── Auto-promotion decision ───────────────────
         production_path = save_dir / "mc_gnn_best.pt"
+        promoted = False
 
         if not production_path.exists():
             # No production model yet — promote unconditionally
             logger.info("No production model exists. Promoting unconditionally.")
             _promote_checkpoint(checkpoint_path, metadata, save_dir)
+            promoted = True
         else:
             # Re-evaluate current production model on the SAME held-out split
             logger.info("Re-evaluating current production model on held-out split...")
@@ -464,6 +466,7 @@ def train_mc_gnn(
                     "Promoting new checkpoint as fallback."
                 )
                 _promote_checkpoint(checkpoint_path, metadata, save_dir)
+                promoted = True
             else:
                 new_score = held_out_metrics[PROMOTION_METRIC]
                 prod_score = prod_metrics[PROMOTION_METRIC]
@@ -485,6 +488,7 @@ def train_mc_gnn(
                         f"{improvement:.4f} (>{PROMOTION_MARGIN}). Promoting!"
                     )
                     _promote_checkpoint(checkpoint_path, metadata, save_dir)
+                    promoted = True
                 else:
                     logger.info(
                         f"⏸️ New model does NOT beat production by "
@@ -494,6 +498,14 @@ def train_mc_gnn(
                         f"   Checkpoint saved as {checkpoint_name}.pt "
                         f"for manual review."
                     )
+
+        return {
+            "promoted": promoted,
+            "checkpoint": checkpoint_path.name,
+            "best_epoch": best_epoch,
+            "held_out": held_out_metrics,
+            "baseline": baseline_metrics,
+        }
 
     finally:
         db.close()

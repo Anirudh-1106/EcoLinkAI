@@ -16,7 +16,7 @@ import time
 import uuid
 from decimal import Decimal
 
-from sqlalchemy import func
+from sqlalchemy import func, or_
 from sqlalchemy.orm import Session, joinedload
 
 from app.enums.exchange import (
@@ -55,6 +55,11 @@ logger = logging.getLogger(__name__)
 # ── AI model versions ────────────────────────────────
 MC_GNN_VERSION = "mc-gnn-v1.0"
 BASELINE_VERSION = "baseline-v1.0"
+
+# Material compatibility awarded when a listing is not the material the buyer
+# asked for but belongs to the same category. High enough for such sellers to
+# be surfaced, low enough that any exact match outranks them.
+CATEGORY_MATCH_COMPAT = 60.0
 
 _model_version = BASELINE_VERSION
 
@@ -672,7 +677,9 @@ def get_recommendations_by_requirement(
         )
         scored.append(score_data)
 
-    # Sort by score descending
+    # Sort by score descending. Category-only matches already carry their
+    # material penalty in the score, so they settle below comparable exact
+    # matches without needing to be grouped separately.
     scored.sort(key=lambda x: x["score"], reverse=True)
 
     # ── 5. Build partner cards ────────────────────────
@@ -785,6 +792,11 @@ def _generate_seller_candidates(
     import re
     base_material_name = re.sub(r' \([A-Z0-9]+\)$', '', material.material_name)
 
+    # Match on the material's name first, but accept anything in the same
+    # category too. A buyer needing "Metal Waste" should still be shown
+    # "Metal Offcuts" -- the same kind of material under another name --
+    # rather than nothing at all. Category-only matches are scored lower
+    # below, so exact matches still rank above them.
     listings = (
         db.query(WasteListing)
         .options(
@@ -793,7 +805,10 @@ def _generate_seller_candidates(
         )
         .join(Material, WasteListing.material_id == Material.id)
         .filter(
-            Material.material_name.like(base_material_name + '%'),
+            or_(
+                Material.material_name.like(base_material_name + '%'),
+                Material.material_category == material.material_category,
+            ),
             WasteListing.status == WasteStatus.AVAILABLE,
         )
         .all()
@@ -818,11 +833,15 @@ def _generate_seller_candidates(
         if max_distance_km and dist > max_distance_km:
             continue
 
+        listing_name = listing.material.material_name if listing.material else ""
         candidates.append({
             "listing": listing,
             "seller_plant": seller_plant,
             "seller_company": seller_plant.company,
             "distance_km": dist,
+            "material_match": (
+                "exact" if listing_name.startswith(base_material_name) else "category"
+            ),
         })
 
     return candidates
@@ -846,8 +865,13 @@ def _score_seller_candidate(
 
     # ── Feature computation ───────────────────────────
 
-    # Material compatibility (exact match = 100)
-    material_compat = 100.0
+    # An exact material match is worth full marks; a different material in the
+    # same category is a real but weaker option, so it scores lower and ranks
+    # below the exact matches rather than being hidden entirely.
+    material_compat = (
+        100.0 if candidate.get("material_match", "exact") == "exact"
+        else CATEGORY_MATCH_COMPAT
+    )
 
     # Quantity compatibility
     qty_ratio = min(
@@ -948,6 +972,13 @@ def _score_seller_candidate(
     if gnn_prob is not None:
         score = gnn_prob * 100.0
         scoring_method = "mc_gnn"
+        # Every request the model trained on was for an exactly matching
+        # material, so it never learned what a weaker material fit should cost
+        # a seller, and its score here is an extrapolation. Apply that penalty
+        # explicitly rather than presenting an unreliable number as if it were
+        # learned. The baseline already weighs material_compat in its own sum,
+        # so it needs no such adjustment.
+        score *= material_compat / 100.0
     else:
         score = baseline_score
         scoring_method = "baseline"
@@ -998,6 +1029,14 @@ def _build_seller_partner_card(rank: int, scored: dict, model_version: str) -> P
     reasons = []
     if features["material_compat"] >= 90:
         reasons.append("exact material match")
+    else:
+        # Say so plainly: this seller offers a related material, not the one
+        # that was asked for, and the buyer needs to see that before acting.
+        reasons.append(
+            f"related material in the same category ({listing.material.material_category.value})"
+            if listing.material
+            else "related material in the same category"
+        )
 
     if features["quantity_compat"] >= 80:
         reasons.append(f"strong quantity fit ({features['quantity_compat']:.0f}%)")
@@ -1033,7 +1072,7 @@ def _build_seller_partner_card(rank: int, scored: dict, model_version: str) -> P
     explanation = PartnerExplanation(
         material_compatibility=(
             "Exact Match" if features["material_compat"] >= 90
-            else "Compatible" if features["material_compat"] >= 50
+            else "Same Category" if features["material_compat"] >= 50
             else "Partial"
         ),
         quantity_match_pct=round(features["quantity_compat"], 1),
