@@ -34,8 +34,13 @@ districts = load_json(METADATA_DIR / "kerala_districts.json")
 company_sizes = load_json(METADATA_DIR / "company_sizes.json")
 
 verification_status = load_json(METADATA_DIR / "verification_status.json")
+# Number of synthetic companies to generate. These become nodes in the graph
+# the MC-GNN trains on; too few and the model has little structure to learn
+# from, and extra exchange history just piles onto the same handful of firms.
+NUM_COMPANIES = 60
+
 companies = []
-for i in range(1, 21):
+for i in range(1, NUM_COMPANIES + 1):
 
     company_name = fake.company()
 

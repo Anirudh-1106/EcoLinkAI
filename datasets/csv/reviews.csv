@@ -1,346 +1,1387 @@
 review_id,transaction_id,buyer_company_id,seller_company_id,rating,review_comment,review_date,would_recommend
-REV00001,TRX00001,C009,C001,5,High-quality recyclable material.,2026-08-03,Yes
-REV00002,TRX00002,C011,C001,5,Satisfied with the transaction.,2026-07-27,Yes
-REV00003,TRX00003,C017,C001,1,Transaction completed without issues.,2026-05-27,Yes
-REV00004,TRX00004,C003,C001,5,Satisfied with the transaction.,2026-05-13,Yes
-REV00005,TRX00005,C019,C001,5,Material matched specifications.,2026-05-27,Yes
-REV00006,TRX00006,C018,C001,3,Delivery was delayed but acceptable.,2026-06-18,No
-REV00007,TRX00007,C011,C001,5,Excellent quality and timely delivery.,2026-06-03,Yes
-REV00008,TRX00008,C004,C001,5,Professional handling throughout the process.,2026-06-13,Yes
-REV00009,TRX00009,C003,C001,4,Minor quality issues observed.,2026-08-17,Yes
-REV00010,TRX00010,C008,C001,4,Excellent quality and timely delivery.,2026-06-22,Yes
-REV00011,TRX00011,C014,C001,4,Competitive pricing and fast delivery.,2026-06-08,Yes
-REV00012,TRX00012,C012,C001,3,Competitive pricing and fast delivery.,2026-05-25,No
-REV00013,TRX00013,C004,C001,4,Average experience overall.,2026-06-16,Yes
-REV00014,TRX00014,C003,C002,4,Professional handling throughout the process.,2026-06-20,Yes
-REV00015,TRX00015,C019,C002,2,Satisfied with the transaction.,2026-05-01,No
-REV00016,TRX00016,C014,C002,1,Reliable supplier with smooth communication.,2026-06-22,No
-REV00017,TRX00017,C012,C002,5,Good supplier for long-term collaboration.,2026-07-14,Yes
-REV00018,TRX00018,C008,C002,4,Material quality exceeded expectations.,2026-07-04,Yes
-REV00019,TRX00019,C012,C002,5,Transaction completed without issues.,2026-07-29,Yes
-REV00020,TRX00020,C012,C002,2,Competitive pricing and fast delivery.,2026-05-09,No
-REV00021,TRX00021,C010,C002,5,Excellent quality and timely delivery.,2026-07-03,Yes
-REV00022,TRX00022,C020,C002,3,Material matched specifications.,2026-06-10,No
-REV00023,TRX00023,C008,C002,4,Transaction completed without issues.,2026-06-29,Yes
-REV00024,TRX00024,C003,C002,4,Satisfied with the transaction.,2026-05-07,Yes
-REV00025,TRX00025,C003,C002,1,Average experience overall.,2026-08-13,No
-REV00026,TRX00026,C005,C002,5,Would prefer quicker response time.,2026-06-10,Yes
-REV00027,TRX00027,C020,C002,5,Transaction completed without issues.,2026-07-14,Yes
-REV00028,TRX00028,C018,C002,4,Would prefer quicker response time.,2026-06-30,Yes
-REV00029,TRX00029,C006,C002,5,Transaction completed without issues.,2026-06-28,Yes
-REV00030,TRX00030,C015,C002,4,Excellent quality and timely delivery.,2026-05-03,Yes
-REV00031,TRX00031,C012,C002,4,Minor quality issues observed.,2026-06-13,Yes
-REV00032,TRX00032,C020,C002,2,Packaging could be improved.,2026-06-27,No
-REV00033,TRX00033,C010,C002,3,Average experience overall.,2026-07-21,No
-REV00034,TRX00034,C018,C002,4,Transaction completed without issues.,2026-06-29,Yes
-REV00035,TRX00035,C014,C002,4,Professional handling throughout the process.,2026-07-28,Yes
-REV00036,TRX00036,C019,C002,4,Professional handling throughout the process.,2026-07-25,Yes
-REV00037,TRX00037,C017,C002,1,Delivery was delayed but acceptable.,2026-06-21,Yes
-REV00038,TRX00038,C011,C002,5,Minor quality issues observed.,2026-06-06,Yes
-REV00039,TRX00039,C006,C002,3,Professional handling throughout the process.,2026-06-15,No
-REV00040,TRX00040,C003,C002,2,Minor quality issues observed.,2026-07-22,No
-REV00041,TRX00041,C018,C002,5,Competitive pricing and fast delivery.,2026-06-17,Yes
-REV00042,TRX00042,C013,C002,4,Material matched specifications.,2026-05-14,Yes
-REV00043,TRX00043,C001,C002,4,Packaging could be improved.,2026-06-10,Yes
-REV00044,TRX00044,C003,C002,5,Good supplier for long-term collaboration.,2026-06-26,Yes
-REV00045,TRX00045,C020,C002,3,High-quality recyclable material.,2026-08-15,Yes
-REV00046,TRX00046,C020,C002,4,Average experience overall.,2026-06-24,Yes
-REV00047,TRX00047,C004,C002,5,Average experience overall.,2026-05-09,Yes
-REV00048,TRX00048,C014,C002,2,High-quality recyclable material.,2026-06-15,Yes
-REV00049,TRX00049,C008,C002,5,Excellent quality and timely delivery.,2026-08-20,Yes
-REV00050,TRX00050,C020,C002,3,Competitive pricing and fast delivery.,2026-05-24,No
-REV00051,TRX00051,C003,C002,5,Minor quality issues observed.,2026-05-06,Yes
-REV00052,TRX00052,C015,C002,4,Excellent quality and timely delivery.,2026-08-07,Yes
-REV00053,TRX00053,C011,C002,5,Reliable supplier with smooth communication.,2026-08-13,Yes
-REV00054,TRX00054,C013,C002,4,Competitive pricing and fast delivery.,2026-05-15,Yes
-REV00055,TRX00055,C018,C003,5,Delivery was delayed but acceptable.,2026-05-26,Yes
-REV00056,TRX00056,C004,C003,5,Reliable supplier with smooth communication.,2026-05-20,Yes
-REV00057,TRX00057,C004,C003,4,Satisfied with the transaction.,2026-06-07,Yes
-REV00058,TRX00058,C019,C003,1,Satisfied with the transaction.,2026-08-23,No
-REV00059,TRX00059,C012,C003,5,Average experience overall.,2026-07-25,Yes
-REV00060,TRX00060,C018,C003,4,Packaging could be improved.,2026-07-14,Yes
-REV00061,TRX00061,C011,C003,1,Average experience overall.,2026-07-29,Yes
-REV00062,TRX00062,C002,C003,5,Professional handling throughout the process.,2026-08-25,Yes
-REV00063,TRX00063,C002,C003,1,Competitive pricing and fast delivery.,2026-05-26,Yes
-REV00064,TRX00064,C009,C003,5,Good supplier for long-term collaboration.,2026-04-22,Yes
-REV00065,TRX00065,C002,C003,3,Transaction completed without issues.,2026-08-03,No
-REV00066,TRX00066,C019,C003,4,Material quality exceeded expectations.,2026-08-22,Yes
-REV00067,TRX00067,C007,C003,2,Material quality exceeded expectations.,2026-08-01,No
-REV00068,TRX00068,C007,C003,4,Excellent quality and timely delivery.,2026-08-09,Yes
-REV00069,TRX00069,C007,C003,5,Packaging could be improved.,2026-06-23,Yes
-REV00070,TRX00070,C020,C003,3,Would prefer quicker response time.,2026-08-15,No
-REV00071,TRX00071,C015,C003,4,Delivery was delayed but acceptable.,2026-06-13,Yes
-REV00072,TRX00072,C006,C003,5,Satisfied with the transaction.,2026-05-02,Yes
-REV00073,TRX00073,C019,C003,4,Competitive pricing and fast delivery.,2026-05-16,Yes
-REV00074,TRX00074,C005,C003,3,Transaction completed without issues.,2026-07-31,No
-REV00075,TRX00075,C010,C003,5,Transaction completed without issues.,2026-08-03,Yes
-REV00076,TRX00076,C006,C003,4,Minor quality issues observed.,2026-07-01,Yes
-REV00077,TRX00077,C005,C003,5,Good supplier for long-term collaboration.,2026-07-19,Yes
-REV00078,TRX00078,C006,C003,4,Excellent quality and timely delivery.,2026-04-30,Yes
-REV00079,TRX00079,C012,C003,4,High-quality recyclable material.,2026-07-23,Yes
-REV00080,TRX00080,C019,C003,4,Average experience overall.,2026-07-26,Yes
-REV00081,TRX00081,C007,C003,4,Packaging could be improved.,2026-05-30,Yes
-REV00082,TRX00082,C019,C004,2,Satisfied with the transaction.,2026-05-13,Yes
-REV00083,TRX00083,C003,C004,5,Packaging could be improved.,2026-05-15,Yes
-REV00084,TRX00084,C018,C004,5,Would prefer quicker response time.,2026-08-16,Yes
-REV00085,TRX00085,C002,C004,4,Reliable supplier with smooth communication.,2026-08-11,Yes
-REV00086,TRX00086,C014,C004,3,Good supplier for long-term collaboration.,2026-09-04,No
-REV00087,TRX00087,C003,C004,5,Professional handling throughout the process.,2026-05-06,Yes
-REV00088,TRX00088,C019,C004,1,Professional handling throughout the process.,2026-07-29,Yes
-REV00089,TRX00089,C016,C004,4,Delivery was delayed but acceptable.,2026-05-03,Yes
-REV00090,TRX00090,C006,C004,5,Good supplier for long-term collaboration.,2026-05-12,Yes
-REV00091,TRX00091,C018,C004,4,Satisfied with the transaction.,2026-08-10,Yes
-REV00092,TRX00092,C001,C005,5,Material quality exceeded expectations.,2026-06-18,Yes
-REV00093,TRX00093,C013,C005,4,Would prefer quicker response time.,2026-08-04,Yes
-REV00094,TRX00094,C010,C005,4,Material matched specifications.,2026-06-17,Yes
-REV00095,TRX00095,C011,C005,2,Delivery was delayed but acceptable.,2026-05-14,Yes
-REV00096,TRX00096,C009,C005,3,Competitive pricing and fast delivery.,2026-08-24,No
-REV00097,TRX00097,C003,C005,4,Minor quality issues observed.,2026-05-16,Yes
-REV00098,TRX00098,C014,C005,5,Average experience overall.,2026-06-22,Yes
-REV00099,TRX00099,C003,C005,4,Satisfied with the transaction.,2026-08-06,Yes
-REV00100,TRX00100,C016,C005,5,Material matched specifications.,2026-07-28,Yes
-REV00101,TRX00101,C003,C005,5,Delivery was delayed but acceptable.,2026-06-17,Yes
-REV00102,TRX00102,C020,C005,5,High-quality recyclable material.,2026-05-02,Yes
-REV00103,TRX00103,C011,C005,1,Packaging could be improved.,2026-08-06,No
-REV00104,TRX00104,C003,C005,4,Transaction completed without issues.,2026-07-15,Yes
-REV00105,TRX00105,C016,C006,2,Good supplier for long-term collaboration.,2026-08-29,No
-REV00106,TRX00106,C002,C006,2,Competitive pricing and fast delivery.,2026-08-14,No
-REV00107,TRX00107,C014,C006,3,Satisfied with the transaction.,2026-08-06,No
-REV00108,TRX00108,C018,C006,4,Material quality exceeded expectations.,2026-04-26,Yes
-REV00109,TRX00109,C020,C006,4,Excellent quality and timely delivery.,2026-04-21,Yes
-REV00110,TRX00110,C016,C006,2,Transaction completed without issues.,2026-05-31,No
-REV00111,TRX00111,C008,C006,3,High-quality recyclable material.,2026-04-25,Yes
-REV00112,TRX00112,C014,C006,5,Material quality exceeded expectations.,2026-06-08,Yes
-REV00113,TRX00113,C017,C006,4,Professional handling throughout the process.,2026-07-11,Yes
-REV00114,TRX00114,C018,C006,4,Would prefer quicker response time.,2026-05-27,Yes
-REV00115,TRX00115,C001,C006,5,High-quality recyclable material.,2026-05-22,Yes
-REV00116,TRX00116,C019,C006,4,Competitive pricing and fast delivery.,2026-06-30,Yes
-REV00117,TRX00117,C005,C006,5,Satisfied with the transaction.,2026-06-09,Yes
-REV00118,TRX00118,C005,C006,5,Average experience overall.,2026-07-10,Yes
-REV00119,TRX00119,C010,C006,5,Reliable supplier with smooth communication.,2026-06-21,Yes
-REV00120,TRX00120,C012,C006,5,Average experience overall.,2026-05-27,Yes
-REV00121,TRX00121,C013,C007,2,Good supplier for long-term collaboration.,2026-06-18,No
-REV00122,TRX00122,C011,C007,4,Would prefer quicker response time.,2026-08-04,Yes
-REV00123,TRX00123,C003,C007,4,Material matched specifications.,2026-07-09,Yes
-REV00124,TRX00124,C015,C007,5,Satisfied with the transaction.,2026-07-24,Yes
-REV00125,TRX00125,C002,C007,1,Competitive pricing and fast delivery.,2026-06-26,Yes
-REV00126,TRX00126,C009,C007,4,Professional handling throughout the process.,2026-07-21,Yes
-REV00127,TRX00127,C008,C007,5,Reliable supplier with smooth communication.,2026-07-02,Yes
-REV00128,TRX00128,C015,C007,4,Excellent quality and timely delivery.,2026-05-23,Yes
-REV00129,TRX00129,C019,C007,4,Competitive pricing and fast delivery.,2026-06-20,Yes
-REV00130,TRX00130,C009,C007,3,Satisfied with the transaction.,2026-07-17,No
-REV00131,TRX00131,C017,C007,4,Minor quality issues observed.,2026-04-25,Yes
-REV00132,TRX00132,C002,C007,5,Transaction completed without issues.,2026-06-09,Yes
-REV00133,TRX00133,C011,C007,4,Transaction completed without issues.,2026-07-13,Yes
-REV00134,TRX00134,C016,C007,4,Average experience overall.,2026-06-15,Yes
-REV00135,TRX00135,C012,C007,5,High-quality recyclable material.,2026-05-30,Yes
-REV00136,TRX00136,C003,C007,4,Delivery was delayed but acceptable.,2026-07-21,Yes
-REV00137,TRX00137,C003,C007,1,Good supplier for long-term collaboration.,2026-07-28,No
-REV00138,TRX00138,C019,C007,3,Delivery was delayed but acceptable.,2026-05-09,No
-REV00139,TRX00139,C019,C007,3,Packaging could be improved.,2026-06-18,No
-REV00140,TRX00140,C011,C007,5,Delivery was delayed but acceptable.,2026-05-27,Yes
-REV00141,TRX00141,C006,C007,3,High-quality recyclable material.,2026-05-12,Yes
-REV00142,TRX00142,C006,C007,5,Would prefer quicker response time.,2026-06-19,Yes
-REV00143,TRX00143,C009,C008,5,Competitive pricing and fast delivery.,2026-06-09,Yes
-REV00144,TRX00144,C001,C008,5,Transaction completed without issues.,2026-05-30,Yes
-REV00145,TRX00145,C020,C008,2,Reliable supplier with smooth communication.,2026-06-19,No
-REV00146,TRX00146,C015,C008,5,Good supplier for long-term collaboration.,2026-06-16,Yes
-REV00147,TRX00147,C019,C008,5,High-quality recyclable material.,2026-07-01,Yes
-REV00148,TRX00148,C011,C008,5,Satisfied with the transaction.,2026-07-04,Yes
-REV00149,TRX00149,C004,C008,2,High-quality recyclable material.,2026-06-18,Yes
-REV00150,TRX00150,C003,C008,3,Would prefer quicker response time.,2026-05-10,No
-REV00151,TRX00151,C012,C008,5,Material matched specifications.,2026-07-25,Yes
-REV00152,TRX00152,C002,C008,5,Transaction completed without issues.,2026-08-09,Yes
-REV00153,TRX00153,C004,C008,4,Packaging could be improved.,2026-04-29,Yes
-REV00154,TRX00154,C004,C008,1,Minor quality issues observed.,2026-06-15,No
-REV00155,TRX00155,C018,C008,4,Reliable supplier with smooth communication.,2026-07-25,Yes
-REV00156,TRX00156,C019,C008,5,Transaction completed without issues.,2026-06-12,Yes
-REV00157,TRX00157,C010,C008,4,Would prefer quicker response time.,2026-08-10,Yes
-REV00158,TRX00158,C004,C008,3,Packaging could be improved.,2026-06-16,No
-REV00159,TRX00159,C014,C008,4,Average experience overall.,2026-05-20,Yes
-REV00160,TRX00160,C011,C008,5,Packaging could be improved.,2026-08-06,Yes
-REV00161,TRX00161,C016,C008,3,Excellent quality and timely delivery.,2026-08-01,No
-REV00162,TRX00162,C014,C008,4,Packaging could be improved.,2026-05-28,Yes
-REV00163,TRX00163,C020,C009,3,Good supplier for long-term collaboration.,2026-08-26,Yes
-REV00164,TRX00164,C002,C009,1,Professional handling throughout the process.,2026-05-23,No
-REV00165,TRX00165,C005,C009,5,Material quality exceeded expectations.,2026-07-14,Yes
-REV00166,TRX00166,C020,C009,5,High-quality recyclable material.,2026-07-19,Yes
-REV00167,TRX00167,C017,C009,4,Reliable supplier with smooth communication.,2026-06-30,Yes
-REV00168,TRX00168,C003,C009,4,Minor quality issues observed.,2026-06-22,Yes
-REV00169,TRX00169,C011,C009,5,Satisfied with the transaction.,2026-05-04,Yes
-REV00170,TRX00170,C003,C009,4,High-quality recyclable material.,2026-06-30,Yes
-REV00171,TRX00171,C002,C009,5,Minor quality issues observed.,2026-08-04,Yes
-REV00172,TRX00172,C015,C009,5,Competitive pricing and fast delivery.,2026-06-16,Yes
-REV00173,TRX00173,C017,C009,4,Material matched specifications.,2026-06-24,Yes
-REV00174,TRX00174,C019,C009,3,Material matched specifications.,2026-08-07,Yes
-REV00175,TRX00175,C011,C009,5,Material quality exceeded expectations.,2026-08-17,Yes
-REV00176,TRX00176,C018,C009,4,Packaging could be improved.,2026-07-14,Yes
-REV00177,TRX00177,C016,C009,3,Excellent quality and timely delivery.,2026-04-19,No
-REV00178,TRX00178,C008,C009,5,Good supplier for long-term collaboration.,2026-07-21,Yes
-REV00179,TRX00179,C004,C009,4,Material matched specifications.,2026-08-04,Yes
-REV00180,TRX00180,C007,C009,3,Good supplier for long-term collaboration.,2026-06-08,Yes
-REV00181,TRX00181,C005,C009,5,Minor quality issues observed.,2026-05-20,Yes
-REV00182,TRX00182,C019,C010,3,Minor quality issues observed.,2026-05-27,No
-REV00183,TRX00183,C016,C010,5,Transaction completed without issues.,2026-05-10,Yes
-REV00184,TRX00184,C012,C010,3,Reliable supplier with smooth communication.,2026-07-24,No
-REV00185,TRX00185,C015,C010,5,Professional handling throughout the process.,2026-07-02,Yes
-REV00186,TRX00186,C009,C010,1,Good supplier for long-term collaboration.,2026-08-10,Yes
-REV00187,TRX00187,C007,C010,5,Minor quality issues observed.,2026-07-28,Yes
-REV00188,TRX00188,C001,C010,3,Material quality exceeded expectations.,2026-07-17,Yes
-REV00189,TRX00189,C009,C010,4,Material quality exceeded expectations.,2026-04-23,Yes
-REV00190,TRX00190,C019,C010,3,Delivery was delayed but acceptable.,2026-05-06,No
-REV00191,TRX00191,C005,C010,1,Material quality exceeded expectations.,2026-04-28,No
-REV00192,TRX00192,C016,C010,5,Delivery was delayed but acceptable.,2026-08-26,Yes
-REV00193,TRX00193,C011,C010,4,Average experience overall.,2026-06-17,Yes
-REV00194,TRX00194,C007,C010,4,Transaction completed without issues.,2026-08-09,Yes
-REV00195,TRX00195,C002,C010,1,Delivery was delayed but acceptable.,2026-05-05,No
-REV00196,TRX00196,C001,C011,4,Good supplier for long-term collaboration.,2026-07-20,Yes
-REV00197,TRX00197,C013,C011,3,Would prefer quicker response time.,2026-06-09,No
-REV00198,TRX00198,C020,C011,2,Packaging could be improved.,2026-06-05,No
-REV00199,TRX00199,C004,C011,5,Professional handling throughout the process.,2026-06-01,Yes
-REV00200,TRX00200,C008,C011,1,Minor quality issues observed.,2026-08-13,No
-REV00201,TRX00201,C008,C011,5,Material matched specifications.,2026-05-04,Yes
-REV00202,TRX00202,C003,C011,4,Packaging could be improved.,2026-08-13,Yes
-REV00203,TRX00203,C008,C011,4,Satisfied with the transaction.,2026-06-18,Yes
-REV00204,TRX00204,C001,C011,4,Excellent quality and timely delivery.,2026-08-07,Yes
-REV00205,TRX00205,C010,C012,4,Good supplier for long-term collaboration.,2026-05-11,Yes
-REV00206,TRX00206,C010,C012,5,Reliable supplier with smooth communication.,2026-07-06,Yes
-REV00207,TRX00207,C004,C012,4,Packaging could be improved.,2026-06-17,Yes
-REV00208,TRX00208,C002,C012,1,Packaging could be improved.,2026-07-27,No
-REV00209,TRX00209,C015,C012,4,Packaging could be improved.,2026-07-27,Yes
-REV00210,TRX00210,C015,C012,4,Minor quality issues observed.,2026-05-05,Yes
-REV00211,TRX00211,C014,C012,4,Packaging could be improved.,2026-06-15,Yes
-REV00212,TRX00212,C008,C012,3,High-quality recyclable material.,2026-04-26,No
-REV00213,TRX00213,C015,C012,5,Material quality exceeded expectations.,2026-07-01,Yes
-REV00214,TRX00214,C002,C012,4,Professional handling throughout the process.,2026-05-05,Yes
-REV00215,TRX00215,C014,C012,4,Excellent quality and timely delivery.,2026-04-14,Yes
-REV00216,TRX00216,C002,C012,4,Competitive pricing and fast delivery.,2026-07-04,Yes
-REV00217,TRX00217,C011,C012,3,Satisfied with the transaction.,2026-05-04,No
-REV00218,TRX00218,C008,C012,4,Average experience overall.,2026-05-04,Yes
-REV00219,TRX00219,C017,C012,5,Material matched specifications.,2026-04-18,Yes
-REV00220,TRX00220,C011,C012,4,Transaction completed without issues.,2026-07-12,Yes
-REV00221,TRX00221,C013,C012,5,Material matched specifications.,2026-05-09,Yes
-REV00222,TRX00222,C011,C012,3,Transaction completed without issues.,2026-06-13,No
-REV00223,TRX00223,C001,C012,5,Minor quality issues observed.,2026-07-23,Yes
-REV00224,TRX00224,C011,C012,5,Would prefer quicker response time.,2026-08-02,Yes
-REV00225,TRX00225,C004,C012,5,Transaction completed without issues.,2026-08-06,Yes
-REV00226,TRX00226,C006,C012,3,Would prefer quicker response time.,2026-06-16,Yes
-REV00227,TRX00227,C011,C012,4,Delivery was delayed but acceptable.,2026-08-07,Yes
-REV00228,TRX00228,C007,C012,5,High-quality recyclable material.,2026-05-07,Yes
-REV00229,TRX00229,C005,C012,2,Competitive pricing and fast delivery.,2026-08-15,No
-REV00230,TRX00230,C002,C012,5,Packaging could be improved.,2026-06-28,Yes
-REV00231,TRX00231,C007,C012,4,Professional handling throughout the process.,2026-05-20,Yes
-REV00232,TRX00232,C020,C012,4,Average experience overall.,2026-05-08,Yes
-REV00233,TRX00233,C008,C012,5,Reliable supplier with smooth communication.,2026-06-10,Yes
-REV00234,TRX00234,C009,C012,3,Satisfied with the transaction.,2026-05-13,Yes
-REV00235,TRX00235,C005,C012,4,Good supplier for long-term collaboration.,2026-07-12,Yes
-REV00236,TRX00236,C003,C012,4,Would prefer quicker response time.,2026-08-12,Yes
-REV00237,TRX00237,C011,C013,4,High-quality recyclable material.,2026-05-06,Yes
-REV00238,TRX00238,C007,C013,2,Good supplier for long-term collaboration.,2026-05-26,No
-REV00239,TRX00239,C019,C013,5,Packaging could be improved.,2026-07-21,Yes
-REV00240,TRX00240,C003,C013,2,Material matched specifications.,2026-04-14,No
-REV00241,TRX00241,C009,C013,5,Average experience overall.,2026-07-01,Yes
-REV00242,TRX00242,C014,C013,5,Satisfied with the transaction.,2026-07-21,Yes
-REV00243,TRX00243,C001,C013,3,Satisfied with the transaction.,2026-05-04,No
-REV00244,TRX00244,C003,C013,5,Professional handling throughout the process.,2026-08-08,Yes
-REV00245,TRX00245,C003,C013,4,Excellent quality and timely delivery.,2026-06-17,Yes
-REV00246,TRX00246,C015,C013,4,Would prefer quicker response time.,2026-05-18,Yes
-REV00247,TRX00247,C004,C013,4,Reliable supplier with smooth communication.,2026-06-08,Yes
-REV00248,TRX00248,C003,C014,5,Reliable supplier with smooth communication.,2026-06-14,Yes
-REV00249,TRX00249,C018,C014,3,Good supplier for long-term collaboration.,2026-08-10,No
-REV00250,TRX00250,C015,C014,5,Good supplier for long-term collaboration.,2026-05-16,Yes
-REV00251,TRX00251,C010,C014,5,Material matched specifications.,2026-09-01,Yes
-REV00252,TRX00252,C018,C014,1,Average experience overall.,2026-06-11,Yes
-REV00253,TRX00253,C012,C014,5,Material matched specifications.,2026-08-18,Yes
-REV00254,TRX00254,C005,C014,5,Good supplier for long-term collaboration.,2026-05-31,Yes
-REV00255,TRX00255,C015,C014,2,Average experience overall.,2026-06-07,No
-REV00256,TRX00256,C001,C014,3,Material quality exceeded expectations.,2026-06-04,No
-REV00257,TRX00257,C018,C014,4,Satisfied with the transaction.,2026-06-11,Yes
-REV00258,TRX00258,C009,C014,5,Competitive pricing and fast delivery.,2026-07-18,Yes
-REV00259,TRX00259,C008,C015,3,High-quality recyclable material.,2026-06-09,Yes
-REV00260,TRX00260,C009,C015,3,Good supplier for long-term collaboration.,2026-08-14,No
-REV00261,TRX00261,C011,C015,3,Reliable supplier with smooth communication.,2026-08-04,No
-REV00262,TRX00262,C006,C015,2,Transaction completed without issues.,2026-06-22,Yes
-REV00263,TRX00263,C002,C016,3,Average experience overall.,2026-07-23,No
-REV00264,TRX00264,C017,C016,5,Satisfied with the transaction.,2026-05-16,Yes
-REV00265,TRX00265,C011,C016,4,Satisfied with the transaction.,2026-07-21,Yes
-REV00266,TRX00266,C017,C016,2,Transaction completed without issues.,2026-06-12,Yes
-REV00267,TRX00267,C007,C016,5,Competitive pricing and fast delivery.,2026-05-30,Yes
-REV00268,TRX00268,C008,C016,4,Material matched specifications.,2026-05-19,Yes
-REV00269,TRX00269,C015,C016,5,Transaction completed without issues.,2026-06-20,Yes
-REV00270,TRX00270,C009,C016,2,Material quality exceeded expectations.,2026-08-14,No
-REV00271,TRX00271,C013,C016,4,Packaging could be improved.,2026-07-03,Yes
-REV00272,TRX00272,C004,C016,5,Satisfied with the transaction.,2026-06-10,Yes
-REV00273,TRX00273,C015,C016,4,Minor quality issues observed.,2026-07-02,Yes
-REV00274,TRX00274,C017,C016,4,Material matched specifications.,2026-05-09,Yes
-REV00275,TRX00275,C005,C016,4,Material quality exceeded expectations.,2026-07-15,Yes
-REV00276,TRX00276,C005,C016,5,Material matched specifications.,2026-07-12,Yes
-REV00277,TRX00277,C011,C016,5,Average experience overall.,2026-08-01,Yes
-REV00278,TRX00278,C007,C016,4,Packaging could be improved.,2026-04-22,Yes
-REV00279,TRX00279,C006,C016,2,Material matched specifications.,2026-07-02,No
-REV00280,TRX00280,C010,C016,5,Material matched specifications.,2026-08-20,Yes
-REV00281,TRX00281,C014,C016,5,Delivery was delayed but acceptable.,2026-05-28,Yes
-REV00282,TRX00282,C019,C016,4,Professional handling throughout the process.,2026-05-21,Yes
-REV00283,TRX00283,C015,C016,5,Average experience overall.,2026-05-14,Yes
-REV00284,TRX00284,C012,C016,5,Delivery was delayed but acceptable.,2026-08-06,Yes
-REV00285,TRX00285,C005,C016,4,Material quality exceeded expectations.,2026-06-25,Yes
-REV00286,TRX00286,C013,C016,5,Material matched specifications.,2026-08-02,Yes
-REV00287,TRX00287,C015,C016,4,Satisfied with the transaction.,2026-08-15,Yes
-REV00288,TRX00288,C009,C016,5,Minor quality issues observed.,2026-08-08,Yes
-REV00289,TRX00289,C018,C016,4,Professional handling throughout the process.,2026-08-23,Yes
-REV00290,TRX00290,C019,C017,4,Packaging could be improved.,2026-05-18,Yes
-REV00291,TRX00291,C003,C017,4,Average experience overall.,2026-05-07,Yes
-REV00292,TRX00292,C001,C017,3,Reliable supplier with smooth communication.,2026-05-05,No
-REV00293,TRX00293,C001,C017,4,Satisfied with the transaction.,2026-07-18,Yes
-REV00294,TRX00294,C002,C017,5,Material matched specifications.,2026-06-30,Yes
-REV00295,TRX00295,C010,C017,4,Delivery was delayed but acceptable.,2026-07-21,Yes
-REV00296,TRX00296,C009,C017,4,Transaction completed without issues.,2026-08-12,Yes
-REV00297,TRX00297,C007,C017,4,Satisfied with the transaction.,2026-07-25,Yes
-REV00298,TRX00298,C006,C017,2,Material matched specifications.,2026-07-10,No
-REV00299,TRX00299,C003,C017,5,Packaging could be improved.,2026-06-27,Yes
-REV00300,TRX00300,C015,C017,3,Good supplier for long-term collaboration.,2026-04-26,No
-REV00301,TRX00301,C015,C017,3,Competitive pricing and fast delivery.,2026-08-14,No
-REV00302,TRX00302,C013,C017,5,Competitive pricing and fast delivery.,2026-05-13,Yes
-REV00303,TRX00303,C007,C017,4,Delivery was delayed but acceptable.,2026-06-17,Yes
-REV00304,TRX00304,C015,C017,4,Packaging could be improved.,2026-08-17,Yes
-REV00305,TRX00305,C020,C017,5,Packaging could be improved.,2026-06-18,Yes
-REV00306,TRX00306,C006,C017,4,Competitive pricing and fast delivery.,2026-06-27,Yes
-REV00307,TRX00307,C015,C017,5,High-quality recyclable material.,2026-05-16,Yes
-REV00308,TRX00308,C002,C017,4,Material matched specifications.,2026-07-17,Yes
-REV00309,TRX00309,C011,C017,4,Good supplier for long-term collaboration.,2026-06-09,Yes
-REV00310,TRX00310,C007,C017,5,Reliable supplier with smooth communication.,2026-08-20,Yes
-REV00311,TRX00311,C006,C017,5,Material quality exceeded expectations.,2026-07-28,Yes
-REV00312,TRX00312,C011,C018,4,Average experience overall.,2026-05-15,Yes
-REV00313,TRX00313,C003,C018,2,High-quality recyclable material.,2026-08-10,No
-REV00314,TRX00314,C020,C018,2,Professional handling throughout the process.,2026-07-19,Yes
-REV00315,TRX00315,C004,C018,3,Minor quality issues observed.,2026-07-29,No
-REV00316,TRX00316,C016,C018,5,Competitive pricing and fast delivery.,2026-08-02,Yes
-REV00317,TRX00317,C018,C019,5,Competitive pricing and fast delivery.,2026-06-05,Yes
-REV00318,TRX00318,C017,C019,4,Satisfied with the transaction.,2026-07-08,Yes
-REV00319,TRX00319,C007,C019,1,Would prefer quicker response time.,2026-06-25,No
-REV00320,TRX00320,C011,C019,4,Transaction completed without issues.,2026-08-22,Yes
-REV00321,TRX00321,C011,C019,4,Packaging could be improved.,2026-06-02,Yes
-REV00322,TRX00322,C015,C019,5,Material quality exceeded expectations.,2026-05-04,Yes
-REV00323,TRX00323,C002,C019,5,Good supplier for long-term collaboration.,2026-06-03,Yes
-REV00324,TRX00324,C012,C019,4,Professional handling throughout the process.,2026-08-10,Yes
-REV00325,TRX00325,C014,C019,1,High-quality recyclable material.,2026-06-29,No
-REV00326,TRX00326,C007,C019,3,Minor quality issues observed.,2026-05-25,No
-REV00327,TRX00327,C016,C019,1,Transaction completed without issues.,2026-06-08,No
-REV00328,TRX00328,C008,C019,2,Packaging could be improved.,2026-04-29,No
-REV00329,TRX00329,C017,C019,4,Average experience overall.,2026-06-01,Yes
-REV00330,TRX00330,C003,C019,3,Competitive pricing and fast delivery.,2026-07-29,No
-REV00331,TRX00331,C006,C019,1,Reliable supplier with smooth communication.,2026-06-09,Yes
-REV00332,TRX00332,C002,C019,4,Average experience overall.,2026-04-17,Yes
-REV00333,TRX00333,C012,C019,5,Delivery was delayed but acceptable.,2026-08-06,Yes
-REV00334,TRX00334,C008,C019,3,Would prefer quicker response time.,2026-07-27,No
-REV00335,TRX00335,C008,C019,5,Minor quality issues observed.,2026-05-19,Yes
-REV00336,TRX00336,C018,C019,5,Satisfied with the transaction.,2026-07-31,Yes
-REV00337,TRX00337,C016,C020,4,Would prefer quicker response time.,2026-08-08,Yes
-REV00338,TRX00338,C003,C020,4,Packaging could be improved.,2026-07-09,Yes
-REV00339,TRX00339,C019,C020,2,Average experience overall.,2026-05-11,No
-REV00340,TRX00340,C011,C020,5,Material matched specifications.,2026-08-15,Yes
-REV00341,TRX00341,C007,C020,4,Minor quality issues observed.,2026-06-24,Yes
-REV00342,TRX00342,C011,C020,5,Would prefer quicker response time.,2026-04-18,Yes
-REV00343,TRX00343,C009,C020,5,Average experience overall.,2026-07-23,Yes
-REV00344,TRX00344,C017,C020,4,Minor quality issues observed.,2026-07-28,Yes
-REV00345,TRX00345,C007,C020,4,Minor quality issues observed.,2026-06-01,Yes
+REV00001,TRX00001,C046,C001,4,Material matched specifications.,2026-09-14,Yes
+REV00002,TRX00002,C037,C001,5,Excellent quality and timely delivery.,2026-07-02,Yes
+REV00003,TRX00003,C023,C001,2,Average experience overall.,2026-08-14,No
+REV00004,TRX00004,C057,C001,2,Material matched specifications.,2026-09-06,No
+REV00005,TRX00005,C050,C001,5,Material matched specifications.,2026-09-02,Yes
+REV00006,TRX00006,C014,C001,4,Reliable supplier with smooth communication.,2026-06-17,Yes
+REV00007,TRX00007,C037,C001,4,High-quality recyclable material.,2026-07-02,Yes
+REV00008,TRX00008,C033,C002,4,Professional handling throughout the process.,2026-07-16,Yes
+REV00009,TRX00009,C026,C002,4,Delivery was delayed but acceptable.,2026-08-24,Yes
+REV00010,TRX00010,C022,C002,2,Reliable supplier with smooth communication.,2026-10-06,Yes
+REV00011,TRX00011,C019,C002,3,Minor quality issues observed.,2026-08-09,No
+REV00012,TRX00012,C058,C002,1,Material quality exceeded expectations.,2026-10-02,Yes
+REV00013,TRX00013,C027,C002,3,Minor quality issues observed.,2026-06-25,No
+REV00014,TRX00014,C050,C002,2,High-quality recyclable material.,2026-08-21,No
+REV00015,TRX00015,C034,C002,4,Delivery was delayed but acceptable.,2026-06-19,Yes
+REV00016,TRX00016,C010,C002,2,Good supplier for long-term collaboration.,2026-09-15,No
+REV00017,TRX00017,C054,C002,5,Satisfied with the transaction.,2026-06-27,Yes
+REV00018,TRX00018,C037,C002,5,Minor quality issues observed.,2026-09-24,Yes
+REV00019,TRX00019,C016,C002,5,High-quality recyclable material.,2026-07-27,Yes
+REV00020,TRX00020,C022,C003,4,Reliable supplier with smooth communication.,2026-07-28,Yes
+REV00021,TRX00021,C028,C003,5,Professional handling throughout the process.,2026-07-30,Yes
+REV00022,TRX00022,C002,C003,5,High-quality recyclable material.,2026-09-29,Yes
+REV00023,TRX00023,C010,C003,4,Reliable supplier with smooth communication.,2026-06-20,Yes
+REV00024,TRX00024,C015,C003,5,Reliable supplier with smooth communication.,2026-10-08,Yes
+REV00025,TRX00025,C044,C003,5,Material quality exceeded expectations.,2026-08-07,Yes
+REV00026,TRX00026,C046,C003,4,Competitive pricing and fast delivery.,2026-06-17,Yes
+REV00027,TRX00027,C029,C003,3,Minor quality issues observed.,2026-07-24,No
+REV00028,TRX00028,C015,C003,3,Material quality exceeded expectations.,2026-06-17,No
+REV00029,TRX00029,C019,C003,3,Material matched specifications.,2026-06-24,No
+REV00030,TRX00030,C042,C003,5,Delivery was delayed but acceptable.,2026-09-02,Yes
+REV00031,TRX00031,C035,C003,5,Would prefer quicker response time.,2026-09-05,Yes
+REV00032,TRX00032,C055,C003,3,Material matched specifications.,2026-07-11,Yes
+REV00033,TRX00033,C056,C003,4,Reliable supplier with smooth communication.,2026-08-16,Yes
+REV00034,TRX00034,C006,C003,4,Material quality exceeded expectations.,2026-09-08,Yes
+REV00035,TRX00035,C045,C003,3,Material matched specifications.,2026-10-02,No
+REV00036,TRX00036,C047,C003,2,Reliable supplier with smooth communication.,2026-08-25,No
+REV00037,TRX00037,C056,C003,5,Average experience overall.,2026-06-13,Yes
+REV00038,TRX00038,C007,C004,3,Minor quality issues observed.,2026-07-04,No
+REV00039,TRX00039,C035,C004,3,Good supplier for long-term collaboration.,2026-08-20,No
+REV00040,TRX00040,C025,C004,2,Transaction completed without issues.,2026-09-06,No
+REV00041,TRX00041,C021,C004,5,Would prefer quicker response time.,2026-06-29,Yes
+REV00042,TRX00042,C023,C004,1,High-quality recyclable material.,2026-07-07,No
+REV00043,TRX00043,C011,C004,4,Minor quality issues observed.,2026-08-16,Yes
+REV00044,TRX00044,C006,C004,5,Delivery was delayed but acceptable.,2026-07-27,Yes
+REV00045,TRX00045,C038,C004,2,Minor quality issues observed.,2026-09-05,No
+REV00046,TRX00046,C057,C004,5,Satisfied with the transaction.,2026-09-30,Yes
+REV00047,TRX00047,C041,C004,3,Good supplier for long-term collaboration.,2026-07-31,Yes
+REV00048,TRX00048,C005,C004,5,Satisfied with the transaction.,2026-09-18,Yes
+REV00049,TRX00049,C008,C004,4,Satisfied with the transaction.,2026-07-15,Yes
+REV00050,TRX00050,C026,C005,5,Material quality exceeded expectations.,2026-09-10,Yes
+REV00051,TRX00051,C039,C005,2,Delivery was delayed but acceptable.,2026-07-09,No
+REV00052,TRX00052,C022,C005,5,Average experience overall.,2026-08-18,Yes
+REV00053,TRX00053,C040,C005,4,Minor quality issues observed.,2026-07-01,Yes
+REV00054,TRX00054,C060,C005,4,Excellent quality and timely delivery.,2026-06-14,Yes
+REV00055,TRX00055,C029,C005,3,Packaging could be improved.,2026-07-09,No
+REV00056,TRX00056,C050,C005,1,Competitive pricing and fast delivery.,2026-07-19,No
+REV00057,TRX00057,C007,C005,5,Minor quality issues observed.,2026-09-15,Yes
+REV00058,TRX00058,C031,C005,4,Average experience overall.,2026-09-07,Yes
+REV00059,TRX00059,C024,C005,5,Reliable supplier with smooth communication.,2026-07-02,Yes
+REV00060,TRX00060,C041,C005,4,Material matched specifications.,2026-08-12,Yes
+REV00061,TRX00061,C011,C005,5,Would prefer quicker response time.,2026-10-01,Yes
+REV00062,TRX00062,C031,C005,5,Good supplier for long-term collaboration.,2026-08-17,Yes
+REV00063,TRX00063,C029,C005,5,Competitive pricing and fast delivery.,2026-06-06,Yes
+REV00064,TRX00064,C030,C005,5,High-quality recyclable material.,2026-08-15,Yes
+REV00065,TRX00065,C054,C005,5,Delivery was delayed but acceptable.,2026-06-22,Yes
+REV00066,TRX00066,C013,C006,5,Good supplier for long-term collaboration.,2026-09-17,Yes
+REV00067,TRX00067,C018,C006,5,Transaction completed without issues.,2026-06-22,Yes
+REV00068,TRX00068,C021,C006,5,Competitive pricing and fast delivery.,2026-08-27,Yes
+REV00069,TRX00069,C018,C006,4,Good supplier for long-term collaboration.,2026-06-22,Yes
+REV00070,TRX00070,C046,C006,5,Delivery was delayed but acceptable.,2026-10-10,Yes
+REV00071,TRX00071,C040,C006,5,Satisfied with the transaction.,2026-09-19,Yes
+REV00072,TRX00072,C051,C006,5,Transaction completed without issues.,2026-09-02,Yes
+REV00073,TRX00073,C025,C006,5,Average experience overall.,2026-08-08,Yes
+REV00074,TRX00074,C020,C006,4,Competitive pricing and fast delivery.,2026-09-30,Yes
+REV00075,TRX00075,C031,C006,4,Material matched specifications.,2026-06-09,Yes
+REV00076,TRX00076,C031,C006,2,Good supplier for long-term collaboration.,2026-09-13,Yes
+REV00077,TRX00077,C044,C007,1,Minor quality issues observed.,2026-08-11,No
+REV00078,TRX00078,C059,C007,5,Would prefer quicker response time.,2026-06-21,Yes
+REV00079,TRX00079,C004,C007,4,Excellent quality and timely delivery.,2026-08-08,Yes
+REV00080,TRX00080,C030,C007,5,High-quality recyclable material.,2026-07-24,Yes
+REV00081,TRX00081,C011,C007,5,Average experience overall.,2026-09-25,Yes
+REV00082,TRX00082,C047,C007,4,Delivery was delayed but acceptable.,2026-06-09,Yes
+REV00083,TRX00083,C005,C007,4,Packaging could be improved.,2026-08-21,Yes
+REV00084,TRX00084,C045,C008,4,Excellent quality and timely delivery.,2026-07-29,Yes
+REV00085,TRX00085,C001,C008,3,Professional handling throughout the process.,2026-10-09,No
+REV00086,TRX00086,C052,C008,5,Would prefer quicker response time.,2026-07-09,Yes
+REV00087,TRX00087,C041,C008,4,Packaging could be improved.,2026-08-17,Yes
+REV00088,TRX00088,C015,C008,4,High-quality recyclable material.,2026-09-24,Yes
+REV00089,TRX00089,C021,C008,4,Transaction completed without issues.,2026-09-20,Yes
+REV00090,TRX00090,C006,C008,5,Delivery was delayed but acceptable.,2026-08-21,Yes
+REV00091,TRX00091,C003,C008,4,Would prefer quicker response time.,2026-09-12,Yes
+REV00092,TRX00092,C034,C008,5,Material quality exceeded expectations.,2026-07-06,Yes
+REV00093,TRX00093,C039,C008,5,Minor quality issues observed.,2026-06-27,Yes
+REV00094,TRX00094,C047,C008,5,Average experience overall.,2026-06-20,Yes
+REV00095,TRX00095,C003,C008,5,Satisfied with the transaction.,2026-08-26,Yes
+REV00096,TRX00096,C043,C008,4,Delivery was delayed but acceptable.,2026-08-27,Yes
+REV00097,TRX00097,C011,C008,2,Minor quality issues observed.,2026-08-30,No
+REV00098,TRX00098,C011,C008,5,Delivery was delayed but acceptable.,2026-06-06,Yes
+REV00099,TRX00099,C027,C008,5,Average experience overall.,2026-09-12,Yes
+REV00100,TRX00100,C053,C008,4,Delivery was delayed but acceptable.,2026-06-19,Yes
+REV00101,TRX00101,C033,C008,5,Competitive pricing and fast delivery.,2026-07-02,Yes
+REV00102,TRX00102,C056,C009,5,Transaction completed without issues.,2026-07-02,Yes
+REV00103,TRX00103,C057,C009,3,Excellent quality and timely delivery.,2026-08-10,No
+REV00104,TRX00104,C060,C009,4,Satisfied with the transaction.,2026-07-23,Yes
+REV00105,TRX00105,C015,C009,4,Delivery was delayed but acceptable.,2026-09-06,Yes
+REV00106,TRX00106,C033,C009,5,Material matched specifications.,2026-06-27,Yes
+REV00107,TRX00107,C001,C009,4,Packaging could be improved.,2026-07-18,Yes
+REV00108,TRX00108,C018,C009,5,Professional handling throughout the process.,2026-10-17,Yes
+REV00109,TRX00109,C043,C009,5,Transaction completed without issues.,2026-06-21,Yes
+REV00110,TRX00110,C007,C009,4,Material quality exceeded expectations.,2026-08-14,Yes
+REV00111,TRX00111,C014,C009,4,Satisfied with the transaction.,2026-07-21,Yes
+REV00112,TRX00112,C027,C009,4,Material matched specifications.,2026-09-16,Yes
+REV00113,TRX00113,C008,C009,3,Material matched specifications.,2026-06-06,Yes
+REV00114,TRX00114,C005,C009,1,Average experience overall.,2026-09-10,No
+REV00115,TRX00115,C047,C009,4,Satisfied with the transaction.,2026-06-26,Yes
+REV00116,TRX00116,C043,C009,3,Packaging could be improved.,2026-09-23,No
+REV00117,TRX00117,C021,C009,2,Packaging could be improved.,2026-07-12,No
+REV00118,TRX00118,C032,C009,4,High-quality recyclable material.,2026-08-21,Yes
+REV00119,TRX00119,C002,C009,5,Minor quality issues observed.,2026-06-12,Yes
+REV00120,TRX00120,C048,C009,5,Professional handling throughout the process.,2026-09-17,Yes
+REV00121,TRX00121,C030,C009,2,Minor quality issues observed.,2026-08-09,No
+REV00122,TRX00122,C058,C009,4,Delivery was delayed but acceptable.,2026-09-06,Yes
+REV00123,TRX00123,C020,C009,4,Delivery was delayed but acceptable.,2026-08-05,Yes
+REV00124,TRX00124,C043,C009,4,Packaging could be improved.,2026-08-05,Yes
+REV00125,TRX00125,C011,C009,2,Professional handling throughout the process.,2026-06-18,No
+REV00126,TRX00126,C051,C009,1,Satisfied with the transaction.,2026-08-24,No
+REV00127,TRX00127,C041,C010,2,Material quality exceeded expectations.,2026-08-02,No
+REV00128,TRX00128,C002,C010,4,High-quality recyclable material.,2026-10-01,Yes
+REV00129,TRX00129,C039,C010,2,Material quality exceeded expectations.,2026-07-21,No
+REV00130,TRX00130,C024,C010,5,Packaging could be improved.,2026-06-29,Yes
+REV00131,TRX00131,C024,C010,2,Minor quality issues observed.,2026-07-22,No
+REV00132,TRX00132,C056,C010,5,Minor quality issues observed.,2026-09-21,Yes
+REV00133,TRX00133,C056,C010,5,Packaging could be improved.,2026-08-31,Yes
+REV00134,TRX00134,C056,C010,2,Transaction completed without issues.,2026-07-12,No
+REV00135,TRX00135,C051,C010,4,Delivery was delayed but acceptable.,2026-09-24,Yes
+REV00136,TRX00136,C017,C010,4,Would prefer quicker response time.,2026-06-27,Yes
+REV00137,TRX00137,C035,C010,4,Material matched specifications.,2026-09-04,Yes
+REV00138,TRX00138,C015,C010,4,Competitive pricing and fast delivery.,2026-07-01,Yes
+REV00139,TRX00139,C012,C010,4,Transaction completed without issues.,2026-10-06,Yes
+REV00140,TRX00140,C028,C010,4,Transaction completed without issues.,2026-07-03,Yes
+REV00141,TRX00141,C014,C010,5,High-quality recyclable material.,2026-09-25,Yes
+REV00142,TRX00142,C014,C011,5,Would prefer quicker response time.,2026-07-30,Yes
+REV00143,TRX00143,C005,C011,3,Excellent quality and timely delivery.,2026-06-22,No
+REV00144,TRX00144,C032,C011,5,High-quality recyclable material.,2026-09-02,Yes
+REV00145,TRX00145,C014,C011,1,Excellent quality and timely delivery.,2026-09-13,No
+REV00146,TRX00146,C037,C011,5,Transaction completed without issues.,2026-08-05,Yes
+REV00147,TRX00147,C051,C011,5,Minor quality issues observed.,2026-08-17,Yes
+REV00148,TRX00148,C007,C011,5,Excellent quality and timely delivery.,2026-09-10,Yes
+REV00149,TRX00149,C060,C011,3,Average experience overall.,2026-07-12,Yes
+REV00150,TRX00150,C010,C011,3,Minor quality issues observed.,2026-09-01,No
+REV00151,TRX00151,C044,C011,4,Average experience overall.,2026-06-21,Yes
+REV00152,TRX00152,C053,C011,5,Competitive pricing and fast delivery.,2026-10-12,Yes
+REV00153,TRX00153,C030,C011,4,Good supplier for long-term collaboration.,2026-10-06,Yes
+REV00154,TRX00154,C034,C011,4,Transaction completed without issues.,2026-06-16,Yes
+REV00155,TRX00155,C032,C011,4,Material matched specifications.,2026-07-24,Yes
+REV00156,TRX00156,C007,C011,5,Material quality exceeded expectations.,2026-08-03,Yes
+REV00157,TRX00157,C057,C011,4,Would prefer quicker response time.,2026-09-28,Yes
+REV00158,TRX00158,C051,C011,4,Minor quality issues observed.,2026-06-24,Yes
+REV00159,TRX00159,C050,C012,4,Professional handling throughout the process.,2026-10-17,Yes
+REV00160,TRX00160,C007,C012,4,Average experience overall.,2026-08-14,Yes
+REV00161,TRX00161,C044,C012,5,Material matched specifications.,2026-10-07,Yes
+REV00162,TRX00162,C053,C012,3,Delivery was delayed but acceptable.,2026-06-25,No
+REV00163,TRX00163,C003,C012,3,Delivery was delayed but acceptable.,2026-08-09,No
+REV00164,TRX00164,C005,C012,4,Reliable supplier with smooth communication.,2026-09-11,Yes
+REV00165,TRX00165,C042,C012,4,Delivery was delayed but acceptable.,2026-09-17,Yes
+REV00166,TRX00166,C044,C012,4,Average experience overall.,2026-06-05,Yes
+REV00167,TRX00167,C016,C012,5,Good supplier for long-term collaboration.,2026-08-13,Yes
+REV00168,TRX00168,C040,C012,4,Average experience overall.,2026-08-29,Yes
+REV00169,TRX00169,C040,C012,4,Material matched specifications.,2026-05-26,Yes
+REV00170,TRX00170,C014,C012,4,Professional handling throughout the process.,2026-08-19,Yes
+REV00171,TRX00171,C049,C012,4,Reliable supplier with smooth communication.,2026-09-16,Yes
+REV00172,TRX00172,C016,C013,5,Material matched specifications.,2026-08-01,Yes
+REV00173,TRX00173,C029,C013,1,Reliable supplier with smooth communication.,2026-07-21,No
+REV00174,TRX00174,C043,C013,3,Professional handling throughout the process.,2026-08-16,Yes
+REV00175,TRX00175,C033,C013,3,Excellent quality and timely delivery.,2026-06-18,No
+REV00176,TRX00176,C003,C013,3,Satisfied with the transaction.,2026-08-04,No
+REV00177,TRX00177,C040,C013,1,Material quality exceeded expectations.,2026-09-30,No
+REV00178,TRX00178,C031,C013,4,High-quality recyclable material.,2026-06-13,Yes
+REV00179,TRX00179,C045,C013,2,Minor quality issues observed.,2026-08-03,No
+REV00180,TRX00180,C023,C013,4,Good supplier for long-term collaboration.,2026-09-05,Yes
+REV00181,TRX00181,C019,C013,4,Reliable supplier with smooth communication.,2026-08-30,Yes
+REV00182,TRX00182,C039,C013,3,Average experience overall.,2026-09-01,No
+REV00183,TRX00183,C052,C013,3,Material matched specifications.,2026-06-06,No
+REV00184,TRX00184,C054,C013,4,Would prefer quicker response time.,2026-09-11,Yes
+REV00185,TRX00185,C003,C013,3,Reliable supplier with smooth communication.,2026-07-25,No
+REV00186,TRX00186,C060,C013,4,Average experience overall.,2026-06-11,Yes
+REV00187,TRX00187,C014,C013,5,Transaction completed without issues.,2026-07-16,Yes
+REV00188,TRX00188,C047,C013,1,Average experience overall.,2026-07-17,No
+REV00189,TRX00189,C027,C013,2,Packaging could be improved.,2026-06-26,No
+REV00190,TRX00190,C032,C013,4,High-quality recyclable material.,2026-08-13,Yes
+REV00191,TRX00191,C034,C013,5,Satisfied with the transaction.,2026-08-30,Yes
+REV00192,TRX00192,C039,C013,5,Material quality exceeded expectations.,2026-06-20,Yes
+REV00193,TRX00193,C009,C013,4,Would prefer quicker response time.,2026-08-16,Yes
+REV00194,TRX00194,C052,C013,4,Satisfied with the transaction.,2026-09-07,Yes
+REV00195,TRX00195,C037,C013,5,Transaction completed without issues.,2026-06-20,Yes
+REV00196,TRX00196,C037,C013,4,Minor quality issues observed.,2026-07-19,Yes
+REV00197,TRX00197,C005,C013,4,Satisfied with the transaction.,2026-08-02,Yes
+REV00198,TRX00198,C046,C013,4,Delivery was delayed but acceptable.,2026-07-07,Yes
+REV00199,TRX00199,C009,C013,4,Satisfied with the transaction.,2026-06-07,Yes
+REV00200,TRX00200,C025,C013,3,Transaction completed without issues.,2026-09-06,No
+REV00201,TRX00201,C028,C013,4,Would prefer quicker response time.,2026-07-07,Yes
+REV00202,TRX00202,C044,C013,5,Material matched specifications.,2026-06-16,Yes
+REV00203,TRX00203,C009,C013,4,Minor quality issues observed.,2026-08-07,Yes
+REV00204,TRX00204,C038,C013,5,Minor quality issues observed.,2026-09-27,Yes
+REV00205,TRX00205,C001,C013,3,Material matched specifications.,2026-09-11,Yes
+REV00206,TRX00206,C006,C013,2,Satisfied with the transaction.,2026-07-25,No
+REV00207,TRX00207,C044,C013,5,Packaging could be improved.,2026-07-01,Yes
+REV00208,TRX00208,C043,C013,5,Competitive pricing and fast delivery.,2026-06-28,Yes
+REV00209,TRX00209,C049,C013,5,Professional handling throughout the process.,2026-06-18,Yes
+REV00210,TRX00210,C027,C013,4,Competitive pricing and fast delivery.,2026-09-12,Yes
+REV00211,TRX00211,C017,C014,2,Average experience overall.,2026-09-27,No
+REV00212,TRX00212,C039,C014,5,Material matched specifications.,2026-08-04,Yes
+REV00213,TRX00213,C058,C014,4,Material matched specifications.,2026-09-28,Yes
+REV00214,TRX00214,C049,C014,5,Professional handling throughout the process.,2026-09-10,Yes
+REV00215,TRX00215,C059,C014,5,Minor quality issues observed.,2026-08-27,Yes
+REV00216,TRX00216,C040,C014,3,Packaging could be improved.,2026-09-18,No
+REV00217,TRX00217,C016,C014,2,Reliable supplier with smooth communication.,2026-09-28,No
+REV00218,TRX00218,C026,C014,4,Reliable supplier with smooth communication.,2026-09-22,Yes
+REV00219,TRX00219,C031,C014,2,Minor quality issues observed.,2026-09-12,No
+REV00220,TRX00220,C043,C014,5,Delivery was delayed but acceptable.,2026-07-01,Yes
+REV00221,TRX00221,C036,C014,1,Would prefer quicker response time.,2026-08-01,No
+REV00222,TRX00222,C027,C014,4,Transaction completed without issues.,2026-09-04,Yes
+REV00223,TRX00223,C048,C014,5,Material matched specifications.,2026-09-21,Yes
+REV00224,TRX00224,C017,C014,3,Minor quality issues observed.,2026-06-09,No
+REV00225,TRX00225,C013,C014,5,Average experience overall.,2026-06-14,Yes
+REV00226,TRX00226,C002,C014,2,Reliable supplier with smooth communication.,2026-09-20,No
+REV00227,TRX00227,C017,C014,5,Professional handling throughout the process.,2026-08-31,Yes
+REV00228,TRX00228,C029,C014,5,Reliable supplier with smooth communication.,2026-09-28,Yes
+REV00229,TRX00229,C052,C014,3,Competitive pricing and fast delivery.,2026-08-10,No
+REV00230,TRX00230,C054,C014,5,Good supplier for long-term collaboration.,2026-08-13,Yes
+REV00231,TRX00231,C022,C014,2,Would prefer quicker response time.,2026-07-02,Yes
+REV00232,TRX00232,C016,C014,5,Reliable supplier with smooth communication.,2026-07-27,Yes
+REV00233,TRX00233,C059,C014,4,Reliable supplier with smooth communication.,2026-06-26,Yes
+REV00234,TRX00234,C052,C014,2,Excellent quality and timely delivery.,2026-08-31,No
+REV00235,TRX00235,C018,C014,4,Reliable supplier with smooth communication.,2026-09-09,Yes
+REV00236,TRX00236,C033,C015,2,Transaction completed without issues.,2026-07-15,No
+REV00237,TRX00237,C031,C015,2,Material quality exceeded expectations.,2026-08-18,No
+REV00238,TRX00238,C025,C015,3,Excellent quality and timely delivery.,2026-08-01,Yes
+REV00239,TRX00239,C052,C015,5,Professional handling throughout the process.,2026-09-28,Yes
+REV00240,TRX00240,C004,C015,2,Material matched specifications.,2026-09-29,No
+REV00241,TRX00241,C041,C015,3,Would prefer quicker response time.,2026-09-15,No
+REV00242,TRX00242,C027,C015,5,Average experience overall.,2026-07-27,Yes
+REV00243,TRX00243,C033,C015,3,Packaging could be improved.,2026-10-01,Yes
+REV00244,TRX00244,C007,C015,4,Transaction completed without issues.,2026-06-26,Yes
+REV00245,TRX00245,C003,C015,1,Material quality exceeded expectations.,2026-08-16,Yes
+REV00246,TRX00246,C045,C015,4,High-quality recyclable material.,2026-10-16,Yes
+REV00247,TRX00247,C049,C015,4,Material quality exceeded expectations.,2026-09-27,Yes
+REV00248,TRX00248,C010,C015,4,Minor quality issues observed.,2026-07-24,Yes
+REV00249,TRX00249,C057,C015,5,Competitive pricing and fast delivery.,2026-08-19,Yes
+REV00250,TRX00250,C055,C015,3,Packaging could be improved.,2026-09-25,Yes
+REV00251,TRX00251,C060,C015,5,Satisfied with the transaction.,2026-07-29,Yes
+REV00252,TRX00252,C045,C015,5,Transaction completed without issues.,2026-08-03,Yes
+REV00253,TRX00253,C009,C015,1,Material quality exceeded expectations.,2026-08-18,No
+REV00254,TRX00254,C054,C015,4,Transaction completed without issues.,2026-07-27,Yes
+REV00255,TRX00255,C003,C016,2,Material matched specifications.,2026-09-18,No
+REV00256,TRX00256,C045,C016,5,Reliable supplier with smooth communication.,2026-08-11,Yes
+REV00257,TRX00257,C051,C016,2,Average experience overall.,2026-10-13,No
+REV00258,TRX00258,C001,C016,5,Excellent quality and timely delivery.,2026-09-20,Yes
+REV00259,TRX00259,C013,C016,5,Material matched specifications.,2026-09-06,Yes
+REV00260,TRX00260,C056,C016,4,Would prefer quicker response time.,2026-07-28,Yes
+REV00261,TRX00261,C030,C016,2,Would prefer quicker response time.,2026-08-24,No
+REV00262,TRX00262,C015,C016,4,Satisfied with the transaction.,2026-09-16,Yes
+REV00263,TRX00263,C055,C016,5,Delivery was delayed but acceptable.,2026-08-17,Yes
+REV00264,TRX00264,C010,C016,5,Packaging could be improved.,2026-10-19,Yes
+REV00265,TRX00265,C056,C016,3,Material matched specifications.,2026-07-21,Yes
+REV00266,TRX00266,C020,C016,4,Average experience overall.,2026-08-02,Yes
+REV00267,TRX00267,C052,C016,2,Material matched specifications.,2026-07-07,Yes
+REV00268,TRX00268,C036,C016,4,Satisfied with the transaction.,2026-06-10,Yes
+REV00269,TRX00269,C005,C016,4,Reliable supplier with smooth communication.,2026-07-08,Yes
+REV00270,TRX00270,C015,C016,3,Delivery was delayed but acceptable.,2026-09-18,No
+REV00271,TRX00271,C039,C016,5,Transaction completed without issues.,2026-09-18,Yes
+REV00272,TRX00272,C043,C016,4,Excellent quality and timely delivery.,2026-07-01,Yes
+REV00273,TRX00273,C057,C016,5,Average experience overall.,2026-07-01,Yes
+REV00274,TRX00274,C048,C017,4,Material matched specifications.,2026-10-01,Yes
+REV00275,TRX00275,C011,C017,4,Satisfied with the transaction.,2026-08-17,Yes
+REV00276,TRX00276,C032,C017,3,Would prefer quicker response time.,2026-08-26,Yes
+REV00277,TRX00277,C025,C017,3,Excellent quality and timely delivery.,2026-10-10,Yes
+REV00278,TRX00278,C045,C017,4,Transaction completed without issues.,2026-08-25,Yes
+REV00279,TRX00279,C032,C017,4,Would prefer quicker response time.,2026-07-03,Yes
+REV00280,TRX00280,C008,C017,4,Satisfied with the transaction.,2026-07-19,Yes
+REV00281,TRX00281,C028,C017,4,Satisfied with the transaction.,2026-09-05,Yes
+REV00282,TRX00282,C030,C017,4,Transaction completed without issues.,2026-06-05,Yes
+REV00283,TRX00283,C048,C017,1,Satisfied with the transaction.,2026-09-02,No
+REV00284,TRX00284,C028,C017,3,Would prefer quicker response time.,2026-07-10,No
+REV00285,TRX00285,C039,C017,5,Would prefer quicker response time.,2026-09-22,Yes
+REV00286,TRX00286,C060,C017,5,Excellent quality and timely delivery.,2026-09-23,Yes
+REV00287,TRX00287,C048,C017,4,High-quality recyclable material.,2026-07-19,Yes
+REV00288,TRX00288,C004,C017,2,Competitive pricing and fast delivery.,2026-08-08,No
+REV00289,TRX00289,C049,C017,5,Minor quality issues observed.,2026-08-16,Yes
+REV00290,TRX00290,C054,C017,4,Would prefer quicker response time.,2026-07-27,Yes
+REV00291,TRX00291,C045,C017,4,Transaction completed without issues.,2026-06-15,Yes
+REV00292,TRX00292,C040,C017,4,Minor quality issues observed.,2026-09-05,Yes
+REV00293,TRX00293,C009,C017,4,Minor quality issues observed.,2026-08-30,Yes
+REV00294,TRX00294,C041,C017,4,Transaction completed without issues.,2026-06-19,Yes
+REV00295,TRX00295,C035,C017,5,Average experience overall.,2026-09-13,Yes
+REV00296,TRX00296,C040,C017,5,Reliable supplier with smooth communication.,2026-07-19,Yes
+REV00297,TRX00297,C024,C017,5,Satisfied with the transaction.,2026-06-14,Yes
+REV00298,TRX00298,C019,C017,3,Average experience overall.,2026-09-18,No
+REV00299,TRX00299,C033,C017,3,High-quality recyclable material.,2026-09-03,No
+REV00300,TRX00300,C021,C017,4,Material quality exceeded expectations.,2026-08-11,Yes
+REV00301,TRX00301,C059,C017,2,High-quality recyclable material.,2026-07-16,No
+REV00302,TRX00302,C040,C017,3,Material matched specifications.,2026-07-31,No
+REV00303,TRX00303,C038,C017,4,Minor quality issues observed.,2026-09-01,Yes
+REV00304,TRX00304,C006,C017,4,Reliable supplier with smooth communication.,2026-08-18,Yes
+REV00305,TRX00305,C019,C017,5,Minor quality issues observed.,2026-08-06,Yes
+REV00306,TRX00306,C044,C017,4,Transaction completed without issues.,2026-10-14,Yes
+REV00307,TRX00307,C058,C017,2,Excellent quality and timely delivery.,2026-09-11,No
+REV00308,TRX00308,C021,C017,1,Excellent quality and timely delivery.,2026-09-16,No
+REV00309,TRX00309,C048,C017,4,Professional handling throughout the process.,2026-06-16,Yes
+REV00310,TRX00310,C039,C017,4,Professional handling throughout the process.,2026-06-26,Yes
+REV00311,TRX00311,C032,C017,4,High-quality recyclable material.,2026-10-16,Yes
+REV00312,TRX00312,C041,C017,4,Packaging could be improved.,2026-08-15,Yes
+REV00313,TRX00313,C026,C017,4,Satisfied with the transaction.,2026-06-24,Yes
+REV00314,TRX00314,C034,C017,4,Delivery was delayed but acceptable.,2026-07-03,Yes
+REV00315,TRX00315,C055,C018,4,Minor quality issues observed.,2026-08-16,Yes
+REV00316,TRX00316,C046,C018,5,Transaction completed without issues.,2026-10-09,Yes
+REV00317,TRX00317,C029,C018,2,Competitive pricing and fast delivery.,2026-06-23,No
+REV00318,TRX00318,C024,C018,2,Competitive pricing and fast delivery.,2026-07-25,No
+REV00319,TRX00319,C060,C018,5,Professional handling throughout the process.,2026-06-12,Yes
+REV00320,TRX00320,C005,C018,4,Delivery was delayed but acceptable.,2026-07-14,Yes
+REV00321,TRX00321,C051,C018,4,Competitive pricing and fast delivery.,2026-09-03,Yes
+REV00322,TRX00322,C011,C018,5,Reliable supplier with smooth communication.,2026-09-25,Yes
+REV00323,TRX00323,C027,C018,5,Excellent quality and timely delivery.,2026-09-06,Yes
+REV00324,TRX00324,C015,C018,4,Material quality exceeded expectations.,2026-09-09,Yes
+REV00325,TRX00325,C033,C018,1,Material quality exceeded expectations.,2026-06-27,No
+REV00326,TRX00326,C039,C018,4,Packaging could be improved.,2026-06-30,Yes
+REV00327,TRX00327,C026,C018,4,Satisfied with the transaction.,2026-08-22,Yes
+REV00328,TRX00328,C008,C018,4,Reliable supplier with smooth communication.,2026-09-14,Yes
+REV00329,TRX00329,C058,C018,4,Material quality exceeded expectations.,2026-07-23,Yes
+REV00330,TRX00330,C014,C018,4,Minor quality issues observed.,2026-08-27,Yes
+REV00331,TRX00331,C021,C018,5,Would prefer quicker response time.,2026-06-29,Yes
+REV00332,TRX00332,C014,C018,5,Average experience overall.,2026-09-28,Yes
+REV00333,TRX00333,C011,C018,5,Delivery was delayed but acceptable.,2026-06-05,Yes
+REV00334,TRX00334,C011,C018,3,Would prefer quicker response time.,2026-08-02,No
+REV00335,TRX00335,C053,C018,4,Material matched specifications.,2026-07-16,Yes
+REV00336,TRX00336,C021,C018,4,Professional handling throughout the process.,2026-09-14,Yes
+REV00337,TRX00337,C026,C018,5,High-quality recyclable material.,2026-06-22,Yes
+REV00338,TRX00338,C048,C018,4,Good supplier for long-term collaboration.,2026-07-13,Yes
+REV00339,TRX00339,C031,C018,4,Professional handling throughout the process.,2026-06-22,Yes
+REV00340,TRX00340,C027,C018,3,High-quality recyclable material.,2026-10-06,No
+REV00341,TRX00341,C039,C018,5,Professional handling throughout the process.,2026-09-05,Yes
+REV00342,TRX00342,C019,C018,4,Average experience overall.,2026-08-16,Yes
+REV00343,TRX00343,C029,C018,5,Packaging could be improved.,2026-08-19,Yes
+REV00344,TRX00344,C036,C018,5,Minor quality issues observed.,2026-08-01,Yes
+REV00345,TRX00345,C057,C018,5,Excellent quality and timely delivery.,2026-09-01,Yes
+REV00346,TRX00346,C035,C018,5,High-quality recyclable material.,2026-07-28,Yes
+REV00347,TRX00347,C021,C019,2,Delivery was delayed but acceptable.,2026-07-03,No
+REV00348,TRX00348,C060,C019,5,Average experience overall.,2026-09-17,Yes
+REV00349,TRX00349,C005,C019,5,Material matched specifications.,2026-10-16,Yes
+REV00350,TRX00350,C006,C019,4,Good supplier for long-term collaboration.,2026-09-11,Yes
+REV00351,TRX00351,C031,C019,4,Good supplier for long-term collaboration.,2026-08-07,Yes
+REV00352,TRX00352,C056,C019,4,Would prefer quicker response time.,2026-06-13,Yes
+REV00353,TRX00353,C028,C019,1,Excellent quality and timely delivery.,2026-07-21,No
+REV00354,TRX00354,C048,C019,2,Competitive pricing and fast delivery.,2026-09-01,No
+REV00355,TRX00355,C033,C019,3,Material quality exceeded expectations.,2026-10-18,Yes
+REV00356,TRX00356,C045,C019,5,Good supplier for long-term collaboration.,2026-09-17,Yes
+REV00357,TRX00357,C033,C019,4,Average experience overall.,2026-09-06,Yes
+REV00358,TRX00358,C055,C019,4,Would prefer quicker response time.,2026-09-26,Yes
+REV00359,TRX00359,C033,C019,5,Excellent quality and timely delivery.,2026-09-08,Yes
+REV00360,TRX00360,C046,C019,3,Packaging could be improved.,2026-07-21,No
+REV00361,TRX00361,C054,C019,3,Would prefer quicker response time.,2026-07-03,Yes
+REV00362,TRX00362,C053,C019,3,Material quality exceeded expectations.,2026-07-13,No
+REV00363,TRX00363,C006,C019,2,Average experience overall.,2026-08-06,No
+REV00364,TRX00364,C003,C019,4,Delivery was delayed but acceptable.,2026-06-23,Yes
+REV00365,TRX00365,C051,C019,5,Material matched specifications.,2026-06-20,Yes
+REV00366,TRX00366,C008,C019,2,Professional handling throughout the process.,2026-07-25,No
+REV00367,TRX00367,C035,C019,4,Would prefer quicker response time.,2026-06-17,Yes
+REV00368,TRX00368,C012,C019,5,Reliable supplier with smooth communication.,2026-10-05,Yes
+REV00369,TRX00369,C002,C020,5,Delivery was delayed but acceptable.,2026-08-11,Yes
+REV00370,TRX00370,C006,C020,5,Professional handling throughout the process.,2026-07-29,Yes
+REV00371,TRX00371,C007,C020,4,Satisfied with the transaction.,2026-09-26,Yes
+REV00372,TRX00372,C028,C020,4,Reliable supplier with smooth communication.,2026-09-27,Yes
+REV00373,TRX00373,C041,C020,2,Packaging could be improved.,2026-10-16,No
+REV00374,TRX00374,C056,C020,5,Reliable supplier with smooth communication.,2026-09-01,Yes
+REV00375,TRX00375,C002,C020,5,Packaging could be improved.,2026-07-12,Yes
+REV00376,TRX00376,C035,C020,5,Material quality exceeded expectations.,2026-06-19,Yes
+REV00377,TRX00377,C028,C020,4,Satisfied with the transaction.,2026-08-29,Yes
+REV00378,TRX00378,C016,C020,3,Transaction completed without issues.,2026-06-28,Yes
+REV00379,TRX00379,C027,C020,4,Transaction completed without issues.,2026-10-08,Yes
+REV00380,TRX00380,C046,C020,5,Average experience overall.,2026-08-29,Yes
+REV00381,TRX00381,C004,C020,4,Material quality exceeded expectations.,2026-08-28,Yes
+REV00382,TRX00382,C034,C020,4,Satisfied with the transaction.,2026-08-07,Yes
+REV00383,TRX00383,C019,C020,3,Competitive pricing and fast delivery.,2026-06-11,No
+REV00384,TRX00384,C015,C020,2,Reliable supplier with smooth communication.,2026-08-29,No
+REV00385,TRX00385,C051,C021,5,Good supplier for long-term collaboration.,2026-07-02,Yes
+REV00386,TRX00386,C037,C021,5,Reliable supplier with smooth communication.,2026-07-09,Yes
+REV00387,TRX00387,C018,C021,5,Transaction completed without issues.,2026-08-09,Yes
+REV00388,TRX00388,C005,C021,5,Competitive pricing and fast delivery.,2026-08-26,Yes
+REV00389,TRX00389,C054,C021,3,Satisfied with the transaction.,2026-06-24,No
+REV00390,TRX00390,C012,C021,5,High-quality recyclable material.,2026-09-07,Yes
+REV00391,TRX00391,C032,C021,5,Minor quality issues observed.,2026-09-06,Yes
+REV00392,TRX00392,C040,C021,3,High-quality recyclable material.,2026-08-04,No
+REV00393,TRX00393,C026,C021,3,Professional handling throughout the process.,2026-09-22,Yes
+REV00394,TRX00394,C027,C021,5,High-quality recyclable material.,2026-09-22,Yes
+REV00395,TRX00395,C053,C021,5,Would prefer quicker response time.,2026-08-24,Yes
+REV00396,TRX00396,C002,C021,3,Competitive pricing and fast delivery.,2026-08-31,No
+REV00397,TRX00397,C037,C021,5,High-quality recyclable material.,2026-08-22,Yes
+REV00398,TRX00398,C022,C021,2,Delivery was delayed but acceptable.,2026-07-08,Yes
+REV00399,TRX00399,C060,C021,4,Packaging could be improved.,2026-06-18,Yes
+REV00400,TRX00400,C032,C021,1,Delivery was delayed but acceptable.,2026-10-11,No
+REV00401,TRX00401,C043,C021,5,Average experience overall.,2026-06-26,Yes
+REV00402,TRX00402,C018,C021,3,Minor quality issues observed.,2026-07-14,No
+REV00403,TRX00403,C010,C021,4,Material quality exceeded expectations.,2026-06-05,Yes
+REV00404,TRX00404,C009,C021,5,Delivery was delayed but acceptable.,2026-07-08,Yes
+REV00405,TRX00405,C050,C021,5,Packaging could be improved.,2026-07-16,Yes
+REV00406,TRX00406,C008,C022,5,Minor quality issues observed.,2026-09-06,Yes
+REV00407,TRX00407,C024,C022,4,Material quality exceeded expectations.,2026-07-17,Yes
+REV00408,TRX00408,C019,C022,4,Delivery was delayed but acceptable.,2026-08-27,Yes
+REV00409,TRX00409,C042,C022,5,Excellent quality and timely delivery.,2026-06-29,Yes
+REV00410,TRX00410,C008,C022,3,Material quality exceeded expectations.,2026-08-12,No
+REV00411,TRX00411,C025,C022,4,Would prefer quicker response time.,2026-06-19,Yes
+REV00412,TRX00412,C020,C022,1,Would prefer quicker response time.,2026-08-05,No
+REV00413,TRX00413,C049,C022,3,Satisfied with the transaction.,2026-07-01,Yes
+REV00414,TRX00414,C057,C022,3,Average experience overall.,2026-09-02,No
+REV00415,TRX00415,C015,C022,2,Satisfied with the transaction.,2026-09-05,Yes
+REV00416,TRX00416,C037,C022,4,Excellent quality and timely delivery.,2026-08-14,Yes
+REV00417,TRX00417,C028,C022,5,High-quality recyclable material.,2026-08-25,Yes
+REV00418,TRX00418,C033,C022,4,Competitive pricing and fast delivery.,2026-09-15,Yes
+REV00419,TRX00419,C036,C022,3,Satisfied with the transaction.,2026-08-22,No
+REV00420,TRX00420,C003,C022,3,Material matched specifications.,2026-10-14,No
+REV00421,TRX00421,C049,C022,5,Minor quality issues observed.,2026-08-29,Yes
+REV00422,TRX00422,C006,C022,4,Excellent quality and timely delivery.,2026-07-19,Yes
+REV00423,TRX00423,C031,C022,5,Packaging could be improved.,2026-06-27,Yes
+REV00424,TRX00424,C039,C022,4,High-quality recyclable material.,2026-08-14,Yes
+REV00425,TRX00425,C020,C022,4,Delivery was delayed but acceptable.,2026-08-13,Yes
+REV00426,TRX00426,C039,C022,4,Minor quality issues observed.,2026-08-02,Yes
+REV00427,TRX00427,C055,C022,5,Material matched specifications.,2026-06-29,Yes
+REV00428,TRX00428,C002,C022,2,High-quality recyclable material.,2026-09-25,No
+REV00429,TRX00429,C017,C022,5,Average experience overall.,2026-09-03,Yes
+REV00430,TRX00430,C053,C022,4,Average experience overall.,2026-06-06,Yes
+REV00431,TRX00431,C051,C022,3,Professional handling throughout the process.,2026-09-06,No
+REV00432,TRX00432,C024,C022,4,Packaging could be improved.,2026-10-08,Yes
+REV00433,TRX00433,C032,C022,4,Good supplier for long-term collaboration.,2026-07-22,Yes
+REV00434,TRX00434,C026,C022,5,Packaging could be improved.,2026-10-09,Yes
+REV00435,TRX00435,C042,C022,5,Satisfied with the transaction.,2026-09-26,Yes
+REV00436,TRX00436,C016,C022,4,Good supplier for long-term collaboration.,2026-07-26,Yes
+REV00437,TRX00437,C039,C022,5,Excellent quality and timely delivery.,2026-08-14,Yes
+REV00438,TRX00438,C004,C022,5,Would prefer quicker response time.,2026-09-09,Yes
+REV00439,TRX00439,C045,C022,5,Would prefer quicker response time.,2026-10-17,Yes
+REV00440,TRX00440,C005,C022,4,Delivery was delayed but acceptable.,2026-08-15,Yes
+REV00441,TRX00441,C029,C023,5,Professional handling throughout the process.,2026-06-21,Yes
+REV00442,TRX00442,C020,C023,3,Excellent quality and timely delivery.,2026-08-03,No
+REV00443,TRX00443,C029,C023,2,Excellent quality and timely delivery.,2026-10-01,No
+REV00444,TRX00444,C053,C023,5,Minor quality issues observed.,2026-07-19,Yes
+REV00445,TRX00445,C030,C023,5,Would prefer quicker response time.,2026-09-24,Yes
+REV00446,TRX00446,C056,C023,5,Material quality exceeded expectations.,2026-07-20,Yes
+REV00447,TRX00447,C051,C023,3,Material quality exceeded expectations.,2026-08-20,No
+REV00448,TRX00448,C057,C023,5,Would prefer quicker response time.,2026-07-17,Yes
+REV00449,TRX00449,C048,C023,3,Satisfied with the transaction.,2026-08-25,No
+REV00450,TRX00450,C025,C023,2,Material matched specifications.,2026-08-21,No
+REV00451,TRX00451,C002,C023,5,Packaging could be improved.,2026-08-04,Yes
+REV00452,TRX00452,C050,C023,4,Satisfied with the transaction.,2026-08-06,Yes
+REV00453,TRX00453,C054,C023,2,Professional handling throughout the process.,2026-06-23,No
+REV00454,TRX00454,C057,C023,5,Material matched specifications.,2026-08-23,Yes
+REV00455,TRX00455,C003,C024,5,Minor quality issues observed.,2026-09-17,Yes
+REV00456,TRX00456,C060,C024,2,Material quality exceeded expectations.,2026-07-05,Yes
+REV00457,TRX00457,C046,C024,5,Packaging could be improved.,2026-09-06,Yes
+REV00458,TRX00458,C056,C024,2,Reliable supplier with smooth communication.,2026-06-28,No
+REV00459,TRX00459,C045,C024,3,Good supplier for long-term collaboration.,2026-09-12,No
+REV00460,TRX00460,C018,C024,3,Delivery was delayed but acceptable.,2026-07-23,No
+REV00461,TRX00461,C025,C024,5,Material matched specifications.,2026-07-27,Yes
+REV00462,TRX00462,C053,C024,3,Professional handling throughout the process.,2026-09-24,No
+REV00463,TRX00463,C053,C024,5,Transaction completed without issues.,2026-08-26,Yes
+REV00464,TRX00464,C054,C024,4,Would prefer quicker response time.,2026-07-19,Yes
+REV00465,TRX00465,C009,C024,2,Delivery was delayed but acceptable.,2026-07-22,No
+REV00466,TRX00466,C006,C024,4,Packaging could be improved.,2026-08-22,Yes
+REV00467,TRX00467,C056,C024,5,Competitive pricing and fast delivery.,2026-06-20,Yes
+REV00468,TRX00468,C051,C024,3,Material matched specifications.,2026-09-20,Yes
+REV00469,TRX00469,C052,C024,3,Material matched specifications.,2026-06-25,No
+REV00470,TRX00470,C009,C024,4,Material quality exceeded expectations.,2026-06-24,Yes
+REV00471,TRX00471,C042,C024,4,Good supplier for long-term collaboration.,2026-09-01,Yes
+REV00472,TRX00472,C026,C024,4,Minor quality issues observed.,2026-07-29,Yes
+REV00473,TRX00473,C023,C024,4,Satisfied with the transaction.,2026-10-18,Yes
+REV00474,TRX00474,C058,C024,4,Packaging could be improved.,2026-08-23,Yes
+REV00475,TRX00475,C008,C024,1,Would prefer quicker response time.,2026-07-20,No
+REV00476,TRX00476,C042,C024,5,Competitive pricing and fast delivery.,2026-09-15,Yes
+REV00477,TRX00477,C050,C024,1,Average experience overall.,2026-09-14,No
+REV00478,TRX00478,C060,C024,1,Would prefer quicker response time.,2026-09-16,No
+REV00479,TRX00479,C017,C024,3,Professional handling throughout the process.,2026-09-15,No
+REV00480,TRX00480,C002,C024,4,Competitive pricing and fast delivery.,2026-06-23,Yes
+REV00481,TRX00481,C048,C024,4,Competitive pricing and fast delivery.,2026-08-21,Yes
+REV00482,TRX00482,C033,C024,5,Satisfied with the transaction.,2026-10-09,Yes
+REV00483,TRX00483,C039,C024,4,Material matched specifications.,2026-09-05,Yes
+REV00484,TRX00484,C013,C024,5,Delivery was delayed but acceptable.,2026-09-20,Yes
+REV00485,TRX00485,C018,C024,4,Excellent quality and timely delivery.,2026-06-30,Yes
+REV00486,TRX00486,C019,C024,5,Transaction completed without issues.,2026-06-27,Yes
+REV00487,TRX00487,C027,C024,4,Good supplier for long-term collaboration.,2026-07-01,Yes
+REV00488,TRX00488,C034,C025,5,High-quality recyclable material.,2026-10-06,Yes
+REV00489,TRX00489,C045,C025,2,Would prefer quicker response time.,2026-08-09,No
+REV00490,TRX00490,C017,C025,2,Competitive pricing and fast delivery.,2026-10-13,No
+REV00491,TRX00491,C026,C025,4,Average experience overall.,2026-09-13,Yes
+REV00492,TRX00492,C015,C025,5,Material matched specifications.,2026-08-25,Yes
+REV00493,TRX00493,C007,C025,4,Professional handling throughout the process.,2026-06-15,Yes
+REV00494,TRX00494,C060,C025,3,Material matched specifications.,2026-07-18,No
+REV00495,TRX00495,C020,C025,2,Satisfied with the transaction.,2026-09-01,Yes
+REV00496,TRX00496,C048,C025,1,Good supplier for long-term collaboration.,2026-07-22,Yes
+REV00497,TRX00497,C059,C025,2,Excellent quality and timely delivery.,2026-06-13,Yes
+REV00498,TRX00498,C048,C025,5,Delivery was delayed but acceptable.,2026-09-25,Yes
+REV00499,TRX00499,C039,C025,4,Minor quality issues observed.,2026-08-21,Yes
+REV00500,TRX00500,C060,C025,5,Transaction completed without issues.,2026-06-29,Yes
+REV00501,TRX00501,C053,C025,2,Minor quality issues observed.,2026-07-09,Yes
+REV00502,TRX00502,C007,C025,5,Professional handling throughout the process.,2026-09-09,Yes
+REV00503,TRX00503,C047,C025,2,Good supplier for long-term collaboration.,2026-07-07,No
+REV00504,TRX00504,C008,C025,4,Professional handling throughout the process.,2026-07-23,Yes
+REV00505,TRX00505,C033,C025,5,Minor quality issues observed.,2026-07-13,Yes
+REV00506,TRX00506,C015,C025,5,Minor quality issues observed.,2026-07-25,Yes
+REV00507,TRX00507,C001,C025,3,Material quality exceeded expectations.,2026-08-25,No
+REV00508,TRX00508,C002,C025,5,Reliable supplier with smooth communication.,2026-06-17,Yes
+REV00509,TRX00509,C024,C025,2,High-quality recyclable material.,2026-08-17,No
+REV00510,TRX00510,C040,C025,4,Material quality exceeded expectations.,2026-09-18,Yes
+REV00511,TRX00511,C052,C025,5,Transaction completed without issues.,2026-09-23,Yes
+REV00512,TRX00512,C001,C025,4,Delivery was delayed but acceptable.,2026-09-11,Yes
+REV00513,TRX00513,C049,C025,1,Minor quality issues observed.,2026-07-08,No
+REV00514,TRX00514,C001,C025,1,Excellent quality and timely delivery.,2026-09-08,No
+REV00515,TRX00515,C054,C025,4,High-quality recyclable material.,2026-06-23,Yes
+REV00516,TRX00516,C021,C025,5,Excellent quality and timely delivery.,2026-08-29,Yes
+REV00517,TRX00517,C028,C025,5,Good supplier for long-term collaboration.,2026-09-05,Yes
+REV00518,TRX00518,C023,C025,1,High-quality recyclable material.,2026-08-06,No
+REV00519,TRX00519,C036,C025,4,Satisfied with the transaction.,2026-08-26,Yes
+REV00520,TRX00520,C020,C025,3,High-quality recyclable material.,2026-07-31,No
+REV00521,TRX00521,C028,C025,3,Competitive pricing and fast delivery.,2026-09-26,No
+REV00522,TRX00522,C032,C026,1,Competitive pricing and fast delivery.,2026-07-17,Yes
+REV00523,TRX00523,C043,C026,4,Competitive pricing and fast delivery.,2026-07-12,Yes
+REV00524,TRX00524,C040,C026,4,Average experience overall.,2026-07-28,Yes
+REV00525,TRX00525,C015,C026,5,Would prefer quicker response time.,2026-09-15,Yes
+REV00526,TRX00526,C046,C026,2,Competitive pricing and fast delivery.,2026-09-12,No
+REV00527,TRX00527,C004,C026,4,Would prefer quicker response time.,2026-07-26,Yes
+REV00528,TRX00528,C007,C026,4,Packaging could be improved.,2026-09-18,Yes
+REV00529,TRX00529,C027,C026,5,Good supplier for long-term collaboration.,2026-07-27,Yes
+REV00530,TRX00530,C035,C026,4,Minor quality issues observed.,2026-09-15,Yes
+REV00531,TRX00531,C020,C026,3,Material quality exceeded expectations.,2026-07-03,No
+REV00532,TRX00532,C046,C026,3,Material matched specifications.,2026-09-17,No
+REV00533,TRX00533,C030,C026,5,Reliable supplier with smooth communication.,2026-08-28,Yes
+REV00534,TRX00534,C058,C026,4,Professional handling throughout the process.,2026-09-02,Yes
+REV00535,TRX00535,C057,C026,5,Would prefer quicker response time.,2026-07-16,Yes
+REV00536,TRX00536,C011,C026,1,Professional handling throughout the process.,2026-09-11,No
+REV00537,TRX00537,C005,C026,1,Professional handling throughout the process.,2026-10-04,No
+REV00538,TRX00538,C053,C026,5,Material quality exceeded expectations.,2026-08-19,Yes
+REV00539,TRX00539,C039,C026,5,Material quality exceeded expectations.,2026-06-28,Yes
+REV00540,TRX00540,C028,C026,4,Satisfied with the transaction.,2026-10-04,Yes
+REV00541,TRX00541,C059,C026,4,Would prefer quicker response time.,2026-09-01,Yes
+REV00542,TRX00542,C006,C027,4,Transaction completed without issues.,2026-07-04,Yes
+REV00543,TRX00543,C048,C027,4,Material matched specifications.,2026-07-05,Yes
+REV00544,TRX00544,C002,C027,1,Would prefer quicker response time.,2026-06-25,No
+REV00545,TRX00545,C051,C027,5,Professional handling throughout the process.,2026-09-22,Yes
+REV00546,TRX00546,C020,C027,2,Good supplier for long-term collaboration.,2026-07-13,No
+REV00547,TRX00547,C024,C027,4,Good supplier for long-term collaboration.,2026-08-22,Yes
+REV00548,TRX00548,C058,C027,5,High-quality recyclable material.,2026-08-03,Yes
+REV00549,TRX00549,C032,C027,5,Would prefer quicker response time.,2026-09-07,Yes
+REV00550,TRX00550,C041,C027,4,High-quality recyclable material.,2026-08-08,Yes
+REV00551,TRX00551,C022,C027,5,Material quality exceeded expectations.,2026-09-06,Yes
+REV00552,TRX00552,C003,C027,4,Professional handling throughout the process.,2026-10-13,Yes
+REV00553,TRX00553,C018,C027,3,Would prefer quicker response time.,2026-07-19,No
+REV00554,TRX00554,C050,C027,4,Average experience overall.,2026-09-01,Yes
+REV00555,TRX00555,C050,C027,4,Average experience overall.,2026-07-21,Yes
+REV00556,TRX00556,C018,C027,3,Competitive pricing and fast delivery.,2026-07-03,No
+REV00557,TRX00557,C041,C027,2,Material matched specifications.,2026-08-30,No
+REV00558,TRX00558,C028,C027,4,Minor quality issues observed.,2026-06-12,Yes
+REV00559,TRX00559,C045,C027,5,Satisfied with the transaction.,2026-07-12,Yes
+REV00560,TRX00560,C039,C027,4,Minor quality issues observed.,2026-06-09,Yes
+REV00561,TRX00561,C043,C027,5,Professional handling throughout the process.,2026-08-20,Yes
+REV00562,TRX00562,C022,C027,5,Material quality exceeded expectations.,2026-07-13,Yes
+REV00563,TRX00563,C045,C027,3,Reliable supplier with smooth communication.,2026-10-04,No
+REV00564,TRX00564,C037,C027,2,Reliable supplier with smooth communication.,2026-09-26,No
+REV00565,TRX00565,C041,C027,4,Professional handling throughout the process.,2026-09-30,Yes
+REV00566,TRX00566,C030,C027,4,Material quality exceeded expectations.,2026-09-23,Yes
+REV00567,TRX00567,C019,C027,1,Material quality exceeded expectations.,2026-09-12,No
+REV00568,TRX00568,C009,C027,4,Transaction completed without issues.,2026-08-09,Yes
+REV00569,TRX00569,C016,C027,5,Material quality exceeded expectations.,2026-07-12,Yes
+REV00570,TRX00570,C011,C027,4,Delivery was delayed but acceptable.,2026-09-24,Yes
+REV00571,TRX00571,C060,C027,5,Reliable supplier with smooth communication.,2026-07-15,Yes
+REV00572,TRX00572,C024,C027,2,Excellent quality and timely delivery.,2026-09-27,No
+REV00573,TRX00573,C009,C027,4,High-quality recyclable material.,2026-07-31,Yes
+REV00574,TRX00574,C037,C027,3,Good supplier for long-term collaboration.,2026-08-26,No
+REV00575,TRX00575,C057,C027,5,Average experience overall.,2026-07-28,Yes
+REV00576,TRX00576,C001,C027,4,Minor quality issues observed.,2026-08-13,Yes
+REV00577,TRX00577,C039,C027,5,Professional handling throughout the process.,2026-10-16,Yes
+REV00578,TRX00578,C023,C027,5,Excellent quality and timely delivery.,2026-07-05,Yes
+REV00579,TRX00579,C040,C027,5,Transaction completed without issues.,2026-08-30,Yes
+REV00580,TRX00580,C023,C027,5,Professional handling throughout the process.,2026-09-08,Yes
+REV00581,TRX00581,C022,C027,2,Material quality exceeded expectations.,2026-07-08,No
+REV00582,TRX00582,C023,C027,1,Packaging could be improved.,2026-09-18,Yes
+REV00583,TRX00583,C058,C027,5,Delivery was delayed but acceptable.,2026-06-23,Yes
+REV00584,TRX00584,C045,C027,5,Packaging could be improved.,2026-07-22,Yes
+REV00585,TRX00585,C045,C027,2,High-quality recyclable material.,2026-07-24,No
+REV00586,TRX00586,C042,C027,5,Professional handling throughout the process.,2026-07-29,Yes
+REV00587,TRX00587,C009,C027,5,Minor quality issues observed.,2026-06-29,Yes
+REV00588,TRX00588,C009,C027,5,Transaction completed without issues.,2026-07-31,Yes
+REV00589,TRX00589,C025,C027,2,Average experience overall.,2026-06-30,No
+REV00590,TRX00590,C059,C028,4,Reliable supplier with smooth communication.,2026-09-06,Yes
+REV00591,TRX00591,C019,C028,4,Reliable supplier with smooth communication.,2026-09-30,Yes
+REV00592,TRX00592,C040,C028,4,Competitive pricing and fast delivery.,2026-09-11,Yes
+REV00593,TRX00593,C001,C028,5,Packaging could be improved.,2026-08-31,Yes
+REV00594,TRX00594,C057,C028,3,Material matched specifications.,2026-08-20,No
+REV00595,TRX00595,C050,C028,4,Minor quality issues observed.,2026-06-27,Yes
+REV00596,TRX00596,C031,C028,5,Good supplier for long-term collaboration.,2026-06-21,Yes
+REV00597,TRX00597,C031,C028,3,Minor quality issues observed.,2026-07-20,No
+REV00598,TRX00598,C030,C028,4,Professional handling throughout the process.,2026-09-19,Yes
+REV00599,TRX00599,C053,C028,5,Professional handling throughout the process.,2026-10-09,Yes
+REV00600,TRX00600,C059,C028,4,Delivery was delayed but acceptable.,2026-08-25,Yes
+REV00601,TRX00601,C030,C028,5,High-quality recyclable material.,2026-09-08,Yes
+REV00602,TRX00602,C032,C028,5,Excellent quality and timely delivery.,2026-08-15,Yes
+REV00603,TRX00603,C006,C028,5,Would prefer quicker response time.,2026-10-10,Yes
+REV00604,TRX00604,C041,C028,1,Delivery was delayed but acceptable.,2026-06-19,Yes
+REV00605,TRX00605,C052,C028,4,Material quality exceeded expectations.,2026-09-27,Yes
+REV00606,TRX00606,C040,C028,3,Delivery was delayed but acceptable.,2026-08-23,No
+REV00607,TRX00607,C058,C028,5,Material matched specifications.,2026-07-15,Yes
+REV00608,TRX00608,C008,C028,5,Would prefer quicker response time.,2026-09-10,Yes
+REV00609,TRX00609,C040,C028,5,Reliable supplier with smooth communication.,2026-06-12,Yes
+REV00610,TRX00610,C036,C028,5,Material matched specifications.,2026-06-14,Yes
+REV00611,TRX00611,C030,C028,3,Satisfied with the transaction.,2026-08-14,No
+REV00612,TRX00612,C051,C028,5,Competitive pricing and fast delivery.,2026-08-05,Yes
+REV00613,TRX00613,C009,C028,4,Material quality exceeded expectations.,2026-07-14,Yes
+REV00614,TRX00614,C018,C028,4,Average experience overall.,2026-10-05,Yes
+REV00615,TRX00615,C053,C028,5,Material matched specifications.,2026-09-07,Yes
+REV00616,TRX00616,C035,C028,4,Material matched specifications.,2026-09-01,Yes
+REV00617,TRX00617,C039,C028,4,Material quality exceeded expectations.,2026-07-09,Yes
+REV00618,TRX00618,C031,C028,4,Material matched specifications.,2026-07-28,Yes
+REV00619,TRX00619,C023,C028,4,Material matched specifications.,2026-08-09,Yes
+REV00620,TRX00620,C045,C028,5,Delivery was delayed but acceptable.,2026-06-11,Yes
+REV00621,TRX00621,C021,C028,5,Material quality exceeded expectations.,2026-06-13,Yes
+REV00622,TRX00622,C009,C028,4,Minor quality issues observed.,2026-08-21,Yes
+REV00623,TRX00623,C009,C028,3,Professional handling throughout the process.,2026-06-21,No
+REV00624,TRX00624,C035,C028,5,Good supplier for long-term collaboration.,2026-07-09,Yes
+REV00625,TRX00625,C051,C028,5,Would prefer quicker response time.,2026-06-25,Yes
+REV00626,TRX00626,C024,C029,4,Transaction completed without issues.,2026-09-16,Yes
+REV00627,TRX00627,C002,C029,4,Delivery was delayed but acceptable.,2026-08-10,Yes
+REV00628,TRX00628,C024,C029,4,Packaging could be improved.,2026-06-24,Yes
+REV00629,TRX00629,C021,C029,5,Excellent quality and timely delivery.,2026-09-25,Yes
+REV00630,TRX00630,C042,C029,5,Transaction completed without issues.,2026-09-11,Yes
+REV00631,TRX00631,C030,C029,3,Minor quality issues observed.,2026-07-09,No
+REV00632,TRX00632,C025,C029,5,Average experience overall.,2026-07-13,Yes
+REV00633,TRX00633,C047,C029,3,Good supplier for long-term collaboration.,2026-08-01,No
+REV00634,TRX00634,C024,C029,4,Satisfied with the transaction.,2026-06-22,Yes
+REV00635,TRX00635,C020,C029,4,Minor quality issues observed.,2026-08-17,Yes
+REV00636,TRX00636,C057,C029,4,Excellent quality and timely delivery.,2026-07-22,Yes
+REV00637,TRX00637,C036,C029,5,Would prefer quicker response time.,2026-07-22,Yes
+REV00638,TRX00638,C046,C029,4,High-quality recyclable material.,2026-08-14,Yes
+REV00639,TRX00639,C047,C029,4,Reliable supplier with smooth communication.,2026-06-24,Yes
+REV00640,TRX00640,C017,C029,4,Material quality exceeded expectations.,2026-10-05,Yes
+REV00641,TRX00641,C017,C029,3,Minor quality issues observed.,2026-06-14,No
+REV00642,TRX00642,C025,C029,5,Average experience overall.,2026-08-21,Yes
+REV00643,TRX00643,C055,C029,3,Material quality exceeded expectations.,2026-07-09,No
+REV00644,TRX00644,C032,C029,5,Material quality exceeded expectations.,2026-07-20,Yes
+REV00645,TRX00645,C045,C029,4,Minor quality issues observed.,2026-07-07,Yes
+REV00646,TRX00646,C040,C029,2,Satisfied with the transaction.,2026-07-16,No
+REV00647,TRX00647,C027,C029,3,Transaction completed without issues.,2026-09-21,No
+REV00648,TRX00648,C056,C029,3,Transaction completed without issues.,2026-07-12,No
+REV00649,TRX00649,C054,C029,1,Competitive pricing and fast delivery.,2026-08-27,No
+REV00650,TRX00650,C010,C029,5,Would prefer quicker response time.,2026-09-09,Yes
+REV00651,TRX00651,C007,C029,5,Reliable supplier with smooth communication.,2026-09-14,Yes
+REV00652,TRX00652,C012,C029,5,High-quality recyclable material.,2026-09-03,Yes
+REV00653,TRX00653,C055,C029,5,Transaction completed without issues.,2026-08-03,Yes
+REV00654,TRX00654,C042,C029,5,Excellent quality and timely delivery.,2026-09-26,Yes
+REV00655,TRX00655,C040,C029,3,Delivery was delayed but acceptable.,2026-09-15,No
+REV00656,TRX00656,C012,C029,5,Minor quality issues observed.,2026-08-08,Yes
+REV00657,TRX00657,C011,C029,4,Would prefer quicker response time.,2026-09-17,Yes
+REV00658,TRX00658,C035,C029,5,Excellent quality and timely delivery.,2026-06-25,Yes
+REV00659,TRX00659,C034,C029,3,Average experience overall.,2026-08-31,No
+REV00660,TRX00660,C030,C029,5,Would prefer quicker response time.,2026-06-02,Yes
+REV00661,TRX00661,C026,C029,1,Transaction completed without issues.,2026-09-24,Yes
+REV00662,TRX00662,C053,C029,5,Material quality exceeded expectations.,2026-09-09,Yes
+REV00663,TRX00663,C055,C030,4,Minor quality issues observed.,2026-07-20,Yes
+REV00664,TRX00664,C059,C030,4,Minor quality issues observed.,2026-07-26,Yes
+REV00665,TRX00665,C050,C030,3,Transaction completed without issues.,2026-08-13,No
+REV00666,TRX00666,C048,C030,5,High-quality recyclable material.,2026-06-17,Yes
+REV00667,TRX00667,C044,C030,1,Good supplier for long-term collaboration.,2026-06-07,No
+REV00668,TRX00668,C001,C030,3,Reliable supplier with smooth communication.,2026-09-18,No
+REV00669,TRX00669,C020,C030,5,Minor quality issues observed.,2026-09-05,Yes
+REV00670,TRX00670,C011,C030,1,Average experience overall.,2026-10-04,Yes
+REV00671,TRX00671,C005,C030,4,Packaging could be improved.,2026-09-23,Yes
+REV00672,TRX00672,C025,C030,4,Packaging could be improved.,2026-09-25,Yes
+REV00673,TRX00673,C059,C030,5,Would prefer quicker response time.,2026-09-01,Yes
+REV00674,TRX00674,C049,C030,3,Transaction completed without issues.,2026-06-13,No
+REV00675,TRX00675,C041,C030,4,Excellent quality and timely delivery.,2026-09-08,Yes
+REV00676,TRX00676,C020,C030,2,Minor quality issues observed.,2026-06-26,Yes
+REV00677,TRX00677,C021,C030,2,Transaction completed without issues.,2026-09-11,Yes
+REV00678,TRX00678,C047,C030,4,Would prefer quicker response time.,2026-09-08,Yes
+REV00679,TRX00679,C016,C030,4,Professional handling throughout the process.,2026-07-20,Yes
+REV00680,TRX00680,C036,C030,4,Delivery was delayed but acceptable.,2026-09-28,Yes
+REV00681,TRX00681,C037,C030,5,Excellent quality and timely delivery.,2026-08-17,Yes
+REV00682,TRX00682,C024,C030,5,Excellent quality and timely delivery.,2026-06-07,Yes
+REV00683,TRX00683,C022,C030,5,Professional handling throughout the process.,2026-09-10,Yes
+REV00684,TRX00684,C049,C030,5,Competitive pricing and fast delivery.,2026-08-05,Yes
+REV00685,TRX00685,C012,C030,4,Reliable supplier with smooth communication.,2026-08-14,Yes
+REV00686,TRX00686,C044,C030,5,Excellent quality and timely delivery.,2026-08-14,Yes
+REV00687,TRX00687,C052,C031,5,Packaging could be improved.,2026-08-07,Yes
+REV00688,TRX00688,C034,C031,2,Professional handling throughout the process.,2026-08-06,No
+REV00689,TRX00689,C044,C031,4,Would prefer quicker response time.,2026-09-07,Yes
+REV00690,TRX00690,C040,C031,1,Professional handling throughout the process.,2026-09-16,No
+REV00691,TRX00691,C044,C031,3,High-quality recyclable material.,2026-09-20,No
+REV00692,TRX00692,C053,C031,4,Reliable supplier with smooth communication.,2026-07-17,Yes
+REV00693,TRX00693,C049,C031,4,Reliable supplier with smooth communication.,2026-08-30,Yes
+REV00694,TRX00694,C020,C031,4,Good supplier for long-term collaboration.,2026-09-08,Yes
+REV00695,TRX00695,C022,C031,5,Competitive pricing and fast delivery.,2026-09-12,Yes
+REV00696,TRX00696,C021,C031,5,Minor quality issues observed.,2026-09-27,Yes
+REV00697,TRX00697,C033,C031,4,Delivery was delayed but acceptable.,2026-09-05,Yes
+REV00698,TRX00698,C032,C031,5,Competitive pricing and fast delivery.,2026-08-24,Yes
+REV00699,TRX00699,C057,C031,3,Delivery was delayed but acceptable.,2026-08-12,No
+REV00700,TRX00700,C026,C031,3,Average experience overall.,2026-07-23,No
+REV00701,TRX00701,C046,C031,4,Minor quality issues observed.,2026-07-23,Yes
+REV00702,TRX00702,C007,C031,4,Delivery was delayed but acceptable.,2026-07-10,Yes
+REV00703,TRX00703,C044,C031,3,Transaction completed without issues.,2026-07-19,No
+REV00704,TRX00704,C044,C032,2,Material quality exceeded expectations.,2026-07-25,No
+REV00705,TRX00705,C053,C032,3,Would prefer quicker response time.,2026-09-18,No
+REV00706,TRX00706,C027,C032,5,Excellent quality and timely delivery.,2026-06-19,Yes
+REV00707,TRX00707,C046,C032,5,Delivery was delayed but acceptable.,2026-09-29,Yes
+REV00708,TRX00708,C013,C032,4,Transaction completed without issues.,2026-09-20,Yes
+REV00709,TRX00709,C007,C032,5,Good supplier for long-term collaboration.,2026-10-02,Yes
+REV00710,TRX00710,C037,C032,4,Delivery was delayed but acceptable.,2026-07-19,Yes
+REV00711,TRX00711,C021,C032,2,Average experience overall.,2026-07-26,No
+REV00712,TRX00712,C025,C032,1,Material quality exceeded expectations.,2026-09-23,No
+REV00713,TRX00713,C013,C032,4,Material quality exceeded expectations.,2026-07-14,Yes
+REV00714,TRX00714,C054,C033,4,Transaction completed without issues.,2026-08-21,Yes
+REV00715,TRX00715,C027,C033,4,Transaction completed without issues.,2026-07-05,Yes
+REV00716,TRX00716,C052,C033,2,Excellent quality and timely delivery.,2026-06-22,No
+REV00717,TRX00717,C037,C033,4,Good supplier for long-term collaboration.,2026-09-30,Yes
+REV00718,TRX00718,C032,C033,5,Material matched specifications.,2026-06-26,Yes
+REV00719,TRX00719,C019,C033,4,Satisfied with the transaction.,2026-07-18,Yes
+REV00720,TRX00720,C045,C033,5,Competitive pricing and fast delivery.,2026-08-18,Yes
+REV00721,TRX00721,C052,C033,3,High-quality recyclable material.,2026-06-29,No
+REV00722,TRX00722,C012,C034,2,Good supplier for long-term collaboration.,2026-07-30,Yes
+REV00723,TRX00723,C040,C034,5,Professional handling throughout the process.,2026-07-18,Yes
+REV00724,TRX00724,C026,C034,4,Satisfied with the transaction.,2026-06-29,Yes
+REV00725,TRX00725,C059,C034,2,Average experience overall.,2026-07-26,No
+REV00726,TRX00726,C005,C034,5,High-quality recyclable material.,2026-09-06,Yes
+REV00727,TRX00727,C059,C034,5,Excellent quality and timely delivery.,2026-06-19,Yes
+REV00728,TRX00728,C039,C034,4,Reliable supplier with smooth communication.,2026-07-07,Yes
+REV00729,TRX00729,C016,C034,5,Transaction completed without issues.,2026-06-17,Yes
+REV00730,TRX00730,C015,C034,3,Reliable supplier with smooth communication.,2026-08-23,No
+REV00731,TRX00731,C048,C034,4,Good supplier for long-term collaboration.,2026-09-04,Yes
+REV00732,TRX00732,C029,C034,5,Satisfied with the transaction.,2026-08-13,Yes
+REV00733,TRX00733,C041,C034,3,Competitive pricing and fast delivery.,2026-10-09,Yes
+REV00734,TRX00734,C024,C034,5,High-quality recyclable material.,2026-09-09,Yes
+REV00735,TRX00735,C028,C034,4,Delivery was delayed but acceptable.,2026-07-09,Yes
+REV00736,TRX00736,C052,C034,4,Minor quality issues observed.,2026-10-01,Yes
+REV00737,TRX00737,C045,C034,2,Satisfied with the transaction.,2026-07-14,No
+REV00738,TRX00738,C030,C034,4,Material quality exceeded expectations.,2026-08-22,Yes
+REV00739,TRX00739,C038,C034,4,High-quality recyclable material.,2026-08-22,Yes
+REV00740,TRX00740,C050,C034,5,Minor quality issues observed.,2026-09-22,Yes
+REV00741,TRX00741,C031,C034,4,High-quality recyclable material.,2026-07-02,Yes
+REV00742,TRX00742,C052,C034,4,Satisfied with the transaction.,2026-09-30,Yes
+REV00743,TRX00743,C012,C034,5,Material matched specifications.,2026-09-08,Yes
+REV00744,TRX00744,C031,C034,5,Minor quality issues observed.,2026-09-03,Yes
+REV00745,TRX00745,C053,C034,3,Reliable supplier with smooth communication.,2026-08-20,No
+REV00746,TRX00746,C041,C034,3,High-quality recyclable material.,2026-06-22,No
+REV00747,TRX00747,C026,C034,5,Good supplier for long-term collaboration.,2026-06-09,Yes
+REV00748,TRX00748,C045,C034,4,Professional handling throughout the process.,2026-07-13,Yes
+REV00749,TRX00749,C051,C034,2,Average experience overall.,2026-06-06,No
+REV00750,TRX00750,C006,C034,5,Good supplier for long-term collaboration.,2026-08-31,Yes
+REV00751,TRX00751,C022,C034,4,Average experience overall.,2026-07-28,Yes
+REV00752,TRX00752,C051,C034,5,Reliable supplier with smooth communication.,2026-07-18,Yes
+REV00753,TRX00753,C058,C034,5,Packaging could be improved.,2026-06-16,Yes
+REV00754,TRX00754,C029,C034,5,Delivery was delayed but acceptable.,2026-07-11,Yes
+REV00755,TRX00755,C051,C034,5,Packaging could be improved.,2026-06-27,Yes
+REV00756,TRX00756,C039,C034,4,Professional handling throughout the process.,2026-10-02,Yes
+REV00757,TRX00757,C013,C034,4,Transaction completed without issues.,2026-06-07,Yes
+REV00758,TRX00758,C029,C034,4,Average experience overall.,2026-09-23,Yes
+REV00759,TRX00759,C058,C034,4,High-quality recyclable material.,2026-08-13,Yes
+REV00760,TRX00760,C010,C034,5,Material matched specifications.,2026-06-30,Yes
+REV00761,TRX00761,C028,C035,4,Reliable supplier with smooth communication.,2026-09-14,Yes
+REV00762,TRX00762,C016,C035,5,Would prefer quicker response time.,2026-08-22,Yes
+REV00763,TRX00763,C015,C035,5,Transaction completed without issues.,2026-07-23,Yes
+REV00764,TRX00764,C016,C035,4,Satisfied with the transaction.,2026-08-08,Yes
+REV00765,TRX00765,C059,C035,4,Material quality exceeded expectations.,2026-08-10,Yes
+REV00766,TRX00766,C060,C036,3,Average experience overall.,2026-07-13,No
+REV00767,TRX00767,C035,C036,5,Packaging could be improved.,2026-09-09,Yes
+REV00768,TRX00768,C030,C036,3,Material quality exceeded expectations.,2026-09-08,Yes
+REV00769,TRX00769,C039,C036,5,Reliable supplier with smooth communication.,2026-08-14,Yes
+REV00770,TRX00770,C042,C036,5,Professional handling throughout the process.,2026-06-18,Yes
+REV00771,TRX00771,C050,C036,5,Competitive pricing and fast delivery.,2026-08-12,Yes
+REV00772,TRX00772,C011,C036,5,Competitive pricing and fast delivery.,2026-07-23,Yes
+REV00773,TRX00773,C033,C036,5,Minor quality issues observed.,2026-08-02,Yes
+REV00774,TRX00774,C022,C036,4,Material matched specifications.,2026-09-27,Yes
+REV00775,TRX00775,C020,C036,4,Reliable supplier with smooth communication.,2026-08-11,Yes
+REV00776,TRX00776,C057,C036,4,Reliable supplier with smooth communication.,2026-08-12,Yes
+REV00777,TRX00777,C013,C036,2,Material matched specifications.,2026-08-21,Yes
+REV00778,TRX00778,C053,C036,5,Professional handling throughout the process.,2026-06-15,Yes
+REV00779,TRX00779,C035,C036,3,Would prefer quicker response time.,2026-07-26,No
+REV00780,TRX00780,C006,C036,5,Would prefer quicker response time.,2026-08-28,Yes
+REV00781,TRX00781,C028,C036,3,Transaction completed without issues.,2026-07-25,No
+REV00782,TRX00782,C035,C036,1,Transaction completed without issues.,2026-09-14,No
+REV00783,TRX00783,C038,C036,5,Minor quality issues observed.,2026-10-04,Yes
+REV00784,TRX00784,C009,C036,5,Minor quality issues observed.,2026-09-10,Yes
+REV00785,TRX00785,C019,C036,4,High-quality recyclable material.,2026-09-08,Yes
+REV00786,TRX00786,C014,C036,2,Material quality exceeded expectations.,2026-07-28,No
+REV00787,TRX00787,C031,C036,4,Professional handling throughout the process.,2026-07-22,Yes
+REV00788,TRX00788,C049,C036,5,Transaction completed without issues.,2026-07-16,Yes
+REV00789,TRX00789,C010,C036,5,Competitive pricing and fast delivery.,2026-07-10,Yes
+REV00790,TRX00790,C057,C037,4,Material quality exceeded expectations.,2026-08-24,Yes
+REV00791,TRX00791,C022,C037,3,Material quality exceeded expectations.,2026-06-29,Yes
+REV00792,TRX00792,C015,C037,2,High-quality recyclable material.,2026-09-05,No
+REV00793,TRX00793,C021,C037,4,Material quality exceeded expectations.,2026-07-21,Yes
+REV00794,TRX00794,C012,C037,3,Transaction completed without issues.,2026-07-31,No
+REV00795,TRX00795,C024,C037,4,Average experience overall.,2026-08-31,Yes
+REV00796,TRX00796,C028,C037,3,Competitive pricing and fast delivery.,2026-07-25,Yes
+REV00797,TRX00797,C027,C037,4,Delivery was delayed but acceptable.,2026-07-17,Yes
+REV00798,TRX00798,C047,C037,5,Would prefer quicker response time.,2026-07-12,Yes
+REV00799,TRX00799,C010,C037,4,Good supplier for long-term collaboration.,2026-06-02,Yes
+REV00800,TRX00800,C002,C037,4,Good supplier for long-term collaboration.,2026-07-31,Yes
+REV00801,TRX00801,C028,C037,4,Delivery was delayed but acceptable.,2026-08-10,Yes
+REV00802,TRX00802,C033,C037,4,Good supplier for long-term collaboration.,2026-06-11,Yes
+REV00803,TRX00803,C054,C038,4,Minor quality issues observed.,2026-08-19,Yes
+REV00804,TRX00804,C006,C038,5,Minor quality issues observed.,2026-09-07,Yes
+REV00805,TRX00805,C005,C038,3,Transaction completed without issues.,2026-08-03,No
+REV00806,TRX00806,C056,C038,5,Minor quality issues observed.,2026-09-28,Yes
+REV00807,TRX00807,C005,C038,3,Average experience overall.,2026-09-29,No
+REV00808,TRX00808,C047,C038,3,Delivery was delayed but acceptable.,2026-08-17,No
+REV00809,TRX00809,C036,C038,5,Good supplier for long-term collaboration.,2026-08-23,Yes
+REV00810,TRX00810,C010,C038,4,Excellent quality and timely delivery.,2026-09-29,Yes
+REV00811,TRX00811,C030,C038,5,Professional handling throughout the process.,2026-08-08,Yes
+REV00812,TRX00812,C049,C038,5,Satisfied with the transaction.,2026-09-09,Yes
+REV00813,TRX00813,C004,C038,4,Material matched specifications.,2026-09-18,Yes
+REV00814,TRX00814,C033,C038,4,Packaging could be improved.,2026-08-08,Yes
+REV00815,TRX00815,C024,C038,5,High-quality recyclable material.,2026-08-26,Yes
+REV00816,TRX00816,C015,C038,5,Satisfied with the transaction.,2026-10-01,Yes
+REV00817,TRX00817,C045,C038,3,Competitive pricing and fast delivery.,2026-07-07,No
+REV00818,TRX00818,C022,C038,3,Minor quality issues observed.,2026-08-02,No
+REV00819,TRX00819,C014,C038,5,Packaging could be improved.,2026-09-11,Yes
+REV00820,TRX00820,C041,C038,4,High-quality recyclable material.,2026-08-21,Yes
+REV00821,TRX00821,C015,C039,3,Good supplier for long-term collaboration.,2026-06-27,No
+REV00822,TRX00822,C030,C039,5,Transaction completed without issues.,2026-09-13,Yes
+REV00823,TRX00823,C016,C039,3,Professional handling throughout the process.,2026-09-30,No
+REV00824,TRX00824,C005,C039,4,Packaging could be improved.,2026-09-03,Yes
+REV00825,TRX00825,C027,C039,4,Excellent quality and timely delivery.,2026-06-12,Yes
+REV00826,TRX00826,C052,C039,1,Satisfied with the transaction.,2026-06-22,No
+REV00827,TRX00827,C053,C039,4,Satisfied with the transaction.,2026-08-26,Yes
+REV00828,TRX00828,C042,C039,4,Competitive pricing and fast delivery.,2026-08-18,Yes
+REV00829,TRX00829,C024,C039,4,High-quality recyclable material.,2026-08-23,Yes
+REV00830,TRX00830,C052,C039,5,Competitive pricing and fast delivery.,2026-06-27,Yes
+REV00831,TRX00831,C043,C039,4,Competitive pricing and fast delivery.,2026-06-23,Yes
+REV00832,TRX00832,C007,C039,5,Minor quality issues observed.,2026-08-14,Yes
+REV00833,TRX00833,C028,C039,4,Would prefer quicker response time.,2026-08-10,Yes
+REV00834,TRX00834,C032,C039,5,Material matched specifications.,2026-06-13,Yes
+REV00835,TRX00835,C015,C039,5,Material matched specifications.,2026-08-27,Yes
+REV00836,TRX00836,C048,C039,4,Average experience overall.,2026-08-25,Yes
+REV00837,TRX00837,C028,C039,5,Transaction completed without issues.,2026-05-31,Yes
+REV00838,TRX00838,C023,C039,4,Excellent quality and timely delivery.,2026-08-19,Yes
+REV00839,TRX00839,C003,C039,4,Good supplier for long-term collaboration.,2026-08-31,Yes
+REV00840,TRX00840,C014,C039,4,Material quality exceeded expectations.,2026-07-17,Yes
+REV00841,TRX00841,C002,C039,5,Average experience overall.,2026-07-04,Yes
+REV00842,TRX00842,C011,C039,3,Good supplier for long-term collaboration.,2026-06-05,No
+REV00843,TRX00843,C046,C039,5,Good supplier for long-term collaboration.,2026-08-06,Yes
+REV00844,TRX00844,C004,C039,5,High-quality recyclable material.,2026-08-19,Yes
+REV00845,TRX00845,C031,C039,5,Good supplier for long-term collaboration.,2026-09-01,Yes
+REV00846,TRX00846,C049,C039,4,Average experience overall.,2026-09-14,Yes
+REV00847,TRX00847,C021,C039,4,Excellent quality and timely delivery.,2026-08-30,Yes
+REV00848,TRX00848,C005,C039,5,Minor quality issues observed.,2026-07-02,Yes
+REV00849,TRX00849,C044,C039,3,Good supplier for long-term collaboration.,2026-07-11,No
+REV00850,TRX00850,C012,C039,4,Material quality exceeded expectations.,2026-09-24,Yes
+REV00851,TRX00851,C051,C039,2,Delivery was delayed but acceptable.,2026-06-25,No
+REV00852,TRX00852,C051,C039,5,Excellent quality and timely delivery.,2026-06-30,Yes
+REV00853,TRX00853,C006,C039,4,Packaging could be improved.,2026-09-30,Yes
+REV00854,TRX00854,C047,C039,5,Satisfied with the transaction.,2026-06-02,Yes
+REV00855,TRX00855,C050,C039,4,High-quality recyclable material.,2026-06-25,Yes
+REV00856,TRX00856,C015,C039,5,Reliable supplier with smooth communication.,2026-07-19,Yes
+REV00857,TRX00857,C024,C039,3,Would prefer quicker response time.,2026-08-31,No
+REV00858,TRX00858,C032,C039,4,Competitive pricing and fast delivery.,2026-08-18,Yes
+REV00859,TRX00859,C009,C039,1,Would prefer quicker response time.,2026-10-14,No
+REV00860,TRX00860,C038,C039,5,Transaction completed without issues.,2026-07-18,Yes
+REV00861,TRX00861,C020,C039,3,High-quality recyclable material.,2026-06-30,No
+REV00862,TRX00862,C046,C040,3,High-quality recyclable material.,2026-09-06,Yes
+REV00863,TRX00863,C042,C040,5,Material quality exceeded expectations.,2026-09-22,Yes
+REV00864,TRX00864,C056,C040,4,Transaction completed without issues.,2026-06-14,Yes
+REV00865,TRX00865,C059,C040,2,Material quality exceeded expectations.,2026-10-05,Yes
+REV00866,TRX00866,C029,C040,3,Good supplier for long-term collaboration.,2026-06-15,No
+REV00867,TRX00867,C041,C040,3,Satisfied with the transaction.,2026-07-08,No
+REV00868,TRX00868,C013,C040,4,Excellent quality and timely delivery.,2026-07-26,Yes
+REV00869,TRX00869,C003,C041,4,Professional handling throughout the process.,2026-08-25,Yes
+REV00870,TRX00870,C042,C041,5,Packaging could be improved.,2026-06-22,Yes
+REV00871,TRX00871,C023,C041,2,Good supplier for long-term collaboration.,2026-09-16,No
+REV00872,TRX00872,C020,C041,2,Material matched specifications.,2026-10-10,No
+REV00873,TRX00873,C001,C041,4,Good supplier for long-term collaboration.,2026-08-18,Yes
+REV00874,TRX00874,C028,C041,4,Minor quality issues observed.,2026-08-25,Yes
+REV00875,TRX00875,C043,C041,5,Packaging could be improved.,2026-09-17,Yes
+REV00876,TRX00876,C033,C041,5,Transaction completed without issues.,2026-08-13,Yes
+REV00877,TRX00877,C053,C041,4,Good supplier for long-term collaboration.,2026-06-20,Yes
+REV00878,TRX00878,C013,C041,5,Delivery was delayed but acceptable.,2026-08-31,Yes
+REV00879,TRX00879,C029,C041,4,Professional handling throughout the process.,2026-07-03,Yes
+REV00880,TRX00880,C026,C041,3,Satisfied with the transaction.,2026-08-23,No
+REV00881,TRX00881,C004,C041,3,Reliable supplier with smooth communication.,2026-09-08,Yes
+REV00882,TRX00882,C010,C041,4,Good supplier for long-term collaboration.,2026-05-31,Yes
+REV00883,TRX00883,C004,C041,4,Transaction completed without issues.,2026-10-01,Yes
+REV00884,TRX00884,C040,C041,2,High-quality recyclable material.,2026-07-19,Yes
+REV00885,TRX00885,C045,C042,5,Good supplier for long-term collaboration.,2026-08-21,Yes
+REV00886,TRX00886,C019,C042,5,High-quality recyclable material.,2026-09-06,Yes
+REV00887,TRX00887,C022,C042,5,Material quality exceeded expectations.,2026-07-23,Yes
+REV00888,TRX00888,C044,C042,3,Material quality exceeded expectations.,2026-08-29,Yes
+REV00889,TRX00889,C059,C042,1,Satisfied with the transaction.,2026-08-22,No
+REV00890,TRX00890,C012,C043,4,Delivery was delayed but acceptable.,2026-06-30,Yes
+REV00891,TRX00891,C045,C043,3,Delivery was delayed but acceptable.,2026-10-08,No
+REV00892,TRX00892,C060,C043,4,Material matched specifications.,2026-09-13,Yes
+REV00893,TRX00893,C025,C043,5,Material quality exceeded expectations.,2026-06-09,Yes
+REV00894,TRX00894,C044,C043,3,Good supplier for long-term collaboration.,2026-06-07,Yes
+REV00895,TRX00895,C047,C043,5,High-quality recyclable material.,2026-07-06,Yes
+REV00896,TRX00896,C042,C043,4,Delivery was delayed but acceptable.,2026-09-07,Yes
+REV00897,TRX00897,C012,C043,4,Minor quality issues observed.,2026-07-12,Yes
+REV00898,TRX00898,C014,C043,3,Satisfied with the transaction.,2026-06-28,No
+REV00899,TRX00899,C007,C043,4,Minor quality issues observed.,2026-08-02,Yes
+REV00900,TRX00900,C022,C043,4,Minor quality issues observed.,2026-09-12,Yes
+REV00901,TRX00901,C056,C043,1,Excellent quality and timely delivery.,2026-09-04,No
+REV00902,TRX00902,C052,C043,4,Reliable supplier with smooth communication.,2026-08-07,Yes
+REV00903,TRX00903,C047,C043,4,Professional handling throughout the process.,2026-09-20,Yes
+REV00904,TRX00904,C044,C043,5,Delivery was delayed but acceptable.,2026-06-27,Yes
+REV00905,TRX00905,C029,C043,4,Competitive pricing and fast delivery.,2026-07-13,Yes
+REV00906,TRX00906,C051,C043,1,Excellent quality and timely delivery.,2026-08-23,No
+REV00907,TRX00907,C035,C043,4,High-quality recyclable material.,2026-09-08,Yes
+REV00908,TRX00908,C053,C043,4,Material quality exceeded expectations.,2026-09-18,Yes
+REV00909,TRX00909,C033,C043,4,Transaction completed without issues.,2026-08-01,Yes
+REV00910,TRX00910,C024,C043,1,Packaging could be improved.,2026-08-09,No
+REV00911,TRX00911,C012,C043,5,Material quality exceeded expectations.,2026-10-04,Yes
+REV00912,TRX00912,C027,C043,3,Material quality exceeded expectations.,2026-07-13,No
+REV00913,TRX00913,C049,C043,4,Packaging could be improved.,2026-07-20,Yes
+REV00914,TRX00914,C008,C043,2,Packaging could be improved.,2026-08-11,No
+REV00915,TRX00915,C037,C043,4,Material quality exceeded expectations.,2026-07-25,Yes
+REV00916,TRX00916,C015,C043,3,Transaction completed without issues.,2026-06-09,No
+REV00917,TRX00917,C030,C043,1,Competitive pricing and fast delivery.,2026-07-14,No
+REV00918,TRX00918,C032,C043,3,Excellent quality and timely delivery.,2026-10-02,No
+REV00919,TRX00919,C031,C044,5,Competitive pricing and fast delivery.,2026-06-16,Yes
+REV00920,TRX00920,C018,C044,5,Material matched specifications.,2026-07-03,Yes
+REV00921,TRX00921,C031,C044,4,Would prefer quicker response time.,2026-07-31,Yes
+REV00922,TRX00922,C057,C044,4,Average experience overall.,2026-09-26,Yes
+REV00923,TRX00923,C004,C044,5,Competitive pricing and fast delivery.,2026-08-23,Yes
+REV00924,TRX00924,C015,C044,5,Material quality exceeded expectations.,2026-09-13,Yes
+REV00925,TRX00925,C034,C044,3,Reliable supplier with smooth communication.,2026-06-30,Yes
+REV00926,TRX00926,C020,C044,3,Transaction completed without issues.,2026-09-05,Yes
+REV00927,TRX00927,C053,C044,2,Competitive pricing and fast delivery.,2026-10-06,No
+REV00928,TRX00928,C028,C044,3,Reliable supplier with smooth communication.,2026-09-25,No
+REV00929,TRX00929,C054,C044,3,Excellent quality and timely delivery.,2026-09-02,No
+REV00930,TRX00930,C028,C044,4,Excellent quality and timely delivery.,2026-08-17,Yes
+REV00931,TRX00931,C025,C044,5,Material matched specifications.,2026-09-27,Yes
+REV00932,TRX00932,C055,C044,5,Excellent quality and timely delivery.,2026-07-19,Yes
+REV00933,TRX00933,C056,C044,5,Packaging could be improved.,2026-08-24,Yes
+REV00934,TRX00934,C028,C044,2,Reliable supplier with smooth communication.,2026-07-04,No
+REV00935,TRX00935,C021,C044,5,Material matched specifications.,2026-06-28,Yes
+REV00936,TRX00936,C059,C044,5,Professional handling throughout the process.,2026-08-27,Yes
+REV00937,TRX00937,C028,C044,1,Transaction completed without issues.,2026-09-20,No
+REV00938,TRX00938,C020,C044,4,Competitive pricing and fast delivery.,2026-09-09,Yes
+REV00939,TRX00939,C027,C044,4,Professional handling throughout the process.,2026-08-21,Yes
+REV00940,TRX00940,C050,C044,4,Good supplier for long-term collaboration.,2026-08-30,Yes
+REV00941,TRX00941,C049,C044,4,Packaging could be improved.,2026-07-26,Yes
+REV00942,TRX00942,C060,C044,2,Excellent quality and timely delivery.,2026-09-13,Yes
+REV00943,TRX00943,C034,C044,4,Would prefer quicker response time.,2026-07-04,Yes
+REV00944,TRX00944,C059,C044,5,Satisfied with the transaction.,2026-08-15,Yes
+REV00945,TRX00945,C041,C045,2,Packaging could be improved.,2026-07-22,No
+REV00946,TRX00946,C001,C045,3,Reliable supplier with smooth communication.,2026-09-06,No
+REV00947,TRX00947,C032,C045,2,Professional handling throughout the process.,2026-08-08,No
+REV00948,TRX00948,C054,C045,4,Reliable supplier with smooth communication.,2026-08-16,Yes
+REV00949,TRX00949,C037,C045,4,Would prefer quicker response time.,2026-08-22,Yes
+REV00950,TRX00950,C042,C045,3,Average experience overall.,2026-10-03,No
+REV00951,TRX00951,C031,C045,5,Transaction completed without issues.,2026-09-06,Yes
+REV00952,TRX00952,C030,C045,2,Competitive pricing and fast delivery.,2026-10-01,No
+REV00953,TRX00953,C029,C045,1,Competitive pricing and fast delivery.,2026-06-10,No
+REV00954,TRX00954,C059,C045,5,Transaction completed without issues.,2026-08-11,Yes
+REV00955,TRX00955,C006,C045,4,Transaction completed without issues.,2026-08-04,Yes
+REV00956,TRX00956,C009,C045,5,Satisfied with the transaction.,2026-09-24,Yes
+REV00957,TRX00957,C041,C045,5,Professional handling throughout the process.,2026-06-17,Yes
+REV00958,TRX00958,C036,C045,5,Reliable supplier with smooth communication.,2026-10-03,Yes
+REV00959,TRX00959,C052,C045,5,Professional handling throughout the process.,2026-07-08,Yes
+REV00960,TRX00960,C036,C046,4,Packaging could be improved.,2026-07-01,Yes
+REV00961,TRX00961,C043,C046,4,Material quality exceeded expectations.,2026-10-09,Yes
+REV00962,TRX00962,C022,C046,4,Professional handling throughout the process.,2026-07-14,Yes
+REV00963,TRX00963,C019,C046,1,Material quality exceeded expectations.,2026-07-21,No
+REV00964,TRX00964,C033,C046,1,Competitive pricing and fast delivery.,2026-09-24,No
+REV00965,TRX00965,C005,C046,4,Excellent quality and timely delivery.,2026-07-18,Yes
+REV00966,TRX00966,C017,C046,2,Good supplier for long-term collaboration.,2026-07-10,No
+REV00967,TRX00967,C051,C046,5,Delivery was delayed but acceptable.,2026-07-23,Yes
+REV00968,TRX00968,C033,C046,4,Reliable supplier with smooth communication.,2026-06-27,Yes
+REV00969,TRX00969,C060,C046,4,Delivery was delayed but acceptable.,2026-06-14,Yes
+REV00970,TRX00970,C023,C046,4,Would prefer quicker response time.,2026-07-22,Yes
+REV00971,TRX00971,C005,C046,3,Average experience overall.,2026-09-20,No
+REV00972,TRX00972,C020,C046,3,Minor quality issues observed.,2026-07-20,No
+REV00973,TRX00973,C039,C046,5,Good supplier for long-term collaboration.,2026-08-14,Yes
+REV00974,TRX00974,C042,C046,4,High-quality recyclable material.,2026-10-04,Yes
+REV00975,TRX00975,C019,C046,1,Would prefer quicker response time.,2026-07-25,No
+REV00976,TRX00976,C056,C046,4,Average experience overall.,2026-09-02,Yes
+REV00977,TRX00977,C040,C046,3,Material quality exceeded expectations.,2026-06-14,Yes
+REV00978,TRX00978,C059,C046,4,Minor quality issues observed.,2026-08-11,Yes
+REV00979,TRX00979,C032,C046,5,Good supplier for long-term collaboration.,2026-08-11,Yes
+REV00980,TRX00980,C014,C046,2,Competitive pricing and fast delivery.,2026-06-24,No
+REV00981,TRX00981,C050,C046,4,Would prefer quicker response time.,2026-07-01,Yes
+REV00982,TRX00982,C057,C046,4,Excellent quality and timely delivery.,2026-08-12,Yes
+REV00983,TRX00983,C039,C046,5,Would prefer quicker response time.,2026-10-06,Yes
+REV00984,TRX00984,C033,C046,4,Material matched specifications.,2026-08-01,Yes
+REV00985,TRX00985,C043,C046,3,High-quality recyclable material.,2026-07-30,No
+REV00986,TRX00986,C027,C046,5,Good supplier for long-term collaboration.,2026-08-05,Yes
+REV00987,TRX00987,C015,C046,3,Competitive pricing and fast delivery.,2026-08-26,No
+REV00988,TRX00988,C049,C046,3,Transaction completed without issues.,2026-08-12,No
+REV00989,TRX00989,C060,C046,4,Transaction completed without issues.,2026-08-01,Yes
+REV00990,TRX00990,C036,C046,2,Competitive pricing and fast delivery.,2026-06-27,No
+REV00991,TRX00991,C049,C046,4,Material matched specifications.,2026-09-24,Yes
+REV00992,TRX00992,C037,C046,4,Packaging could be improved.,2026-07-24,Yes
+REV00993,TRX00993,C060,C046,2,High-quality recyclable material.,2026-08-27,No
+REV00994,TRX00994,C054,C046,3,Minor quality issues observed.,2026-07-12,No
+REV00995,TRX00995,C006,C046,4,Good supplier for long-term collaboration.,2026-08-29,Yes
+REV00996,TRX00996,C053,C046,5,Reliable supplier with smooth communication.,2026-06-15,Yes
+REV00997,TRX00997,C024,C046,1,Satisfied with the transaction.,2026-07-17,No
+REV00998,TRX00998,C020,C046,1,Material matched specifications.,2026-10-20,No
+REV00999,TRX00999,C007,C046,5,Good supplier for long-term collaboration.,2026-07-06,Yes
+REV01000,TRX01000,C057,C046,4,Would prefer quicker response time.,2026-06-10,Yes
+REV01001,TRX01001,C038,C046,2,Material quality exceeded expectations.,2026-08-18,No
+REV01002,TRX01002,C003,C046,5,Delivery was delayed but acceptable.,2026-07-12,Yes
+REV01003,TRX01003,C003,C047,5,Packaging could be improved.,2026-09-02,Yes
+REV01004,TRX01004,C003,C047,5,Delivery was delayed but acceptable.,2026-07-10,Yes
+REV01005,TRX01005,C031,C047,1,Packaging could be improved.,2026-06-02,Yes
+REV01006,TRX01006,C015,C047,4,Delivery was delayed but acceptable.,2026-08-14,Yes
+REV01007,TRX01007,C023,C047,4,Material matched specifications.,2026-07-20,Yes
+REV01008,TRX01008,C023,C047,5,Professional handling throughout the process.,2026-09-26,Yes
+REV01009,TRX01009,C008,C047,5,Competitive pricing and fast delivery.,2026-08-14,Yes
+REV01010,TRX01010,C019,C047,4,Material quality exceeded expectations.,2026-06-26,Yes
+REV01011,TRX01011,C034,C047,5,Material quality exceeded expectations.,2026-10-01,Yes
+REV01012,TRX01012,C026,C047,5,Delivery was delayed but acceptable.,2026-10-04,Yes
+REV01013,TRX01013,C027,C047,5,High-quality recyclable material.,2026-09-15,Yes
+REV01014,TRX01014,C053,C047,3,Would prefer quicker response time.,2026-08-05,No
+REV01015,TRX01015,C016,C047,2,Would prefer quicker response time.,2026-07-27,No
+REV01016,TRX01016,C032,C047,4,Satisfied with the transaction.,2026-09-23,Yes
+REV01017,TRX01017,C056,C047,2,Packaging could be improved.,2026-06-17,Yes
+REV01018,TRX01018,C029,C047,5,Material matched specifications.,2026-08-22,Yes
+REV01019,TRX01019,C058,C047,5,Material quality exceeded expectations.,2026-08-01,Yes
+REV01020,TRX01020,C012,C047,4,Average experience overall.,2026-09-25,Yes
+REV01021,TRX01021,C037,C047,1,Delivery was delayed but acceptable.,2026-07-29,No
+REV01022,TRX01022,C059,C047,4,Professional handling throughout the process.,2026-07-13,Yes
+REV01023,TRX01023,C004,C047,3,Transaction completed without issues.,2026-10-12,No
+REV01024,TRX01024,C011,C047,4,Reliable supplier with smooth communication.,2026-08-22,Yes
+REV01025,TRX01025,C007,C047,3,Professional handling throughout the process.,2026-07-21,No
+REV01026,TRX01026,C019,C048,1,Professional handling throughout the process.,2026-08-15,No
+REV01027,TRX01027,C009,C048,4,Minor quality issues observed.,2026-09-29,Yes
+REV01028,TRX01028,C038,C048,5,Material quality exceeded expectations.,2026-07-11,Yes
+REV01029,TRX01029,C008,C048,5,Satisfied with the transaction.,2026-06-19,Yes
+REV01030,TRX01030,C043,C048,5,Packaging could be improved.,2026-07-26,Yes
+REV01031,TRX01031,C013,C048,5,Good supplier for long-term collaboration.,2026-10-08,Yes
+REV01032,TRX01032,C033,C048,5,Material matched specifications.,2026-06-29,Yes
+REV01033,TRX01033,C037,C048,5,Material quality exceeded expectations.,2026-07-17,Yes
+REV01034,TRX01034,C035,C048,3,Competitive pricing and fast delivery.,2026-06-06,No
+REV01035,TRX01035,C008,C048,4,Minor quality issues observed.,2026-07-16,Yes
+REV01036,TRX01036,C039,C048,5,Average experience overall.,2026-07-05,Yes
+REV01037,TRX01037,C012,C048,5,High-quality recyclable material.,2026-08-10,Yes
+REV01038,TRX01038,C056,C048,2,Competitive pricing and fast delivery.,2026-06-09,No
+REV01039,TRX01039,C014,C048,2,Material matched specifications.,2026-09-09,No
+REV01040,TRX01040,C009,C048,5,Material matched specifications.,2026-08-02,Yes
+REV01041,TRX01041,C035,C048,3,Delivery was delayed but acceptable.,2026-06-27,No
+REV01042,TRX01042,C050,C048,4,Average experience overall.,2026-06-12,Yes
+REV01043,TRX01043,C030,C048,5,Reliable supplier with smooth communication.,2026-07-05,Yes
+REV01044,TRX01044,C023,C048,3,Transaction completed without issues.,2026-06-15,No
+REV01045,TRX01045,C027,C048,5,Satisfied with the transaction.,2026-09-28,Yes
+REV01046,TRX01046,C028,C048,4,High-quality recyclable material.,2026-06-18,Yes
+REV01047,TRX01047,C045,C048,4,Transaction completed without issues.,2026-06-29,Yes
+REV01048,TRX01048,C008,C048,4,Satisfied with the transaction.,2026-09-17,Yes
+REV01049,TRX01049,C052,C048,4,Average experience overall.,2026-07-16,Yes
+REV01050,TRX01050,C005,C048,2,Average experience overall.,2026-06-20,No
+REV01051,TRX01051,C036,C048,5,Average experience overall.,2026-07-21,Yes
+REV01052,TRX01052,C001,C048,4,Reliable supplier with smooth communication.,2026-08-08,Yes
+REV01053,TRX01053,C017,C048,1,Average experience overall.,2026-08-16,No
+REV01054,TRX01054,C026,C048,4,Satisfied with the transaction.,2026-06-02,Yes
+REV01055,TRX01055,C019,C049,5,High-quality recyclable material.,2026-10-08,Yes
+REV01056,TRX01056,C032,C049,4,Packaging could be improved.,2026-07-27,Yes
+REV01057,TRX01057,C018,C049,3,Minor quality issues observed.,2026-08-15,Yes
+REV01058,TRX01058,C019,C049,5,Minor quality issues observed.,2026-08-31,Yes
+REV01059,TRX01059,C005,C049,4,High-quality recyclable material.,2026-07-30,Yes
+REV01060,TRX01060,C003,C049,5,Delivery was delayed but acceptable.,2026-08-02,Yes
+REV01061,TRX01061,C010,C049,5,Reliable supplier with smooth communication.,2026-08-29,Yes
+REV01062,TRX01062,C041,C049,5,Transaction completed without issues.,2026-08-20,Yes
+REV01063,TRX01063,C033,C049,4,Material matched specifications.,2026-07-18,Yes
+REV01064,TRX01064,C001,C049,5,Good supplier for long-term collaboration.,2026-08-20,Yes
+REV01065,TRX01065,C027,C049,4,Good supplier for long-term collaboration.,2026-08-08,Yes
+REV01066,TRX01066,C017,C049,1,Minor quality issues observed.,2026-09-25,No
+REV01067,TRX01067,C014,C049,5,Delivery was delayed but acceptable.,2026-08-05,Yes
+REV01068,TRX01068,C018,C049,4,Material quality exceeded expectations.,2026-07-26,Yes
+REV01069,TRX01069,C002,C049,5,Transaction completed without issues.,2026-10-03,Yes
+REV01070,TRX01070,C038,C049,5,Reliable supplier with smooth communication.,2026-06-27,Yes
+REV01071,TRX01071,C023,C049,2,Competitive pricing and fast delivery.,2026-09-05,No
+REV01072,TRX01072,C027,C049,4,High-quality recyclable material.,2026-07-26,Yes
+REV01073,TRX01073,C028,C049,3,Material quality exceeded expectations.,2026-09-22,No
+REV01074,TRX01074,C031,C049,3,Professional handling throughout the process.,2026-08-07,No
+REV01075,TRX01075,C016,C050,4,Excellent quality and timely delivery.,2026-06-16,Yes
+REV01076,TRX01076,C024,C050,5,Good supplier for long-term collaboration.,2026-08-07,Yes
+REV01077,TRX01077,C047,C050,4,High-quality recyclable material.,2026-07-08,Yes
+REV01078,TRX01078,C003,C050,4,Reliable supplier with smooth communication.,2026-07-08,Yes
+REV01079,TRX01079,C020,C050,5,High-quality recyclable material.,2026-07-24,Yes
+REV01080,TRX01080,C019,C050,1,Professional handling throughout the process.,2026-07-07,No
+REV01081,TRX01081,C031,C050,4,Excellent quality and timely delivery.,2026-09-14,Yes
+REV01082,TRX01082,C027,C050,4,Excellent quality and timely delivery.,2026-09-15,Yes
+REV01083,TRX01083,C008,C050,1,Would prefer quicker response time.,2026-08-05,No
+REV01084,TRX01084,C044,C050,2,Good supplier for long-term collaboration.,2026-10-02,No
+REV01085,TRX01085,C032,C050,5,Average experience overall.,2026-09-06,Yes
+REV01086,TRX01086,C046,C050,4,Delivery was delayed but acceptable.,2026-08-30,Yes
+REV01087,TRX01087,C018,C050,5,Delivery was delayed but acceptable.,2026-07-28,Yes
+REV01088,TRX01088,C046,C050,3,Transaction completed without issues.,2026-10-04,Yes
+REV01089,TRX01089,C054,C050,4,High-quality recyclable material.,2026-08-04,Yes
+REV01090,TRX01090,C053,C050,4,Material quality exceeded expectations.,2026-09-19,Yes
+REV01091,TRX01091,C052,C050,4,Material quality exceeded expectations.,2026-09-19,Yes
+REV01092,TRX01092,C034,C050,2,Excellent quality and timely delivery.,2026-09-06,No
+REV01093,TRX01093,C021,C050,2,Material matched specifications.,2026-09-10,Yes
+REV01094,TRX01094,C049,C051,3,Minor quality issues observed.,2026-09-25,No
+REV01095,TRX01095,C026,C051,3,Delivery was delayed but acceptable.,2026-10-06,Yes
+REV01096,TRX01096,C036,C051,1,Competitive pricing and fast delivery.,2026-10-02,No
+REV01097,TRX01097,C027,C051,3,Material matched specifications.,2026-08-18,No
+REV01098,TRX01098,C009,C051,2,Satisfied with the transaction.,2026-09-16,Yes
+REV01099,TRX01099,C028,C051,4,Good supplier for long-term collaboration.,2026-08-21,Yes
+REV01100,TRX01100,C026,C051,5,Competitive pricing and fast delivery.,2026-06-17,Yes
+REV01101,TRX01101,C031,C051,4,Would prefer quicker response time.,2026-08-12,Yes
+REV01102,TRX01102,C027,C051,2,Packaging could be improved.,2026-07-26,No
+REV01103,TRX01103,C014,C051,4,Material matched specifications.,2026-07-23,Yes
+REV01104,TRX01104,C056,C051,4,High-quality recyclable material.,2026-08-05,Yes
+REV01105,TRX01105,C060,C051,4,Excellent quality and timely delivery.,2026-07-26,Yes
+REV01106,TRX01106,C004,C051,3,Would prefer quicker response time.,2026-08-29,Yes
+REV01107,TRX01107,C043,C051,4,Material quality exceeded expectations.,2026-09-10,Yes
+REV01108,TRX01108,C035,C051,4,Satisfied with the transaction.,2026-09-11,Yes
+REV01109,TRX01109,C011,C051,5,Excellent quality and timely delivery.,2026-06-06,Yes
+REV01110,TRX01110,C013,C051,4,Good supplier for long-term collaboration.,2026-06-07,Yes
+REV01111,TRX01111,C019,C051,3,Professional handling throughout the process.,2026-06-14,No
+REV01112,TRX01112,C024,C051,5,High-quality recyclable material.,2026-09-14,Yes
+REV01113,TRX01113,C058,C051,4,Good supplier for long-term collaboration.,2026-08-16,Yes
+REV01114,TRX01114,C034,C051,2,Packaging could be improved.,2026-08-03,Yes
+REV01115,TRX01115,C049,C051,4,Competitive pricing and fast delivery.,2026-08-08,Yes
+REV01116,TRX01116,C014,C051,4,Good supplier for long-term collaboration.,2026-06-13,Yes
+REV01117,TRX01117,C045,C051,2,Transaction completed without issues.,2026-08-19,Yes
+REV01118,TRX01118,C042,C051,1,Delivery was delayed but acceptable.,2026-09-26,No
+REV01119,TRX01119,C018,C051,4,High-quality recyclable material.,2026-07-20,Yes
+REV01120,TRX01120,C025,C051,5,Packaging could be improved.,2026-09-14,Yes
+REV01121,TRX01121,C007,C051,5,Packaging could be improved.,2026-06-27,Yes
+REV01122,TRX01122,C037,C051,5,Packaging could be improved.,2026-06-20,Yes
+REV01123,TRX01123,C036,C051,3,Minor quality issues observed.,2026-07-10,No
+REV01124,TRX01124,C019,C051,4,Delivery was delayed but acceptable.,2026-09-12,Yes
+REV01125,TRX01125,C041,C051,2,Material quality exceeded expectations.,2026-08-04,No
+REV01126,TRX01126,C044,C051,4,Professional handling throughout the process.,2026-06-30,Yes
+REV01127,TRX01127,C027,C051,3,Good supplier for long-term collaboration.,2026-08-02,Yes
+REV01128,TRX01128,C014,C051,1,Professional handling throughout the process.,2026-08-29,No
+REV01129,TRX01129,C058,C051,4,High-quality recyclable material.,2026-07-30,Yes
+REV01130,TRX01130,C003,C051,5,Professional handling throughout the process.,2026-07-19,Yes
+REV01131,TRX01131,C029,C051,5,Excellent quality and timely delivery.,2026-10-01,Yes
+REV01132,TRX01132,C037,C051,2,Delivery was delayed but acceptable.,2026-08-07,No
+REV01133,TRX01133,C022,C051,3,Excellent quality and timely delivery.,2026-10-03,Yes
+REV01134,TRX01134,C024,C051,1,Average experience overall.,2026-08-12,No
+REV01135,TRX01135,C030,C051,4,Packaging could be improved.,2026-08-09,Yes
+REV01136,TRX01136,C044,C051,5,Satisfied with the transaction.,2026-09-17,Yes
+REV01137,TRX01137,C007,C051,5,Competitive pricing and fast delivery.,2026-09-11,Yes
+REV01138,TRX01138,C013,C051,5,Satisfied with the transaction.,2026-08-07,Yes
+REV01139,TRX01139,C020,C051,3,Competitive pricing and fast delivery.,2026-06-15,No
+REV01140,TRX01140,C038,C051,5,Minor quality issues observed.,2026-07-23,Yes
+REV01141,TRX01141,C040,C052,3,Good supplier for long-term collaboration.,2026-07-11,No
+REV01142,TRX01142,C012,C052,4,Minor quality issues observed.,2026-07-11,Yes
+REV01143,TRX01143,C044,C052,5,Material matched specifications.,2026-07-30,Yes
+REV01144,TRX01144,C033,C052,2,Excellent quality and timely delivery.,2026-07-25,Yes
+REV01145,TRX01145,C043,C052,3,Packaging could be improved.,2026-09-05,No
+REV01146,TRX01146,C025,C052,5,Competitive pricing and fast delivery.,2026-08-25,Yes
+REV01147,TRX01147,C030,C052,4,Material matched specifications.,2026-07-08,Yes
+REV01148,TRX01148,C011,C052,5,Delivery was delayed but acceptable.,2026-08-18,Yes
+REV01149,TRX01149,C041,C052,3,Transaction completed without issues.,2026-08-24,No
+REV01150,TRX01150,C043,C052,5,Would prefer quicker response time.,2026-09-26,Yes
+REV01151,TRX01151,C026,C052,4,Would prefer quicker response time.,2026-07-23,Yes
+REV01152,TRX01152,C021,C052,4,Packaging could be improved.,2026-09-21,Yes
+REV01153,TRX01153,C021,C052,3,Professional handling throughout the process.,2026-08-04,No
+REV01154,TRX01154,C039,C052,4,Minor quality issues observed.,2026-08-04,Yes
+REV01155,TRX01155,C025,C052,5,Excellent quality and timely delivery.,2026-06-21,Yes
+REV01156,TRX01156,C047,C052,4,Transaction completed without issues.,2026-08-01,Yes
+REV01157,TRX01157,C035,C052,2,High-quality recyclable material.,2026-06-20,No
+REV01158,TRX01158,C049,C052,5,Material matched specifications.,2026-09-16,Yes
+REV01159,TRX01159,C001,C052,4,Packaging could be improved.,2026-09-15,Yes
+REV01160,TRX01160,C037,C052,4,Transaction completed without issues.,2026-09-01,Yes
+REV01161,TRX01161,C050,C052,5,High-quality recyclable material.,2026-06-26,Yes
+REV01162,TRX01162,C041,C052,4,Good supplier for long-term collaboration.,2026-06-08,Yes
+REV01163,TRX01163,C041,C052,4,Good supplier for long-term collaboration.,2026-08-08,Yes
+REV01164,TRX01164,C026,C052,4,Average experience overall.,2026-09-09,Yes
+REV01165,TRX01165,C054,C052,5,Delivery was delayed but acceptable.,2026-10-04,Yes
+REV01166,TRX01166,C025,C052,4,Packaging could be improved.,2026-09-01,Yes
+REV01167,TRX01167,C019,C052,3,Good supplier for long-term collaboration.,2026-08-26,No
+REV01168,TRX01168,C024,C052,5,Good supplier for long-term collaboration.,2026-08-09,Yes
+REV01169,TRX01169,C035,C052,5,Minor quality issues observed.,2026-07-23,Yes
+REV01170,TRX01170,C003,C052,4,Material quality exceeded expectations.,2026-07-25,Yes
+REV01171,TRX01171,C004,C052,4,Minor quality issues observed.,2026-08-13,Yes
+REV01172,TRX01172,C006,C052,3,Average experience overall.,2026-07-31,No
+REV01173,TRX01173,C043,C052,5,Would prefer quicker response time.,2026-07-02,Yes
+REV01174,TRX01174,C021,C053,5,Would prefer quicker response time.,2026-08-16,Yes
+REV01175,TRX01175,C013,C053,3,Packaging could be improved.,2026-06-24,No
+REV01176,TRX01176,C001,C053,5,Minor quality issues observed.,2026-07-26,Yes
+REV01177,TRX01177,C058,C053,3,Material quality exceeded expectations.,2026-08-01,No
+REV01178,TRX01178,C020,C053,5,Satisfied with the transaction.,2026-09-03,Yes
+REV01179,TRX01179,C011,C053,3,Packaging could be improved.,2026-08-17,Yes
+REV01180,TRX01180,C059,C053,3,Would prefer quicker response time.,2026-07-23,No
+REV01181,TRX01181,C036,C053,2,Reliable supplier with smooth communication.,2026-07-01,No
+REV01182,TRX01182,C037,C053,4,Packaging could be improved.,2026-07-02,Yes
+REV01183,TRX01183,C059,C053,5,Average experience overall.,2026-08-02,Yes
+REV01184,TRX01184,C005,C053,3,Material quality exceeded expectations.,2026-07-11,No
+REV01185,TRX01185,C058,C053,5,Would prefer quicker response time.,2026-09-24,Yes
+REV01186,TRX01186,C022,C053,5,Material matched specifications.,2026-08-27,Yes
+REV01187,TRX01187,C044,C053,2,Professional handling throughout the process.,2026-06-30,Yes
+REV01188,TRX01188,C059,C053,5,Satisfied with the transaction.,2026-09-05,Yes
+REV01189,TRX01189,C005,C054,3,Material quality exceeded expectations.,2026-08-04,No
+REV01190,TRX01190,C041,C054,5,Professional handling throughout the process.,2026-08-01,Yes
+REV01191,TRX01191,C060,C054,5,Minor quality issues observed.,2026-10-07,Yes
+REV01192,TRX01192,C057,C054,4,Delivery was delayed but acceptable.,2026-07-07,Yes
+REV01193,TRX01193,C037,C054,5,Would prefer quicker response time.,2026-07-23,Yes
+REV01194,TRX01194,C027,C054,4,Good supplier for long-term collaboration.,2026-06-23,Yes
+REV01195,TRX01195,C035,C054,3,Delivery was delayed but acceptable.,2026-10-04,No
+REV01196,TRX01196,C039,C054,5,Would prefer quicker response time.,2026-09-20,Yes
+REV01197,TRX01197,C049,C054,5,Professional handling throughout the process.,2026-08-17,Yes
+REV01198,TRX01198,C032,C054,1,Good supplier for long-term collaboration.,2026-07-07,No
+REV01199,TRX01199,C050,C054,4,Average experience overall.,2026-06-05,Yes
+REV01200,TRX01200,C056,C054,4,Packaging could be improved.,2026-06-22,Yes
+REV01201,TRX01201,C057,C054,4,Delivery was delayed but acceptable.,2026-09-17,Yes
+REV01202,TRX01202,C036,C054,4,Competitive pricing and fast delivery.,2026-08-11,Yes
+REV01203,TRX01203,C013,C054,4,Minor quality issues observed.,2026-07-13,Yes
+REV01204,TRX01204,C052,C054,5,Good supplier for long-term collaboration.,2026-07-24,Yes
+REV01205,TRX01205,C006,C054,5,Would prefer quicker response time.,2026-08-18,Yes
+REV01206,TRX01206,C019,C054,3,Satisfied with the transaction.,2026-07-12,No
+REV01207,TRX01207,C012,C054,4,High-quality recyclable material.,2026-08-31,Yes
+REV01208,TRX01208,C015,C054,5,High-quality recyclable material.,2026-07-30,Yes
+REV01209,TRX01209,C047,C054,4,Material matched specifications.,2026-07-12,Yes
+REV01210,TRX01210,C013,C054,4,Transaction completed without issues.,2026-08-21,Yes
+REV01211,TRX01211,C011,C054,5,Reliable supplier with smooth communication.,2026-06-14,Yes
+REV01212,TRX01212,C026,C054,3,Good supplier for long-term collaboration.,2026-06-25,No
+REV01213,TRX01213,C038,C054,5,Material quality exceeded expectations.,2026-09-17,Yes
+REV01214,TRX01214,C038,C054,5,Satisfied with the transaction.,2026-10-05,Yes
+REV01215,TRX01215,C047,C054,4,Material matched specifications.,2026-08-05,Yes
+REV01216,TRX01216,C037,C054,2,Minor quality issues observed.,2026-09-19,No
+REV01217,TRX01217,C012,C054,4,Good supplier for long-term collaboration.,2026-07-15,Yes
+REV01218,TRX01218,C014,C054,4,Excellent quality and timely delivery.,2026-08-18,Yes
+REV01219,TRX01219,C005,C054,4,Good supplier for long-term collaboration.,2026-09-16,Yes
+REV01220,TRX01220,C003,C054,4,Good supplier for long-term collaboration.,2026-09-18,Yes
+REV01221,TRX01221,C009,C054,4,Average experience overall.,2026-08-27,Yes
+REV01222,TRX01222,C049,C054,2,Would prefer quicker response time.,2026-09-01,No
+REV01223,TRX01223,C040,C054,2,Satisfied with the transaction.,2026-09-19,No
+REV01224,TRX01224,C005,C054,5,Competitive pricing and fast delivery.,2026-07-13,Yes
+REV01225,TRX01225,C036,C054,5,Good supplier for long-term collaboration.,2026-08-31,Yes
+REV01226,TRX01226,C058,C054,3,Delivery was delayed but acceptable.,2026-08-07,Yes
+REV01227,TRX01227,C019,C054,2,Material quality exceeded expectations.,2026-07-20,Yes
+REV01228,TRX01228,C039,C055,3,Would prefer quicker response time.,2026-06-24,Yes
+REV01229,TRX01229,C050,C055,4,Minor quality issues observed.,2026-06-10,Yes
+REV01230,TRX01230,C022,C055,5,Satisfied with the transaction.,2026-08-18,Yes
+REV01231,TRX01231,C057,C055,4,Reliable supplier with smooth communication.,2026-06-10,Yes
+REV01232,TRX01232,C040,C055,4,Transaction completed without issues.,2026-06-18,Yes
+REV01233,TRX01233,C059,C055,3,Transaction completed without issues.,2026-07-18,No
+REV01234,TRX01234,C018,C055,5,Material quality exceeded expectations.,2026-08-24,Yes
+REV01235,TRX01235,C018,C055,5,Delivery was delayed but acceptable.,2026-07-27,Yes
+REV01236,TRX01236,C050,C055,4,Professional handling throughout the process.,2026-08-15,Yes
+REV01237,TRX01237,C010,C055,5,Packaging could be improved.,2026-06-18,Yes
+REV01238,TRX01238,C003,C055,3,Would prefer quicker response time.,2026-09-07,No
+REV01239,TRX01239,C032,C055,3,Excellent quality and timely delivery.,2026-07-22,Yes
+REV01240,TRX01240,C006,C055,5,Satisfied with the transaction.,2026-06-12,Yes
+REV01241,TRX01241,C038,C055,4,Material matched specifications.,2026-10-02,Yes
+REV01242,TRX01242,C013,C055,3,Transaction completed without issues.,2026-10-05,No
+REV01243,TRX01243,C019,C055,5,Transaction completed without issues.,2026-09-01,Yes
+REV01244,TRX01244,C016,C055,5,Average experience overall.,2026-08-11,Yes
+REV01245,TRX01245,C036,C055,4,Delivery was delayed but acceptable.,2026-09-20,Yes
+REV01246,TRX01246,C023,C055,3,Satisfied with the transaction.,2026-07-30,Yes
+REV01247,TRX01247,C006,C055,5,Reliable supplier with smooth communication.,2026-07-08,Yes
+REV01248,TRX01248,C007,C055,1,Average experience overall.,2026-08-07,No
+REV01249,TRX01249,C011,C055,3,Would prefer quicker response time.,2026-09-09,Yes
+REV01250,TRX01250,C046,C055,5,Material matched specifications.,2026-08-03,Yes
+REV01251,TRX01251,C051,C055,5,Material matched specifications.,2026-07-14,Yes
+REV01252,TRX01252,C042,C055,5,Packaging could be improved.,2026-07-13,Yes
+REV01253,TRX01253,C024,C056,5,Excellent quality and timely delivery.,2026-07-12,Yes
+REV01254,TRX01254,C001,C056,3,Average experience overall.,2026-09-16,No
+REV01255,TRX01255,C042,C056,3,Material quality exceeded expectations.,2026-07-13,No
+REV01256,TRX01256,C039,C056,5,Would prefer quicker response time.,2026-06-19,Yes
+REV01257,TRX01257,C044,C056,4,Would prefer quicker response time.,2026-07-03,Yes
+REV01258,TRX01258,C049,C056,2,Would prefer quicker response time.,2026-05-30,No
+REV01259,TRX01259,C029,C056,5,Material matched specifications.,2026-07-30,Yes
+REV01260,TRX01260,C023,C056,4,Material matched specifications.,2026-09-23,Yes
+REV01261,TRX01261,C002,C056,3,Satisfied with the transaction.,2026-07-21,No
+REV01262,TRX01262,C003,C056,4,Packaging could be improved.,2026-06-30,Yes
+REV01263,TRX01263,C034,C056,4,High-quality recyclable material.,2026-08-12,Yes
+REV01264,TRX01264,C017,C056,5,Material matched specifications.,2026-10-08,Yes
+REV01265,TRX01265,C055,C056,4,Excellent quality and timely delivery.,2026-09-14,Yes
+REV01266,TRX01266,C040,C056,5,Would prefer quicker response time.,2026-08-12,Yes
+REV01267,TRX01267,C044,C056,2,High-quality recyclable material.,2026-08-04,No
+REV01268,TRX01268,C052,C056,4,Packaging could be improved.,2026-10-05,Yes
+REV01269,TRX01269,C039,C057,3,Transaction completed without issues.,2026-08-22,No
+REV01270,TRX01270,C060,C057,3,Excellent quality and timely delivery.,2026-06-20,No
+REV01271,TRX01271,C008,C057,5,Competitive pricing and fast delivery.,2026-09-09,Yes
+REV01272,TRX01272,C052,C057,1,Professional handling throughout the process.,2026-08-12,No
+REV01273,TRX01273,C021,C057,4,Reliable supplier with smooth communication.,2026-09-20,Yes
+REV01274,TRX01274,C025,C057,5,Average experience overall.,2026-08-23,Yes
+REV01275,TRX01275,C050,C057,4,Good supplier for long-term collaboration.,2026-07-02,Yes
+REV01276,TRX01276,C043,C057,4,Average experience overall.,2026-09-11,Yes
+REV01277,TRX01277,C015,C057,4,Competitive pricing and fast delivery.,2026-08-22,Yes
+REV01278,TRX01278,C054,C057,5,Satisfied with the transaction.,2026-10-04,Yes
+REV01279,TRX01279,C035,C057,5,Transaction completed without issues.,2026-09-26,Yes
+REV01280,TRX01280,C014,C057,3,Reliable supplier with smooth communication.,2026-09-19,No
+REV01281,TRX01281,C012,C057,2,Material matched specifications.,2026-10-17,No
+REV01282,TRX01282,C015,C057,4,Material quality exceeded expectations.,2026-07-23,Yes
+REV01283,TRX01283,C038,C057,5,Delivery was delayed but acceptable.,2026-06-08,Yes
+REV01284,TRX01284,C007,C057,3,Excellent quality and timely delivery.,2026-08-23,No
+REV01285,TRX01285,C021,C057,4,Material quality exceeded expectations.,2026-08-31,Yes
+REV01286,TRX01286,C010,C057,4,High-quality recyclable material.,2026-06-28,Yes
+REV01287,TRX01287,C060,C057,5,Packaging could be improved.,2026-07-11,Yes
+REV01288,TRX01288,C059,C057,4,Competitive pricing and fast delivery.,2026-07-09,Yes
+REV01289,TRX01289,C059,C057,4,Material matched specifications.,2026-09-16,Yes
+REV01290,TRX01290,C022,C057,5,Material matched specifications.,2026-09-12,Yes
+REV01291,TRX01291,C013,C057,5,High-quality recyclable material.,2026-05-30,Yes
+REV01292,TRX01292,C016,C057,4,Transaction completed without issues.,2026-08-01,Yes
+REV01293,TRX01293,C035,C057,1,Excellent quality and timely delivery.,2026-08-05,No
+REV01294,TRX01294,C036,C057,4,High-quality recyclable material.,2026-07-09,Yes
+REV01295,TRX01295,C008,C057,5,Competitive pricing and fast delivery.,2026-10-03,Yes
+REV01296,TRX01296,C040,C057,5,Delivery was delayed but acceptable.,2026-10-04,Yes
+REV01297,TRX01297,C028,C057,2,Delivery was delayed but acceptable.,2026-08-10,No
+REV01298,TRX01298,C009,C058,3,Average experience overall.,2026-10-01,No
+REV01299,TRX01299,C024,C058,5,Excellent quality and timely delivery.,2026-08-22,Yes
+REV01300,TRX01300,C059,C058,5,Reliable supplier with smooth communication.,2026-06-29,Yes
+REV01301,TRX01301,C048,C058,5,Packaging could be improved.,2026-09-01,Yes
+REV01302,TRX01302,C046,C058,5,Average experience overall.,2026-08-29,Yes
+REV01303,TRX01303,C034,C058,3,Delivery was delayed but acceptable.,2026-09-06,Yes
+REV01304,TRX01304,C025,C058,3,High-quality recyclable material.,2026-07-15,Yes
+REV01305,TRX01305,C028,C058,3,Minor quality issues observed.,2026-09-17,No
+REV01306,TRX01306,C016,C058,3,Reliable supplier with smooth communication.,2026-10-09,No
+REV01307,TRX01307,C014,C058,4,Would prefer quicker response time.,2026-09-23,Yes
+REV01308,TRX01308,C055,C058,4,Would prefer quicker response time.,2026-07-10,Yes
+REV01309,TRX01309,C038,C058,4,Material quality exceeded expectations.,2026-07-13,Yes
+REV01310,TRX01310,C021,C058,5,Competitive pricing and fast delivery.,2026-06-29,Yes
+REV01311,TRX01311,C046,C059,5,High-quality recyclable material.,2026-07-04,Yes
+REV01312,TRX01312,C042,C059,2,Excellent quality and timely delivery.,2026-07-02,No
+REV01313,TRX01313,C035,C059,4,Excellent quality and timely delivery.,2026-08-13,Yes
+REV01314,TRX01314,C005,C059,1,Transaction completed without issues.,2026-09-26,Yes
+REV01315,TRX01315,C049,C059,1,Competitive pricing and fast delivery.,2026-09-23,Yes
+REV01316,TRX01316,C014,C059,5,Excellent quality and timely delivery.,2026-08-07,Yes
+REV01317,TRX01317,C030,C059,4,Competitive pricing and fast delivery.,2026-07-24,Yes
+REV01318,TRX01318,C028,C059,4,Excellent quality and timely delivery.,2026-09-22,Yes
+REV01319,TRX01319,C033,C059,4,Professional handling throughout the process.,2026-07-05,Yes
+REV01320,TRX01320,C029,C059,3,Average experience overall.,2026-06-09,No
+REV01321,TRX01321,C046,C059,5,Would prefer quicker response time.,2026-06-09,Yes
+REV01322,TRX01322,C020,C059,5,Excellent quality and timely delivery.,2026-08-10,Yes
+REV01323,TRX01323,C030,C059,2,Competitive pricing and fast delivery.,2026-07-02,No
+REV01324,TRX01324,C020,C059,5,Would prefer quicker response time.,2026-08-02,Yes
+REV01325,TRX01325,C052,C059,3,Material matched specifications.,2026-05-29,No
+REV01326,TRX01326,C039,C059,2,Average experience overall.,2026-08-04,Yes
+REV01327,TRX01327,C003,C059,4,Delivery was delayed but acceptable.,2026-07-01,Yes
+REV01328,TRX01328,C044,C059,3,Good supplier for long-term collaboration.,2026-10-16,No
+REV01329,TRX01329,C039,C059,4,Transaction completed without issues.,2026-08-28,Yes
+REV01330,TRX01330,C055,C059,4,Professional handling throughout the process.,2026-09-12,Yes
+REV01331,TRX01331,C004,C059,3,Average experience overall.,2026-08-02,Yes
+REV01332,TRX01332,C025,C059,5,Would prefer quicker response time.,2026-09-01,Yes
+REV01333,TRX01333,C043,C059,5,Good supplier for long-term collaboration.,2026-08-07,Yes
+REV01334,TRX01334,C013,C059,4,Packaging could be improved.,2026-08-31,Yes
+REV01335,TRX01335,C023,C059,4,Satisfied with the transaction.,2026-07-15,Yes
+REV01336,TRX01336,C051,C060,5,Material quality exceeded expectations.,2026-08-12,Yes
+REV01337,TRX01337,C052,C060,4,Good supplier for long-term collaboration.,2026-07-16,Yes
+REV01338,TRX01338,C004,C060,3,High-quality recyclable material.,2026-09-10,No
+REV01339,TRX01339,C055,C060,5,Good supplier for long-term collaboration.,2026-07-26,Yes
+REV01340,TRX01340,C046,C060,5,Good supplier for long-term collaboration.,2026-08-18,Yes
+REV01341,TRX01341,C003,C060,5,Excellent quality and timely delivery.,2026-06-16,Yes
+REV01342,TRX01342,C030,C060,5,Transaction completed without issues.,2026-06-17,Yes
+REV01343,TRX01343,C011,C060,4,Excellent quality and timely delivery.,2026-06-29,Yes
+REV01344,TRX01344,C045,C060,4,Excellent quality and timely delivery.,2026-07-03,Yes
+REV01345,TRX01345,C025,C060,5,Minor quality issues observed.,2026-08-10,Yes
+REV01346,TRX01346,C045,C060,2,Satisfied with the transaction.,2026-09-24,No
+REV01347,TRX01347,C017,C060,4,Material matched specifications.,2026-08-19,Yes
+REV01348,TRX01348,C007,C060,2,High-quality recyclable material.,2026-07-04,No
+REV01349,TRX01349,C048,C060,4,Packaging could be improved.,2026-07-17,Yes
+REV01350,TRX01350,C016,C060,4,Material matched specifications.,2026-08-07,Yes
+REV01351,TRX01351,C028,C060,4,Good supplier for long-term collaboration.,2026-09-30,Yes
+REV01352,TRX01352,C032,C060,4,Material matched specifications.,2026-09-18,Yes
+REV01353,TRX01353,C032,C060,3,Delivery was delayed but acceptable.,2026-06-23,Yes
+REV01354,TRX01354,C002,C060,5,Reliable supplier with smooth communication.,2026-07-05,Yes
+REV01355,TRX01355,C029,C060,4,Good supplier for long-term collaboration.,2026-08-06,Yes
+REV01356,TRX01356,C024,C060,4,Delivery was delayed but acceptable.,2026-07-18,Yes
+REV01357,TRX01357,C017,C060,2,Good supplier for long-term collaboration.,2026-07-16,Yes
+REV01358,TRX01358,C059,C060,1,Excellent quality and timely delivery.,2026-10-02,No
+REV01359,TRX01359,C001,C060,1,Average experience overall.,2026-07-03,Yes
+REV01360,TRX01360,C035,C060,3,Would prefer quicker response time.,2026-07-23,No
+REV01361,TRX01361,C032,C060,3,Packaging could be improved.,2026-07-12,Yes
+REV01362,TRX01362,C032,C060,5,Would prefer quicker response time.,2026-09-19,Yes
+REV01363,TRX01363,C013,C060,3,Average experience overall.,2026-07-28,Yes
+REV01364,TRX01364,C014,C060,5,Material matched specifications.,2026-09-07,Yes
+REV01365,TRX01365,C011,C060,4,Satisfied with the transaction.,2026-09-13,Yes
+REV01366,TRX01366,C014,C060,5,High-quality recyclable material.,2026-08-02,Yes
+REV01367,TRX01367,C055,C060,2,Minor quality issues observed.,2026-06-22,No
+REV01368,TRX01368,C006,C060,2,Material matched specifications.,2026-10-02,No
+REV01369,TRX01369,C005,C060,5,Delivery was delayed but acceptable.,2026-07-18,Yes
+REV01370,TRX01370,C022,C060,2,Transaction completed without issues.,2026-10-08,No
+REV01371,TRX01371,C012,C060,5,Would prefer quicker response time.,2026-07-31,Yes
+REV01372,TRX01372,C046,C060,4,Professional handling throughout the process.,2026-07-26,Yes
+REV01373,TRX01373,C047,C060,3,Good supplier for long-term collaboration.,2026-07-31,No
+REV01374,TRX01374,C039,C060,5,High-quality recyclable material.,2026-08-15,Yes
+REV01375,TRX01375,C009,C060,4,Material quality exceeded expectations.,2026-07-06,Yes
+REV01376,TRX01376,C001,C060,4,Reliable supplier with smooth communication.,2026-10-04,Yes
+REV01377,TRX01377,C022,C060,4,Delivery was delayed but acceptable.,2026-07-02,Yes
+REV01378,TRX01378,C007,C060,3,Material quality exceeded expectations.,2026-09-05,No
+REV01379,TRX01379,C005,C060,5,Transaction completed without issues.,2026-07-04,Yes
+REV01380,TRX01380,C040,C060,4,Satisfied with the transaction.,2026-09-25,Yes
+REV01381,TRX01381,C057,C060,5,Reliable supplier with smooth communication.,2026-07-14,Yes
+REV01382,TRX01382,C033,C060,2,High-quality recyclable material.,2026-08-20,No
+REV01383,TRX01383,C050,C060,5,Average experience overall.,2026-09-26,Yes
+REV01384,TRX01384,C003,C060,3,Average experience overall.,2026-07-23,No
+REV01385,TRX01385,C010,C060,4,High-quality recyclable material.,2026-08-28,Yes
+REV01386,TRX01386,C047,C060,4,Material matched specifications.,2026-06-12,Yes

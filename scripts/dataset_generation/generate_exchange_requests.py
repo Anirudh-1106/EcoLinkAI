@@ -23,8 +23,11 @@ for _, waste in waste_df.iterrows():
 
     available_quantity = waste["quantity"]
 
-    # Each listing receives 1–4 requests
-    num_requests = random.randint(1, 4)
+    # Each listing receives several requests. These become the labelled edges
+    # the MC-GNN learns from, and a few hundred of them is far too thin a
+    # training set; a different buyer is drawn each time, so raising this
+    # yields genuinely distinct pairs rather than repeats of the same deal.
+    num_requests = random.randint(2, 6)
 
     for _ in range(num_requests):
 

@@ -188,6 +188,7 @@ def seed_database():
         company_first_plant: dict[str, uuid.UUID] = {}
         plant_coords: dict[uuid.UUID, tuple[float, float]] = {}
         company_trust: dict[str, float] = {}
+        accepted_requests: dict[str, float] = {}  # csv request id -> distance km
         outcome_rng = random.Random(OUTCOME_SEED)
         material_map: dict[str, uuid.UUID] = {}
         waste_map: dict[str, uuid.UUID] = {}
@@ -261,17 +262,25 @@ def seed_database():
         if plants_file.exists():
             logger.info("Seeding Plants...")
             # Kerala district coordinates mapping for realistic plant lat/lon
+            # All 14 Kerala districts. Any district missing here silently falls
+            # back to a single default point, which stacks unrelated plants on
+            # top of each other and corrupts distance -- the strongest feature
+            # the recommender has.
             district_coords = {
+                "Thiruvananthapuram": (8.5241, 76.9366),
                 "Kollam": (8.8932, 76.6141),
-                "Palakkad": (10.7867, 76.6548),
+                "Pathanamthitta": (9.2648, 76.7870),
+                "Alappuzha": (9.4981, 76.3388),
+                "Kottayam": (9.5916, 76.5222),
+                "Idukki": (9.8497, 76.9681),
                 "Ernakulam": (9.9816, 76.2999),
                 "Thrissur": (10.5276, 76.2144),
-                "Kozhikode": (11.2588, 75.7804),
-                "Thiruvananthapuram": (8.5241, 76.9366),
-                "Kannur": (11.8745, 75.3704),
-                "Kottayam": (9.5916, 76.5222),
-                "Alappuzha": (9.4981, 76.3388),
+                "Palakkad": (10.7867, 76.6548),
                 "Malappuram": (11.0732, 76.0740),
+                "Kozhikode": (11.2588, 75.7804),
+                "Wayanad": (11.6854, 76.1320),
+                "Kannur": (11.8745, 75.3704),
+                "Kasaragod": (12.4996, 74.9869),
             }
 
             with open(plants_file, mode="r", encoding="utf-8") as f:
@@ -535,6 +544,10 @@ def seed_database():
                         partnership_history[pair_key] = (
                             partnership_history.get(pair_key, 0) + 1
                         )
+                        # Only accepted requests can go on to become a real
+                        # transaction; the distance is kept so the exchange's
+                        # emissions can be computed from the actual route.
+                        accepted_requests[r_id] = distance_km
                     status_dict = {
                         "Pending": ExchangeRequestStatus.PENDING,
                         "Accepted": ExchangeRequestStatus.ACCEPTED,
@@ -577,15 +590,30 @@ def seed_database():
                     if r_id not in request_map:
                         continue
 
+                    # A transaction can only exist where the request was
+                    # accepted. The CSV carries its own status, but the accept
+                    # decision is made during seeding, so without this check
+                    # roughly half the exchanges end up attached to rejected or
+                    # still-pending requests -- inflating every "completed
+                    # exchange" count the model and the dashboards read.
+                    if r_id not in accepted_requests:
+                        continue
+
+                    final_quantity = Decimal(row["final_quantity"])
+                    quantity_tons = max(float(final_quantity) / 1000.0, 0.1)
+                    emission = estimate_transport_emission(
+                        accepted_requests[r_id], quantity_tons
+                    )
+
                     ex = Exchange(
                         id=u_id,
                         exchange_request_id=request_map[r_id],
                         exchange_status=ExchangeStatus.COMPLETED,
                         shipment_status=ShipmentStatus.DELIVERED,
-                        agreed_price=Decimal(row["final_price_per_unit"]) * Decimal(row["final_quantity"]),
+                        agreed_price=Decimal(row["final_price_per_unit"]) * final_quantity,
                         transport_cost=Decimal(row["transport_cost"]),
-                        actual_quantity=Decimal(row["final_quantity"]),
-                        actual_carbon_emission=Decimal("25.0"),
+                        actual_quantity=final_quantity,
+                        actual_carbon_emission=Decimal(str(round(emission, 2))),
                         actual_carbon_saving=Decimal(row["carbon_saving_kg"]),
                         delivered_at=datetime.strptime(row["transaction_date"], "%Y-%m-%d") if row.get("transaction_date") else datetime.now(),
                     )
