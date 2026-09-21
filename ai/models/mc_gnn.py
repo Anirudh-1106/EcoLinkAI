@@ -125,9 +125,25 @@ class MCGNN(nn.Module):
         x: torch.Tensor,
         edge_index: torch.Tensor,
         edge_attr: torch.Tensor,
+        message_edge_index: torch.Tensor | None = None,
     ) -> tuple[torch.Tensor, list[torch.Tensor]]:
-        """Forward pass for link prediction."""
-        z_fused, channel_embs = self.encode(x, edge_index)
+        """
+        Forward pass for link prediction.
+
+        edge_index is the set of pairs being scored. message_edge_index is the
+        graph information travels along, and is deliberately allowed to differ:
+        a pair is worth scoring whether or not the two have ever dealt, but
+        only a real trade should carry a plant's reputation to its neighbours.
+
+        Passing every enquiry as the graph -- the two being the same tensor --
+        connected each active plant to nearly all the others, so every
+        neighbourhood looked alike and message passing had nothing to
+        distinguish anyone by. Defaults to edge_index when omitted.
+        """
+        if message_edge_index is None:
+            message_edge_index = edge_index
+
+        z_fused, channel_embs = self.encode(x, message_edge_index)
 
         src, dst = edge_index[0], edge_index[1]
         src_emb = z_fused[src]

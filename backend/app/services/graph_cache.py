@@ -124,7 +124,12 @@ def _evaluate(model, data) -> dict | None:
         from ai.models.baseline import BaselineRuleModel
 
         with torch.no_grad():
-            gnn_scores, _ = model(data.x, data.edge_index, data.edge_attr)
+            gnn_scores, _ = model(
+                data.x,
+                data.edge_index,
+                data.edge_attr,
+                message_edge_index=data.edge_index[:, data.y > 0.5],
+            )
 
         y_true = data.y.numpy()
         gnn = gnn_scores.numpy()
@@ -213,14 +218,22 @@ def _rebuild(db: Session) -> bool:
         started = time.time()
         data, plant_id_to_idx, _plants = build_industrial_graph(db)
 
+        # Embeddings are built from accepted deals only, matching how the
+        # model was trained. Propagating over every enquiry instead connects
+        # each active plant to nearly all the others, so neighbourhoods stop
+        # telling the plants apart -- and it would feed the model a graph
+        # unlike the one it learned on. Everything stored is already
+        # historical, so there is nothing here the model should not see.
+        message_edge_index = data.edge_index[:, data.y > 0.5]
+
         with torch.no_grad():
-            embeddings, _channels = model.encode(data.x, data.edge_index)
+            embeddings, _channels = model.encode(data.x, message_edge_index)
 
         _state["embeddings"] = embeddings
         _state["plant_id_to_idx"] = plant_id_to_idx
         _state["built_at"] = time.time()
         _state["node_count"] = int(data.x.size(0))
-        _state["edge_count"] = int(data.edge_index.size(1))
+        _state["edge_count"] = int(message_edge_index.size(1))
         _state["metrics"] = _evaluate(model, data)
         _state["last_error"] = None
 

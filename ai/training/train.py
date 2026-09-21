@@ -145,6 +145,30 @@ def _split_edges(
     }
 
 
+def _message_graph(edge_index: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
+    """
+    The subgraph information travels along: accepted deals only.
+
+    Every exchange request used to be an edge, accepted or not. With 1,472
+    such pairs over 61 active plants that is close to a complete graph, so
+    each node aggregated over ~115 neighbours, every neighbourhood looked
+    identical, and the embeddings collapsed toward a common value. Deleting
+    the entire graph changed the output by under 2%, which is the signature
+    of message passing carrying nothing.
+
+    An accepted deal is a relationship; a rejected enquiry is not. Restricting
+    propagation to the former makes a neighbourhood describe who a plant
+    actually trades with, which is the only thing a graph model can offer that
+    a per-row formula cannot.
+
+    Callers must pass only edges the model is allowed to know about -- for
+    training that means the training split alone, or a test outcome would
+    reach the embeddings of the very pair being scored.
+    """
+    accepted = labels > 0.5
+    return edge_index[:, accepted]
+
+
 def _evaluate_checkpoint_on_split(
     model_path: Path,
     data_x: torch.Tensor,
@@ -164,6 +188,9 @@ def _evaluate_checkpoint_on_split(
                 data_x,
                 split["test_edge_index"],
                 split["test_edge_attr"],
+                message_edge_index=_message_graph(
+                    split["train_edge_index"], split["train_labels"]
+                ),
             )
             scores_np = pred_scores.cpu().numpy()
             targets_np = split["test_labels"].cpu().numpy()
@@ -204,7 +231,14 @@ def _calibrate_production(
         model = torch.load(production_path, map_location="cpu", weights_only=False)
         model.eval()
         with torch.no_grad():
-            scores, _ = model(data_x, split["val_edge_index"], split["val_edge_attr"])
+            scores, _ = model(
+                data_x,
+                split["val_edge_index"],
+                split["val_edge_attr"],
+                message_edge_index=_message_graph(
+                    split["train_edge_index"], split["train_labels"]
+                ),
+            )
         scores_np = scores.cpu().numpy()
 
         calibration = fit_platt(scores_np, val_labels)
@@ -322,6 +356,13 @@ def train_mc_gnn(
         split = _split_edges(
             data.edge_index, data.edge_attr, data.y, edge_times=edge_times
         )
+        # Information travels only along deals that actually closed, and
+        # only those in the training split -- a test outcome reaching an
+        # embedding would leak the answer into the pair being scored.
+        message_edge_index = _message_graph(
+            split["train_edge_index"], split["train_labels"]
+        )
+
         split_kind = "temporal" if edge_times is not None else f"random seed={SPLIT_SEED}"
         logger.info(
             f"Edge split ({split_kind}): "
@@ -362,6 +403,7 @@ def train_mc_gnn(
                 data.x,
                 split["train_edge_index"],
                 split["train_edge_attr"],
+                message_edge_index=message_edge_index,
             )
             loss = model.compute_loss(
                 pred_scores, split["train_labels"], channel_embs, hsic_weight=hsic_weight
@@ -381,6 +423,7 @@ def train_mc_gnn(
                         data.x,
                         split["val_edge_index"],
                         split["val_edge_attr"],
+                        message_edge_index=message_edge_index,
                     )
                     val_loss = model.compute_loss(
                         val_scores,
@@ -441,7 +484,10 @@ def train_mc_gnn(
         model.eval()
         with torch.no_grad():
             val_scores_final, _ = model(
-                data.x, split["val_edge_index"], split["val_edge_attr"]
+                data.x,
+                split["val_edge_index"],
+                split["val_edge_attr"],
+                message_edge_index=message_edge_index,
             )
         calibration = fit_platt(val_scores_final.cpu().numpy(), val_labels_np)
         model.calibration = calibration
@@ -467,6 +513,7 @@ def train_mc_gnn(
                 data.x,
                 split["test_edge_index"],
                 split["test_edge_attr"],
+                message_edge_index=message_edge_index,
             )
             test_scores_np = test_scores.cpu().numpy()
             test_targets_np = split["test_labels"].cpu().numpy()
@@ -483,6 +530,7 @@ def train_mc_gnn(
                 data.x,
                 split["train_edge_index"],
                 split["train_edge_attr"],
+                message_edge_index=message_edge_index,
             )
             train_scores_np = train_scores.cpu().numpy()
             train_targets_np = split["train_labels"].cpu().numpy()
