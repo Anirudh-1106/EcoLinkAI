@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import uuid
 
-from sqlalchemy import func
+from sqlalchemy import case, func
 from sqlalchemy.orm import Session, joinedload
 
 from app.models.company import Company
@@ -96,12 +96,28 @@ def update_trust_score(db: Session, company_id: uuid.UUID) -> None:
     if not plant_ids:
         return
 
-    # Average of supplier ratings when company is supplier
+    # Every rating this company has received, on whichever side it traded.
+    #
+    # Only supplier ratings used to count, so a company that mostly buys
+    # accumulated no trust however well it behaved -- and trust feeds partner
+    # recommendations, so it stayed unrecommendable for a reason unrelated to
+    # its conduct. Each review holds a rating *of* the supplier and one *of*
+    # the buyer, and the relevant one is whichever seat this company sat in.
+    # Whichever seat this company sat in decides which of the review's two
+    # ratings applies to it.
+    rating_received = case(
+        (ExchangeRequest.supplier_plant_id.in_(plant_ids), Review.supplier_rating),
+        else_=Review.buyer_rating,
+    )
+
     avg_rating = (
-        db.query(func.avg(Review.supplier_rating))
+        db.query(func.avg(rating_received))
         .join(Exchange, Review.exchange_id == Exchange.id)
         .join(ExchangeRequest, Exchange.exchange_request_id == ExchangeRequest.id)
-        .filter(ExchangeRequest.supplier_plant_id.in_(plant_ids))
+        .filter(
+            (ExchangeRequest.supplier_plant_id.in_(plant_ids))
+            | (ExchangeRequest.buyer_plant_id.in_(plant_ids))
+        )
         .scalar()
     )
 

@@ -50,6 +50,7 @@ from app.utils.distance import (
     estimate_transport_emission,
     haversine_distance,
 )
+from app.utils.calibration import apply_platt
 from app.utils.edge_encoding import encode_edge_features
 from app.utils.quantity import (
     carbon_saving_for_quantity,
@@ -187,12 +188,23 @@ def _gnn_link_score(
             dtype=torch.float,
         )
 
+        model = context["model"]
         with torch.no_grad():
             features = torch.cat(
                 [embeddings[src].unsqueeze(0), embeddings[dst].unsqueeze(0), edge_attr],
                 dim=-1,
             )
-            return float(context["model"].link_predictor(features).item())
+            raw = float(model.link_predictor(features).item())
+
+        # The raw score ranks well but reads low against real outcomes, so it
+        # is mapped through the calibration fitted at training time. The map
+        # is monotonic and therefore changes no candidate's position -- only
+        # the percentage the buyer sees. Older checkpoints carry no
+        # calibration and keep their raw score.
+        calibration = getattr(model, "calibration", None)
+        if calibration is not None:
+            return apply_platt(raw, *calibration)
+        return raw
     except Exception as e:
         logger.warning("MC-GNN inference failed, falling back to baseline: %s", e)
         return None

@@ -40,6 +40,11 @@ import numpy as np
 import torch
 
 from ai.evaluation.metrics import evaluate_model
+from app.utils.calibration import (
+    apply_platt,
+    expected_calibration_error,
+    fit_platt,
+)
 from ai.graph.builder import build_industrial_graph
 from ai.models.baseline import BaselineRuleModel
 from ai.models.mc_gnn import MCGNN
@@ -172,6 +177,67 @@ def _evaluate_checkpoint_on_split(
     except Exception as e:
         logger.warning(f"Could not evaluate checkpoint {model_path}: {e}")
         return None
+
+
+def _calibrate_production(
+    checkpoint_dir: Path,
+    data_x: torch.Tensor,
+    split: dict,
+    val_labels: np.ndarray,
+) -> None:
+    """
+    Refit the serving model's calibration against the current validation data.
+
+    Run after the promotion decision, on whichever checkpoint is in
+    production. A promoted model already carries a calibration from training,
+    but one that held its place may carry an old one or none at all, and the
+    percentages it shows buyers are what people actually read.
+
+    Failure here is not fatal: an uncalibrated model still ranks correctly,
+    so the run keeps its result and logs the reason.
+    """
+    production_path = checkpoint_dir / "mc_gnn_best.pt"
+    if not production_path.exists():
+        return
+
+    try:
+        model = torch.load(production_path, map_location="cpu", weights_only=False)
+        model.eval()
+        with torch.no_grad():
+            scores, _ = model(data_x, split["val_edge_index"], split["val_edge_attr"])
+        scores_np = scores.cpu().numpy()
+
+        calibration = fit_platt(scores_np, val_labels)
+        if calibration is None:
+            logger.info("Production model left uncalibrated: not enough validation signal.")
+            return
+
+        model.calibration = calibration
+        before = expected_calibration_error(scores_np, val_labels)
+        after = expected_calibration_error(
+            np.array([apply_platt(float(p), *calibration) for p in scores_np]),
+            val_labels,
+        )
+
+        # Same atomic write the promotion path uses, so a server reading the
+        # checkpoint can never see a half-written file.
+        fd, tmp_path = tempfile.mkstemp(dir=str(checkpoint_dir), suffix=".pt.tmp")
+        os.close(fd)
+        try:
+            torch.save(model, tmp_path)
+            os.replace(tmp_path, str(production_path))
+        except Exception:
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
+            raise
+
+        logger.info(
+            "Production model calibrated (a=%.3f, b=%.3f): predicted-vs-actual "
+            "gap %.3f -> %.3f",
+            calibration[0], calibration[1], before, after,
+        )
+    except Exception as e:
+        logger.warning("Could not calibrate the production model: %s", e)
 
 
 def _promote_checkpoint(
@@ -367,6 +433,33 @@ def train_mc_gnn(
                 f"(val {PROMOTION_METRIC}: {best_val_score:.4f})"
             )
 
+        # ── Calibrate on validation ───────────────────
+        # Fitted here, on data the weights were selected against but never
+        # trained on, and never on the test split. The map is monotonic, so it
+        # leaves every ranking metric below untouched and corrects only the
+        # probability a person reads.
+        model.eval()
+        with torch.no_grad():
+            val_scores_final, _ = model(
+                data.x, split["val_edge_index"], split["val_edge_attr"]
+            )
+        calibration = fit_platt(val_scores_final.cpu().numpy(), val_labels_np)
+        model.calibration = calibration
+
+        if calibration is not None:
+            raw_ece = expected_calibration_error(val_scores_final.cpu().numpy(), val_labels_np)
+            adjusted = np.array([
+                apply_platt(float(p), *calibration) for p in val_scores_final.cpu().numpy()
+            ])
+            logger.info(
+                "Calibration fitted (a=%.3f, b=%.3f): validation gap between "
+                "predicted and actual %.3f -> %.3f",
+                calibration[0], calibration[1], raw_ece,
+                expected_calibration_error(adjusted, val_labels_np),
+            )
+        else:
+            logger.info("Not enough validation signal to calibrate; scores left raw.")
+
         # ── Evaluate on HELD-OUT test set ─────────────
         model.eval()
         with torch.no_grad():
@@ -548,6 +641,15 @@ def train_mc_gnn(
                         f"   Checkpoint saved as {checkpoint_name}.pt "
                         f"for manual review."
                     )
+
+        # ── Keep the serving model calibrated ─────────
+        # Calibration is monotonic, so it cannot move AUC and the promotion
+        # gate above will never fire on account of it. Left there, a model
+        # that keeps its place would keep serving uncalibrated percentages
+        # indefinitely. So whichever checkpoint ends up in production is
+        # calibrated against the current validation split, independently of
+        # who won.
+        _calibrate_production(save_dir, data.x, split, val_labels_np)
 
         return {
             "promoted": promoted,

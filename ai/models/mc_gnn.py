@@ -66,6 +66,13 @@ class MCGNN(nn.Module):
         super().__init__()
         self.hidden_dim = hidden_dim
 
+        # Platt scaling parameters (a, b) fitted on validation after training,
+        # mapping the link predictor's raw score to an honest probability. The
+        # model ranks well but reads low -- see ai/evaluation/calibration.py.
+        # None until fitted, and left None when the data is too thin to
+        # support a fit, in which case callers use the raw score.
+        self.calibration: tuple[float, float] | None = None
+
         # Channel 1: Graph Convolution Network (GCN)
         self.gcn_conv1 = GCNConv(in_features, hidden_dim)
         self.gcn_conv2 = GCNConv(hidden_dim, out_dim)

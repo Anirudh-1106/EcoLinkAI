@@ -5,6 +5,7 @@ Exchange service — business logic for exchange requests and exchanges.
 from __future__ import annotations
 
 import uuid
+from decimal import Decimal
 
 from sqlalchemy.orm import Session, joinedload
 
@@ -161,6 +162,8 @@ def accept_exchange_request(
         .first()
     )
 
+    agreed_price = Decimal("0")
+
     if listing:
         # A request may be for part of the listing. Draw down only what was
         # agreed and leave the remainder on the market; reserve the listing
@@ -173,6 +176,19 @@ def accept_exchange_request(
                 f"{listing.quantity} {listing.unit.value} remains"
             )
 
+        # What the material itself costs: the quantity agreed, at the
+        # listing's asking price. This was previously set to the transport
+        # cost, so every completed exchange recorded the price of the lorry
+        # rather than the price of the goods, and the analytics built on it
+        # followed. Computed before the stock is drawn down, since afterwards
+        # listing.quantity is what is left rather than what was bought.
+        #
+        # A listing with no asking price is open to negotiation and nothing
+        # has been agreed yet, so it records zero rather than inventing a
+        # figure.
+        if listing.price_per_unit is not None:
+            agreed_price = agreed * listing.price_per_unit
+
         listing.quantity = listing.quantity - agreed
         if listing.quantity <= 0:
             listing.status = WasteStatus.RESERVED
@@ -184,7 +200,7 @@ def accept_exchange_request(
         exchange_request_id=req.id,
         exchange_status=ExchangeStatus.INITIATED,
         shipment_status=ShipmentStatus.PENDING,
-        agreed_price=req.estimated_transport_cost,  # Placeholder
+        agreed_price=agreed_price,
         transport_cost=req.estimated_transport_cost,
     )
     db.add(exchange)
