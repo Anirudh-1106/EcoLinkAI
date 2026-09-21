@@ -108,7 +108,7 @@ export const LoginPage: React.FC = () => {
         </form>
 
         <div className="mt-6 text-center text-xs text-industrial-400">
-          Demo company login: <code className="text-eco-400 bg-industrial-950 px-2 py-1 rounded">saran-sankaran@industry.in / password123</code>
+          Demo company login: <code className="text-eco-400 bg-industrial-950 px-2 py-1 rounded">chopraiyerandsule@company.com / password123</code>
         </div>
 
         <div className="mt-6 border-t border-industrial-800 pt-6 text-center text-xs text-industrial-400">
