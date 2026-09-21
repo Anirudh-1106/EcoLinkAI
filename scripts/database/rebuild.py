@@ -91,18 +91,24 @@ def rebuild(reset: bool = False) -> dict[str, int]:
     recommendations that quietly exclude real sellers.
     """
     from ingest_kinfra import ingest_kinfra_data
+    from scripts.database.generate_market_partners import generate_market_partners
     from scripts.database.seed import seed_database
 
     if reset:
         _reset_schema()
 
-    logger.info("Step 1/2: synthetic dataset (datasets/csv)")
+    logger.info("Step 1/3: synthetic dataset (datasets/csv)")
     seed_database()
 
-    logger.info("Step 2/2: real KINFRA dataset (datasets/kinfra_data.xlsx)")
+    logger.info("Step 2/3: real KINFRA dataset (datasets/kinfra_data.xlsx)")
     # Idempotent: updates existing rows rather than duplicating them, so this
     # is safe whether or not the database was just reset.
     expected_kinfra = ingest_kinfra_data()
+
+    # Last, because it matches against the materials the real companies
+    # actually sell, which only exist once the KINFRA ingest has run.
+    logger.info("Step 3/3: market counterparties for the KINFRA materials")
+    generate_market_partners()
 
     counts = _counts()
 
