@@ -64,6 +64,9 @@ class ExchangeRequestResponse(BaseModel):
     buyer_company_name: str | None = None
     material_name: str | None = None
     waste_quantity: Decimal | None = None
+    # How much this request is for, as opposed to the listing's whole stock.
+    requested_quantity: Decimal | None = None
+    listing_unit: str | None = None
 
     model_config = {"from_attributes": True}
 
@@ -116,6 +119,12 @@ class ExchangeResponse(BaseModel):
     supplier_plant_name: str | None = None
     buyer_plant_name: str | None = None
     material_name: str | None = None
+    # Which side the viewer is on, so the interface can offer the rating they
+    # are entitled to give rather than both.
+    supplier_company_id: uuid.UUID | None = None
+    buyer_company_id: uuid.UUID | None = None
+    requested_quantity: Decimal | None = None
+    unit: str | None = None
 
     model_config = {"from_attributes": True}
 

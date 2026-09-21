@@ -27,10 +27,17 @@ def _ex_to_response(e) -> ExchangeResponse:
         req = e.exchange_request
         if req.supplier_plant:
             resp.supplier_plant_name = req.supplier_plant.plant_name
+            resp.supplier_company_id = req.supplier_plant.company_id
         if req.buyer_plant:
             resp.buyer_plant_name = req.buyer_plant.plant_name
-        if req.waste_listing and req.waste_listing.material:
-            resp.material_name = req.waste_listing.material.material_name
+            resp.buyer_company_id = req.buyer_plant.company_id
+        if req.waste_listing:
+            resp.unit = req.waste_listing.unit.value if req.waste_listing.unit else None
+            if req.waste_listing.material:
+                resp.material_name = req.waste_listing.material.material_name
+        resp.requested_quantity = req.requested_quantity or (
+            req.waste_listing.quantity if req.waste_listing else None
+        )
     return resp
 
 

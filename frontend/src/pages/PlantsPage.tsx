@@ -4,18 +4,28 @@ import { fetchApi } from '../api/client';
 import { Plant } from '../types';
 import { MapView } from '../components/MapView';
 import { ErrorBanner, EmptyState } from '../components/ErrorBanner';
+import { useAuth } from '../context/AuthContext';
 
 export const PlantsPage: React.FC = () => {
   const [plants, setPlants] = useState<Plant[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const { user } = useAuth();
 
+  // Scoped to the signed-in company. Unfiltered, /plants returns every
+  // facility on the platform, so this page -- which presents itself as your
+  // own facilities -- was listing competitors and plotting their coordinates
+  // on the map.
   useEffect(() => {
-    fetchApi<{ items: Plant[] }>('/plants')
+    if (!user?.company_id) {
+      setLoading(false);
+      return;
+    }
+    fetchApi<{ items: Plant[] }>(`/plants?company_id=${user.company_id}`)
       .then((data) => setPlants(data.items))
       .catch((err) => setError(err.message || 'Failed to load plants'))
       .finally(() => setLoading(false));
-  }, []);
+  }, [user?.company_id]);
 
   const mapPlants = plants.map((p) => ({
     id: p.id,

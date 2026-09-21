@@ -3,16 +3,41 @@ import { Star, MessageSquare, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { fetchApi } from '../api/client';
 import { Review, Exchange } from '../types';
 import { ErrorBanner, EmptyState } from '../components/ErrorBanner';
+import { useAuth } from '../context/AuthContext';
+
+/** One direction of a review. A side that has not rated yet says so. */
+const ReviewSide: React.FC<{
+  label: string;
+  rating?: number | null;
+  feedback?: string;
+}> = ({ label, rating, feedback }) => (
+  <div className="bg-industrial-950/60 border border-industrial-800 rounded-xl p-2.5">
+    <div className="flex items-center justify-between gap-2">
+      <span className="text-[10px] uppercase tracking-wider text-industrial-400 font-semibold">{label}</span>
+      {rating != null ? (
+        <span className="text-amber-400 font-bold flex items-center gap-1 shrink-0">
+          <Star className="w-3 h-3 fill-amber-400" />
+          <span>{rating}.0 / 5.0</span>
+        </span>
+      ) : (
+        <span className="text-industrial-500 shrink-0">Not yet rated</span>
+      )}
+    </div>
+    {rating != null && feedback && (
+      <p className="text-industrial-300 italic mt-1">"{feedback}"</p>
+    )}
+  </div>
+);
 
 export const ReviewsPage: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [exchanges, setExchanges] = useState<Exchange[]>([]);
   const [selectedExchangeId, setSelectedExchangeId] = useState('');
-  const [supplierRating, setSupplierRating] = useState(5);
-  const [buyerRating, setBuyerRating] = useState(5);
+  const [rating, setRating] = useState(5);
   const [comment, setComment] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [error, setError] = useState('');
+  const { user } = useAuth();
 
   const loadData = () => {
     fetchApi<{ items: Review[] }>('/reviews')
@@ -31,22 +56,44 @@ export const ReviewsPage: React.FC = () => {
     loadData();
   }, []);
 
+  const selected = exchanges.find((ex) => ex.id === selectedExchangeId);
+
+  // You rate the other party, never yourself. Selling this exchange means
+  // rating the buyer; buying it means rating the supplier.
+  const myRole: 'supplier' | 'buyer' | null = !selected || !user?.company_id
+    ? null
+    : selected.supplier_company_id === user.company_id
+      ? 'supplier'
+      : selected.buyer_company_id === user.company_id
+        ? 'buyer'
+        : null;
+
+  const counterpartyLabel =
+    myRole === 'supplier'
+      ? selected?.buyer_plant_name || 'the buyer'
+      : selected?.supplier_plant_name || 'the supplier';
+
+  const alreadyRated = reviews.some(
+    (r) => r.exchange_id === selectedExchangeId && r.my_rating_submitted,
+  );
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSuccessMsg('');
 
     try {
+      // Only the rating is sent. Which side it applies to is decided by the
+      // server from the caller's role in the exchange.
       await fetchApi('/reviews', {
         method: 'POST',
         body: JSON.stringify({
           exchange_id: selectedExchangeId,
-          supplier_rating: supplierRating,
-          buyer_rating: buyerRating,
-          supplier_feedback: comment,
-          buyer_feedback: comment,
+          rating,
+          feedback: comment,
         }),
       });
-      setSuccessMsg('Review submitted! Company trust score updated.');
+      setSuccessMsg(`Review submitted. ${counterpartyLabel}'s trust score has been updated.`);
+      setComment('');
       loadData();
     } catch (err: any) {
       alert(`Review submission error: ${err.message}`);
@@ -93,37 +140,35 @@ export const ReviewsPage: React.FC = () => {
             >
               {exchanges.map((ex) => (
                 <option key={ex.id} value={ex.id}>
-                  Exchange #{ex.id.slice(0, 8)} — {ex.supplier_plant_name || 'Supplier'} ↔ {ex.buyer_plant_name || 'Buyer'}
+                  {ex.material_name || 'Material'}
+                  {ex.requested_quantity ? ` · ${ex.requested_quantity} ${ex.unit || ''}` : ''}
+                  {' — '}
+                  {ex.supplier_plant_name || 'Supplier'} → {ex.buyer_plant_name || 'Buyer'}
                 </option>
               ))}
             </select>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block font-semibold text-industrial-300 mb-1">Supplier Rating (1-5)</label>
-              <select
-                value={supplierRating}
-                onChange={(e) => setSupplierRating(Number(e.target.value))}
-                className="w-full bg-industrial-950 border border-industrial-800 rounded-xl px-3 py-2 text-white"
-              >
-                {[5, 4, 3, 2, 1].map((r) => (
-                  <option key={r} value={r}>{r} Stars</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="block font-semibold text-industrial-300 mb-1">Buyer Rating (1-5)</label>
-              <select
-                value={buyerRating}
-                onChange={(e) => setBuyerRating(Number(e.target.value))}
-                className="w-full bg-industrial-950 border border-industrial-800 rounded-xl px-3 py-2 text-white"
-              >
-                {[5, 4, 3, 2, 1].map((r) => (
-                  <option key={r} value={r}>{r} Stars</option>
-                ))}
-              </select>
-            </div>
+          {/* You rate the counterparty, not yourself */}
+          <div>
+            <label className="block font-semibold text-industrial-300 mb-1">
+              {myRole === 'supplier' ? 'Rate the buyer' : 'Rate the supplier'}
+              <span className="text-industrial-500 font-normal"> — {counterpartyLabel}</span>
+            </label>
+            <select
+              value={rating}
+              onChange={(e) => setRating(Number(e.target.value))}
+              className="w-full bg-industrial-950 border border-industrial-800 rounded-xl px-3 py-2 text-white"
+            >
+              {[5, 4, 3, 2, 1].map((r) => (
+                <option key={r} value={r}>{r} Stars</option>
+              ))}
+            </select>
+            <p className="text-[11px] text-industrial-500 mt-1">
+              {myRole === 'supplier'
+                ? 'You sold on this exchange, so you rate how the buyer handled it.'
+                : 'You bought on this exchange, so you rate how the supplier handled it.'}
+            </p>
           </div>
 
           <div>
@@ -133,14 +178,25 @@ export const ReviewsPage: React.FC = () => {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               required
-              placeholder="High quality material, prompt logistics pickup..."
+              placeholder={
+                myRole === 'supplier'
+                  ? 'Paid on time, collection went smoothly...'
+                  : 'High quality material, prompt logistics pickup...'
+              }
               className="w-full bg-industrial-950 border border-industrial-800 rounded-xl p-3 text-white placeholder-industrial-500"
             />
           </div>
 
+          {alreadyRated && (
+            <p className="text-[11px] text-amber-400/90">
+              You have already rated this exchange. Choose another to review.
+            </p>
+          )}
+
           <button
             type="submit"
-            className="bg-eco-600 hover:bg-eco-500 text-white font-bold px-5 py-2.5 rounded-xl transition-all shadow-md"
+            disabled={alreadyRated || !myRole}
+            className="bg-eco-600 hover:bg-eco-500 disabled:bg-industrial-700 disabled:text-industrial-500 disabled:cursor-not-allowed text-white font-bold px-5 py-2.5 rounded-xl transition-all shadow-md"
           >
             Submit Feedback
           </button>
@@ -154,17 +210,36 @@ export const ReviewsPage: React.FC = () => {
         {reviews.length === 0 && <EmptyState message="No reviews submitted yet." />}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {reviews.map((rev) => (
-            <div key={rev.id} className="bg-industrial-900 border border-industrial-800 rounded-2xl p-4 space-y-2 text-xs">
-              <div className="flex items-center justify-between">
-                <span className="font-bold text-white">Exchange #{rev.exchange_id.slice(0, 8)}</span>
-                <span className="text-amber-400 font-bold flex items-center gap-1">
-                  <Star className="w-3.5 h-3.5 fill-amber-400" />
-                  <span>{rev.supplier_rating}.0 / 5.0</span>
-                </span>
+            <div key={rev.id} className="bg-industrial-900 border border-industrial-800 rounded-2xl p-4 space-y-2.5 text-xs">
+              <div>
+                <span className="font-bold text-white">{rev.material_name || 'Material'}</span>
+                {rev.quantity != null && (
+                  <span className="text-industrial-400"> · {rev.quantity} {rev.unit || ''}</span>
+                )}
+                <p className="text-industrial-400 text-[11px] mt-0.5">
+                  {rev.supplier_company_name || rev.supplier_plant_name || 'Supplier'}
+                  {' → '}
+                  {rev.buyer_company_name || rev.buyer_plant_name || 'Buyer'}
+                  {rev.my_role && (
+                    <span className="text-eco-400"> · you {rev.my_role === 'supplier' ? 'sold' : 'bought'}</span>
+                  )}
+                </p>
               </div>
-              <p className="text-industrial-300 italic bg-industrial-950/60 p-2.5 rounded-xl border border-industrial-800">
-                "{rev.supplier_feedback || rev.buyer_feedback}"
-              </p>
+
+              {/* Each direction shown separately, so it is clear who rated whom */}
+              <div className="space-y-1.5">
+                <ReviewSide
+                  label="Supplier rated by buyer"
+                  rating={rev.supplier_rating}
+                  feedback={rev.supplier_feedback}
+                />
+                <ReviewSide
+                  label="Buyer rated by supplier"
+                  rating={rev.buyer_rating}
+                  feedback={rev.buyer_feedback}
+                />
+              </div>
+
               <p className="text-industrial-400 text-[11px]">{new Date(rev.created_at).toLocaleDateString()}</p>
             </div>
           ))}

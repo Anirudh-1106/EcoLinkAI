@@ -18,6 +18,45 @@ from app.services import exchange_service, review_service
 router = APIRouter(prefix="/reviews", tags=["Reviews"])
 
 
+def _to_response(review, *, role: str | None) -> ReviewResponse:
+    """
+    Build a review response, resolving what was actually traded.
+
+    A rating on its own says little: two companies may have dealt with each
+    other repeatedly, so the material and quantity are what tell the reader
+    which exchange is being rated.
+    """
+    resp = ReviewResponse.model_validate(review)
+
+    request = review.exchange.exchange_request if review.exchange else None
+    if request:
+        if request.supplier_plant:
+            resp.supplier_plant_name = request.supplier_plant.plant_name
+            if request.supplier_plant.company:
+                resp.supplier_company_name = request.supplier_plant.company.company_name
+        if request.buyer_plant:
+            resp.buyer_plant_name = request.buyer_plant.plant_name
+            if request.buyer_plant.company:
+                resp.buyer_company_name = request.buyer_plant.company.company_name
+
+        listing = request.waste_listing
+        if listing:
+            resp.unit = listing.unit.value if listing.unit else None
+            if listing.material:
+                resp.material_name = listing.material.material_name
+        # What the deal was actually for, falling back to the whole listing
+        # for requests raised before the quantity was recorded.
+        resp.quantity = request.requested_quantity or (listing.quantity if listing else None)
+
+    resp.my_role = role
+    if role:
+        resp.my_rating_submitted = review_service.has_already_rated(review, role)
+        other = "supplier" if role == "buyer" else "buyer"
+        resp.counterparty_rating_submitted = review_service.has_already_rated(review, other)
+
+    return resp
+
+
 @router.get("", response_model=ReviewListResponse)
 def list_reviews(
     db: Annotated[Session, Depends(get_db)],
@@ -33,7 +72,15 @@ def list_reviews(
         db, page=page, page_size=page_size, company_id=current_user.company_id
     )
     return ReviewListResponse(
-        items=[ReviewResponse.model_validate(r) for r in items],
+        items=[
+            _to_response(
+                r,
+                role=review_service.role_in_exchange(
+                    db, r.exchange_id, current_user.company_id
+                ),
+            )
+            for r in items
+        ],
         total=total,
         page=page,
         page_size=page_size,
@@ -76,11 +123,25 @@ def create_review(
             ),
         )
 
-    existing = review_service.get_reviews_for_exchange(db, data.exchange_id)
-    if existing:
+    # Which side the caller is on decides which rating they may give. The
+    # request never says, so a party cannot rate itself.
+    role = review_service.role_in_exchange(
+        db, data.exchange_id, current_user.company_id
+    )
+    if role is None:
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Review already exists for this exchange",
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only the two companies involved in an exchange can review it",
         )
 
-    return review_service.create_review(db, data)
+    existing = review_service.get_reviews_for_exchange(db, data.exchange_id)
+    if review_service.has_already_rated(existing, role):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="You have already rated this exchange",
+        )
+
+    review = review_service.submit_review(
+        db, data, reviewer_company_id=current_user.company_id, role=role
+    )
+    return _to_response(review, role=role)

@@ -277,10 +277,8 @@ def test_cannot_review_an_exchange_you_were_not_party_to():
 
     response = client.post("/api/v1/reviews", headers=headers, json={
         "exchange_id": str(exchange_id),
-        "supplier_rating": 1,
-        "buyer_rating": 1,
-        "supplier_feedback": "x",
-        "buyer_feedback": "x",
+        "rating": 1,
+        "feedback": "x",
     })
     assert response.status_code == 403
 
@@ -346,10 +344,8 @@ def test_cannot_review_an_exchange_that_is_not_completed():
             headers={"Authorization": f"Bearer {token}"},
             json={
                 "exchange_id": str(exchange_id),
-                "supplier_rating": 1,
-                "buyer_rating": 1,
-                "supplier_feedback": "x",
-                "buyer_feedback": "x",
+                "rating": 1,
+                "feedback": "x",
             },
         )
         assert response.status_code == 400

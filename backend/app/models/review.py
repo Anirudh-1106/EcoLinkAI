@@ -25,11 +25,11 @@ class Review(BaseModel):
 
     __table_args__ = (
         CheckConstraint(
-            "supplier_rating BETWEEN 1 AND 5",
+            "supplier_rating IS NULL OR supplier_rating BETWEEN 1 AND 5",
             name="ck_review_supplier_rating",
         ),
         CheckConstraint(
-            "buyer_rating BETWEEN 1 AND 5",
+            "buyer_rating IS NULL OR buyer_rating BETWEEN 1 AND 5",
             name="ck_review_buyer_rating",
         ),
     )
@@ -50,14 +50,21 @@ class Review(BaseModel):
     # Review Details
     # =====================================================
 
-    supplier_rating: Mapped[int] = mapped_column(
+    # Each column is a rating *of* that side, written by the other one: the
+    # buyer rates the supplier, the supplier rates the buyer. Both were
+    # required and both were supplied by whoever happened to review first,
+    # which meant a party rated itself and then moved its own trust score.
+    #
+    # Nullable because a review starts half-finished by nature -- one side
+    # writes, and the other may take days or never respond at all.
+    supplier_rating: Mapped[int | None] = mapped_column(
         Integer,
-        nullable=False,
+        nullable=True,
     )
 
-    buyer_rating: Mapped[int] = mapped_column(
+    buyer_rating: Mapped[int | None] = mapped_column(
         Integer,
-        nullable=False,
+        nullable=True,
     )
 
     supplier_feedback: Mapped[str | None] = mapped_column(

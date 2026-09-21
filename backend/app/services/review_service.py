@@ -7,7 +7,7 @@ from __future__ import annotations
 import uuid
 
 from sqlalchemy import func
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from app.models.exchange import Exchange
 from app.models.exchange_request import ExchangeRequest
@@ -34,7 +34,25 @@ def get_reviews(
     company_id: uuid.UUID | None = None,
 ) -> tuple[list[Review], int]:
     """Get paginated reviews."""
-    query = db.query(Review)
+    from app.models.plant import Plant
+    from app.models.waste_listing import WasteListing
+
+    # The response reports what was traded and between whom, so the whole
+    # chain is loaded up front rather than lazily per row.
+    query = db.query(Review).options(
+        joinedload(Review.exchange)
+        .joinedload(Exchange.exchange_request)
+        .joinedload(ExchangeRequest.supplier_plant)
+        .joinedload(Plant.company),
+        joinedload(Review.exchange)
+        .joinedload(Exchange.exchange_request)
+        .joinedload(ExchangeRequest.buyer_plant)
+        .joinedload(Plant.company),
+        joinedload(Review.exchange)
+        .joinedload(Exchange.exchange_request)
+        .joinedload(ExchangeRequest.waste_listing)
+        .joinedload(WasteListing.material),
+    )
 
     if company_id:
         from app.models.plant import Plant
@@ -58,16 +76,64 @@ def get_reviews(
     return items, total
 
 
-def create_review(db: Session, data: ReviewCreate) -> Review:
-    """Create a review and update trust scores."""
-    review = Review(
-        exchange_id=data.exchange_id,
-        supplier_rating=data.supplier_rating,
-        buyer_rating=data.buyer_rating,
-        supplier_feedback=data.supplier_feedback,
-        buyer_feedback=data.buyer_feedback,
+def role_in_exchange(
+    db: Session, exchange_id: uuid.UUID, company_id: uuid.UUID
+) -> str | None:
+    """
+    Which side of an exchange a company sits on: "supplier", "buyer" or None.
+
+    None means the company was not party to it and has nothing to say about
+    how it went.
+    """
+    from app.models.plant import Plant
+
+    exchange = db.query(Exchange).filter(Exchange.id == exchange_id).first()
+    if not exchange:
+        return None
+
+    req = (
+        db.query(ExchangeRequest)
+        .filter(ExchangeRequest.id == exchange.exchange_request_id)
+        .first()
     )
-    db.add(review)
+    if not req:
+        return None
+
+    supplier = db.query(Plant).filter(Plant.id == req.supplier_plant_id).first()
+    buyer = db.query(Plant).filter(Plant.id == req.buyer_plant_id).first()
+
+    if supplier and supplier.company_id == company_id:
+        return "supplier"
+    if buyer and buyer.company_id == company_id:
+        return "buyer"
+    return None
+
+
+def submit_review(
+    db: Session, data: ReviewCreate, *, reviewer_company_id: uuid.UUID, role: str
+) -> Review:
+    """
+    Record one party's rating of the other, and refresh trust scores.
+
+    The role decides which half is written: a buyer rates the supplier, a
+    supplier rates the buyer. Nobody writes their own.
+
+    An exchange holds a single review row, so the second party to respond
+    fills the half the first left empty rather than starting a new record.
+    """
+    review = get_reviews_for_exchange(db, data.exchange_id)
+    if review is None:
+        review = Review(exchange_id=data.exchange_id)
+        db.add(review)
+
+    if role == "buyer":
+        # The buyer is rating the supplier.
+        review.supplier_rating = data.rating
+        review.supplier_feedback = data.feedback
+    else:
+        review.buyer_rating = data.rating
+        review.buyer_feedback = data.feedback
+
     db.commit()
     db.refresh(review)
 
@@ -87,3 +153,10 @@ def create_review(db: Session, data: ReviewCreate) -> Review:
                 company_service.update_trust_score(db, buyer_plant.company_id)
 
     return review
+
+
+def has_already_rated(review: Review | None, role: str) -> bool:
+    """Whether this side has already given its rating."""
+    if review is None:
+        return False
+    return (review.supplier_rating if role == "buyer" else review.buyer_rating) is not None

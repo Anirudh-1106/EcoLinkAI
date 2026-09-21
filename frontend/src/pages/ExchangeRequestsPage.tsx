@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRightLeft, Check, X, MapPin, Sparkles, Clock } from 'lucide-react';
+import { ArrowRightLeft, Check, X, MapPin, Sparkles, Clock, Package } from 'lucide-react';
 import { fetchApi } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import { ExchangeRequest } from '../types';
@@ -70,10 +70,22 @@ export const ExchangeRequestsPage: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="font-bold text-white text-base">
-                <strong className="text-eco-400">{req.buyer_company_name}</strong> is requesting to buy this from{' '}
-                <strong className="text-white">{req.supplier_company_name}</strong>
+              {/* What is actually being traded. The API has always returned
+                  this; the card simply never showed it, so a request could
+                  not be told apart from any other with the same two parties. */}
+              <h3 className="font-bold text-white text-base flex items-center gap-2 flex-wrap">
+                <Package className="w-4 h-4 text-eco-400 shrink-0" />
+                <span>{req.material_name || 'Material'}</span>
+                {req.requested_quantity != null && (
+                  <span className="text-industrial-300 font-semibold">
+                    · {req.requested_quantity} {req.listing_unit || ''}
+                  </span>
+                )}
               </h3>
+              <p className="text-xs text-industrial-300">
+                <strong className="text-eco-400">{req.buyer_company_name}</strong> is requesting to buy from{' '}
+                <strong className="text-white">{req.supplier_company_name}</strong>
+              </p>
               <p className="text-xs text-industrial-300">
                 Seller Plant: <strong>{req.supplier_plant_name}</strong> | Buyer Plant: <strong>{req.buyer_plant_name}</strong>
               </p>

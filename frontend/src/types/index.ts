@@ -218,6 +218,9 @@ export interface ExchangeRequest {
   buyer_company_name?: string;
   material_name?: string;
   waste_quantity?: number;
+  /** How much this request is for, not the listing's whole stock. */
+  requested_quantity?: number;
+  listing_unit?: string;
 }
 
 export interface Exchange {
@@ -237,18 +240,33 @@ export interface Exchange {
   supplier_plant_name?: string;
   buyer_plant_name?: string;
   material_name?: string;
+  supplier_company_id?: string;
+  buyer_company_id?: string;
+  requested_quantity?: number;
+  unit?: string;
 }
 
 export interface Review {
   id: string;
   exchange_id: string;
-  supplier_rating: number;
-  buyer_rating: number;
+  /** Rating *of* the supplier, given by the buyer. Null until they leave it. */
+  supplier_rating?: number | null;
+  /** Rating *of* the buyer, given by the supplier. */
+  buyer_rating?: number | null;
   supplier_feedback?: string;
   buyer_feedback?: string;
   created_at: string;
   supplier_plant_name?: string;
   buyer_plant_name?: string;
+  supplier_company_name?: string;
+  buyer_company_name?: string;
+  material_name?: string;
+  quantity?: number;
+  unit?: string;
+  /** Which side the viewer was on: decides which rating they may give. */
+  my_role?: 'supplier' | 'buyer' | null;
+  my_rating_submitted: boolean;
+  counterparty_rating_submitted: boolean;
 }
 
 export interface DashboardStats {

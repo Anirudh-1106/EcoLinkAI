@@ -41,8 +41,12 @@ def _req_to_response(r) -> ExchangeRequestResponse:
             resp.buyer_company_name = r.buyer_plant.company.company_name
     if r.waste_listing:
         resp.waste_quantity = r.waste_listing.quantity
+        resp.listing_unit = r.waste_listing.unit.value if r.waste_listing.unit else None
         if r.waste_listing.material:
             resp.material_name = r.waste_listing.material.material_name
+    # Falls back to the listing for requests raised before the amount was
+    # recorded on the request itself.
+    resp.requested_quantity = r.requested_quantity or resp.waste_quantity
     return resp
 
 
