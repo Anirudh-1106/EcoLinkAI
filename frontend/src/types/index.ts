@@ -129,6 +129,20 @@ export interface PartnerCard {
   estimated_transport_cost: number;
   estimated_carbon_saving: number;
   explanation: PartnerExplanation;
+  alternative_lots?: AlternativeLot[];
+}
+
+/** Another lot of the same material from a seller already on the shortlist. */
+export interface AlternativeLot {
+  waste_listing_id: string;
+  ai_score: number;
+  quantity?: number | null;
+  unit?: string | null;
+  price_per_unit?: number | null;
+  purity?: number | null;
+  quantity_match_pct: number;
+  estimated_transport_cost: number;
+  estimated_carbon_saving: number;
 }
 
 /** What a given quantity would cost and save, priced by the server. */

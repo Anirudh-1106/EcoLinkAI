@@ -34,6 +34,7 @@ from app.models.requirement import Requirement
 from app.models.review import Review
 from app.models.waste_listing import WasteListing
 from app.schemas.recommendation import (
+    AlternativeLot,
     PartnerCard,
     PartnerExplanation,
     RecommendationRequest,
@@ -757,10 +758,7 @@ def get_recommendations_by_requirement(
     scored.sort(key=lambda x: x["score"], reverse=True)
 
     # ── 5. Build partner cards ────────────────────────
-    recommendations = []
-    for rank, item in enumerate(scored[: request.max_results], start=1):
-        card = _build_seller_partner_card(rank, item, _model_version)
-        recommendations.append(card)
+    recommendations = _build_ranked_seller_cards(scored, request.max_results)
 
     elapsed_ms = (time.time() - start_time) * 1000
 
@@ -1097,6 +1095,51 @@ def _score_seller_candidate(
     }
 
 
+def _build_ranked_seller_cards(scored: list[dict], max_results: int) -> list[PartnerCard]:
+    """
+    One card per seller plant, carrying that plant's other lots with it.
+
+    A plant may have the same material listed as several lots, and each was
+    getting its own card: 78% of shortlists repeated a plant and 15% of all
+    places went to repeats, one seller taking three of ten. Two cards under an
+    identical company and plant name also just read as a duplicate.
+
+    So max_results now counts distinct sellers rather than listings. `scored`
+    arrives sorted by score, so the first lot seen for a plant is its best and
+    becomes the card; later ones follow as alternatives in the same order.
+    """
+    by_plant: dict[str, list[dict]] = {}
+    for item in scored:
+        plant_id = str(item["candidate"]["seller_plant"].id)
+        by_plant.setdefault(plant_id, []).append(item)
+
+    cards: list[PartnerCard] = []
+    for rank, plant_id in enumerate(list(by_plant)[:max_results], start=1):
+        lots = by_plant[plant_id]
+        card = _build_seller_partner_card(rank, lots[0], _model_version)
+        card.alternative_lots = [_build_alternative_lot(other) for other in lots[1:]]
+        cards.append(card)
+
+    return cards
+
+
+def _build_alternative_lot(scored: dict) -> AlternativeLot:
+    """Summarise a lower-ranked lot from a seller already on the shortlist."""
+    listing = scored["candidate"]["listing"]
+    features = scored["features"]
+    return AlternativeLot(
+        waste_listing_id=listing.id,
+        ai_score=round(scored["score"], 2),
+        quantity=listing.quantity,
+        unit=listing.unit.value if listing.unit else None,
+        price_per_unit=listing.price_per_unit,
+        purity=listing.purity_percentage,
+        quantity_match_pct=round(features["quantity_compat"], 1),
+        estimated_transport_cost=features["transport_cost"],
+        estimated_carbon_saving=features["carbon_saving"],
+    )
+
+
 def _build_seller_partner_card(rank: int, scored: dict, model_version: str) -> PartnerCard:
     """Build a PartnerCard from scored seller candidate data."""
     candidate = scored["candidate"]
@@ -1396,11 +1439,8 @@ def get_recommendations_by_search(
     # Sort by score descending
     scored.sort(key=lambda x: x["score"], reverse=True)
 
-    # Build partner cards (reuse existing builder)
-    recommendations = []
-    for rank, item in enumerate(scored[: request.max_results], start=1):
-        card = _build_seller_partner_card(rank, item, _model_version)
-        recommendations.append(card)
+    # One card per seller, alternative lots folded into it
+    recommendations = _build_ranked_seller_cards(scored, request.max_results)
 
     elapsed_ms = (time.time() - start_time) * 1000
 

@@ -29,6 +29,28 @@ class PartnerExplanation(BaseModel):
     recommendation_summary: str
 
 
+class AlternativeLot(BaseModel):
+    """
+    Another listing of the same material from a seller already shown.
+
+    A plant often has the same material on the market as several lots at
+    different grades and prices. Each is separately buyable, so none should
+    disappear -- but giving each its own card let one seller take up to three
+    of ten places in a shortlist, crowding out other companies on a platform
+    whose purpose is finding new partners. The best-scoring lot is ranked and
+    the rest travel with it.
+    """
+    waste_listing_id: uuid.UUID
+    ai_score: float
+    quantity: Decimal | None = None
+    unit: str | None = None
+    price_per_unit: Decimal | None = None
+    purity: Decimal | None = None
+    quantity_match_pct: float
+    estimated_transport_cost: float
+    estimated_carbon_saving: float
+
+
 class PartnerCard(BaseModel):
     """A single recommended partner with full context."""
     rank: int
@@ -67,6 +89,10 @@ class PartnerCard(BaseModel):
 
     # Explanation
     explanation: PartnerExplanation
+
+    # Further lots of the same material from this same seller, ranked below
+    # the one above. Empty for the overwhelming majority of cards.
+    alternative_lots: list[AlternativeLot] = Field(default_factory=list)
 
 
 class RecommendationResponse(BaseModel):

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Sparkles, MapPin, Truck, Leaf, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { PartnerCard as PartnerCardType } from '../types';
+import React, { useState } from 'react';
+import { Sparkles, MapPin, Truck, Leaf, ShieldCheck, ArrowRight, CheckCircle2, ChevronDown, Package } from 'lucide-react';
+import { PartnerCard as PartnerCardType, AlternativeLot } from '../types';
 
 interface PartnerCardProps {
   partner: PartnerCardType;
@@ -9,6 +9,23 @@ interface PartnerCardProps {
 
 export const PartnerCardComponent: React.FC<PartnerCardProps> = ({ partner, onSelect }) => {
   const exp = partner.explanation;
+  const [showLots, setShowLots] = useState(false);
+  const alternativeLots = partner.alternative_lots ?? [];
+
+  // Buying an alternative lot is buying a different listing from the same
+  // seller, so the card handed onward carries that listing's own figures.
+  const selectLot = (lot: AlternativeLot) =>
+    onSelect({
+      ...partner,
+      waste_listing_id: lot.waste_listing_id,
+      listing_quantity: lot.quantity ?? undefined,
+      listing_unit: lot.unit ?? undefined,
+      listing_price_per_unit: lot.price_per_unit ?? undefined,
+      listing_purity: lot.purity ?? undefined,
+      ai_score: lot.ai_score,
+      estimated_transport_cost: lot.estimated_transport_cost,
+      estimated_carbon_saving: lot.estimated_carbon_saving,
+    });
 
   return (
     <div className="bg-industrial-900 border border-industrial-800 rounded-2xl p-6 shadow-md hover:border-eco-500/50 transition-all group">
@@ -108,6 +125,58 @@ export const PartnerCardComponent: React.FC<PartnerCardProps> = ({ partner, onSe
           <p className="text-industrial-300 leading-relaxed">{exp.recommendation_summary}</p>
         </div>
       </div>
+
+      {/* Other lots of the same material from this seller */}
+      {alternativeLots.length > 0 && (
+        <div className="mb-4">
+          <button
+            onClick={() => setShowLots((open) => !open)}
+            className="w-full flex items-center justify-between gap-2 bg-industrial-950/60 hover:bg-industrial-950 border border-industrial-800 rounded-xl px-3.5 py-2.5 transition-colors"
+          >
+            <span className="flex items-center gap-2 text-xs text-industrial-300">
+              <Package className="w-3.5 h-3.5 text-industrial-400" />
+              <span>
+                <span className="font-semibold text-white">{alternativeLots.length} more lot{alternativeLots.length > 1 ? 's' : ''}</span>
+                {' from this seller'}
+              </span>
+            </span>
+            <ChevronDown
+              className={`w-4 h-4 text-industrial-400 transition-transform ${showLots ? 'rotate-180' : ''}`}
+            />
+          </button>
+
+          {showLots && (
+            <div className="mt-2 space-y-2">
+              {alternativeLots.map((lot) => (
+                <div
+                  key={lot.waste_listing_id}
+                  className="flex items-center justify-between gap-3 bg-industrial-950/40 border border-industrial-800/70 rounded-xl px-3.5 py-2.5"
+                >
+                  <div className="min-w-0">
+                    <p className="text-xs text-white font-semibold truncate">
+                      {lot.quantity} {lot.unit || 'kg'}
+                      {lot.price_per_unit != null && (
+                        <span className="text-industrial-300 font-normal"> · ₹{lot.price_per_unit}/{lot.unit || 'unit'}</span>
+                      )}
+                    </p>
+                    <p className="text-[11px] text-industrial-400">
+                      {lot.purity != null && <span>{lot.purity}% purity · </span>}
+                      <span className="text-eco-400">{lot.quantity_match_pct}% quantity match</span>
+                      <span> · AI {lot.ai_score}%</span>
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => selectLot(lot)}
+                    className="shrink-0 bg-industrial-800 hover:bg-eco-600 text-white font-semibold text-[11px] px-3 py-1.5 rounded-lg transition-colors"
+                  >
+                    Buy this lot
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Action CTA */}
       <div className="flex justify-end">
