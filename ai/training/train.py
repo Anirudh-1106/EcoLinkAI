@@ -47,7 +47,7 @@ from app.utils.calibration import (
 )
 from ai.graph.builder import build_industrial_graph
 from ai.models.baseline import BaselineRuleModel
-from ai.models.mc_gnn import MCGNN
+from ai.models.mc_gnn import HSIC_GAMMA, MCGNN
 from app.core.database import SessionLocal
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -312,7 +312,7 @@ def _promote_checkpoint(
 def train_mc_gnn(
     epochs: int = 100,
     lr: float = 0.01,
-    hsic_weight: float = 0.05,
+    hsic_weight: float = HSIC_GAMMA,
     save_dir: Path | None = None,
 ):
     """Train MC-GNN model with held-out evaluation and checkpoint versioning."""

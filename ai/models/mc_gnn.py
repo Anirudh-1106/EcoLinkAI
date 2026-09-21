@@ -17,17 +17,55 @@ from torch_geometric.nn import GATConv, GCNConv, SAGEConv
 
 from ai.models.hsic import hsic_loss
 
+# gamma in equation (15): how much the channel-disparity term counts against
+# the task loss.
+#
+# The paper's own setting (Section IV-C), and its sensitivity study in Fig. 3
+# is emphatic about the scale: at gamma = 0.1 accuracy collapses to around 30%
+# and the model is described as "unusable", while gamma <= 1e-5 improves it.
+# The reason is in Section IV-H -- an inner-product HSIC is "normally very
+# large", so gamma is what stops it swamping the thing the model is actually
+# being trained to do.
+#
+# This was previously 0.05: half the value the paper reports as unusable, and
+# eight orders of magnitude above its setting.
+HSIC_GAMMA = 1e-10
+
 
 class AttentionFusion(nn.Module):
-    """Attention-based channel fusion module."""
+    """
+    Attention-based channel fusion, per equations (10)-(13) of the MC-GNN paper.
+
+    Each channel gets its own transformation W_i, b_i, and a single attention
+    vector q is shared across all of them:
+
+        w_i^v = q . sigma(W_i . z_i^v + b_i)
+
+    The per-channel parameters are the point. An earlier version passed every
+    channel through one shared MLP, which cannot express a preference between
+    them: identical weights applied to similarly-distributed embeddings give
+    identical scores, and the softmax returns a flat 1/T. Measured on the
+    trained model, the three weights came out 0.334, 0.325 and 0.341 with a
+    standard deviation of 0.002 -- an average wearing the name of attention.
+    """
 
     def __init__(self, in_features: int, num_channels: int = 3):
         super().__init__()
-        self.attn_mlp = nn.Sequential(
-            nn.Linear(in_features, in_features // 2),
-            nn.Tanh(),
-            nn.Linear(in_features // 2, 1),
+        hidden = max(in_features // 2, 1)
+
+        # W_i and b_i: one transformation per channel.
+        self.channel_transforms = nn.ModuleList(
+            nn.Linear(in_features, hidden) for _ in range(num_channels)
         )
+        # q: shared across channels, so the comparison between them is made
+        # on one common axis.
+        self.attention_vector = nn.Parameter(torch.empty(hidden))
+
+        # Xavier uniform, as the paper's experimental settings specify.
+        for transform in self.channel_transforms:
+            nn.init.xavier_uniform_(transform.weight)
+            nn.init.zeros_(transform.bias)
+        nn.init.uniform_(self.attention_vector, -1.0, 1.0)
 
     def forward(self, channel_embeddings: list[torch.Tensor]) -> torch.Tensor:
         """
@@ -37,11 +75,16 @@ class AttentionFusion(nn.Module):
         # Stack: (num_channels, N, D)
         stacked = torch.stack(channel_embeddings, dim=0)
 
-        # Compute weights for each node and channel: (num_channels, N, 1)
+        # w_i^v = q . sigma(W_i z_i^v + b_i), one score per node per channel.
+        # tanh rather than ReLU: a rectifier floors every negative score at
+        # exactly zero, so channels scoring below zero become indistinguishable
+        # and the softmax flattens between them -- reintroducing the very
+        # behaviour this is meant to fix.
         weights = []
-        for emb in channel_embeddings:
-            weights.append(self.attn_mlp(emb))
-        weights = torch.stack(weights, dim=0)  # (num_channels, N, 1)
+        for embedding, transform in zip(channel_embeddings, self.channel_transforms):
+            projected = torch.tanh(transform(embedding))       # (N, hidden)
+            weights.append(projected @ self.attention_vector)  # (N,)
+        weights = torch.stack(weights, dim=0).unsqueeze(-1)    # (num_channels, N, 1)
 
         # Softmax across channels
         attn_weights = F.softmax(weights, dim=0)  # (num_channels, N, 1)
@@ -160,9 +203,13 @@ class MCGNN(nn.Module):
         pred_scores: torch.Tensor,
         targets: torch.Tensor,
         channel_embs: list[torch.Tensor],
-        hsic_weight: float = 0.05,
+        hsic_weight: float = HSIC_GAMMA,
     ) -> torch.Tensor:
-        """Compute combined loss = BCE_loss + hsic_weight * HSIC_regularization."""
+        """
+        Combined loss: task loss + gamma * channel-disparity loss.
+
+        Equation (15) of the paper, L = L_task + gamma * L_disparity.
+        """
         bce = F.binary_cross_entropy(pred_scores, targets)
 
         # HSIC regularization across pairs of channels

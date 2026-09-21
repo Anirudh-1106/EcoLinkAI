@@ -1,30 +1,30 @@
 {
-  "timestamp": "2026-09-21T15:53:25.893836",
-  "checkpoint_file": "mc_gnn_20260921_155325.pt",
+  "timestamp": "2026-09-21T18:25:19.337465",
+  "checkpoint_file": "mc_gnn_20260921_182519.pt",
   "epochs": 500,
-  "epochs_run": 107,
-  "best_epoch": 67,
+  "epochs_run": 125,
+  "best_epoch": 85,
   "early_stopped": true,
   "patience": 40,
   "learning_rate": 0.01,
-  "hsic_weight": 0.05,
-  "best_train_loss": 0.575152,
+  "hsic_weight": 1e-10,
+  "best_train_loss": 0.58579,
   "validation_metrics": {
-    "auc": 0.725217,
-    "loss": 0.609411
+    "auc": 0.730515,
+    "loss": 0.614085
   },
   "selection_metric": "auc",
   "metrics": {
-    "precision@5": 0.63,
-    "recall@5": 0.646453,
-    "ndcg@5": 0.728472,
-    "auc": 0.711408
+    "precision@5": 0.606667,
+    "recall@5": 0.620188,
+    "ndcg@5": 0.708646,
+    "auc": 0.710826
   },
   "in_sample_metrics": {
-    "precision@5": 0.65,
-    "recall@5": 0.22022,
-    "ndcg@5": 0.659554,
-    "auc": 0.730177
+    "precision@5": 0.643333,
+    "recall@5": 0.216245,
+    "ndcg@5": 0.653928,
+    "auc": 0.720868
   },
   "promotion_metric": "auc",
   "metric_type": "held_out",
@@ -32,16 +32,15 @@
   "split_seed": 42,
   "split_ratio": 0.8,
   "val_ratio": 0.15,
-  "num_train_edges": 2392,
+  "num_train_edges": 2397,
   "num_val_edges": 423,
-  "num_test_edges": 704,
+  "num_test_edges": 705,
   "num_nodes": 124,
-  "total_edges": 3519,
+  "total_edges": 3525,
   "baseline_metrics": {
     "precision@5": 0.616667,
-    "recall@5": 0.642947,
+    "recall@5": 0.6436,
     "ndcg@5": 0.724038,
-    "auc": 0.707383
-  },
-  "promotion_note": "Promoted for architectural consistency, not score. Message passing now runs over accepted deals only; the previous production checkpoint was trained when it ran over every enquiry, so it was being served a graph it never learned on. Held-out AUC 0.7114 vs its 0.7134 is within run-to-run noise."
+    "auc": 0.705296
+  }
 }

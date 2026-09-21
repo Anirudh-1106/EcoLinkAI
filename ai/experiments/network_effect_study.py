@@ -58,14 +58,15 @@ import torch
 
 from ai.evaluation.metrics import evaluate_model
 from ai.models.baseline import BaselineRuleModel
-from ai.models.mc_gnn import MCGNN
+from ai.models.mc_gnn import HSIC_GAMMA, MCGNN
 from ai.training.train import PATIENCE, _message_graph, _split_edges
 from app.utils.edge_encoding import encode_edge_features
 
 logger = logging.getLogger("network_effect_study")
 
 # Matching the production training setup so results are comparable to it.
-EPOCHS, LR, HSIC_WEIGHT = 500, 0.01, 0.05
+EPOCHS, LR = 500, 0.01
+HSIC_WEIGHT = HSIC_GAMMA  # the paper's gamma, not the 0.05 used before
 INITIALISATIONS = (42, 7, 13)
 
 # Weights on the acceptance decision, mirroring the platform's own generator
