@@ -20,6 +20,7 @@ from app.models.exchange_request import ExchangeRequest
 from app.models.plant import Plant
 from app.models.waste_listing import WasteListing
 from app.utils.distance import estimate_carbon_saving, estimate_transport_cost, haversine_distance
+from app.utils.edge_encoding import encode_edge_features
 
 
 def extract_edge_features(
@@ -54,19 +55,21 @@ def extract_edge_features(
         src_idx = plant_id_to_idx[sup_id]
         dst_idx = plant_id_to_idx[buy_id]
 
-        dist_km = float(req.distance_km) if req.distance_km else 50.0
-        norm_dist = min(dist_km / 500.0, 1.0)
-
-        compat_score = float(req.compatibility_score) / 100.0 if req.compatibility_score else 0.5
-        transport_cost = float(req.estimated_transport_cost) / 10000.0 if req.estimated_transport_cost else 0.1
-        carbon_saving = float(req.estimated_carbon_saving) / 1000.0 if req.estimated_carbon_saving else 0.1
+        # Raw, unscaled values -- encode_edge_features owns all the scaling so
+        # that training and serving cannot end up normalising differently.
+        attrs = encode_edge_features(
+            distance_km=float(req.distance_km) if req.distance_km else 50.0,
+            compatibility=float(req.compatibility_score) if req.compatibility_score else 50.0,
+            transport_cost=float(req.estimated_transport_cost) if req.estimated_transport_cost else 0.0,
+            carbon_saving=float(req.estimated_carbon_saving) if req.estimated_carbon_saving else 0.0,
+        )
 
         # Binary label: 1 if ACCEPTED, 0 otherwise
         label = 1 if req.status == ExchangeRequestStatus.ACCEPTED else 0
 
         edge_sources.append(src_idx)
         edge_targets.append(dst_idx)
-        edge_attrs.append([norm_dist, compat_score, transport_cost, carbon_saving])
+        edge_attrs.append(attrs)
         labels.append(label)
 
     if not edge_sources:

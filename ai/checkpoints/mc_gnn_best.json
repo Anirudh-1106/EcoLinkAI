@@ -1,30 +1,30 @@
 {
-  "timestamp": "2026-09-21T08:41:51.532272",
-  "checkpoint_file": "mc_gnn_20260921_084151.pt",
+  "timestamp": "2026-09-21T09:39:11.241928",
+  "checkpoint_file": "mc_gnn_20260921_093911.pt",
   "epochs": 500,
-  "epochs_run": 72,
-  "best_epoch": 32,
+  "epochs_run": 133,
+  "best_epoch": 93,
   "early_stopped": true,
   "patience": 40,
   "learning_rate": 0.01,
   "hsic_weight": 0.05,
-  "best_train_loss": 0.666832,
+  "best_train_loss": 0.598344,
   "validation_metrics": {
-    "auc": 0.634195,
-    "loss": 0.643643
+    "auc": 0.734086,
+    "loss": 0.597252
   },
   "selection_metric": "auc",
   "metrics": {
-    "precision@5": 0.8,
-    "recall@5": 0.014134,
-    "ndcg@5": 0.786014,
-    "auc": 0.608514
+    "precision@5": 1.0,
+    "recall@5": 0.017668,
+    "ndcg@5": 1.0,
+    "auc": 0.669222
   },
   "in_sample_metrics": {
-    "precision@5": 1.0,
-    "recall@5": 0.005139,
-    "ndcg@5": 1.0,
-    "auc": 0.613521
+    "precision@5": 0.8,
+    "recall@5": 0.004111,
+    "ndcg@5": 0.66084,
+    "auc": 0.715422
   },
   "promotion_metric": "auc",
   "metric_type": "held_out",
@@ -39,7 +39,7 @@
   "baseline_metrics": {
     "precision@5": 0.6,
     "recall@5": 0.010601,
-    "ndcg@5": 0.616434,
-    "auc": 0.563968
+    "ndcg@5": 0.722727,
+    "auc": 0.674134
   }
 }

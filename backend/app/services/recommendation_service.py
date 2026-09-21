@@ -49,6 +49,7 @@ from app.utils.distance import (
     estimate_transport_emission,
     haversine_distance,
 )
+from app.utils.edge_encoding import encode_edge_features
 from app.utils.quantity import (
     carbon_saving_for_quantity,
     price_per_kg,
@@ -115,9 +116,10 @@ def _gnn_link_score(
     Score one seller -> buyer pair with the trained MC-GNN link predictor.
 
     Edges are directed supplier -> buyer during training, so the same
-    orientation is used here. Edge features are normalised exactly as in
-    ai/features/edge_features.py; any divergence would feed the model
-    inputs it never saw during training.
+    orientation is used here. Edge features go through the shared
+    encode_edge_features(), which training uses too -- feeding the model an
+    encoding it never saw during training would silently change what each
+    input means to it.
 
     Returns a 0-1 probability, or None when GNN inference is unavailable
     (no checkpoint, torch missing, or a plant absent from the cached graph).
@@ -138,12 +140,12 @@ def _gnn_link_score(
 
         embeddings = context["embeddings"]
         edge_attr = torch.tensor(
-            [[
-                min(distance_km / 500.0, 1.0),
-                compatibility / 100.0,
-                transport_cost / 10000.0,
-                carbon_saving / 1000.0,
-            ]],
+            [encode_edge_features(
+                distance_km=distance_km,
+                compatibility=compatibility,
+                transport_cost=transport_cost,
+                carbon_saving=carbon_saving,
+            )],
             dtype=torch.float,
         )
 
