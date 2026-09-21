@@ -20,7 +20,9 @@ def build_industrial_graph(db: Session):
     from torch_geometric.data import Data
 
     plants, x_arr, plant_id_to_idx = extract_node_features(db)
-    edge_index_arr, edge_attr_arr, labels_arr = extract_edge_features(db, plant_id_to_idx)
+    edge_index_arr, edge_attr_arr, labels_arr, edge_times_arr = extract_edge_features(
+        db, plant_id_to_idx
+    )
 
     x = torch.tensor(x_arr, dtype=torch.float)
     edge_index = torch.tensor(edge_index_arr, dtype=torch.long)
@@ -32,6 +34,9 @@ def build_industrial_graph(db: Session):
         edge_index=edge_index,
         edge_attr=edge_attr,
         y=y,
+        # When each request was made, so the split can be taken over time
+        # rather than at random.
+        edge_time=torch.tensor(edge_times_arr, dtype=torch.double),
         num_nodes=x.size(0),
     )
 

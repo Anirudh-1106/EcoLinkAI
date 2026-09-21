@@ -64,6 +64,23 @@ PATIENCE = 40  # Stop after this many evaluations with no validation improvement
 EVAL_EVERY = 1  # Validate every N epochs (cheap on a graph this size)
 
 
+def _temporal_order(edge_times: torch.Tensor) -> np.ndarray:
+    """
+    Edge positions ordered oldest first, ties broken deterministically.
+
+    Used instead of a random permutation so the test set is strictly the most
+    recent requests. That matters once the features include a pair's trading
+    history: under a random split, a training edge's history can be built from
+    requests that landed in the test set, so test outcomes reach back into
+    training inputs. Ordering by time removes that path -- anything a training
+    edge can see is older than it, and therefore also in training -- and it is
+    the honest question anyway, since deployment predicts forward from the
+    past rather than filling gaps in a shuffled history.
+    """
+    times = edge_times.cpu().numpy()
+    return np.lexsort((np.arange(len(times)), times))
+
+
 def _split_edges(
     edge_index: torch.Tensor,
     edge_attr: torch.Tensor,
@@ -71,6 +88,7 @@ def _split_edges(
     ratio: float = SPLIT_RATIO,
     val_ratio: float = VAL_RATIO,
     seed: int = SPLIT_SEED,
+    edge_times: torch.Tensor | None = None,
 ) -> dict:
     """
     Split edges three ways: train, validation, and held-out test.
@@ -89,10 +107,14 @@ def _split_edges(
     Returns dict with train_*, val_* and test_* tensors.
     """
     num_edges = edge_index.size(1)
-    rng = np.random.RandomState(seed)
-    perm = rng.permutation(num_edges)
+    if edge_times is not None:
+        perm = _temporal_order(edge_times)
+    else:
+        rng = np.random.RandomState(seed)
+        perm = rng.permutation(num_edges)
 
     # Carve the test set first, exactly as the previous two-way split did.
+    # Ordered by time this leaves the newest requests as the test set.
     test_cut = int(num_edges * ratio)
     trainval_idx = perm[:test_cut]
     test_idx = perm[test_cut:]
@@ -141,7 +163,12 @@ def _evaluate_checkpoint_on_split(
             scores_np = pred_scores.cpu().numpy()
             targets_np = split["test_labels"].cpu().numpy()
 
-        return evaluate_model(targets_np, scores_np, k=5)
+        return evaluate_model(
+            targets_np,
+            scores_np,
+            k=5,
+            group_ids=split["test_edge_index"][1].cpu().numpy(),
+        )
     except Exception as e:
         logger.warning(f"Could not evaluate checkpoint {model_path}: {e}")
         return None
@@ -220,10 +247,18 @@ def train_mc_gnn(
             f"{data.edge_index.size(1)} edges, {data.x.size(1)} node features"
         )
 
-        # ── Fixed held-out split ──────────────────────
-        split = _split_edges(data.edge_index, data.edge_attr, data.y)
+        # ── Held-out split, taken over time ───────────
+        # Once edge features carry a pair's trading history, a random split
+        # lets test outcomes flow back into training inputs. Splitting by date
+        # closes that, and asks the question deployment actually faces:
+        # predict the next requests from the ones already settled.
+        edge_times = getattr(data, "edge_time", None)
+        split = _split_edges(
+            data.edge_index, data.edge_attr, data.y, edge_times=edge_times
+        )
+        split_kind = "temporal" if edge_times is not None else f"random seed={SPLIT_SEED}"
         logger.info(
-            f"Edge split (seed={SPLIT_SEED}): "
+            f"Edge split ({split_kind}): "
             f"{split['num_train']} train, {split['num_val']} val, "
             f"{split['num_test']} test"
         )
@@ -288,7 +323,10 @@ def train_mc_gnn(
                         hsic_weight=hsic_weight,
                     ).item()
                     val_metrics = evaluate_model(
-                        val_labels_np, val_scores.cpu().numpy(), k=5
+                        val_labels_np,
+                        val_scores.cpu().numpy(),
+                        k=5,
+                        group_ids=split["val_edge_index"][1].cpu().numpy(),
                     )
                     val_score = val_metrics[PROMOTION_METRIC]
 
@@ -340,7 +378,11 @@ def train_mc_gnn(
             test_scores_np = test_scores.cpu().numpy()
             test_targets_np = split["test_labels"].cpu().numpy()
 
-        held_out_metrics = evaluate_model(test_targets_np, test_scores_np, k=5)
+        # Each buyer is one query: rank that buyer's candidate suppliers.
+        test_group_ids = split["test_edge_index"][1].cpu().numpy()
+        held_out_metrics = evaluate_model(
+            test_targets_np, test_scores_np, k=5, group_ids=test_group_ids
+        )
 
         # Also compute in-sample metrics (for logging/comparison only)
         with torch.no_grad():
@@ -352,12 +394,19 @@ def train_mc_gnn(
             train_scores_np = train_scores.cpu().numpy()
             train_targets_np = split["train_labels"].cpu().numpy()
 
-        in_sample_metrics = evaluate_model(train_targets_np, train_scores_np, k=5)
+        in_sample_metrics = evaluate_model(
+            train_targets_np,
+            train_scores_np,
+            k=5,
+            group_ids=split["train_edge_index"][1].cpu().numpy(),
+        )
 
         # Baseline evaluation (on held-out for fair comparison)
         baseline_model = BaselineRuleModel()
         baseline_scores_np = baseline_model.predict(split["test_edge_attr"].cpu().numpy())
-        baseline_metrics = evaluate_model(test_targets_np, baseline_scores_np, k=5)
+        baseline_metrics = evaluate_model(
+            test_targets_np, baseline_scores_np, k=5, group_ids=test_group_ids
+        )
 
         logger.info("=" * 60)
         logger.info("FINAL MODEL EVALUATION (K=5):")
@@ -423,6 +472,7 @@ def train_mc_gnn(
             },
             "promotion_metric": PROMOTION_METRIC,
             "metric_type": "held_out",
+            "split_kind": split_kind,
             "split_seed": SPLIT_SEED,
             "split_ratio": SPLIT_RATIO,
             "val_ratio": VAL_RATIO,

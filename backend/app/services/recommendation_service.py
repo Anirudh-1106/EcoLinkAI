@@ -102,6 +102,33 @@ def composite_compatibility(
     return max(0.0, min(score, 100.0))
 
 
+def _pair_prior_history(db: Session, *, seller_plant_id, buyer_plant_id) -> tuple[int, bool]:
+    """
+    Accepted-request count and any-interaction flag for one ordered pair.
+
+    Directed seller -> buyer, matching how training accumulates the same two
+    numbers. Everything already stored happened before the request being
+    scored, so at serving time "prior" is simply everything on record.
+
+    A pair that has never traded returns (0, False), which the encoder keeps
+    distinct from (0, True) -- tried and never accepted.
+    """
+    accepted, total = (
+        db.query(
+            func.count(ExchangeRequest.id).filter(
+                ExchangeRequest.status == ExchangeRequestStatus.ACCEPTED
+            ),
+            func.count(ExchangeRequest.id),
+        )
+        .filter(
+            ExchangeRequest.supplier_plant_id == seller_plant_id,
+            ExchangeRequest.buyer_plant_id == buyer_plant_id,
+        )
+        .one()
+    )
+    return int(accepted or 0), bool(total)
+
+
 def _gnn_link_score(
     db: Session,
     *,
@@ -138,6 +165,10 @@ def _gnn_link_score(
     try:
         import torch
 
+        prior_successes, has_prior = _pair_prior_history(
+            db, seller_plant_id=seller_plant_id, buyer_plant_id=buyer_plant_id
+        )
+
         embeddings = context["embeddings"]
         edge_attr = torch.tensor(
             [encode_edge_features(
@@ -145,6 +176,8 @@ def _gnn_link_score(
                 compatibility=compatibility,
                 transport_cost=transport_cost,
                 carbon_saving=carbon_saving,
+                prior_successes=prior_successes,
+                has_prior_interaction=has_prior,
             )],
             dtype=torch.float,
         )

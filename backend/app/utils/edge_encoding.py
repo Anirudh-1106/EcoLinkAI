@@ -36,6 +36,10 @@ DISTANCE_REFERENCE_KM = 500.0
 TRANSPORT_COST_REFERENCE_INR = 5_000_000.0
 CARBON_SAVING_REFERENCE_KG = 10_000_000.0
 
+# Prior deals stop adding confidence after roughly this many, matching the
+# point where the data generator's own rapport term saturates.
+PRIOR_SUCCESS_SATURATION = 3.0
+
 # Order is part of the contract -- the model's weights are bound to these
 # positions, so appending or reordering requires retraining.
 EDGE_FEATURE_NAMES = (
@@ -43,6 +47,8 @@ EDGE_FEATURE_NAMES = (
     "compatibility",
     "transport_cost",
     "carbon_saving",
+    "prior_successes",
+    "has_prior_interaction",
 )
 
 
@@ -59,23 +65,47 @@ def encode_edge_features(
     compatibility: float,
     transport_cost: float,
     carbon_saving: float,
+    prior_successes: int = 0,
+    has_prior_interaction: bool = False,
 ) -> list[float]:
     """
-    Build the 4-dim edge feature vector for one supplier -> buyer pair.
+    Build the edge feature vector for one supplier -> buyer pair.
+
+    prior_successes and has_prior_interaction describe the relationship rather
+    than the deal, and are the only inputs a graph model can propagate through
+    the network -- without them the MC-GNN is asked to beat a per-row formula
+    while seeing nothing the formula does not already see.
+
+    They are reported as a pair on purpose. A count alone writes every partner
+    a company has never dealt with as 0, which is indistinguishable from
+    having tried and failed; the flag separates "no track record" from "a poor
+    one". That distinction is what keeps genuinely new entrants -- the real
+    KINFRA companies, which carry no invented trading history -- competing on
+    material fit, distance and price instead of being ranked last for having
+    no past.
+
+    Both must be computed strictly from deals that closed *before* the one
+    being scored. Counting the deal itself, or any deal after it, leaks the
+    answer into the input and inflates every metric that follows.
 
     Args:
         distance_km: Haversine distance between the two plants.
         compatibility: composite material/quantity/quality score, 0-100.
         transport_cost: estimated freight cost in INR.
         carbon_saving: estimated CO2e avoided in kg.
+        prior_successes: earlier accepted requests between this ordered pair.
+        has_prior_interaction: whether the pair has any earlier request at all,
+            whatever its outcome.
 
     Returns:
-        Four floats, every one of them inside 0-1 so that no single feature
-        can dominate the others by raw magnitude alone.
+        Floats in the order of EDGE_FEATURE_NAMES, every one inside 0-1 so
+        that no single feature can dominate the rest by raw magnitude alone.
     """
     return [
         min(max(distance_km, 0.0) / DISTANCE_REFERENCE_KM, 1.0),
         min(max(compatibility, 0.0) / 100.0, 1.0),
         _log_scale(transport_cost, TRANSPORT_COST_REFERENCE_INR),
         _log_scale(carbon_saving, CARBON_SAVING_REFERENCE_KG),
+        min(max(prior_successes, 0) / PRIOR_SUCCESS_SATURATION, 1.0),
+        1.0 if has_prior_interaction else 0.0,
     ]

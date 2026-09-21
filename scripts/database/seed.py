@@ -100,6 +100,16 @@ def _compatibility_score(quantity_compat: float, quality_compat: float) -> float
     return max(0.0, min(score, 100.0))
 
 
+def _parse_request_date(raw: str | None) -> datetime | None:
+    """Parse a CSV request_date (YYYY-MM-DD) into a datetime, or None."""
+    if not raw:
+        return None
+    try:
+        return datetime.strptime(raw.strip(), "%Y-%m-%d")
+    except ValueError:
+        return None
+
+
 def _simulate_request_outcome(
     rng: random.Random,
     *,
@@ -558,6 +568,16 @@ def seed_database():
                     }
                     r_status = status_dict.get(status_str, ExchangeRequestStatus.PENDING)
 
+                    # Persist the date the request was actually made, rather
+                    # than letting created_at default to the moment of the bulk
+                    # insert. Without it every row lands on one identical
+                    # timestamp, and "which of these two deals came first" --
+                    # the ordering this loop itself relies on, and the only
+                    # thing that makes a prior-history feature computable
+                    # without reading the future -- is lost on the way into the
+                    # database.
+                    requested_on = _parse_request_date(row.get("request_date"))
+
                     ex_req = ExchangeRequest(
                         id=u_id,
                         supplier_plant_id=sup_p_id,
@@ -574,6 +594,8 @@ def seed_database():
                         recommendation_reason=f"Historical request: {row.get('remarks', 'Direct exchange match')}",
                         status=r_status,
                     )
+                    if requested_on is not None:
+                        ex_req.created_at = requested_on
                     db.add(ex_req)
             db.flush()
 
