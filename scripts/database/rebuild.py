@@ -41,8 +41,16 @@ logger = logging.getLogger("rebuild")
 
 def _reset_schema() -> None:
     """Drop and recreate every table. Destroys all data."""
+    from app.core.config import settings
     from app.core.database import engine
     from app.models import Base
+
+    if settings.is_production:
+        raise RuntimeError(
+            "Refusing to drop the schema with ENVIRONMENT=production. This "
+            "deletes every row and cannot be undone. Production schema changes "
+            "belong in a migration."
+        )
 
     logger.warning("Dropping all tables - every existing row will be lost.")
     Base.metadata.drop_all(bind=engine)

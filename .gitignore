@@ -19,6 +19,9 @@ backend/venv/
 # ===============================
 .env
 .env.*
+# The template carries no secrets and is what tells anyone cloning this repo
+# which variables to set, so it is the one file here that must be committed.
+!.env.example
 
 # ===============================
 # IDE
