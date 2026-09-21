@@ -131,6 +131,19 @@ export interface PartnerCard {
   explanation: PartnerExplanation;
 }
 
+/** What a given quantity would cost and save, priced by the server. */
+export interface ExchangeRequestPreview {
+  requested_quantity: number;
+  unit: string;
+  available_quantity: number;
+  quantity_kg?: number | null;
+  estimated_transport_cost: number;
+  estimated_carbon_emission: number;
+  estimated_carbon_saving: number;
+  estimated_total_price?: number | null;
+  distance_km: number;
+}
+
 export interface RecommendationResponse {
   waste_listing_id: string;
   material_name: string;

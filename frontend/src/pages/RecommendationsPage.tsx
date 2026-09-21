@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { Sparkles, CheckCircle2, AlertCircle, RefreshCw, Layers, Search, ClipboardList, SlidersHorizontal, Save, X } from 'lucide-react';
 import { fetchApi } from '../api/client';
-import { PartnerCard, RequirementRecommendationResponse, SearchRecommendationResponse, Requirement, Plant } from '../types';
+import { PartnerCard, RequirementRecommendationResponse, SearchRecommendationResponse, Requirement, Plant, ExchangeRequestPreview } from '../types';
 import { PartnerCardComponent } from '../components/PartnerCard';
 import { MapView } from '../components/MapView';
 import { useAuth } from '../context/AuthContext';
@@ -54,6 +54,15 @@ export const RecommendationsPage: React.FC = () => {
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // ── "Save as Requirement" state ──
+  // Quantity dialog: which card is being bought, how much, and what the
+  // server says that amount costs.
+  const [quantityTarget, setQuantityTarget] = useState<PartnerCard | null>(null);
+  const [quantityInput, setQuantityInput] = useState<string>('');
+  const [preview, setPreview] = useState<ExchangeRequestPreview | null>(null);
+  const [previewError, setPreviewError] = useState<string | null>(null);
+  const [previewLoading, setPreviewLoading] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [saveQuantity, setSaveQuantity] = useState<string>('1000');
   const [saveBudget, setSaveBudget] = useState<string>('');
@@ -178,8 +187,83 @@ export const RecommendationsPage: React.FC = () => {
     }
   };
 
+  // Ask the server what this quantity costs. Debounced so typing a figure
+  // does not fire a request per keystroke, and the freight brackets and
+  // carbon factors stay computed in exactly one place.
+  useEffect(() => {
+    if (!quantityTarget) return;
+
+    const quantity = Number(quantityInput);
+    const available = quantityTarget.listing_quantity ?? 0;
+
+    if (!quantityInput.trim() || Number.isNaN(quantity) || quantity <= 0) {
+      setPreview(null);
+      setPreviewError(quantityInput.trim() ? 'Enter a quantity greater than zero' : null);
+      return;
+    }
+    if (quantity > available) {
+      setPreview(null);
+      setPreviewError(`Only ${available} ${quantityTarget.listing_unit || 'kg'} is available`);
+      return;
+    }
+
+    const buyerPlantId =
+      activeTab === 'requirements'
+        ? requirements.find((r) => r.id === selectedRequirementId)?.plant_id
+        : selectedPlantId;
+    if (!buyerPlantId) return;
+
+    setPreviewError(null);
+    setPreviewLoading(true);
+    let cancelled = false;
+
+    const timer = setTimeout(async () => {
+      try {
+        const result = await fetchApi<ExchangeRequestPreview>('/exchange-requests/preview', {
+          method: 'POST',
+          body: JSON.stringify({
+            waste_listing_id: quantityTarget.waste_listing_id,
+            buyer_plant_id: buyerPlantId,
+            requirement_id: activeTab === 'requirements' ? selectedRequirementId : undefined,
+            requested_quantity: quantity,
+          }),
+        });
+        if (!cancelled) setPreview(result);
+      } catch (err: any) {
+        if (!cancelled) {
+          setPreview(null);
+          setPreviewError(err.message || 'Could not price this quantity');
+        }
+      } finally {
+        if (!cancelled) setPreviewLoading(false);
+      }
+    }, 350);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [quantityTarget, quantityInput, activeTab, selectedRequirementId, selectedPlantId, requirements]);
+
   // ── Exchange Request ──
-  const handleSendExchangeRequest = async (partner: PartnerCard) => {
+  // Clicking a card opens the quantity dialog rather than sending straight
+  // away: the buyer may want part of a listing, and the cost and carbon
+  // figures on the card describe taking all of it.
+  const handleSendExchangeRequest = (partner: PartnerCard) => {
+    const buyerPlantId =
+      activeTab === 'requirements'
+        ? requirements.find((r) => r.id === selectedRequirementId)?.plant_id
+        : selectedPlantId;
+    if (!buyerPlantId) return;
+
+    setQuantityTarget(partner);
+    setQuantityInput(String(partner.listing_quantity ?? ''));
+    setPreview(null);
+    setPreviewError(null);
+  };
+
+  const submitExchangeRequest = async (partner: PartnerCard, quantity: number) => {
+    setSubmitting(true);
     if (activeTab === 'requirements') {
       const selectedReq = requirements.find((r) => r.id === selectedRequirementId);
       if (!selectedReq) return;
@@ -191,16 +275,19 @@ export const RecommendationsPage: React.FC = () => {
             waste_listing_id: partner.waste_listing_id,
             buyer_plant_id: selectedReq.plant_id,
             requirement_id: selectedRequirementId,
-            requested_quantity: partner.listing_quantity || selectedReq.quantity,
+            requested_quantity: quantity,
             offered_price_per_unit: partner.listing_price_per_unit,
             recommendation_rank: partner.rank,
             remarks: `Purchase request via AI recommendation (Rank #${partner.rank}, Match ${partner.ai_score}%)`,
           }),
         });
+        setQuantityTarget(null);
         setRequestSuccess(`Purchase request sent to ${partner.company_name} (${partner.plant_name})! Awaiting seller's response.`);
         setTimeout(() => navigate('/exchange-requests'), 1500);
       } catch (err: any) {
         alert(`Error sending request: ${err.message}`);
+      } finally {
+        setSubmitting(false);
       }
     } else {
       // Discover mode — send with search context
@@ -210,16 +297,19 @@ export const RecommendationsPage: React.FC = () => {
           body: JSON.stringify({
             waste_listing_id: partner.waste_listing_id,
             buyer_plant_id: selectedPlantId,
-            requested_quantity: partner.listing_quantity,
+            requested_quantity: quantity,
             offered_price_per_unit: partner.listing_price_per_unit,
             recommendation_rank: partner.rank,
             remarks: `Purchase request via AI search "${lastSearchedQuery}" (Rank #${partner.rank}, Match ${partner.ai_score}%)`,
           }),
         });
+        setQuantityTarget(null);
         setRequestSuccess(`Purchase request sent to ${partner.company_name} (${partner.plant_name})! Awaiting seller's response.`);
         setTimeout(() => navigate('/exchange-requests'), 1500);
       } catch (err: any) {
         alert(`Error sending request: ${err.message}`);
+      } finally {
+        setSubmitting(false);
       }
     }
   };
@@ -568,6 +658,120 @@ export const RecommendationsPage: React.FC = () => {
                 onSelect={handleSendExchangeRequest}
               />
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* Quantity Modal — choose how much to buy before sending the request */}
+      {quantityTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+          <div className="bg-industrial-900 border border-industrial-700 rounded-2xl p-6 w-full max-w-md shadow-2xl space-y-4">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-bold text-white">Request to Buy</h3>
+                <p className="text-xs text-industrial-400 mt-0.5">
+                  {quantityTarget.company_name} · {quantityTarget.plant_name}
+                </p>
+              </div>
+              <button
+                onClick={() => setQuantityTarget(null)}
+                className="text-industrial-500 hover:text-white"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-industrial-400 uppercase tracking-wider mb-1">
+                Quantity to buy
+              </label>
+              <div className="flex items-center gap-2">
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  autoFocus
+                  value={quantityInput}
+                  onChange={(e) => setQuantityInput(e.target.value)}
+                  className="flex-1 bg-industrial-950 border border-industrial-800 rounded-lg px-3 py-2 text-sm text-white focus:border-eco-500 focus:outline-none"
+                />
+                <span className="text-sm text-industrial-300 font-medium min-w-[3rem]">
+                  {quantityTarget.listing_unit || 'kg'}
+                </span>
+              </div>
+              <div className="flex items-center justify-between mt-1.5">
+                <span className="text-[11px] text-industrial-400">
+                  Available: {quantityTarget.listing_quantity} {quantityTarget.listing_unit || 'kg'}
+                  {preview?.quantity_kg != null && (
+                    <span className="text-industrial-500"> · you're buying {preview.quantity_kg.toLocaleString()} kg</span>
+                  )}
+                </span>
+                <button
+                  onClick={() => setQuantityInput(String(quantityTarget.listing_quantity ?? ''))}
+                  className="text-[11px] text-eco-400 hover:text-eco-300 font-semibold"
+                >
+                  Use all
+                </button>
+              </div>
+            </div>
+
+            {previewError && (
+              <div className="bg-red-950/40 border border-red-500/30 rounded-lg px-3 py-2 text-xs text-red-300">
+                {previewError}
+              </div>
+            )}
+
+            {/* Figures for the chosen amount, priced by the server */}
+            <div className="bg-industrial-950/60 border border-industrial-800 rounded-xl p-3.5 space-y-2">
+              {previewLoading && !preview ? (
+                <p className="text-xs text-industrial-400">Calculating…</p>
+              ) : preview ? (
+                <>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-industrial-400">Transport cost</span>
+                    <span className="text-white font-semibold">
+                      ₹{Number(preview.estimated_transport_cost).toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-industrial-400">Carbon saved</span>
+                    <span className="text-eco-400 font-semibold">
+                      {Number(preview.estimated_carbon_saving).toLocaleString()} kg CO₂e
+                    </span>
+                  </div>
+                  {preview.estimated_total_price != null && (
+                    <div className="flex justify-between text-xs border-t border-industrial-800 pt-2">
+                      <span className="text-industrial-400">Estimated material cost</span>
+                      <span className="text-white font-semibold">
+                        ₹{Number(preview.estimated_total_price).toLocaleString()}
+                      </span>
+                    </div>
+                  )}
+                  <p className="text-[10px] text-industrial-500 pt-1">
+                    For this quantity over {Number(preview.distance_km).toFixed(1)} km.
+                  </p>
+                </>
+              ) : (
+                <p className="text-xs text-industrial-500">Enter a quantity to see cost and carbon impact.</p>
+              )}
+            </div>
+
+            <div className="flex justify-end gap-2 pt-1">
+              <button
+                onClick={() => setQuantityTarget(null)}
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-industrial-300 hover:text-white"
+              >
+                Cancel
+              </button>
+              <button
+                disabled={!preview || submitting}
+                onClick={() => submitExchangeRequest(quantityTarget, Number(quantityInput))}
+                className="bg-eco-600 hover:bg-eco-500 disabled:bg-industrial-700 disabled:text-industrial-500 disabled:cursor-not-allowed text-white font-semibold text-xs px-4 py-2.5 rounded-xl transition-all"
+              >
+                {submitting ? 'Sending…' : 'Send Request'}
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -102,16 +102,31 @@ class ExchangeRequest(BaseModel):
         index=True,
     )
 
-    requirement_id: Mapped[uuid.UUID] = mapped_column(
+    # Nullable because a buyer can act on a search result without having filed
+    # a formal requirement first, which is exactly what Discover mode does.
+    # ExchangeRequestCreate has always treated it as optional; the column did
+    # not, so every Discover-mode request failed its NOT NULL check and
+    # surfaced through the router's IntegrityError handler as "a request
+    # already exists" -- an error about a constraint it had not hit.
+    requirement_id: Mapped[uuid.UUID | None] = mapped_column(
         UUID(as_uuid=True),
         ForeignKey("requirements.id", ondelete="CASCADE"),
-        nullable=False,
+        nullable=True,
         index=True,
     )
 
     # =====================================================
     # AI Recommendation Metrics
     # =====================================================
+
+    # How much the buyer actually asked for, in the listing's own unit. The
+    # API accepted this from the start but discarded it, so every stored cost
+    # and carbon figure described buying the seller's entire stock regardless
+    # of what was requested.
+    requested_quantity: Mapped[Decimal | None] = mapped_column(
+        Numeric(12, 2),
+        nullable=True,
+    )
 
     compatibility_score: Mapped[Decimal] = mapped_column(
         Numeric(5, 2),

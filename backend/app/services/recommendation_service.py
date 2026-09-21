@@ -280,6 +280,7 @@ def score_candidate_pair(
     waste_listing_id: uuid.UUID,
     buyer_plant_id: uuid.UUID,
     requirement_id: uuid.UUID | None = None,
+    traded_quantity: float | None = None,
 ) -> dict:
     """
     Compute real match metrics for one specific supplier-buyer pair.
@@ -288,6 +289,10 @@ def score_candidate_pair(
     compatibility/distance/carbon figures reflect the same computation
     that produced the recommendation card they acted on, rather than
     trusting client-supplied numbers or falling back to placeholders.
+
+    traded_quantity, in the listing's unit, is the amount being bought. The
+    freight and carbon figures are stored on the request, so passing it keeps
+    them describing the actual deal rather than the seller's whole stock.
     """
     listing = (
         db.query(WasteListing)
@@ -335,11 +340,20 @@ def score_candidate_pair(
         "distance_km": distance_km,
     }
 
-    scored = _score_candidate(db, listing=listing, supplier_plant=supplier_plant, candidate=candidate)
+    scored = _score_candidate(
+        db,
+        listing=listing,
+        supplier_plant=supplier_plant,
+        candidate=candidate,
+        traded_quantity=traded_quantity,
+    )
     features = scored["features"]
     return {
         "ai_score": round(scored["score"], 2),
         "compatibility_score": features["compatibility"],
+        "material_compatibility": features["material_compat"],
+        "quantity_compatibility": features["quantity_compat"],
+        "quality_compatibility": features["quality_compat"],
         "distance_km": features["distance_km"],
         "estimated_transport_cost": features["transport_cost"],
         "estimated_carbon_emission": features["transport_emission"],
@@ -444,10 +458,17 @@ def _score_candidate(
     listing: WasteListing,
     supplier_plant: Plant,
     candidate: dict,
+    traded_quantity: float | None = None,
 ) -> dict:
     """
     Score a single candidate using baseline weighted scoring.
     When MC-GNN is loaded, this can be replaced with model inference.
+
+    traded_quantity is how much is actually changing hands, in the listing's
+    unit. Freight and carbon scale with it, so a buyer taking 500 t out of a
+    2,458 t listing should not be quoted the cost of moving all 2,458. It
+    defaults to the full listing, which is the right basis for a browsing
+    recommendation where no amount has been chosen yet.
     """
     buyer_plant = candidate["buyer_plant"]
     buyer_company = candidate["buyer_company"]
@@ -506,8 +527,14 @@ def _score_candidate(
     )
     history_score = min(hist_count * 10, 100)
 
+    # Freight and carbon are priced on the amount actually moving, which is
+    # the whole listing only until a buyer names a smaller figure.
+    moved_quantity = (
+        float(traded_quantity) if traded_quantity is not None else float(listing.quantity)
+    )
+
     # Transport cost
-    quantity_tons = transport_tons(float(listing.quantity), listing.unit)
+    quantity_tons = transport_tons(moved_quantity, listing.unit)
     transport_cost = estimate_transport_cost(distance_km, quantity_tons)
     transport_emission = estimate_transport_emission(distance_km, quantity_tons)
 
@@ -517,7 +544,7 @@ def _score_candidate(
         if listing.material.carbon_factor
         else None
     )
-    carbon_saving = carbon_saving_for_quantity(float(listing.quantity), listing.unit, carbon_factor)
+    carbon_saving = carbon_saving_for_quantity(moved_quantity, listing.unit, carbon_factor)
 
     # ── Baseline weighted score ───────────────────────
     # Weights from constants/ai.py

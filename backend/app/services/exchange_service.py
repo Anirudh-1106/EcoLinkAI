@@ -111,6 +111,9 @@ def create_exchange_request(
     estimated_carbon_emission: float,
     estimated_carbon_saving: float | None = None,
     recommendation_reason: str | None = None,
+    material_compatibility: float | None = None,
+    quantity_compatibility: float | None = None,
+    quality_compatibility: float | None = None,
 ) -> ExchangeRequest:
     """Create an exchange request (called after recommendation selection)."""
     req = ExchangeRequest(
@@ -118,7 +121,14 @@ def create_exchange_request(
         buyer_plant_id=data.buyer_plant_id,
         waste_listing_id=data.waste_listing_id,
         requirement_id=data.requirement_id,
+        # Recorded rather than dropped: the freight and carbon figures above
+        # are computed from this amount, so without it a stored request cannot
+        # be interpreted, let alone trained on.
+        requested_quantity=data.requested_quantity,
         compatibility_score=compatibility_score,
+        material_compatibility=material_compatibility,
+        quantity_compatibility=quantity_compatibility,
+        quality_compatibility=quality_compatibility,
         ai_confidence_score=ai_confidence_score,
         recommendation_rank=recommendation_rank,
         distance_km=distance_km,
@@ -142,14 +152,32 @@ def accept_exchange_request(
     if not req or req.status != ExchangeRequestStatus.PENDING:
         return None
 
-    req.status = ExchangeRequestStatus.ACCEPTED
+    # Locked for update so two sellers accepting at once cannot both read the
+    # same stock and between them commit more than exists.
+    listing = (
+        db.query(WasteListing)
+        .filter(WasteListing.id == req.waste_listing_id)
+        .with_for_update()
+        .first()
+    )
 
-    # Mark listing as reserved
-    listing = db.query(WasteListing).filter(
-        WasteListing.id == req.waste_listing_id
-    ).first()
     if listing:
-        listing.status = WasteStatus.RESERVED
+        # A request may be for part of the listing. Draw down only what was
+        # agreed and leave the remainder on the market; reserve the listing
+        # solely once nothing is left, rather than taking a seller's whole
+        # stock off the board because someone wanted a fraction of it.
+        agreed = req.requested_quantity or listing.quantity
+        if agreed > listing.quantity:
+            raise ValueError(
+                f"Cannot accept: {agreed} {listing.unit.value} requested but only "
+                f"{listing.quantity} {listing.unit.value} remains"
+            )
+
+        listing.quantity = listing.quantity - agreed
+        if listing.quantity <= 0:
+            listing.status = WasteStatus.RESERVED
+
+    req.status = ExchangeRequestStatus.ACCEPTED
 
     # Auto-create exchange
     exchange = Exchange(

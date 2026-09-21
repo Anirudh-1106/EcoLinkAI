@@ -38,8 +38,12 @@ class WasteListing(BaseModel):
     __tablename__ = "waste_listings"
 
     __table_args__ = (
+        # Zero is allowed because a listing drawn down by accepted requests
+        # ends at exactly zero remaining. Requiring strictly positive would
+        # mean a fully sold listing could never record that it is empty.
+        # Nothing may be listed at a negative quantity.
         CheckConstraint(
-            "quantity > 0",
+            "quantity >= 0",
             name="ck_waste_quantity_positive",
         ),
         CheckConstraint(

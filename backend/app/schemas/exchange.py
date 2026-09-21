@@ -23,6 +23,19 @@ class ExchangeRequestCreate(BaseModel):
     recommendation_rank: int | None = Field(None, ge=1)
 
 
+class ExchangeRequestPreview(BaseModel):
+    """What a request for a given quantity would cost and save, before sending."""
+    requested_quantity: Decimal
+    unit: str
+    available_quantity: Decimal
+    quantity_kg: Decimal | None = None
+    estimated_transport_cost: Decimal
+    estimated_carbon_emission: Decimal
+    estimated_carbon_saving: Decimal
+    estimated_total_price: Decimal | None = None
+    distance_km: Decimal
+
+
 class ExchangeRequestResponse(BaseModel):
     """Exchange request response schema."""
     id: uuid.UUID

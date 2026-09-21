@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import uuid
+from decimal import Decimal
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
@@ -17,8 +18,10 @@ from app.models.user import User
 from app.schemas.exchange import (
     ExchangeRequestAction,
     ExchangeRequestCreate,
+    ExchangeRequestPreview,
     ExchangeRequestResponse,
 )
+from app.utils.quantity import to_kg
 from app.services import exchange_service, recommendation_service, waste_listing_service
 
 router = APIRouter(prefix="/exchange-requests", tags=["Exchange Requests"])
@@ -92,6 +95,67 @@ def get_exchange_request(
     return _req_to_response(r)
 
 
+@router.post("/preview", response_model=ExchangeRequestPreview)
+def preview_exchange_request(
+    data: ExchangeRequestCreate,
+    db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(get_current_user)],
+):
+    """
+    Cost and carbon for a given quantity, without creating anything.
+
+    The buyer's quantity dialog reads its figures from here rather than
+    recomputing them in the browser. Freight is priced through tapering
+    volume brackets and carbon depends on the material, so a second
+    implementation in TypeScript would drift from this one and quietly show
+    buyers numbers the server disagrees with.
+    """
+    ensure_plant_access(db, current_user, data.buyer_plant_id)
+
+    listing = waste_listing_service.get_waste_listing(db, data.waste_listing_id)
+    if not listing:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Waste listing not found")
+
+    if data.requested_quantity > listing.quantity:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=(
+                f"Requested {data.requested_quantity} {listing.unit.value} "
+                f"but only {listing.quantity} {listing.unit.value} is available"
+            ),
+        )
+
+    try:
+        match = recommendation_service.score_candidate_pair(
+            db,
+            waste_listing_id=data.waste_listing_id,
+            buyer_plant_id=data.buyer_plant_id,
+            requirement_id=data.requirement_id,
+            traded_quantity=float(data.requested_quantity),
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+
+    quantity_kg = to_kg(float(data.requested_quantity), listing.unit)
+    total_price = (
+        data.requested_quantity * listing.price_per_unit
+        if listing.price_per_unit is not None
+        else None
+    )
+
+    return ExchangeRequestPreview(
+        requested_quantity=data.requested_quantity,
+        unit=listing.unit.value,
+        available_quantity=listing.quantity,
+        quantity_kg=Decimal(str(round(quantity_kg, 2))) if quantity_kg is not None else None,
+        estimated_transport_cost=Decimal(str(round(match["estimated_transport_cost"], 2))),
+        estimated_carbon_emission=Decimal(str(round(match["estimated_carbon_emission"], 2))),
+        estimated_carbon_saving=Decimal(str(round(match["estimated_carbon_saving"], 2))),
+        estimated_total_price=total_price,
+        distance_km=Decimal(str(round(match["distance_km"], 2))),
+    )
+
+
 @router.post("", response_model=ExchangeRequestResponse, status_code=status.HTTP_201_CREATED)
 def create_exchange_request(
     data: ExchangeRequestCreate,
@@ -118,12 +182,24 @@ def create_exchange_request(
 
     supplier_plant_id = listing.plant_id
 
+    # Checked server-side because the browser's copy of the listing may be
+    # stale, and because a client is free not to ask.
+    if data.requested_quantity > listing.quantity:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=(
+                f"Requested {data.requested_quantity} {listing.unit.value} "
+                f"but only {listing.quantity} {listing.unit.value} is available"
+            ),
+        )
+
     try:
         match = recommendation_service.score_candidate_pair(
             db,
             waste_listing_id=data.waste_listing_id,
             buyer_plant_id=data.buyer_plant_id,
             requirement_id=data.requirement_id,
+            traded_quantity=float(data.requested_quantity),
         )
     except ValueError as e:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
@@ -141,6 +217,9 @@ def create_exchange_request(
             estimated_carbon_emission=match["estimated_carbon_emission"],
             estimated_carbon_saving=match["estimated_carbon_saving"],
             recommendation_reason=data.remarks,
+            material_compatibility=match["material_compatibility"],
+            quantity_compatibility=match["quantity_compatibility"],
+            quality_compatibility=match["quality_compatibility"],
         )
     except IntegrityError:
         db.rollback()
@@ -172,7 +251,12 @@ def handle_exchange_request_action(
         )
 
     if action_data.action == "accept":
-        req = exchange_service.accept_exchange_request(db, request_id)
+        try:
+            req = exchange_service.accept_exchange_request(db, request_id)
+        except ValueError as e:
+            # Stock ran out between the request being raised and accepted.
+            db.rollback()
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(e))
     else:
         req = exchange_service.reject_exchange_request(db, request_id)
 
