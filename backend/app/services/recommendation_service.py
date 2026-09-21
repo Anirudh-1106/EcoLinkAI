@@ -135,7 +135,9 @@ def _gnn_link_score(
     seller_plant_id,
     buyer_plant_id,
     distance_km: float,
-    compatibility: float,
+    material_compat: float,
+    quantity_compat: float,
+    quality_compat: float,
     transport_cost: float,
     carbon_saving: float,
 ) -> float | None:
@@ -173,7 +175,9 @@ def _gnn_link_score(
         edge_attr = torch.tensor(
             [encode_edge_features(
                 distance_km=distance_km,
-                compatibility=compatibility,
+                material_compatibility=material_compat,
+                quantity_compatibility=quantity_compat,
+                quality_compatibility=quality_compat,
                 transport_cost=transport_cost,
                 carbon_saving=carbon_saving,
                 prior_successes=prior_successes,
@@ -537,7 +541,9 @@ def _score_candidate(
         seller_plant_id=supplier_plant.id,
         buyer_plant_id=buyer_plant.id,
         distance_km=distance_km,
-        compatibility=compatibility,
+        material_compat=material_compat,
+        quantity_compat=quantity_compat,
+        quality_compat=quality_compat,
         transport_cost=transport_cost,
         carbon_saving=carbon_saving,
     )
@@ -1009,7 +1015,9 @@ def _score_seller_candidate(
         seller_plant_id=seller_plant.id,
         buyer_plant_id=buyer_plant.id,
         distance_km=distance_km,
-        compatibility=compatibility,
+        material_compat=material_compat,
+        quantity_compat=quantity_compat,
+        quality_compat=quality_compat,
         transport_cost=transport_cost,
         carbon_saving=carbon_saving,
     )
@@ -1312,7 +1320,9 @@ def get_recommendations_by_search(
             seller_plant_id=seller_plant.id,
             buyer_plant_id=buyer_plant.id,
             distance_km=distance_km,
-            compatibility=compatibility,
+            material_compat=material_compat,
+            quantity_compat=quantity_compat,
+            quality_compat=quality_compat,
             transport_cost=transport_cost,
             carbon_saving=carbon_saving,
         )

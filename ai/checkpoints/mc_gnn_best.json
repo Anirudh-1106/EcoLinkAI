@@ -1,30 +1,30 @@
 {
-  "timestamp": "2026-09-21T10:20:51.832281",
-  "checkpoint_file": "mc_gnn_20260921_102051.pt",
+  "timestamp": "2026-09-21T10:27:32.867901",
+  "checkpoint_file": "mc_gnn_20260921_102732.pt",
   "epochs": 500,
-  "epochs_run": 93,
-  "best_epoch": 53,
+  "epochs_run": 65,
+  "best_epoch": 25,
   "early_stopped": true,
   "patience": 40,
   "learning_rate": 0.01,
   "hsic_weight": 0.05,
-  "best_train_loss": 0.591596,
+  "best_train_loss": 0.584606,
   "validation_metrics": {
-    "auc": 0.70705,
-    "loss": 0.634495
+    "auc": 0.727086,
+    "loss": 0.61994
   },
   "selection_metric": "auc",
   "metrics": {
-    "precision@5": 0.583333,
-    "recall@5": 0.607589,
-    "ndcg@5": 0.677519,
-    "auc": 0.684744
+    "precision@5": 0.593333,
+    "recall@5": 0.612758,
+    "ndcg@5": 0.695439,
+    "auc": 0.708187
   },
   "in_sample_metrics": {
-    "precision@5": 0.61,
-    "recall@5": 0.208862,
-    "ndcg@5": 0.623274,
-    "auc": 0.693733
+    "precision@5": 0.656667,
+    "recall@5": 0.222008,
+    "ndcg@5": 0.666117,
+    "auc": 0.712606
   },
   "promotion_metric": "auc",
   "metric_type": "held_out",
@@ -39,8 +39,8 @@
   "total_edges": 3502,
   "baseline_metrics": {
     "precision@5": 0.593333,
-    "recall@5": 0.622046,
-    "ndcg@5": 0.687179,
-    "auc": 0.694111
+    "recall@5": 0.618036,
+    "ndcg@5": 0.700072,
+    "auc": 0.702006
   }
 }

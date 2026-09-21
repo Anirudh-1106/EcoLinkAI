@@ -74,7 +74,21 @@ def extract_edge_features(
         # that training and serving cannot end up normalising differently.
         attrs = encode_edge_features(
             distance_km=float(req.distance_km) if req.distance_km else 50.0,
-            compatibility=float(req.compatibility_score) if req.compatibility_score else 50.0,
+            material_compatibility=(
+                float(req.material_compatibility)
+                if req.material_compatibility is not None
+                else 100.0
+            ),
+            quantity_compatibility=(
+                float(req.quantity_compatibility)
+                if req.quantity_compatibility is not None
+                else 50.0
+            ),
+            quality_compatibility=(
+                float(req.quality_compatibility)
+                if req.quality_compatibility is not None
+                else 100.0
+            ),
             transport_cost=float(req.estimated_transport_cost) if req.estimated_transport_cost else 0.0,
             carbon_saving=float(req.estimated_carbon_saving) if req.estimated_carbon_saving else 0.0,
             prior_successes=prior_success_counts.get(pair, 0),
@@ -99,7 +113,7 @@ def extract_edge_features(
     if not edge_sources:
         # Fallback dummy single edge if dataset is empty
         edge_index = np.array([[0], [0]], dtype=np.int64)
-        edge_attr = np.array([[0.1, 0.9, 0.1, 0.5, 0.0, 0.0]], dtype=np.float32)
+        edge_attr = np.array([[0.1, 1.0, 0.9, 1.0, 0.1, 0.5, 0.0, 0.0]], dtype=np.float32)
         labels_arr = np.array([1], dtype=np.float32)
         times_arr = np.array([0.0], dtype=np.float64)
     else:

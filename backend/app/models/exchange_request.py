@@ -118,6 +118,28 @@ class ExchangeRequest(BaseModel):
         nullable=False,
     )
 
+    # The parts compatibility_score is blended from, kept alongside it.
+    # The blend is half material match and, for the exact matches that make up
+    # the history, that half is a constant -- so the whole score only varies
+    # across a quarter of its range and the quantity term is squeezed into
+    # less than a third of that. Storing the components lets the models read
+    # each one over its own full range instead of inferring it from a
+    # compressed sum.
+    material_compatibility: Mapped[Decimal | None] = mapped_column(
+        Numeric(5, 2),
+        nullable=True,
+    )
+
+    quantity_compatibility: Mapped[Decimal | None] = mapped_column(
+        Numeric(5, 2),
+        nullable=True,
+    )
+
+    quality_compatibility: Mapped[Decimal | None] = mapped_column(
+        Numeric(5, 2),
+        nullable=True,
+    )
+
     ai_confidence_score: Mapped[Decimal] = mapped_column(
         Numeric(5, 2),
         nullable=False,

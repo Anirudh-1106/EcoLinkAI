@@ -44,7 +44,9 @@ PRIOR_SUCCESS_SATURATION = 3.0
 # positions, so appending or reordering requires retraining.
 EDGE_FEATURE_NAMES = (
     "norm_distance",
-    "compatibility",
+    "material_compatibility",
+    "quantity_compatibility",
+    "quality_compatibility",
     "transport_cost",
     "carbon_saving",
     "prior_successes",
@@ -62,7 +64,9 @@ def _log_scale(value: float, reference: float) -> float:
 def encode_edge_features(
     *,
     distance_km: float,
-    compatibility: float,
+    material_compatibility: float,
+    quantity_compatibility: float,
+    quality_compatibility: float,
     transport_cost: float,
     carbon_saving: float,
     prior_successes: int = 0,
@@ -88,9 +92,19 @@ def encode_edge_features(
     being scored. Counting the deal itself, or any deal after it, leaks the
     answer into the input and inflates every metric that follows.
 
+    The three compatibility terms arrive separately rather than pre-blended.
+    Blended, the score is half material match -- a constant across the exact
+    matches that make up the history -- so it only ever moved across a quarter
+    of its range, with the quantity term, the strongest of the three, confined
+    to a third of that. Splitting them adds no information the blend did not
+    already carry, but lets each vary over its own full range instead of being
+    recovered from a compressed sum.
+
     Args:
         distance_km: Haversine distance between the two plants.
-        compatibility: composite material/quantity/quality score, 0-100.
+        material_compatibility: material match score, 0-100.
+        quantity_compatibility: how closely the quantities line up, 0-100.
+        quality_compatibility: purity against the requirement, 0-100.
         transport_cost: estimated freight cost in INR.
         carbon_saving: estimated CO2e avoided in kg.
         prior_successes: earlier accepted requests between this ordered pair.
@@ -103,7 +117,9 @@ def encode_edge_features(
     """
     return [
         min(max(distance_km, 0.0) / DISTANCE_REFERENCE_KM, 1.0),
-        min(max(compatibility, 0.0) / 100.0, 1.0),
+        min(max(material_compatibility, 0.0) / 100.0, 1.0),
+        min(max(quantity_compatibility, 0.0) / 100.0, 1.0),
+        min(max(quality_compatibility, 0.0) / 100.0, 1.0),
         _log_scale(transport_cost, TRANSPORT_COST_REFERENCE_INR),
         _log_scale(carbon_saving, CARBON_SAVING_REFERENCE_KG),
         min(max(prior_successes, 0) / PRIOR_SUCCESS_SATURATION, 1.0),

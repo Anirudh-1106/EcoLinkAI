@@ -412,7 +412,9 @@ def test_gnn_falls_back_gracefully_for_unknown_plants():
             seller_plant_id=_uuid.uuid4(),  # never registered
             buyer_plant_id=plant.id,
             distance_km=50.0,
-            compatibility=100.0,
+            material_compat=100.0,
+            quantity_compat=100.0,
+            quality_compat=100.0,
             transport_cost=1000.0,
             carbon_saving=500.0,
         )
