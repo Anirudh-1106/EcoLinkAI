@@ -1,30 +1,30 @@
 {
-  "timestamp": "2026-09-21T21:11:02.160925",
-  "checkpoint_file": "mc_gnn_20260921_211102.pt",
+  "timestamp": "2026-09-21T22:00:54.823425",
+  "checkpoint_file": "mc_gnn_20260921_220054.pt",
   "epochs": 500,
-  "epochs_run": 41,
-  "best_epoch": 1,
+  "epochs_run": 72,
+  "best_epoch": 32,
   "early_stopped": true,
   "patience": 40,
   "learning_rate": 0.01,
   "hsic_weight": 1e-10,
-  "best_train_loss": 0.556673,
+  "best_train_loss": 0.561536,
   "validation_metrics": {
-    "auc": 0.743021,
-    "loss": 0.688589
+    "auc": 0.715412,
+    "loss": 0.640884
   },
   "selection_metric": "auc",
   "metrics": {
-    "precision@5": 0.842289,
-    "recall@5": 0.901268,
-    "ndcg@5": 0.916827,
-    "auc": 0.757439
+    "precision@5": 0.749644,
+    "recall@5": 0.884906,
+    "ndcg@5": 0.890821,
+    "auc": 0.715049
   },
   "in_sample_metrics": {
-    "precision@5": 0.598058,
-    "recall@5": 0.773497,
-    "ndcg@5": 0.789308,
-    "auc": 0.688914
+    "precision@5": 0.591768,
+    "recall@5": 0.796166,
+    "ndcg@5": 0.803135,
+    "auc": 0.759269
   },
   "promotion_metric": "auc",
   "metric_type": "held_out",
@@ -38,9 +38,9 @@
   "num_nodes": 701,
   "total_edges": 6383,
   "baseline_metrics": {
-    "precision@5": 0.84656,
-    "recall@5": 0.905849,
-    "ndcg@5": 0.917279,
-    "auc": 0.648051
+    "precision@5": 0.747934,
+    "recall@5": 0.88655,
+    "ndcg@5": 0.884805,
+    "auc": 0.685025
   }
 }

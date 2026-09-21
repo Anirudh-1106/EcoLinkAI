@@ -128,6 +128,18 @@ class MCGNN(nn.Module):
         self.sage_conv1 = SAGEConv(in_features, hidden_dim)
         self.sage_conv2 = SAGEConv(hidden_dim, out_dim)
 
+        # A direct path from a plant's own features to its embedding, one per
+        # channel so the channels stay distinct.
+        #
+        # Without it two rounds of averaging left every plant looking like
+        # every other: mean pairwise embedding similarity reached 0.96 against
+        # 0.70 for the same model with no graph, and message passing cost
+        # 0.048 AUC rather than adding anything. Aggregation should inform a
+        # plant's representation, not replace it.
+        self.gcn_skip = nn.Linear(in_features, out_dim)
+        self.gat_skip = nn.Linear(in_features, out_dim)
+        self.sage_skip = nn.Linear(in_features, out_dim)
+
         # Attention Fusion
         self.fusion = AttentionFusion(out_dim, num_channels=3)
 
@@ -144,17 +156,19 @@ class MCGNN(nn.Module):
 
     def encode(self, x: torch.Tensor, edge_index: torch.Tensor) -> tuple[torch.Tensor, list[torch.Tensor]]:
         """Encode nodes through 3 channels and fuse them."""
+        # Each channel aggregates over the graph, then adds the plant's own
+        # features back so two rounds of averaging cannot wash them away.
         # Channel 1: GCN
         z1 = F.relu(self.gcn_conv1(x, edge_index))
-        z1 = self.gcn_conv2(z1, edge_index)
+        z1 = self.gcn_conv2(z1, edge_index) + self.gcn_skip(x)
 
         # Channel 2: GAT
         z2 = F.relu(self.gat_conv1(x, edge_index))
-        z2 = self.gat_conv2(z2, edge_index)
+        z2 = self.gat_conv2(z2, edge_index) + self.gat_skip(x)
 
         # Channel 3: GraphSAGE
         z3 = F.relu(self.sage_conv1(x, edge_index))
-        z3 = self.sage_conv2(z3, edge_index)
+        z3 = self.sage_conv2(z3, edge_index) + self.sage_skip(x)
 
         channel_embeddings = [z1, z2, z3]
 

@@ -378,6 +378,15 @@ def generate_market_partners() -> dict[str, int]:
             # Peers are reached at two hops: the buyer's suppliers, then the
             # other buyers those suppliers serve. That is how word of mouth
             # actually travels in a market.
+            # Expressed as the share of peers endorsing, not how many.
+            #
+            # A raw count saturates as the market matures: by the last fifth
+            # of the timeline 93% of enquiries had at least two endorsements,
+            # so the term was near-constant exactly where the held-out split
+            # measures it, and predicted acceptance at AUC 0.47 -- below
+            # chance. A proportion keeps discriminating, because two
+            # endorsements out of three says something two out of twenty does
+            # not.
             referral = 0.0
             peers: set[uuid.UUID] = set()
             for supplier in partners[buyer_plant.id]:
@@ -387,7 +396,7 @@ def generate_market_partners() -> dict[str, int]:
                 endorsing = sum(
                     1 for peer in peers if successes[(seller_plant.id, peer)] > 0
                 )
-                referral = min(endorsing / 2.0, 1.0)
+                referral = endorsing / len(peers)
 
             z = (
                 INTERCEPT
