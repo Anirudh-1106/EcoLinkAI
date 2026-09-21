@@ -6,7 +6,9 @@ import uuid
 from datetime import date, datetime
 from decimal import Decimal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
+
+from app.enums.common import QuantityUnit
 
 
 class WasteListingCreate(BaseModel):
@@ -15,13 +17,25 @@ class WasteListingCreate(BaseModel):
     material_id: uuid.UUID
     description: str | None = Field(None, max_length=1000)
     quantity: Decimal = Field(gt=0)
-    unit: str
+    # Constrained to the enum rather than free text: the unit decides how a
+    # quantity converts, what a price means per unit, and how freight is
+    # costed, so an unrecognised one is not a cosmetic problem.
+    unit: QuantityUnit
     purity_percentage: Decimal | None = Field(None, ge=0, le=100)
     moisture_percentage: Decimal | None = Field(None, ge=0, le=100)
     quality_grade: str | None = Field(None, max_length=20)
     price_per_unit: Decimal | None = Field(None, ge=0)
     available_from: date
     available_until: date
+
+    @model_validator(mode="after")
+    def _check_availability_window(self) -> "WasteListingCreate":
+        # The database has always enforced this, so a reversed window used to
+        # surface as an IntegrityError and a 500. Checking here returns the
+        # ordinary 422 that tells the caller which field is wrong.
+        if self.available_until < self.available_from:
+            raise ValueError("available_until must be on or after available_from")
+        return self
 
 
 class WasteListingUpdate(BaseModel):

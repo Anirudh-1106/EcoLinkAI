@@ -1,37 +1,88 @@
-import React, { useEffect, useState } from 'react';
-import { Trash2, MapPin, Calendar, DollarSign, Tag } from 'lucide-react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { MapPin, Calendar, Plus, Pencil } from 'lucide-react';
 import { fetchApi } from '../api/client';
-import { WasteListing } from '../types';
+import { Plant, WasteListing } from '../types';
 import { ErrorBanner, EmptyState } from '../components/ErrorBanner';
+import { WasteListingForm } from '../components/WasteListingForm';
 import { useAuth } from '../context/AuthContext';
 
 export const WasteListingsPage: React.FC = () => {
   const [listings, setListings] = useState<WasteListing[]>([]);
+  const [plants, setPlants] = useState<Plant[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [showForm, setShowForm] = useState(false);
+  const [editing, setEditing] = useState<WasteListing | null>(null);
   const { user } = useAuth();
 
-  useEffect(() => {
+  const load = useCallback(() => {
     if (!user?.company_id) return;
-
+    setLoading(true);
     fetchApi<{ items: WasteListing[] }>(`/waste-listings?company_id=${user.company_id}`)
       .then((data) => setListings(data.items))
       .catch((err) => setError(err.message || 'Failed to load waste listings'))
       .finally(() => setLoading(false));
-  }, []);
+  }, [user?.company_id]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  // Only this company's plants can host a listing, and the form needs them to
+  // populate its selector.
+  useEffect(() => {
+    if (!user?.company_id) return;
+    fetchApi<{ items: Plant[] }>(`/plants?company_id=${user.company_id}`)
+      .then((data) => setPlants(data.items))
+      .catch(() => setPlants([]));
+  }, [user?.company_id]);
+
+  const openNew = () => {
+    setEditing(null);
+    setShowForm(true);
+  };
+
+  const openEdit = (listing: WasteListing) => {
+    setEditing(listing);
+    setShowForm(true);
+  };
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">Waste Listings</h1>
           <p className="text-xs text-industrial-400">Your listed industrial byproducts — buyers will find you through AI recommendations</p>
         </div>
+        <button
+          onClick={openNew}
+          disabled={plants.length === 0}
+          title={plants.length === 0 ? 'Register a plant first' : undefined}
+          className="shrink-0 bg-eco-600 hover:bg-eco-500 disabled:bg-industrial-700 disabled:text-industrial-500 disabled:cursor-not-allowed text-white font-semibold text-xs px-4 py-2.5 rounded-xl transition-all flex items-center gap-2"
+        >
+          <Plus className="w-4 h-4" />
+          <span>List waste</span>
+        </button>
       </div>
 
       {error && <ErrorBanner message={error} />}
-      {!loading && !error && listings.length === 0 && (
+      {!loading && !error && plants.length === 0 && (
+        <EmptyState message="Register a plant before listing waste — every listing belongs to a facility." />
+      )}
+      {!loading && !error && plants.length > 0 && listings.length === 0 && (
         <EmptyState message="No waste listings yet. Create one to start matching with partners." />
+      )}
+
+      {showForm && (
+        <WasteListingForm
+          plants={plants}
+          existing={editing}
+          onClose={() => setShowForm(false)}
+          onSaved={() => {
+            setShowForm(false);
+            load();
+          }}
+        />
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -75,11 +126,18 @@ export const WasteListingsPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center border-t border-industrial-800/80 pt-3.5 mt-2">
+            <div className="flex items-center justify-between gap-3 border-t border-industrial-800/80 pt-3.5 mt-2">
               <span className="text-[11px] text-industrial-400 flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Expires: {item.available_until}</span>
               </span>
+              <button
+                onClick={() => openEdit(item)}
+                className="shrink-0 flex items-center gap-1.5 text-[11px] font-semibold text-industrial-300 hover:text-eco-400 transition-colors"
+              >
+                <Pencil className="w-3.5 h-3.5" />
+                <span>Edit</span>
+              </button>
             </div>
           </div>
         ))}

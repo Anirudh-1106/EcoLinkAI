@@ -108,6 +108,18 @@ def update_waste_listing(
 
     ensure_company_access(current_user, w.plant.company_id if w.plant else None)
 
+    # Checked against the stored start date, which the update body does not
+    # carry, so the schema cannot do it alone. Without this the database
+    # constraint rejects it as a 500 instead of a readable error.
+    if data.available_until is not None and data.available_until < w.available_from:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=(
+                f"available_until ({data.available_until}) is before this listing's "
+                f"available_from ({w.available_from})"
+            ),
+        )
+
     updated = waste_listing_service.update_waste_listing(db, listing_id, data)
     full_w = waste_listing_service.get_waste_listing(db, listing_id)
     return _to_response(full_w or updated)
