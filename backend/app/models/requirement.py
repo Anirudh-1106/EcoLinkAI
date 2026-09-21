@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+from datetime import date
 from decimal import Decimal
 from typing import TYPE_CHECKING
 
@@ -96,7 +97,10 @@ class Requirement(BaseModel):
         nullable=True,
     )
 
-    required_before: Mapped[Date] = mapped_column(
+    # Annotated with Python's date, not SQLAlchemy's Date. Mapped[] describes
+    # the value the attribute holds; Date is the column type, and naming it
+    # here made assigning an ordinary date a type error.
+    required_before: Mapped[date] = mapped_column(
         Date,
         nullable=False,
     )

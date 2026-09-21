@@ -56,8 +56,10 @@ def run_migrations_offline() -> None:
 def run_migrations_online() -> None:
     """Run migrations in online mode."""
 
+    # get_section returns None when the section is absent, which
+    # engine_from_config cannot accept.
     connectable = engine_from_config(
-        config.get_section(config.config_ini_section),
+        config.get_section(config.config_ini_section) or {},
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
