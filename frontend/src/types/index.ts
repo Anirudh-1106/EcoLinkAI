@@ -99,6 +99,9 @@ export interface PartnerExplanation {
   trust_score: number;
   carbon_benefit_kg: number;
   historical_exchange_count: number;
+  /** How often this seller completes an enquiry, across all its dealings. */
+  seller_completion_rate?: number | null;
+  seller_total_requests?: number;
   recommendation_summary: string;
 }
 

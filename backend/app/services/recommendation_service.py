@@ -104,6 +104,31 @@ def composite_compatibility(
     return max(0.0, min(score, 100.0))
 
 
+def seller_completion_rates(db: Session, plant_ids: list) -> dict:
+    """
+    How often each seller plant completes an enquiry: {plant_id: (accepted, total)}.
+
+    One grouped query rather than one per candidate, since a single
+    recommendation can score seventy of them.
+    """
+    if not plant_ids:
+        return {}
+
+    rows = (
+        db.query(
+            ExchangeRequest.supplier_plant_id,
+            func.count(ExchangeRequest.id).label("total"),
+            func.count(ExchangeRequest.id)
+            .filter(ExchangeRequest.status == ExchangeRequestStatus.ACCEPTED)
+            .label("accepted"),
+        )
+        .filter(ExchangeRequest.supplier_plant_id.in_(plant_ids))
+        .group_by(ExchangeRequest.supplier_plant_id)
+        .all()
+    )
+    return {row[0]: (int(row[2] or 0), int(row[1] or 0)) for row in rows}
+
+
 def _pair_prior_history(db: Session, *, seller_plant_id, buyer_plant_id) -> tuple[int, bool]:
     """
     Accepted-request count and any-interaction flag for one ordered pair.
@@ -657,6 +682,16 @@ def _build_partner_card(rank: int, scored: dict, model_version: str) -> PartnerC
     if features["carbon_saving"] > 500:
         reasons.append(f"significant carbon benefit ({features['carbon_saving']:.0f} kg CO₂e)")
 
+    # Often the deciding factor, and previously invisible: the model weighs a
+    # seller's overall record about three times as heavily as the terms of the
+    # deal in front of it.
+    rate = features.get("completion_rate")
+    if rate is not None and features.get("completion_total", 0) >= 5:
+        if rate >= 65:
+            reasons.append(f"completes {rate:.0f}% of enquiries")
+        elif rate < 45:
+            reasons.append(f"completes only {rate:.0f}% of enquiries")
+
     summary = (
         "Recommended because of "
         + ", ".join(reasons)
@@ -679,6 +714,8 @@ def _build_partner_card(rank: int, scored: dict, model_version: str) -> PartnerC
         trust_score=features["trust"],
         carbon_benefit_kg=features["carbon_saving"],
         historical_exchange_count=features["hist_count"],
+        seller_completion_rate=features.get("completion_rate"),
+        seller_total_requests=features.get("completion_total", 0),
         recommendation_summary=summary,
     )
 
@@ -754,8 +791,14 @@ def get_recommendations_by_requirement(
     )
 
     # ── 3-4. Score candidates ─────────────────────────
+    # Each seller's completion record, fetched once for the whole shortlist.
+    completions = seller_completion_rates(
+        db, [c["seller_plant"].id for c in candidates]
+    )
+
     scored = []
     for candidate in candidates:
+        candidate["completion"] = completions.get(candidate["seller_plant"].id, (0, 0))
         score_data = _score_seller_candidate(
             db,
             requirement=requirement,
@@ -1017,6 +1060,11 @@ def _score_seller_candidate(
     )
     history_score = min(hist_count * 10, 100)
 
+    # The seller's record across all its dealings, not just with this buyer.
+    # Supplied by the caller where it has been fetched in bulk.
+    accepted, total = candidate.get("completion", (0, 0))
+    completion_rate = (accepted / total * 100.0) if total else None
+
     # Transport cost
     quantity_tons = transport_tons(float(listing.quantity), listing.unit)
     transport_cost = estimate_transport_cost(distance_km, quantity_tons)
@@ -1097,6 +1145,8 @@ def _score_seller_candidate(
             "trust": trust,
             "history_score": history_score,
             "hist_count": hist_count,
+            "completion_rate": completion_rate,
+            "completion_total": total,
             "transport_cost": round(transport_cost, 2),
             "transport_emission": round(transport_emission, 2),
             "carbon_saving": round(carbon_saving, 2),
@@ -1196,6 +1246,16 @@ def _build_seller_partner_card(rank: int, scored: dict, model_version: str) -> P
     if features["carbon_saving"] > 500:
         reasons.append(f"significant carbon benefit ({features['carbon_saving']:.0f} kg CO₂e)")
 
+    # Often the deciding factor, and previously invisible: the model weighs a
+    # seller's overall record about three times as heavily as the terms of the
+    # deal in front of it.
+    rate = features.get("completion_rate")
+    if rate is not None and features.get("completion_total", 0) >= 5:
+        if rate >= 65:
+            reasons.append(f"completes {rate:.0f}% of enquiries")
+        elif rate < 45:
+            reasons.append(f"completes only {rate:.0f}% of enquiries")
+
     summary = (
         "Recommended because of "
         + ", ".join(reasons)
@@ -1218,6 +1278,8 @@ def _build_seller_partner_card(rank: int, scored: dict, model_version: str) -> P
         trust_score=features["trust"],
         carbon_benefit_kg=features["carbon_saving"],
         historical_exchange_count=features["hist_count"],
+        seller_completion_rate=features.get("completion_rate"),
+        seller_total_requests=features.get("completion_total", 0),
         recommendation_summary=summary,
     )
 
@@ -1315,12 +1377,18 @@ def get_recommendations_by_search(
     # Build a lightweight ghost requirement object for scoring
     ghost_quantity = request.quantity_needed if request.quantity_needed else None
 
+    completions = seller_completion_rates(
+        db, [c["seller_plant"].id for c in candidates]
+    )
+
     scored = []
     for candidate in candidates:
         listing = candidate["listing"]
         seller_plant = candidate["seller_plant"]
         seller_company = candidate["seller_company"]
         distance_km = candidate["distance_km"]
+        accepted, total = completions.get(seller_plant.id, (0, 0))
+        completion_rate = (accepted / total * 100.0) if total else None
 
         # Material compatibility is always 100 (matched by search)
         material_compat = 100.0
@@ -1439,6 +1507,8 @@ def get_recommendations_by_search(
                 "trust": trust,
                 "history_score": history_score,
                 "hist_count": hist_count,
+                "completion_rate": completion_rate,
+                "completion_total": total,
                 "transport_cost": round(transport_cost, 2),
                 "transport_emission": round(transport_emission, 2),
                 "carbon_saving": round(carbon_saving, 2),

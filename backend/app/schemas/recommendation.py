@@ -26,6 +26,18 @@ class PartnerExplanation(BaseModel):
     trust_score: float
     carbon_benefit_kg: float
     historical_exchange_count: int = 0
+
+    # How often this seller completes an enquiry, across all its dealings.
+    #
+    # Distinct from historical_exchange_count, which counts deals between
+    # these two specific parties and is usually zero. The model weighs a
+    # seller's overall record heavily -- swapping which plant a deal belongs
+    # to moves the score about three times as much as swapping the deal's own
+    # terms -- so without this a card can show a nearer, cheaper, more trusted
+    # seller ranked second with nothing on screen explaining why.
+    seller_completion_rate: float | None = None
+    seller_total_requests: int = 0
+
     recommendation_summary: str
 
 

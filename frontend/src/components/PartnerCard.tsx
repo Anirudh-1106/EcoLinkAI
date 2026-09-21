@@ -98,13 +98,37 @@ export const PartnerCardComponent: React.FC<PartnerCardProps> = ({ partner, onSe
           </span>
         </div>
 
+        {/* Track record. The model weighs a seller's overall completion rate
+            far more heavily than the terms of any single deal, so without it
+            on the card a nearer, cheaper, more trusted seller can rank second
+            with nothing on screen explaining why. */}
         <div className="bg-industrial-950/60 p-3 rounded-xl border border-industrial-800/80">
-          <span className="text-[10px] uppercase tracking-wider text-industrial-400 font-semibold block">Trust Score</span>
-          <span className="text-sm font-bold text-amber-400 mt-0.5 block flex items-center gap-1">
-            <ShieldCheck className="w-4 h-4" />
-            <span>{exp.trust_score.toFixed(1)} / 100</span>
+          <span className="text-[10px] uppercase tracking-wider text-industrial-400 font-semibold block">Track Record</span>
+          {exp.seller_completion_rate != null ? (
+            <span
+              className={`text-sm font-bold mt-0.5 block flex items-center gap-1 ${
+                exp.seller_completion_rate >= 65
+                  ? 'text-eco-400'
+                  : exp.seller_completion_rate < 45
+                    ? 'text-amber-400'
+                    : 'text-white'
+              }`}
+              title="Share of enquiries this seller has completed"
+            >
+              <ShieldCheck className="w-4 h-4" />
+              <span>{exp.seller_completion_rate.toFixed(0)}% completed</span>
+            </span>
+          ) : (
+            <span className="text-sm font-bold text-industrial-400 mt-0.5 block flex items-center gap-1">
+              <ShieldCheck className="w-4 h-4" />
+              <span>New seller</span>
+            </span>
+          )}
+          <span className="text-[11px] text-industrial-400">
+            {exp.seller_total_requests
+              ? `${exp.seller_total_requests} enquiries · trust ${exp.trust_score.toFixed(0)}`
+              : `no history yet · trust ${exp.trust_score.toFixed(0)}`}
           </span>
-          <span className="text-[11px] text-industrial-400">{exp.historical_exchange_count} past exchanges</span>
         </div>
 
         <div className="bg-industrial-950/60 p-3 rounded-xl border border-industrial-800/80">
