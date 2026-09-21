@@ -71,8 +71,21 @@ from app.utils.quantity import (
 logger = logging.getLogger(__name__)
 
 SEED = 2026
-BUYERS_PER_MATERIAL = 4
-COMPETITORS_PER_MATERIAL = 2
+
+# Sized to give message passing room to work. At 124 plants the accepted-deal
+# graph averaged 46 neighbours per node -- three quarters of everyone else --
+# so every neighbourhood looked alike and the embeddings collapsed toward a
+# common value. Spreading the same kind of trading over several hundred plants
+# keeps the average degree in the low teens, where a neighbourhood actually
+# describes the plant it belongs to.
+BUYERS_PER_MATERIAL = 30
+COMPETITORS_PER_MATERIAL = 18
+
+# Not every buyer approaches every seller: at this size that would be tens of
+# thousands of enquiries and a graph as dense as the one being fixed. Each
+# buyer contacts a random subset, which also leaves room for referrals to
+# matter -- a buyer who has not met a seller can still hear about them.
+SELLERS_CONTACTED_PER_BUYER = 8
 
 # Kerala's industrial districts, so partners are spread across the state
 # rather than stacked on the park.
@@ -264,9 +277,16 @@ def generate_market_partners() -> dict[str, int]:
 
         attempts = []
         for plant, material, requirement in buyer_plants:
-            for listing in sellers.get(material.id, []):
-                if listing.plant_id == plant.id:
-                    continue
+            candidates = [
+                listing for listing in sellers.get(material.id, [])
+                if listing.plant_id != plant.id
+            ]
+            # A subset, not everyone: approaching every seller of a material
+            # would connect the market almost completely, which is the shape
+            # this is meant to avoid.
+            if len(candidates) > SELLERS_CONTACTED_PER_BUYER:
+                candidates = rng.sample(candidates, SELLERS_CONTACTED_PER_BUYER)
+            for listing in candidates:
                 attempts.append((rng.uniform(0, 240), plant, requirement, listing))
         attempts.sort(key=lambda a: a[0])
 
