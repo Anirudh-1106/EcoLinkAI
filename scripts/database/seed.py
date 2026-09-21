@@ -53,10 +53,14 @@ from app.models.transport_rate import TransportRate
 from app.models.user import User, UserRole
 from app.models.waste_listing import WasteListing
 from app.utils.distance import (
-    estimate_carbon_saving,
     estimate_transport_cost,
     estimate_transport_emission,
     haversine_distance,
+)
+from app.utils.quantity import (
+    carbon_saving_for_quantity,
+    quantity_fit_pct,
+    transport_tons,
 )
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -70,17 +74,6 @@ OUTCOME_SEED = 42
 # Tuned so the share of accepted requests lands near 40%, matching the mix the
 # platform's analytics were built around.
 ACCEPT_INTERCEPT = -5.1
-
-
-def _quantity_fit(listing_quantity: float, requested_quantity: float) -> float:
-    """How closely the requested amount matches what is on offer, 0-100."""
-    if listing_quantity <= 0 or requested_quantity <= 0:
-        return 50.0
-    ratio = min(
-        listing_quantity / requested_quantity,
-        requested_quantity / listing_quantity,
-    )
-    return ratio * 100.0
 
 
 def _quality_fit(listing_purity: float | None, required_purity: float | None) -> float:
@@ -188,7 +181,8 @@ def seed_database():
         company_first_plant: dict[str, uuid.UUID] = {}
         plant_coords: dict[uuid.UUID, tuple[float, float]] = {}
         company_trust: dict[str, float] = {}
-        accepted_requests: dict[str, float] = {}  # csv request id -> distance km
+        # csv request id -> (distance km, listing unit, material carbon factor)
+        accepted_requests: dict[str, tuple[float, QuantityUnit, float | None]] = {}
         outcome_rng = random.Random(OUTCOME_SEED)
         material_map: dict[str, uuid.UUID] = {}
         waste_map: dict[str, uuid.UUID] = {}
@@ -494,6 +488,11 @@ def seed_database():
 
                     requested_qty = float(row["requested_quantity"])
                     listing_qty = float(listing_obj.quantity) if listing_obj else requested_qty
+                    # requested_qty is generated (in generate_exchange_requests.py)
+                    # as a fraction of this same listing's own quantity, so it is
+                    # always already in the listing's unit -- there is no separate
+                    # "requirement" unit to reconcile here.
+                    listing_unit = listing_obj.unit if listing_obj else QuantityUnit.KG
                     listing_purity = (
                         float(listing_obj.purity_percentage)
                         if listing_obj and listing_obj.purity_percentage is not None
@@ -505,11 +504,13 @@ def seed_database():
                         else None
                     )
 
-                    quantity_compat = _quantity_fit(listing_qty, requested_qty)
+                    quantity_compat = quantity_fit_pct(
+                        listing_qty, listing_unit, requested_qty, listing_unit
+                    )
                     quality_compat = _quality_fit(listing_purity, required_purity)
                     compatibility = _compatibility_score(quantity_compat, quality_compat)
 
-                    quantity_tons = max(requested_qty / 1000.0, 0.1)
+                    quantity_tons = transport_tons(requested_qty, listing_unit)
                     transport_cost = estimate_transport_cost(distance_km, quantity_tons)
                     transport_emission = estimate_transport_emission(distance_km, quantity_tons)
                     carbon_factor = (
@@ -517,7 +518,7 @@ def seed_database():
                         if listing_obj and listing_obj.material and listing_obj.material.carbon_factor
                         else None
                     )
-                    carbon_saving = estimate_carbon_saving(requested_qty, carbon_factor)
+                    carbon_saving = carbon_saving_for_quantity(requested_qty, listing_unit, carbon_factor)
 
                     # ── Outcome follows from those features ───────────
                     # The generated CSV assigns a status by fixed-weight random
@@ -545,9 +546,10 @@ def seed_database():
                             partnership_history.get(pair_key, 0) + 1
                         )
                         # Only accepted requests can go on to become a real
-                        # transaction; the distance is kept so the exchange's
-                        # emissions can be computed from the actual route.
-                        accepted_requests[r_id] = distance_km
+                        # transaction; kept so the exchange's emissions and
+                        # carbon saving can be computed from the actual route
+                        # and correctly converted, not assumed to be kg.
+                        accepted_requests[r_id] = (distance_km, listing_unit, carbon_factor)
                     status_dict = {
                         "Pending": ExchangeRequestStatus.PENDING,
                         "Accepted": ExchangeRequestStatus.ACCEPTED,
@@ -600,9 +602,18 @@ def seed_database():
                         continue
 
                     final_quantity = Decimal(row["final_quantity"])
-                    quantity_tons = max(float(final_quantity) / 1000.0, 0.1)
-                    emission = estimate_transport_emission(
-                        accepted_requests[r_id], quantity_tons
+                    # final_quantity is generated (in generate_transactions.py)
+                    # as a fraction of the original request's quantity, so it is
+                    # in the same listing unit that request was denominated in.
+                    accepted_distance_km, accepted_unit, accepted_carbon_factor = accepted_requests[r_id]
+                    quantity_tons = transport_tons(float(final_quantity), accepted_unit)
+                    emission = estimate_transport_emission(accepted_distance_km, quantity_tons)
+                    # Computed here rather than trusting the CSV's carbon_saving_kg
+                    # column, which was generated as final_quantity * a random
+                    # factor with no unit conversion -- the same bug this whole
+                    # fix addresses, just one step further upstream.
+                    carbon_saving = carbon_saving_for_quantity(
+                        float(final_quantity), accepted_unit, accepted_carbon_factor
                     )
 
                     ex = Exchange(
@@ -614,7 +625,7 @@ def seed_database():
                         transport_cost=Decimal(row["transport_cost"]),
                         actual_quantity=final_quantity,
                         actual_carbon_emission=Decimal(str(round(emission, 2))),
-                        actual_carbon_saving=Decimal(row["carbon_saving_kg"]),
+                        actual_carbon_saving=Decimal(str(round(carbon_saving, 2))),
                         delivered_at=datetime.strptime(row["transaction_date"], "%Y-%m-%d") if row.get("transaction_date") else datetime.now(),
                     )
                     db.add(ex)

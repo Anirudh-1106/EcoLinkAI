@@ -19,6 +19,7 @@ from decimal import Decimal
 from sqlalchemy import func, or_
 from sqlalchemy.orm import Session, joinedload
 
+from app.enums.common import QuantityUnit
 from app.enums.exchange import (
     ExchangeRequestStatus,
     RequirementStatus,
@@ -44,10 +45,15 @@ from app.schemas.recommendation import (
 )
 from app.services import graph_cache
 from app.utils.distance import (
-    estimate_carbon_saving,
     estimate_transport_cost,
     estimate_transport_emission,
     haversine_distance,
+)
+from app.utils.quantity import (
+    carbon_saving_for_quantity,
+    price_per_kg,
+    quantity_fit_pct,
+    transport_tons,
 )
 
 logger = logging.getLogger(__name__)
@@ -414,13 +420,13 @@ def _score_candidate(
     # Material compatibility (exact match = 100, no req = 50)
     material_compat = 100.0 if requirement else 50.0
 
-    # Quantity compatibility
+    # Quantity compatibility -- converted to a common unit first; a listing
+    # in tons and a requirement in kg are not the same number.
     if requirement:
-        qty_ratio = min(
-            float(listing.quantity) / float(requirement.quantity),
-            float(requirement.quantity) / float(listing.quantity),
+        quantity_compat = quantity_fit_pct(
+            float(listing.quantity), listing.unit,
+            float(requirement.quantity), requirement.unit,
         )
-        quantity_compat = qty_ratio * 100.0
     else:
         quantity_compat = 50.0
 
@@ -462,9 +468,9 @@ def _score_candidate(
     history_score = min(hist_count * 10, 100)
 
     # Transport cost
-    quantity_tons = float(listing.quantity) / 1000.0
-    transport_cost = estimate_transport_cost(distance_km, max(quantity_tons, 0.1))
-    transport_emission = estimate_transport_emission(distance_km, max(quantity_tons, 0.1))
+    quantity_tons = transport_tons(float(listing.quantity), listing.unit)
+    transport_cost = estimate_transport_cost(distance_km, quantity_tons)
+    transport_emission = estimate_transport_emission(distance_km, quantity_tons)
 
     # Carbon saving
     carbon_factor = (
@@ -472,7 +478,7 @@ def _score_candidate(
         if listing.material.carbon_factor
         else None
     )
-    carbon_saving = estimate_carbon_saving(float(listing.quantity), carbon_factor)
+    carbon_saving = carbon_saving_for_quantity(float(listing.quantity), listing.unit, carbon_factor)
 
     # ── Baseline weighted score ───────────────────────
     # Weights from constants/ai.py
@@ -873,12 +879,12 @@ def _score_seller_candidate(
         else CATEGORY_MATCH_COMPAT
     )
 
-    # Quantity compatibility
-    qty_ratio = min(
-        float(listing.quantity) / float(requirement.quantity),
-        float(requirement.quantity) / float(listing.quantity),
+    # Quantity compatibility -- converted to a common unit first; a listing
+    # in tons and a requirement in kg are not the same number.
+    quantity_compat = quantity_fit_pct(
+        float(listing.quantity), listing.unit,
+        float(requirement.quantity), requirement.unit,
     )
-    quantity_compat = qty_ratio * 100.0
 
     # Quality compatibility
     quality_compat = 100.0
@@ -892,17 +898,21 @@ def _score_seller_candidate(
                 * 100
             )
 
-    # Price compatibility (if buyer has a budget and seller has a price)
+    # Price compatibility (if buyer has a budget and seller has a price).
+    # Both prices are "per {unit}", so they're normalised to price-per-kg
+    # before comparing -- a ton-priced listing at Rs91/ton is Rs0.091/kg,
+    # not 91x a kg-priced budget of Rs50/kg.
     price_compat = 100.0
     if requirement.maximum_budget_per_unit and listing.price_per_unit:
-        if float(listing.price_per_unit) <= float(requirement.maximum_budget_per_unit):
-            price_compat = 100.0
-        else:
-            price_compat = (
-                float(requirement.maximum_budget_per_unit)
-                / float(listing.price_per_unit)
-                * 100
-            )
+        listing_price_kg = price_per_kg(float(listing.price_per_unit), listing.unit)
+        budget_price_kg = price_per_kg(
+            float(requirement.maximum_budget_per_unit), requirement.unit
+        )
+        if listing_price_kg is not None and budget_price_kg is not None:
+            if listing_price_kg <= budget_price_kg:
+                price_compat = 100.0
+            else:
+                price_compat = (budget_price_kg / listing_price_kg) * 100
 
     # Distance score (closer = better, max 500km reference)
     distance_score = max(0, (1 - distance_km / 500.0)) * 100
@@ -930,9 +940,9 @@ def _score_seller_candidate(
     history_score = min(hist_count * 10, 100)
 
     # Transport cost
-    quantity_tons = float(listing.quantity) / 1000.0
-    transport_cost = estimate_transport_cost(distance_km, max(quantity_tons, 0.1))
-    transport_emission = estimate_transport_emission(distance_km, max(quantity_tons, 0.1))
+    quantity_tons = transport_tons(float(listing.quantity), listing.unit)
+    transport_cost = estimate_transport_cost(distance_km, quantity_tons)
+    transport_emission = estimate_transport_emission(distance_km, quantity_tons)
 
     # Carbon saving
     carbon_factor = (
@@ -940,7 +950,7 @@ def _score_seller_candidate(
         if listing.material.carbon_factor
         else None
     )
-    carbon_saving = estimate_carbon_saving(float(listing.quantity), carbon_factor)
+    carbon_saving = carbon_saving_for_quantity(float(listing.quantity), listing.unit, carbon_factor)
 
     # ── Baseline weighted score ───────────────────────
     baseline_score = (
@@ -1190,13 +1200,14 @@ def get_recommendations_by_search(
         # Material compatibility is always 100 (matched by search)
         material_compat = 100.0
 
-        # Quantity compatibility
+        # Quantity compatibility. The search filter's "quantity needed" has no
+        # unit field of its own -- the UI labels it in kg -- so it's compared
+        # against the listing's quantity converted to kg, not the raw number.
         if ghost_quantity:
-            qty_ratio = min(
-                float(listing.quantity) / ghost_quantity,
-                ghost_quantity / float(listing.quantity),
+            quantity_compat = quantity_fit_pct(
+                float(listing.quantity), listing.unit,
+                ghost_quantity, QuantityUnit.KG,
             )
-            quantity_compat = qty_ratio * 100.0
         else:
             quantity_compat = 100.0  # User didn't specify, assume perfect match
 
@@ -1232,9 +1243,9 @@ def get_recommendations_by_search(
         history_score = min(hist_count * 10, 100)
 
         # Transport
-        quantity_tons = float(listing.quantity) / 1000.0
-        transport_cost = estimate_transport_cost(distance_km, max(quantity_tons, 0.1))
-        transport_emission = estimate_transport_emission(distance_km, max(quantity_tons, 0.1))
+        quantity_tons = transport_tons(float(listing.quantity), listing.unit)
+        transport_cost = estimate_transport_cost(distance_km, quantity_tons)
+        transport_emission = estimate_transport_emission(distance_km, quantity_tons)
 
         # Carbon
         carbon_factor = (
@@ -1242,7 +1253,7 @@ def get_recommendations_by_search(
             if listing.material.carbon_factor
             else None
         )
-        carbon_saving = estimate_carbon_saving(float(listing.quantity), carbon_factor)
+        carbon_saving = carbon_saving_for_quantity(float(listing.quantity), listing.unit, carbon_factor)
 
         # Weighted score (same weights as seller flow)
         baseline_score = (
