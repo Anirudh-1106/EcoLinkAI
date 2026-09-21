@@ -1,0 +1,577 @@
+company_name,role,material,plant_name,district,latitude,longitude,trust_score
+Chalakudy Composite Recovery Systems,buyer,Rubber Dust,Chalakudy Composite Recovery Systems Facility,Kollam,8.96121,76.625575,59.76
+Arabian Metals Reprocessing Ltd,buyer,Rubber Dust,Arabian Metals Reprocessing Ltd Facility,Thiruvananthapuram,8.473038,76.840132,72.64
+Periyar Green Recovery Systems,buyer,Rubber Dust,Periyar Green Recovery Systems Facility,Kozhikode,11.378717,75.783661,63.41
+Chalakudy Board Resource Recovery,buyer,Rubber Dust,Chalakudy Board Resource Recovery Facility,Ernakulam,9.867537,76.350507,66.5
+Anamudi Fibre Processing LLP,buyer,Rubber Dust,Anamudi Fibre Processing LLP Facility,Kollam,8.868756,76.620017,77.18
+Arabian Composite Materials Pvt Ltd,buyer,Rubber Dust,Arabian Composite Materials Pvt Ltd Facility,Thiruvananthapuram,8.600452,77.047654,75.72
+Chalakudy Composite Reprocessing Ltd,buyer,Rubber Dust,Chalakudy Composite Reprocessing Ltd Facility,Alappuzha,9.528501,76.328431,73.8
+Kuttanad Industrial Processing LLP,buyer,Rubber Dust,Kuttanad Industrial Processing LLP Facility,Palakkad,10.859875,76.631268,65.04
+Bharata Fibre Processing LLP,buyer,Rubber Dust,Bharata Fibre Processing LLP Facility,Alappuzha,9.464485,76.266761,81.23
+Pamba Industrial Reclamation Co,buyer,Rubber Dust,Pamba Industrial Reclamation Co Facility,Thiruvananthapuram,8.513937,77.011456,87.32
+Anamudi Element Processing LLP,buyer,Rubber Dust,Anamudi Element Processing LLP Facility,Ernakulam,10.087233,76.335552,73.12
+Chalakudy Polymer Reprocessing Ltd,buyer,Rubber Dust,Chalakudy Polymer Reprocessing Ltd Facility,Alappuzha,9.378151,76.358154,71.45
+Bharata Fibre Resource Recovery,buyer,Rubber Dust,Bharata Fibre Resource Recovery Facility,Thiruvananthapuram,8.564535,76.969098,59.83
+Wayanad Element Materials Pvt Ltd,buyer,Rubber Dust,Wayanad Element Materials Pvt Ltd Facility,Alappuzha,9.509093,76.332316,92.05
+Chalakudy Timber Resource Recovery,buyer,Rubber Dust,Chalakudy Timber Resource Recovery Facility,Ernakulam,9.983448,76.273598,58.38
+Southern Green Reclamation Co,buyer,Rubber Dust,Southern Green Reclamation Co Facility,Kollam,8.99749,76.720917,70.57
+Vembanad Foundry Materials Pvt Ltd,buyer,Rubber Dust,Vembanad Foundry Materials Pvt Ltd Facility,Kollam,8.810134,76.618807,68.04
+Southern Composite Materials Pvt Ltd,buyer,Rubber Dust,Southern Composite Materials Pvt Ltd Facility,Palakkad,10.677557,76.665544,83.44
+Coastal Board Circular Industries,buyer,Rubber Dust,Coastal Board Circular Industries Facility,Thiruvananthapuram,8.592598,76.940645,74.35
+Pamba Metals Recovery Systems,buyer,Rubber Dust,Pamba Metals Recovery Systems Facility,Palakkad,10.739878,76.617376,65.91
+Periyar Fibre Processing LLP,buyer,Rubber Dust,Periyar Fibre Processing LLP Facility,Ernakulam,9.9683,76.30644,66.51
+Chalakudy Foundry Reclamation Co,buyer,Rubber Dust,Chalakudy Foundry Reclamation Co Facility,Kollam,8.871121,76.682095,64.25
+Nilgiri Board Circular Industries,buyer,Rubber Dust,Nilgiri Board Circular Industries Facility,Kannur,11.780826,75.422243,88.86
+Malabar Industrial Reprocessing Ltd,buyer,Rubber Dust,Malabar Industrial Reprocessing Ltd Facility,Ernakulam,10.09077,76.221006,77.51
+Nilgiri Green Resource Recovery,buyer,Rubber Dust,Nilgiri Green Resource Recovery Facility,Kollam,8.914346,76.50944,80.84
+Anamudi Polymer Recycling Works,buyer,Rubber Dust,Anamudi Polymer Recycling Works Facility,Kozhikode,11.161948,75.665915,71.47
+Bharata Foundry Recycling Works,buyer,Rubber Dust,Bharata Foundry Recycling Works Facility,Kannur,11.976439,75.326255,89.3
+Pamba Fibre Resource Recovery,buyer,Rubber Dust,Pamba Fibre Resource Recovery Facility,Kannur,11.847871,75.477695,59.78
+Backwater Element Reprocessing Ltd,buyer,Rubber Dust,Backwater Element Reprocessing Ltd Facility,Kannur,11.825766,75.350393,66.26
+Coastal Alloy Reprocessing Ltd,buyer,Rubber Dust,Coastal Alloy Reprocessing Ltd Facility,Kollam,8.801588,76.524264,77.43
+Periyar Salvage Recovery Systems,competitor,Rubber Dust,Periyar Salvage Recovery Systems Facility,Ernakulam,9.952124,76.366284,66.99
+Chalakudy Industrial Materials Pvt Ltd,competitor,Rubber Dust,Chalakudy Industrial Materials Pvt Ltd Facility,Palakkad,10.721481,76.538783,78.69
+Nilgiri Polymer Resource Recovery,competitor,Rubber Dust,Nilgiri Polymer Resource Recovery Facility,Ernakulam,9.943371,76.304808,73.75
+Kuttanad Fibre Materials Pvt Ltd,competitor,Rubber Dust,Kuttanad Fibre Materials Pvt Ltd Facility,Thrissur,10.630135,76.311851,68.82
+Pamba Composite Reclamation Co,competitor,Rubber Dust,Pamba Composite Reclamation Co Facility,Kannur,11.840686,75.403283,83.16
+Coastal Foundry Recycling Works,competitor,Rubber Dust,Coastal Foundry Recycling Works Facility,Palakkad,10.894806,76.730101,57.52
+Nilgiri Element Resource Recovery,competitor,Rubber Dust,Nilgiri Element Resource Recovery Facility,Kannur,11.787611,75.427885,53.37
+Anamudi Fibre Materials Pvt Ltd,competitor,Rubber Dust,Anamudi Fibre Materials Pvt Ltd Facility,Palakkad,10.898339,76.559981,72.91
+Coastal Industrial Resource Recovery,competitor,Rubber Dust,Coastal Industrial Resource Recovery Facility,Thrissur,10.53748,76.180134,79.49
+Anamudi Green Materials Pvt Ltd,competitor,Rubber Dust,Anamudi Green Materials Pvt Ltd Facility,Alappuzha,9.551375,76.225883,74.24
+Pamba Green Reprocessing Ltd,competitor,Rubber Dust,Pamba Green Reprocessing Ltd Facility,Thiruvananthapuram,8.492419,76.868486,76.71
+Anamudi Industrial Resource Recovery,competitor,Rubber Dust,Anamudi Industrial Resource Recovery Facility,Kollam,8.928611,76.577572,54.3
+Malabar Metals Reprocessing Ltd,competitor,Rubber Dust,Malabar Metals Reprocessing Ltd Facility,Kannur,11.948521,75.437111,82.61
+Chalakudy Element Processing LLP,competitor,Rubber Dust,Chalakudy Element Processing LLP Facility,Kannur,11.851237,75.292818,72.46
+Pamba Alloy Recovery Systems,competitor,Rubber Dust,Pamba Alloy Recovery Systems Facility,Palakkad,10.71779,76.640801,81.49
+Pamba Foundry Resource Recovery,competitor,Rubber Dust,Pamba Foundry Resource Recovery Facility,Kozhikode,11.173687,75.81085,54.71
+Kuttanad Salvage Recovery Systems,competitor,Rubber Dust,Kuttanad Salvage Recovery Systems Facility,Alappuzha,9.383313,76.390751,61.74
+Anamudi Green Reclamation Co,competitor,Rubber Dust,Anamudi Green Reclamation Co Facility,Thrissur,10.422008,76.190343,83.89
+Pamba Foundry Processing LLP,buyer,Plywood Waste,Pamba Foundry Processing LLP Facility,Palakkad,10.747999,76.543799,78.16
+Bharata Foundry Resource Recovery,buyer,Plywood Waste,Bharata Foundry Resource Recovery Facility,Thrissur,10.557078,76.183064,68.06
+Vembanad Composite Materials Pvt Ltd,buyer,Plywood Waste,Vembanad Composite Materials Pvt Ltd Facility,Thrissur,10.576924,76.114628,61.23
+Anamudi Polymer Materials Pvt Ltd,buyer,Plywood Waste,Anamudi Polymer Materials Pvt Ltd Facility,Kozhikode,11.270856,75.783622,59.32
+Periyar Alloy Processing LLP,buyer,Plywood Waste,Periyar Alloy Processing LLP Facility,Kannur,11.815784,75.462382,68.65
+Backwater Foundry Circular Industries,buyer,Plywood Waste,Backwater Foundry Circular Industries Facility,Kannur,11.84271,75.37335,74.23
+Wayanad Element Resource Recovery,buyer,Plywood Waste,Wayanad Element Resource Recovery Facility,Kollam,9.008648,76.642038,71.43
+Periyar Timber Reprocessing Ltd,buyer,Plywood Waste,Periyar Timber Reprocessing Ltd Facility,Kannur,11.991826,75.45764,67.72
+Kuttanad Metals Circular Industries,buyer,Plywood Waste,Kuttanad Metals Circular Industries Facility,Palakkad,10.67363,76.592615,76.12
+Bharata Element Processing LLP,buyer,Plywood Waste,Bharata Element Processing LLP Facility,Kozhikode,11.171611,75.823238,86.67
+Coastal Alloy Materials Pvt Ltd,buyer,Plywood Waste,Coastal Alloy Materials Pvt Ltd Facility,Thrissur,10.582498,76.125902,79.61
+Bharata Industrial Materials Pvt Ltd,buyer,Plywood Waste,Bharata Industrial Materials Pvt Ltd Facility,Kozhikode,11.172205,75.891545,89.62
+Kuttanad Timber Recovery Systems,buyer,Plywood Waste,Kuttanad Timber Recovery Systems Facility,Ernakulam,10.015494,76.297438,57.15
+Vembanad Board Recovery Systems,buyer,Plywood Waste,Vembanad Board Recovery Systems Facility,Kollam,8.810404,76.571981,90.52
+Periyar Polymer Materials Pvt Ltd,buyer,Plywood Waste,Periyar Polymer Materials Pvt Ltd Facility,Kozhikode,11.259583,75.868981,69.12
+Kuttanad Foundry Circular Industries,buyer,Plywood Waste,Kuttanad Foundry Circular Industries Facility,Thrissur,10.496964,76.223007,61.83
+Kuttanad Element Processing LLP,buyer,Plywood Waste,Kuttanad Element Processing LLP Facility,Kozhikode,11.363229,75.794564,83.2
+Periyar Element Materials Pvt Ltd,buyer,Plywood Waste,Periyar Element Materials Pvt Ltd Facility,Kollam,8.800835,76.542956,59.63
+Kuttanad Board Resource Recovery,buyer,Plywood Waste,Kuttanad Board Resource Recovery Facility,Ernakulam,9.930508,76.267554,56.22
+Malabar Timber Circular Industries,buyer,Plywood Waste,Malabar Timber Circular Industries Facility,Ernakulam,10.094321,76.289344,69.17
+Kuttanad Metals Processing LLP,buyer,Plywood Waste,Kuttanad Metals Processing LLP Facility,Kozhikode,11.251254,75.791463,77.41
+Malabar Alloy Recycling Works,buyer,Plywood Waste,Malabar Alloy Recycling Works Facility,Thiruvananthapuram,8.42096,77.038015,66.04
+Nilgiri Polymer Materials Pvt Ltd,buyer,Plywood Waste,Nilgiri Polymer Materials Pvt Ltd Facility,Alappuzha,9.593662,76.251037,93.38
+Wayanad Metals Reprocessing Ltd,buyer,Plywood Waste,Wayanad Metals Reprocessing Ltd Facility,Thiruvananthapuram,8.579885,77.02216,55.73
+Wayanad Composite Recovery Systems,buyer,Plywood Waste,Wayanad Composite Recovery Systems Facility,Alappuzha,9.435324,76.425485,67.89
+Arabian Foundry Recovery Systems,buyer,Plywood Waste,Arabian Foundry Recovery Systems Facility,Kollam,8.889081,76.498024,72.54
+Western Ghats Fibre Reclamation Co,buyer,Plywood Waste,Western Ghats Fibre Reclamation Co Facility,Kozhikode,11.202954,75.76401,86.38
+Arabian Green Circular Industries,buyer,Plywood Waste,Arabian Green Circular Industries Facility,Kollam,8.913975,76.627219,61.65
+Southern Composite Circular Industries,buyer,Plywood Waste,Southern Composite Circular Industries Facility,Palakkad,10.678967,76.715223,94.6
+Western Ghats Element Reprocessing Ltd,buyer,Plywood Waste,Western Ghats Element Reprocessing Ltd Facility,Thiruvananthapuram,8.619954,76.948528,61.71
+Chalakudy Composite Processing LLP,competitor,Plywood Waste,Chalakudy Composite Processing LLP Facility,Thiruvananthapuram,8.415383,76.838462,68.68
+Malabar Element Materials Pvt Ltd,competitor,Plywood Waste,Malabar Element Materials Pvt Ltd Facility,Kozhikode,11.270189,75.784406,51.74
+Malabar Composite Recycling Works,competitor,Plywood Waste,Malabar Composite Recycling Works Facility,Alappuzha,9.381731,76.311401,71.47
+Anamudi Industrial Materials Pvt Ltd,competitor,Plywood Waste,Anamudi Industrial Materials Pvt Ltd Facility,Kannur,11.866846,75.254946,72.37
+Pamba Foundry Materials Pvt Ltd,competitor,Plywood Waste,Pamba Foundry Materials Pvt Ltd Facility,Thrissur,10.572411,76.171775,70.67
+Kuttanad Salvage Reclamation Co,competitor,Plywood Waste,Kuttanad Salvage Reclamation Co Facility,Alappuzha,9.501055,76.304231,88.63
+Backwater Alloy Materials Pvt Ltd,competitor,Plywood Waste,Backwater Alloy Materials Pvt Ltd Facility,Thrissur,10.481251,76.2219,65.09
+Bharata Timber Processing LLP,competitor,Plywood Waste,Bharata Timber Processing LLP Facility,Alappuzha,9.405252,76.249322,53.88
+Coastal Salvage Recycling Works,competitor,Plywood Waste,Coastal Salvage Recycling Works Facility,Kozhikode,11.245379,75.689557,67.77
+Wayanad Industrial Resource Recovery,competitor,Plywood Waste,Wayanad Industrial Resource Recovery Facility,Alappuzha,9.485127,76.368093,67.55
+Western Ghats Element Resource Recovery,competitor,Plywood Waste,Western Ghats Element Resource Recovery Facility,Thrissur,10.578617,76.276787,71.92
+Coastal Alloy Reclamation Co,competitor,Plywood Waste,Coastal Alloy Reclamation Co Facility,Palakkad,10.821389,76.629506,54.06
+Western Ghats Timber Resource Recovery,competitor,Plywood Waste,Western Ghats Timber Resource Recovery Facility,Alappuzha,9.387088,76.367886,60.55
+Kuttanad Foundry Recycling Works,competitor,Plywood Waste,Kuttanad Foundry Recycling Works Facility,Palakkad,10.813541,76.711896,67.79
+Bharata Board Reclamation Co,competitor,Plywood Waste,Bharata Board Reclamation Co Facility,Kozhikode,11.338403,75.744574,89.36
+Pamba Composite Recovery Systems,competitor,Plywood Waste,Pamba Composite Recovery Systems Facility,Kannur,11.839995,75.428742,74.91
+Anamudi Fibre Circular Industries,competitor,Plywood Waste,Anamudi Fibre Circular Industries Facility,Ernakulam,9.951359,76.310783,65.74
+Anamudi Composite Reclamation Co,competitor,Plywood Waste,Anamudi Composite Reclamation Co Facility,Kollam,8.847745,76.494925,63.88
+Pamba Composite Processing LLP,buyer,Aluminium Roll Scrap,Pamba Composite Processing LLP Facility,Kollam,8.855012,76.537568,71.55
+Bharata Timber Reprocessing Ltd,buyer,Aluminium Roll Scrap,Bharata Timber Reprocessing Ltd Facility,Palakkad,10.671642,76.646105,91.63
+Southern Salvage Materials Pvt Ltd,buyer,Aluminium Roll Scrap,Southern Salvage Materials Pvt Ltd Facility,Kollam,8.875956,76.510585,74.02
+Pamba Timber Resource Recovery,buyer,Aluminium Roll Scrap,Pamba Timber Resource Recovery Facility,Thiruvananthapuram,8.46605,77.008968,93.05
+Arabian Alloy Resource Recovery,buyer,Aluminium Roll Scrap,Arabian Alloy Resource Recovery Facility,Kollam,8.849799,76.699982,58.03
+Backwater Polymer Resource Recovery,buyer,Aluminium Roll Scrap,Backwater Polymer Resource Recovery Facility,Palakkad,10.793262,76.604433,75.95
+Coastal Green Resource Recovery,buyer,Aluminium Roll Scrap,Coastal Green Resource Recovery Facility,Alappuzha,9.606741,76.29351,85.93
+Wayanad Board Reprocessing Ltd,buyer,Aluminium Roll Scrap,Wayanad Board Reprocessing Ltd Facility,Kannur,11.913142,75.347841,78.8
+Bharata Board Processing LLP,buyer,Aluminium Roll Scrap,Bharata Board Processing LLP Facility,Palakkad,10.806944,76.671456,94.03
+Southern Green Recovery Systems,buyer,Aluminium Roll Scrap,Southern Green Recovery Systems Facility,Alappuzha,9.489935,76.363566,86.69
+Anamudi Industrial Recovery Systems,buyer,Aluminium Roll Scrap,Anamudi Industrial Recovery Systems Facility,Kannur,11.826508,75.457943,57.19
+Wayanad Green Processing LLP,buyer,Aluminium Roll Scrap,Wayanad Green Processing LLP Facility,Thiruvananthapuram,8.42885,76.963606,64.16
+Malabar Element Reprocessing Ltd,buyer,Aluminium Roll Scrap,Malabar Element Reprocessing Ltd Facility,Thrissur,10.62548,76.285017,89.97
+Pamba Fibre Recycling Works,buyer,Aluminium Roll Scrap,Pamba Fibre Recycling Works Facility,Alappuzha,9.559642,76.425713,56.47
+Backwater Board Materials Pvt Ltd,buyer,Aluminium Roll Scrap,Backwater Board Materials Pvt Ltd Facility,Thiruvananthapuram,8.54968,76.988409,72.65
+Bharata Polymer Resource Recovery,buyer,Aluminium Roll Scrap,Bharata Polymer Resource Recovery Facility,Ernakulam,10.048384,76.202587,72.64
+Western Ghats Green Materials Pvt Ltd,buyer,Aluminium Roll Scrap,Western Ghats Green Materials Pvt Ltd Facility,Ernakulam,10.044711,76.345434,75.95
+Pamba Polymer Reclamation Co,buyer,Aluminium Roll Scrap,Pamba Polymer Reclamation Co Facility,Kollam,8.911681,76.516351,69.38
+Pamba Fibre Reprocessing Ltd,buyer,Aluminium Roll Scrap,Pamba Fibre Reprocessing Ltd Facility,Kollam,8.938728,76.605456,76.56
+Kuttanad Metals Recovery Systems,buyer,Aluminium Roll Scrap,Kuttanad Metals Recovery Systems Facility,Kozhikode,11.199131,75.815613,62.77
+Arabian Industrial Recycling Works,buyer,Aluminium Roll Scrap,Arabian Industrial Recycling Works Facility,Ernakulam,10.098978,76.262736,73.95
+Coastal Industrial Processing LLP,buyer,Aluminium Roll Scrap,Coastal Industrial Processing LLP Facility,Kozhikode,11.233024,75.849976,56.36
+Malabar Foundry Reclamation Co,buyer,Aluminium Roll Scrap,Malabar Foundry Reclamation Co Facility,Palakkad,10.734848,76.566227,93.71
+Malabar Composite Circular Industries,buyer,Aluminium Roll Scrap,Malabar Composite Circular Industries Facility,Palakkad,10.891614,76.537519,66.64
+Nilgiri Salvage Reclamation Co,buyer,Aluminium Roll Scrap,Nilgiri Salvage Reclamation Co Facility,Alappuzha,9.507847,76.366533,58.75
+Wayanad Salvage Recycling Works,buyer,Aluminium Roll Scrap,Wayanad Salvage Recycling Works Facility,Alappuzha,9.528185,76.300941,92.46
+Nilgiri Metals Recycling Works,buyer,Aluminium Roll Scrap,Nilgiri Metals Recycling Works Facility,Palakkad,10.770712,76.758804,75.99
+Malabar Element Reclamation Co,buyer,Aluminium Roll Scrap,Malabar Element Reclamation Co Facility,Palakkad,10.896486,76.598211,81.38
+Malabar Polymer Processing LLP,buyer,Aluminium Roll Scrap,Malabar Polymer Processing LLP Facility,Thiruvananthapuram,8.488369,76.911102,73.41
+Backwater Salvage Resource Recovery,buyer,Aluminium Roll Scrap,Backwater Salvage Resource Recovery Facility,Ernakulam,9.963028,76.284567,79.09
+Backwater Green Circular Industries,competitor,Aluminium Roll Scrap,Backwater Green Circular Industries Facility,Alappuzha,9.55367,76.412555,84.97
+Vembanad Timber Circular Industries,competitor,Aluminium Roll Scrap,Vembanad Timber Circular Industries Facility,Kollam,8.94643,76.548219,60.72
+Wayanad Metals Recycling Works,competitor,Aluminium Roll Scrap,Wayanad Metals Recycling Works Facility,Kozhikode,11.205012,75.873858,84.18
+Wayanad Green Recovery Systems,competitor,Aluminium Roll Scrap,Wayanad Green Recovery Systems Facility,Palakkad,10.688662,76.702561,71.01
+Western Ghats Industrial Resource Recovery,competitor,Aluminium Roll Scrap,Western Ghats Industrial Resource Recovery Facility,Kannur,11.757746,75.318393,87.94
+Bharata Fibre Materials Pvt Ltd,competitor,Aluminium Roll Scrap,Bharata Fibre Materials Pvt Ltd Facility,Kollam,8.837014,76.558034,89.36
+Wayanad Fibre Recycling Works,competitor,Aluminium Roll Scrap,Wayanad Fibre Recycling Works Facility,Thiruvananthapuram,8.420783,77.028737,80.21
+Bharata Polymer Reprocessing Ltd,competitor,Aluminium Roll Scrap,Bharata Polymer Reprocessing Ltd Facility,Thiruvananthapuram,8.510585,76.82881,50.84
+Western Ghats Polymer Resource Recovery,competitor,Aluminium Roll Scrap,Western Ghats Polymer Resource Recovery Facility,Thiruvananthapuram,8.530162,76.93745,64.93
+Chalakudy Metals Resource Recovery,competitor,Aluminium Roll Scrap,Chalakudy Metals Resource Recovery Facility,Kollam,8.86937,76.579414,65.99
+Southern Board Circular Industries,competitor,Aluminium Roll Scrap,Southern Board Circular Industries Facility,Kozhikode,11.139627,75.662073,51.99
+Periyar Green Materials Pvt Ltd,competitor,Aluminium Roll Scrap,Periyar Green Materials Pvt Ltd Facility,Kollam,8.968612,76.552855,67.23
+Vembanad Polymer Reclamation Co,competitor,Aluminium Roll Scrap,Vembanad Polymer Reclamation Co Facility,Kollam,8.962019,76.638952,70.45
+Western Ghats Foundry Recycling Works,competitor,Aluminium Roll Scrap,Western Ghats Foundry Recycling Works Facility,Thrissur,10.609138,76.331981,70.33
+Pamba Alloy Reprocessing Ltd,competitor,Aluminium Roll Scrap,Pamba Alloy Reprocessing Ltd Facility,Ernakulam,10.081199,76.416332,84.98
+Southern Salvage Recovery Systems,competitor,Aluminium Roll Scrap,Southern Salvage Recovery Systems Facility,Kannur,11.986839,75.305555,60.39
+Arabian Foundry Circular Industries,competitor,Aluminium Roll Scrap,Arabian Foundry Circular Industries Facility,Kannur,11.815652,75.424368,89.5
+Anamudi Timber Materials Pvt Ltd,competitor,Aluminium Roll Scrap,Anamudi Timber Materials Pvt Ltd Facility,Palakkad,10.804114,76.773176,60.62
+Coastal Board Materials Pvt Ltd,buyer,Wood Waste,Coastal Board Materials Pvt Ltd Facility,Ernakulam,9.868083,76.25048,90.73
+Southern Salvage Recycling Works,buyer,Wood Waste,Southern Salvage Recycling Works Facility,Kannur,11.964986,75.405744,94.12
+Periyar Metals Processing LLP,buyer,Wood Waste,Periyar Metals Processing LLP Facility,Kollam,8.991606,76.507193,55.44
+Arabian Green Recovery Systems,buyer,Wood Waste,Arabian Green Recovery Systems Facility,Palakkad,10.841757,76.581502,89.64
+Wayanad Polymer Materials Pvt Ltd,buyer,Wood Waste,Wayanad Polymer Materials Pvt Ltd Facility,Palakkad,10.689622,76.740103,91.61
+Southern Foundry Recycling Works,buyer,Wood Waste,Southern Foundry Recycling Works Facility,Palakkad,10.671472,76.565546,93.44
+Western Ghats Industrial Circular Industries,buyer,Wood Waste,Western Ghats Industrial Circular Industries Facility,Kannur,11.784852,75.321349,79.06
+Malabar Polymer Recycling Works,buyer,Wood Waste,Malabar Polymer Recycling Works Facility,Kannur,11.859107,75.461048,63.05
+Malabar Board Reprocessing Ltd,buyer,Wood Waste,Malabar Board Reprocessing Ltd Facility,Alappuzha,9.418672,76.436576,90.04
+Southern Alloy Recovery Systems,buyer,Wood Waste,Southern Alloy Recovery Systems Facility,Kannur,11.989877,75.254224,68.55
+Coastal Timber Reclamation Co,buyer,Wood Waste,Coastal Timber Reclamation Co Facility,Thiruvananthapuram,8.404521,76.842702,56.67
+Arabian Board Resource Recovery,buyer,Wood Waste,Arabian Board Resource Recovery Facility,Ernakulam,10.058671,76.373756,58.37
+Nilgiri Salvage Reprocessing Ltd,buyer,Wood Waste,Nilgiri Salvage Reprocessing Ltd Facility,Thrissur,10.605873,76.184387,76.15
+Wayanad Fibre Recovery Systems,buyer,Wood Waste,Wayanad Fibre Recovery Systems Facility,Thrissur,10.456741,76.284742,62.0
+Periyar Industrial Materials Pvt Ltd,buyer,Wood Waste,Periyar Industrial Materials Pvt Ltd Facility,Thiruvananthapuram,8.472786,76.90959,66.56
+Backwater Metals Materials Pvt Ltd,buyer,Wood Waste,Backwater Metals Materials Pvt Ltd Facility,Palakkad,10.814097,76.750326,85.25
+Southern Industrial Processing LLP,buyer,Wood Waste,Southern Industrial Processing LLP Facility,Palakkad,10.687868,76.681963,72.78
+Periyar Foundry Recycling Works,buyer,Wood Waste,Periyar Foundry Recycling Works Facility,Palakkad,10.8037,76.546339,66.39
+Vembanad Metals Recycling Works,buyer,Wood Waste,Vembanad Metals Recycling Works Facility,Ernakulam,10.011325,76.401196,73.62
+Coastal Polymer Reclamation Co,buyer,Wood Waste,Coastal Polymer Reclamation Co Facility,Thiruvananthapuram,8.504211,76.875199,67.21
+Periyar Metals Recovery Systems,buyer,Wood Waste,Periyar Metals Recovery Systems Facility,Alappuzha,9.552516,76.349896,91.73
+Coastal Timber Recycling Works,buyer,Wood Waste,Coastal Timber Recycling Works Facility,Palakkad,10.806073,76.662657,64.96
+Malabar Metals Recycling Works,buyer,Wood Waste,Malabar Metals Recycling Works Facility,Alappuzha,9.384329,76.355295,94.83
+Coastal Polymer Processing LLP,buyer,Wood Waste,Coastal Polymer Processing LLP Facility,Ernakulam,9.865653,76.200895,62.04
+Coastal Foundry Materials Pvt Ltd,buyer,Wood Waste,Coastal Foundry Materials Pvt Ltd Facility,Kozhikode,11.151085,75.751443,75.85
+Anamudi Salvage Resource Recovery,buyer,Wood Waste,Anamudi Salvage Resource Recovery Facility,Alappuzha,9.428508,76.369532,57.51
+Backwater Metals Reclamation Co,buyer,Wood Waste,Backwater Metals Reclamation Co Facility,Kollam,8.973447,76.545903,78.85
+Vembanad Timber Reclamation Co,buyer,Wood Waste,Vembanad Timber Reclamation Co Facility,Palakkad,10.873554,76.549946,86.6
+Wayanad Salvage Recovery Systems,buyer,Wood Waste,Wayanad Salvage Recovery Systems Facility,Ernakulam,9.984027,76.406707,61.73
+Bharata Metals Materials Pvt Ltd,buyer,Wood Waste,Bharata Metals Materials Pvt Ltd Facility,Thrissur,10.618356,76.159948,63.8
+Kuttanad Element Reclamation Co,competitor,Wood Waste,Kuttanad Element Reclamation Co Facility,Ernakulam,9.897464,76.223347,88.49
+Vembanad Metals Processing LLP,competitor,Wood Waste,Vembanad Metals Processing LLP Facility,Thrissur,10.574982,76.146519,72.76
+Southern Metals Reprocessing Ltd,competitor,Wood Waste,Southern Metals Reprocessing Ltd Facility,Kannur,11.824777,75.397257,78.77
+Periyar Element Recycling Works,competitor,Wood Waste,Periyar Element Recycling Works Facility,Kozhikode,11.145511,75.81195,88.36
+Western Ghats Composite Reprocessing Ltd,competitor,Wood Waste,Western Ghats Composite Reprocessing Ltd Facility,Kollam,8.965109,76.58359,88.88
+Malabar Polymer Reprocessing Ltd,competitor,Wood Waste,Malabar Polymer Reprocessing Ltd Facility,Kollam,8.788145,76.632228,68.57
+Periyar Metals Reclamation Co,competitor,Wood Waste,Periyar Metals Reclamation Co Facility,Kollam,8.998158,76.577743,62.34
+Backwater Alloy Recycling Works,competitor,Wood Waste,Backwater Alloy Recycling Works Facility,Kannur,11.95937,75.396874,76.74
+Backwater Alloy Reclamation Co,competitor,Wood Waste,Backwater Alloy Reclamation Co Facility,Thiruvananthapuram,8.464007,76.834768,70.16
+Arabian Green Reprocessing Ltd,competitor,Wood Waste,Arabian Green Reprocessing Ltd Facility,Alappuzha,9.478317,76.297153,65.3
+Periyar Alloy Resource Recovery,competitor,Wood Waste,Periyar Alloy Resource Recovery Facility,Thiruvananthapuram,8.640348,76.936948,78.75
+Bharata Green Materials Pvt Ltd,competitor,Wood Waste,Bharata Green Materials Pvt Ltd Facility,Ernakulam,9.989574,76.257455,79.97
+Kuttanad Green Recovery Systems,competitor,Wood Waste,Kuttanad Green Recovery Systems Facility,Thiruvananthapuram,8.423632,76.905694,58.57
+Kuttanad Alloy Reprocessing Ltd,competitor,Wood Waste,Kuttanad Alloy Reprocessing Ltd Facility,Palakkad,10.821871,76.69238,66.58
+Vembanad Industrial Processing LLP,competitor,Wood Waste,Vembanad Industrial Processing LLP Facility,Thiruvananthapuram,8.51237,76.909211,58.87
+Backwater Element Resource Recovery,competitor,Wood Waste,Backwater Element Resource Recovery Facility,Thiruvananthapuram,8.422112,76.920047,72.68
+Arabian Board Reclamation Co,competitor,Wood Waste,Arabian Board Reclamation Co Facility,Palakkad,10.768275,76.589448,89.19
+Nilgiri Polymer Processing LLP,competitor,Wood Waste,Nilgiri Polymer Processing LLP Facility,Kollam,8.995251,76.578078,79.21
+Malabar Timber Materials Pvt Ltd,buyer,Plastic Scrap,Malabar Timber Materials Pvt Ltd Facility,Kozhikode,11.377235,75.875547,70.51
+Bharata Timber Reclamation Co,buyer,Plastic Scrap,Bharata Timber Reclamation Co Facility,Kannur,11.968275,75.362206,60.13
+Nilgiri Industrial Recovery Systems,buyer,Plastic Scrap,Nilgiri Industrial Recovery Systems Facility,Alappuzha,9.563686,76.247615,74.45
+Anamudi Salvage Recycling Works,buyer,Plastic Scrap,Anamudi Salvage Recycling Works Facility,Kannur,11.934032,75.336665,67.66
+Vembanad Polymer Processing LLP,buyer,Plastic Scrap,Vembanad Polymer Processing LLP Facility,Palakkad,10.787235,76.579907,84.05
+Vembanad Foundry Resource Recovery,buyer,Plastic Scrap,Vembanad Foundry Resource Recovery Facility,Kollam,8.898181,76.717602,75.75
+Vembanad Timber Materials Pvt Ltd,buyer,Plastic Scrap,Vembanad Timber Materials Pvt Ltd Facility,Kollam,8.921297,76.543179,55.52
+Vembanad Fibre Reclamation Co,buyer,Plastic Scrap,Vembanad Fibre Reclamation Co Facility,Alappuzha,9.544639,76.303435,74.01
+Chalakudy Alloy Circular Industries,buyer,Plastic Scrap,Chalakudy Alloy Circular Industries Facility,Ernakulam,10.039124,76.419641,70.41
+Bharata Metals Resource Recovery,buyer,Plastic Scrap,Bharata Metals Resource Recovery Facility,Kannur,11.805284,75.456731,91.55
+Anamudi Foundry Resource Recovery,buyer,Plastic Scrap,Anamudi Foundry Resource Recovery Facility,Palakkad,10.782615,76.608446,73.12
+Vembanad Metals Circular Industries,buyer,Plastic Scrap,Vembanad Metals Circular Industries Facility,Ernakulam,9.903266,76.287341,65.82
+Backwater Timber Materials Pvt Ltd,buyer,Plastic Scrap,Backwater Timber Materials Pvt Ltd Facility,Palakkad,10.740892,76.758287,87.97
+Arabian Metals Circular Industries,buyer,Plastic Scrap,Arabian Metals Circular Industries Facility,Kannur,11.975059,75.2747,63.47
+Malabar Green Recovery Systems,buyer,Plastic Scrap,Malabar Green Recovery Systems Facility,Kozhikode,11.233526,75.864472,66.3
+Periyar Metals Reprocessing Ltd,buyer,Plastic Scrap,Periyar Metals Reprocessing Ltd Facility,Kozhikode,11.336071,75.823914,55.95
+Nilgiri Composite Reclamation Co,buyer,Plastic Scrap,Nilgiri Composite Reclamation Co Facility,Kannur,11.970201,75.429631,79.97
+Coastal Fibre Recovery Systems,buyer,Plastic Scrap,Coastal Fibre Recovery Systems Facility,Kannur,11.839446,75.389685,94.84
+Southern Polymer Recycling Works,buyer,Plastic Scrap,Southern Polymer Recycling Works Facility,Thrissur,10.516348,76.169309,80.21
+Southern Timber Materials Pvt Ltd,buyer,Plastic Scrap,Southern Timber Materials Pvt Ltd Facility,Ernakulam,9.957594,76.262221,85.64
+Western Ghats Polymer Reclamation Co,buyer,Plastic Scrap,Western Ghats Polymer Reclamation Co Facility,Kozhikode,11.341609,75.802533,63.8
+Periyar Green Circular Industries,buyer,Plastic Scrap,Periyar Green Circular Industries Facility,Alappuzha,9.587747,76.293524,60.09
+Malabar Alloy Reclamation Co,buyer,Plastic Scrap,Malabar Alloy Reclamation Co Facility,Kannur,11.970538,75.443562,67.32
+Vembanad Polymer Circular Industries,buyer,Plastic Scrap,Vembanad Polymer Circular Industries Facility,Kollam,8.943898,76.515991,89.17
+Periyar Foundry Recovery Systems,buyer,Plastic Scrap,Periyar Foundry Recovery Systems Facility,Kannur,11.767064,75.426568,64.85
+Anamudi Metals Materials Pvt Ltd,buyer,Plastic Scrap,Anamudi Metals Materials Pvt Ltd Facility,Alappuzha,9.460083,76.358294,86.0
+Western Ghats Polymer Recycling Works,buyer,Plastic Scrap,Western Ghats Polymer Recycling Works Facility,Thrissur,10.544186,76.223463,73.92
+Periyar Timber Processing LLP,buyer,Plastic Scrap,Periyar Timber Processing LLP Facility,Kozhikode,11.209559,75.714758,65.95
+Vembanad Timber Recovery Systems,buyer,Plastic Scrap,Vembanad Timber Recovery Systems Facility,Kollam,8.794585,76.658667,56.83
+Anamudi Board Reclamation Co,buyer,Plastic Scrap,Anamudi Board Reclamation Co Facility,Kollam,8.889415,76.60141,61.01
+Nilgiri Fibre Reclamation Co,competitor,Plastic Scrap,Nilgiri Fibre Reclamation Co Facility,Kollam,8.902676,76.632391,50.84
+Vembanad Polymer Reprocessing Ltd,competitor,Plastic Scrap,Vembanad Polymer Reprocessing Ltd Facility,Alappuzha,9.43181,76.239427,51.17
+Chalakudy Foundry Recovery Systems,competitor,Plastic Scrap,Chalakudy Foundry Recovery Systems Facility,Palakkad,10.739753,76.599159,54.77
+Vembanad Element Processing LLP,competitor,Plastic Scrap,Vembanad Element Processing LLP Facility,Kollam,8.943035,76.662923,70.17
+Coastal Salvage Circular Industries,competitor,Plastic Scrap,Coastal Salvage Circular Industries Facility,Palakkad,10.891674,76.615002,89.38
+Western Ghats Board Circular Industries,competitor,Plastic Scrap,Western Ghats Board Circular Industries Facility,Thrissur,10.517659,76.277516,69.05
+Backwater Salvage Reprocessing Ltd,competitor,Plastic Scrap,Backwater Salvage Reprocessing Ltd Facility,Kozhikode,11.272905,75.682493,88.46
+Periyar Industrial Recycling Works,competitor,Plastic Scrap,Periyar Industrial Recycling Works Facility,Thiruvananthapuram,8.564208,77.033359,71.42
+Southern Foundry Resource Recovery,competitor,Plastic Scrap,Southern Foundry Resource Recovery Facility,Alappuzha,9.441019,76.447015,76.68
+Periyar Metals Materials Pvt Ltd,competitor,Plastic Scrap,Periyar Metals Materials Pvt Ltd Facility,Alappuzha,9.590737,76.446571,66.79
+Bharata Foundry Materials Pvt Ltd,competitor,Plastic Scrap,Bharata Foundry Materials Pvt Ltd Facility,Kozhikode,11.313627,75.861071,54.45
+Vembanad Alloy Processing LLP,competitor,Plastic Scrap,Vembanad Alloy Processing LLP Facility,Ernakulam,9.911577,76.287117,65.59
+Bharata Composite Reprocessing Ltd,competitor,Plastic Scrap,Bharata Composite Reprocessing Ltd Facility,Alappuzha,9.481124,76.349859,73.74
+Arabian Element Processing LLP,competitor,Plastic Scrap,Arabian Element Processing LLP Facility,Thrissur,10.477067,76.184473,83.66
+Malabar Fibre Resource Recovery,competitor,Plastic Scrap,Malabar Fibre Resource Recovery Facility,Alappuzha,9.532849,76.396893,51.8
+Periyar Polymer Resource Recovery,competitor,Plastic Scrap,Periyar Polymer Resource Recovery Facility,Kannur,11.806306,75.437053,89.07
+Arabian Salvage Recycling Works,competitor,Plastic Scrap,Arabian Salvage Recycling Works Facility,Kollam,8.887924,76.719242,64.0
+Backwater Foundry Recycling Works,competitor,Plastic Scrap,Backwater Foundry Recycling Works Facility,Thiruvananthapuram,8.530852,77.030716,73.77
+Wayanad Alloy Reprocessing Ltd,buyer,Mixed Recyclable Waste,Wayanad Alloy Reprocessing Ltd Facility,Alappuzha,9.473392,76.448088,56.77
+Bharata Board Recycling Works,buyer,Mixed Recyclable Waste,Bharata Board Recycling Works Facility,Alappuzha,9.486575,76.432469,62.3
+Nilgiri Board Resource Recovery,buyer,Mixed Recyclable Waste,Nilgiri Board Resource Recovery Facility,Ernakulam,10.028365,76.210533,81.95
+Bharata Green Reprocessing Ltd,buyer,Mixed Recyclable Waste,Bharata Green Reprocessing Ltd Facility,Thrissur,10.62668,76.232829,65.28
+Coastal Metals Recovery Systems,buyer,Mixed Recyclable Waste,Coastal Metals Recovery Systems Facility,Alappuzha,9.593627,76.264976,77.15
+Coastal Metals Recycling Works,buyer,Mixed Recyclable Waste,Coastal Metals Recycling Works Facility,Palakkad,10.729493,76.56187,59.02
+Pamba Element Processing LLP,buyer,Mixed Recyclable Waste,Pamba Element Processing LLP Facility,Kannur,11.952475,75.485974,75.53
+Coastal Composite Materials Pvt Ltd,buyer,Mixed Recyclable Waste,Coastal Composite Materials Pvt Ltd Facility,Alappuzha,9.385685,76.444783,75.27
+Vembanad Salvage Materials Pvt Ltd,buyer,Mixed Recyclable Waste,Vembanad Salvage Materials Pvt Ltd Facility,Alappuzha,9.589415,76.446009,74.97
+Periyar Composite Circular Industries,buyer,Mixed Recyclable Waste,Periyar Composite Circular Industries Facility,Kozhikode,11.363771,75.67659,56.46
+Western Ghats Foundry Recovery Systems,buyer,Mixed Recyclable Waste,Western Ghats Foundry Recovery Systems Facility,Thrissur,10.601619,76.098213,67.49
+Anamudi Salvage Reprocessing Ltd,buyer,Mixed Recyclable Waste,Anamudi Salvage Reprocessing Ltd Facility,Palakkad,10.702079,76.537256,57.0
+Nilgiri Timber Reclamation Co,buyer,Mixed Recyclable Waste,Nilgiri Timber Reclamation Co Facility,Ernakulam,10.097941,76.184999,88.22
+Malabar Timber Recovery Systems,buyer,Mixed Recyclable Waste,Malabar Timber Recovery Systems Facility,Palakkad,10.752001,76.567058,69.56
+Kuttanad Timber Recycling Works,buyer,Mixed Recyclable Waste,Kuttanad Timber Recycling Works Facility,Palakkad,10.716408,76.724305,59.88
+Vembanad Metals Recovery Systems,buyer,Mixed Recyclable Waste,Vembanad Metals Recovery Systems Facility,Ernakulam,10.098549,76.35884,64.77
+Coastal Alloy Resource Recovery,buyer,Mixed Recyclable Waste,Coastal Alloy Resource Recovery Facility,Thiruvananthapuram,8.583374,76.861091,59.35
+Periyar Foundry Processing LLP,buyer,Mixed Recyclable Waste,Periyar Foundry Processing LLP Facility,Thrissur,10.444308,76.097782,64.88
+Wayanad Alloy Recovery Systems,buyer,Mixed Recyclable Waste,Wayanad Alloy Recovery Systems Facility,Alappuzha,9.40729,76.36555,86.48
+Chalakudy Board Reprocessing Ltd,buyer,Mixed Recyclable Waste,Chalakudy Board Reprocessing Ltd Facility,Kollam,8.958175,76.681013,69.46
+Chalakudy Salvage Processing LLP,buyer,Mixed Recyclable Waste,Chalakudy Salvage Processing LLP Facility,Thiruvananthapuram,8.448125,77.026266,68.09
+Chalakudy Salvage Resource Recovery,buyer,Mixed Recyclable Waste,Chalakudy Salvage Resource Recovery Facility,Kollam,8.841299,76.577681,59.03
+Southern Fibre Circular Industries,buyer,Mixed Recyclable Waste,Southern Fibre Circular Industries Facility,Alappuzha,9.443954,76.225758,79.95
+Chalakudy Alloy Reprocessing Ltd,buyer,Mixed Recyclable Waste,Chalakudy Alloy Reprocessing Ltd Facility,Kozhikode,11.343416,75.878095,63.82
+Arabian Alloy Materials Pvt Ltd,buyer,Mixed Recyclable Waste,Arabian Alloy Materials Pvt Ltd Facility,Kozhikode,11.146951,75.868663,74.15
+Periyar Board Circular Industries,buyer,Mixed Recyclable Waste,Periyar Board Circular Industries Facility,Thiruvananthapuram,8.485284,76.996043,78.63
+Southern Composite Resource Recovery,buyer,Mixed Recyclable Waste,Southern Composite Resource Recovery Facility,Thiruvananthapuram,8.500037,76.882358,67.62
+Periyar Timber Resource Recovery,buyer,Mixed Recyclable Waste,Periyar Timber Resource Recovery Facility,Kollam,8.912416,76.694609,70.28
+Southern Fibre Processing LLP,buyer,Mixed Recyclable Waste,Southern Fibre Processing LLP Facility,Thiruvananthapuram,8.481737,76.870729,60.84
+Periyar Element Circular Industries,buyer,Mixed Recyclable Waste,Periyar Element Circular Industries Facility,Kollam,8.89251,76.701668,83.69
+Coastal Timber Resource Recovery,competitor,Mixed Recyclable Waste,Coastal Timber Resource Recovery Facility,Alappuzha,9.554493,76.417701,69.17
+Southern Element Materials Pvt Ltd,competitor,Mixed Recyclable Waste,Southern Element Materials Pvt Ltd Facility,Thrissur,10.510149,76.27055,64.96
+Bharata Metals Circular Industries,competitor,Mixed Recyclable Waste,Bharata Metals Circular Industries Facility,Palakkad,10.70901,76.598634,75.3
+Arabian Alloy Reclamation Co,competitor,Mixed Recyclable Waste,Arabian Alloy Reclamation Co Facility,Alappuzha,9.528252,76.328994,76.88
+Coastal Element Reclamation Co,competitor,Mixed Recyclable Waste,Coastal Element Reclamation Co Facility,Alappuzha,9.574944,76.296493,51.61
+Periyar Industrial Circular Industries,competitor,Mixed Recyclable Waste,Periyar Industrial Circular Industries Facility,Thrissur,10.486748,76.242705,80.3
+Backwater Polymer Reclamation Co,competitor,Mixed Recyclable Waste,Backwater Polymer Reclamation Co Facility,Kozhikode,11.168299,75.837026,57.83
+Wayanad Polymer Processing LLP,competitor,Mixed Recyclable Waste,Wayanad Polymer Processing LLP Facility,Kozhikode,11.219204,75.70015,57.52
+Western Ghats Salvage Circular Industries,competitor,Mixed Recyclable Waste,Western Ghats Salvage Circular Industries Facility,Thiruvananthapuram,8.473047,76.904737,67.25
+Coastal Metals Circular Industries,competitor,Mixed Recyclable Waste,Coastal Metals Circular Industries Facility,Alappuzha,9.390683,76.244317,88.6
+Anamudi Green Reprocessing Ltd,competitor,Mixed Recyclable Waste,Anamudi Green Reprocessing Ltd Facility,Thiruvananthapuram,8.583163,76.829712,82.7
+Nilgiri Salvage Resource Recovery,competitor,Mixed Recyclable Waste,Nilgiri Salvage Resource Recovery Facility,Thrissur,10.539924,76.140287,65.69
+Bharata Industrial Recovery Systems,competitor,Mixed Recyclable Waste,Bharata Industrial Recovery Systems Facility,Alappuzha,9.586211,76.387464,83.89
+Pamba Board Reprocessing Ltd,competitor,Mixed Recyclable Waste,Pamba Board Reprocessing Ltd Facility,Palakkad,10.723254,76.65072,88.42
+Nilgiri Fibre Resource Recovery,competitor,Mixed Recyclable Waste,Nilgiri Fibre Resource Recovery Facility,Kollam,8.890547,76.583338,60.3
+Chalakudy Element Materials Pvt Ltd,competitor,Mixed Recyclable Waste,Chalakudy Element Materials Pvt Ltd Facility,Thrissur,10.441334,76.184928,71.24
+Wayanad Timber Processing LLP,competitor,Mixed Recyclable Waste,Wayanad Timber Processing LLP Facility,Thiruvananthapuram,8.520681,76.900421,52.79
+Wayanad Salvage Reprocessing Ltd,competitor,Mixed Recyclable Waste,Wayanad Salvage Reprocessing Ltd Facility,Kozhikode,11.195041,75.859794,60.81
+Periyar Industrial Recovery Systems,buyer,Aerospace Metal Scrap,Periyar Industrial Recovery Systems Facility,Kannur,11.790943,75.482749,78.24
+Coastal Composite Recovery Systems,buyer,Aerospace Metal Scrap,Coastal Composite Recovery Systems Facility,Palakkad,10.690669,76.696389,89.26
+Bharata Polymer Processing LLP,buyer,Aerospace Metal Scrap,Bharata Polymer Processing LLP Facility,Kannur,11.972961,75.434263,91.66
+Bharata Fibre Recovery Systems,buyer,Aerospace Metal Scrap,Bharata Fibre Recovery Systems Facility,Palakkad,10.722854,76.713456,86.37
+Vembanad Composite Reclamation Co,buyer,Aerospace Metal Scrap,Vembanad Composite Reclamation Co Facility,Kollam,8.909073,76.568767,71.98
+Coastal Polymer Recovery Systems,buyer,Aerospace Metal Scrap,Coastal Polymer Recovery Systems Facility,Kollam,8.931968,76.512096,82.08
+Chalakudy Industrial Recycling Works,buyer,Aerospace Metal Scrap,Chalakudy Industrial Recycling Works Facility,Ernakulam,9.87193,76.258118,68.12
+Chalakudy Industrial Reprocessing Ltd,buyer,Aerospace Metal Scrap,Chalakudy Industrial Reprocessing Ltd Facility,Ernakulam,9.864373,76.182869,56.14
+Southern Foundry Reprocessing Ltd,buyer,Aerospace Metal Scrap,Southern Foundry Reprocessing Ltd Facility,Palakkad,10.900821,76.627551,92.3
+Periyar Composite Reprocessing Ltd,buyer,Aerospace Metal Scrap,Periyar Composite Reprocessing Ltd Facility,Kozhikode,11.20387,75.714957,59.33
+Vembanad Board Resource Recovery,buyer,Aerospace Metal Scrap,Vembanad Board Resource Recovery Facility,Kollam,8.776087,76.570606,62.47
+Backwater Salvage Processing LLP,buyer,Aerospace Metal Scrap,Backwater Salvage Processing LLP Facility,Thiruvananthapuram,8.635491,76.967583,61.66
+Pamba Fibre Processing LLP,buyer,Aerospace Metal Scrap,Pamba Fibre Processing LLP Facility,Alappuzha,9.531767,76.425474,88.31
+Nilgiri Industrial Reprocessing Ltd,buyer,Aerospace Metal Scrap,Nilgiri Industrial Reprocessing Ltd Facility,Palakkad,10.820198,76.746617,62.07
+Nilgiri Alloy Reprocessing Ltd,buyer,Aerospace Metal Scrap,Nilgiri Alloy Reprocessing Ltd Facility,Thrissur,10.55162,76.235,83.43
+Chalakudy Green Resource Recovery,buyer,Aerospace Metal Scrap,Chalakudy Green Resource Recovery Facility,Palakkad,10.888702,76.701533,68.04
+Coastal Foundry Reclamation Co,buyer,Aerospace Metal Scrap,Coastal Foundry Reclamation Co Facility,Thrissur,10.455444,76.121865,75.9
+Southern Industrial Recycling Works,buyer,Aerospace Metal Scrap,Southern Industrial Recycling Works Facility,Palakkad,10.839117,76.759969,71.25
+Kuttanad Timber Resource Recovery,buyer,Aerospace Metal Scrap,Kuttanad Timber Resource Recovery Facility,Kollam,8.956081,76.675332,75.47
+Western Ghats Timber Processing LLP,buyer,Aerospace Metal Scrap,Western Ghats Timber Processing LLP Facility,Thiruvananthapuram,8.417286,76.964992,75.89
+Vembanad Metals Materials Pvt Ltd,buyer,Aerospace Metal Scrap,Vembanad Metals Materials Pvt Ltd Facility,Ernakulam,9.975584,76.399793,84.54
+Pamba Board Recovery Systems,buyer,Aerospace Metal Scrap,Pamba Board Recovery Systems Facility,Palakkad,10.779227,76.591267,94.42
+Nilgiri Metals Reclamation Co,buyer,Aerospace Metal Scrap,Nilgiri Metals Reclamation Co Facility,Kannur,11.976688,75.36942,69.65
+Malabar Composite Reprocessing Ltd,buyer,Aerospace Metal Scrap,Malabar Composite Reprocessing Ltd Facility,Kollam,8.893178,76.503622,64.23
+Pamba Board Processing LLP,buyer,Aerospace Metal Scrap,Pamba Board Processing LLP Facility,Kozhikode,11.345642,75.798473,88.95
+Southern Alloy Circular Industries,buyer,Aerospace Metal Scrap,Southern Alloy Circular Industries Facility,Kannur,11.815587,75.292386,80.45
+Kuttanad Element Circular Industries,buyer,Aerospace Metal Scrap,Kuttanad Element Circular Industries Facility,Alappuzha,9.464293,76.259329,57.63
+Vembanad Board Processing LLP,buyer,Aerospace Metal Scrap,Vembanad Board Processing LLP Facility,Ernakulam,10.002238,76.282069,57.86
+Backwater Salvage Reclamation Co,buyer,Aerospace Metal Scrap,Backwater Salvage Reclamation Co Facility,Kozhikode,11.163177,75.828674,81.81
+Western Ghats Salvage Materials Pvt Ltd,buyer,Aerospace Metal Scrap,Western Ghats Salvage Materials Pvt Ltd Facility,Alappuzha,9.40045,76.280748,76.03
+Backwater Fibre Recovery Systems,competitor,Aerospace Metal Scrap,Backwater Fibre Recovery Systems Facility,Kannur,11.760696,75.378934,82.43
+Periyar Salvage Reclamation Co,competitor,Aerospace Metal Scrap,Periyar Salvage Reclamation Co Facility,Ernakulam,10.099836,76.255376,56.99
+Southern Metals Resource Recovery,competitor,Aerospace Metal Scrap,Southern Metals Resource Recovery Facility,Ernakulam,10.016597,76.206076,80.44
+Wayanad Fibre Materials Pvt Ltd,competitor,Aerospace Metal Scrap,Wayanad Fibre Materials Pvt Ltd Facility,Palakkad,10.716265,76.712126,62.71
+Southern Metals Materials Pvt Ltd,competitor,Aerospace Metal Scrap,Southern Metals Materials Pvt Ltd Facility,Kannur,11.797471,75.285553,62.01
+Southern Industrial Recovery Systems,competitor,Aerospace Metal Scrap,Southern Industrial Recovery Systems Facility,Thrissur,10.590858,76.172016,81.79
+Periyar Board Resource Recovery,competitor,Aerospace Metal Scrap,Periyar Board Resource Recovery Facility,Kannur,11.860446,75.26111,80.54
+Malabar Element Circular Industries,competitor,Aerospace Metal Scrap,Malabar Element Circular Industries Facility,Thiruvananthapuram,8.628792,76.819635,59.47
+Chalakudy Metals Processing LLP,competitor,Aerospace Metal Scrap,Chalakudy Metals Processing LLP Facility,Palakkad,10.868193,76.598167,61.83
+Anamudi Fibre Reprocessing Ltd,competitor,Aerospace Metal Scrap,Anamudi Fibre Reprocessing Ltd Facility,Palakkad,10.836125,76.581249,52.08
+Malabar Green Recycling Works,competitor,Aerospace Metal Scrap,Malabar Green Recycling Works Facility,Kollam,8.926968,76.59741,62.94
+Backwater Alloy Resource Recovery,competitor,Aerospace Metal Scrap,Backwater Alloy Resource Recovery Facility,Kannur,11.93539,75.424691,88.51
+Western Ghats Polymer Recovery Systems,competitor,Aerospace Metal Scrap,Western Ghats Polymer Recovery Systems Facility,Thrissur,10.554396,76.155206,61.69
+Southern Polymer Recovery Systems,competitor,Aerospace Metal Scrap,Southern Polymer Recovery Systems Facility,Thrissur,10.444449,76.319932,63.37
+Coastal Board Reclamation Co,competitor,Aerospace Metal Scrap,Coastal Board Reclamation Co Facility,Thrissur,10.610791,76.111402,54.03
+Western Ghats Element Recovery Systems,competitor,Aerospace Metal Scrap,Western Ghats Element Recovery Systems Facility,Palakkad,10.800445,76.643611,56.1
+Western Ghats Industrial Materials Pvt Ltd,competitor,Aerospace Metal Scrap,Western Ghats Industrial Materials Pvt Ltd Facility,Kollam,8.778745,76.69886,81.82
+Periyar Foundry Materials Pvt Ltd,competitor,Aerospace Metal Scrap,Periyar Foundry Materials Pvt Ltd Facility,Kannur,11.876316,75.4867,76.64
+Backwater Industrial Reprocessing Ltd,buyer,Plastic Packaging Waste,Backwater Industrial Reprocessing Ltd Facility,Thrissur,10.414104,76.273464,70.2
+Western Ghats Green Resource Recovery,buyer,Plastic Packaging Waste,Western Ghats Green Resource Recovery Facility,Palakkad,10.73512,76.595915,58.01
+Wayanad Polymer Circular Industries,buyer,Plastic Packaging Waste,Wayanad Polymer Circular Industries Facility,Thrissur,10.420017,76.23549,66.81
+Chalakudy Foundry Materials Pvt Ltd,buyer,Plastic Packaging Waste,Chalakudy Foundry Materials Pvt Ltd Facility,Kannur,11.757991,75.363752,64.7
+Pamba Composite Recycling Works,buyer,Plastic Packaging Waste,Pamba Composite Recycling Works Facility,Thiruvananthapuram,8.57218,76.890832,61.82
+Anamudi Alloy Resource Recovery,buyer,Plastic Packaging Waste,Anamudi Alloy Resource Recovery Facility,Palakkad,10.686739,76.618613,83.05
+Anamudi Industrial Recycling Works,buyer,Plastic Packaging Waste,Anamudi Industrial Recycling Works Facility,Thrissur,10.532838,76.315649,85.51
+Wayanad Metals Materials Pvt Ltd,buyer,Plastic Packaging Waste,Wayanad Metals Materials Pvt Ltd Facility,Alappuzha,9.5315,76.380712,67.02
+Bharata Alloy Reclamation Co,buyer,Plastic Packaging Waste,Bharata Alloy Reclamation Co Facility,Ernakulam,10.094168,76.37035,56.37
+Nilgiri Composite Materials Pvt Ltd,buyer,Plastic Packaging Waste,Nilgiri Composite Materials Pvt Ltd Facility,Ernakulam,10.085929,76.368844,55.95
+Backwater Alloy Reprocessing Ltd,buyer,Plastic Packaging Waste,Backwater Alloy Reprocessing Ltd Facility,Kannur,11.827052,75.410097,64.58
+Western Ghats Metals Resource Recovery,buyer,Plastic Packaging Waste,Western Ghats Metals Resource Recovery Facility,Palakkad,10.847127,76.648267,86.23
+Periyar Fibre Reprocessing Ltd,buyer,Plastic Packaging Waste,Periyar Fibre Reprocessing Ltd Facility,Kollam,8.946108,76.509777,66.19
+Malabar Metals Processing LLP,buyer,Plastic Packaging Waste,Malabar Metals Processing LLP Facility,Alappuzha,9.410382,76.388654,82.18
+Chalakudy Composite Circular Industries,buyer,Plastic Packaging Waste,Chalakudy Composite Circular Industries Facility,Thrissur,10.513674,76.171205,91.51
+Periyar Fibre Circular Industries,buyer,Plastic Packaging Waste,Periyar Fibre Circular Industries Facility,Ernakulam,9.992516,76.259699,90.04
+Backwater Board Recovery Systems,buyer,Plastic Packaging Waste,Backwater Board Recovery Systems Facility,Palakkad,10.7409,76.758823,81.08
+Western Ghats Composite Circular Industries,buyer,Plastic Packaging Waste,Western Ghats Composite Circular Industries Facility,Alappuzha,9.482028,76.259797,78.2
+Southern Board Materials Pvt Ltd,buyer,Plastic Packaging Waste,Southern Board Materials Pvt Ltd Facility,Thiruvananthapuram,8.550298,76.932324,79.46
+Arabian Element Materials Pvt Ltd,buyer,Plastic Packaging Waste,Arabian Element Materials Pvt Ltd Facility,Kozhikode,11.316311,75.77175,57.18
+Malabar Green Resource Recovery,buyer,Plastic Packaging Waste,Malabar Green Resource Recovery Facility,Alappuzha,9.540167,76.414065,81.43
+Backwater Polymer Recovery Systems,buyer,Plastic Packaging Waste,Backwater Polymer Recovery Systems Facility,Thiruvananthapuram,8.420422,76.944086,90.22
+Vembanad Industrial Resource Recovery,buyer,Plastic Packaging Waste,Vembanad Industrial Resource Recovery Facility,Thrissur,10.487636,76.22744,76.56
+Southern Composite Reprocessing Ltd,buyer,Plastic Packaging Waste,Southern Composite Reprocessing Ltd Facility,Alappuzha,9.430331,76.424445,66.47
+Bharata Polymer Circular Industries,buyer,Plastic Packaging Waste,Bharata Polymer Circular Industries Facility,Palakkad,10.679737,76.69928,74.47
+Western Ghats Foundry Reclamation Co,buyer,Plastic Packaging Waste,Western Ghats Foundry Reclamation Co Facility,Thrissur,10.642522,76.296636,86.83
+Nilgiri Composite Resource Recovery,buyer,Plastic Packaging Waste,Nilgiri Composite Resource Recovery Facility,Ernakulam,10.089927,76.331529,67.59
+Nilgiri Timber Processing LLP,buyer,Plastic Packaging Waste,Nilgiri Timber Processing LLP Facility,Kannur,11.875602,75.293335,67.32
+Southern Board Recycling Works,buyer,Plastic Packaging Waste,Southern Board Recycling Works Facility,Kozhikode,11.172273,75.668345,74.3
+Wayanad Board Processing LLP,buyer,Plastic Packaging Waste,Wayanad Board Processing LLP Facility,Thiruvananthapuram,8.471196,76.838579,66.52
+Vembanad Board Reprocessing Ltd,competitor,Plastic Packaging Waste,Vembanad Board Reprocessing Ltd Facility,Kannur,11.829049,75.424151,50.95
+Arabian Industrial Materials Pvt Ltd,competitor,Plastic Packaging Waste,Arabian Industrial Materials Pvt Ltd Facility,Kozhikode,11.221133,75.695273,53.71
+Wayanad Foundry Recycling Works,competitor,Plastic Packaging Waste,Wayanad Foundry Recycling Works Facility,Thrissur,10.591494,76.222851,66.66
+Nilgiri Green Processing LLP,competitor,Plastic Packaging Waste,Nilgiri Green Processing LLP Facility,Ernakulam,10.095206,76.33044,83.53
+Bharata Salvage Reclamation Co,competitor,Plastic Packaging Waste,Bharata Salvage Reclamation Co Facility,Ernakulam,9.934581,76.356783,52.25
+Backwater Timber Processing LLP,competitor,Plastic Packaging Waste,Backwater Timber Processing LLP Facility,Palakkad,10.903032,76.744366,52.41
+Vembanad Timber Processing LLP,competitor,Plastic Packaging Waste,Vembanad Timber Processing LLP Facility,Kozhikode,11.249369,75.743678,68.98
+Nilgiri Foundry Circular Industries,competitor,Plastic Packaging Waste,Nilgiri Foundry Circular Industries Facility,Palakkad,10.825981,76.732372,83.66
+Wayanad Green Reclamation Co,competitor,Plastic Packaging Waste,Wayanad Green Reclamation Co Facility,Ernakulam,10.026005,76.329397,58.72
+Wayanad Green Resource Recovery,competitor,Plastic Packaging Waste,Wayanad Green Resource Recovery Facility,Alappuzha,9.488004,76.259993,76.72
+Pamba Polymer Reprocessing Ltd,competitor,Plastic Packaging Waste,Pamba Polymer Reprocessing Ltd Facility,Alappuzha,9.596809,76.420706,70.82
+Chalakudy Green Reprocessing Ltd,competitor,Plastic Packaging Waste,Chalakudy Green Reprocessing Ltd Facility,Thrissur,10.513577,76.185356,82.19
+Southern Metals Reclamation Co,competitor,Plastic Packaging Waste,Southern Metals Reclamation Co Facility,Thiruvananthapuram,8.450737,76.931732,75.4
+Arabian Alloy Circular Industries,competitor,Plastic Packaging Waste,Arabian Alloy Circular Industries Facility,Kollam,8.795026,76.575701,53.37
+Periyar Board Recovery Systems,competitor,Plastic Packaging Waste,Periyar Board Recovery Systems Facility,Palakkad,10.694296,76.547244,68.87
+Malabar Timber Processing LLP,competitor,Plastic Packaging Waste,Malabar Timber Processing LLP Facility,Kannur,11.940084,75.261336,61.31
+Pamba Industrial Recycling Works,competitor,Plastic Packaging Waste,Pamba Industrial Recycling Works Facility,Alappuzha,9.491248,76.222656,70.71
+Western Ghats Alloy Processing LLP,competitor,Plastic Packaging Waste,Western Ghats Alloy Processing LLP Facility,Kannur,11.804739,75.270212,72.46
+Vembanad Salvage Reclamation Co,buyer,Metal Waste,Vembanad Salvage Reclamation Co Facility,Kannur,11.858303,75.372392,55.49
+Wayanad Industrial Reprocessing Ltd,buyer,Metal Waste,Wayanad Industrial Reprocessing Ltd Facility,Thiruvananthapuram,8.531941,77.055982,74.37
+Vembanad Green Recycling Works,buyer,Metal Waste,Vembanad Green Recycling Works Facility,Ernakulam,10.033023,76.417156,72.22
+Chalakudy Element Recovery Systems,buyer,Metal Waste,Chalakudy Element Recovery Systems Facility,Palakkad,10.779066,76.613994,66.64
+Backwater Foundry Materials Pvt Ltd,buyer,Metal Waste,Backwater Foundry Materials Pvt Ltd Facility,Thiruvananthapuram,8.52824,76.922512,77.18
+Coastal Industrial Recovery Systems,buyer,Metal Waste,Coastal Industrial Recovery Systems Facility,Alappuzha,9.425106,76.418112,79.01
+Coastal Foundry Processing LLP,buyer,Metal Waste,Coastal Foundry Processing LLP Facility,Kannur,11.788652,75.390427,80.62
+Western Ghats Board Reclamation Co,buyer,Metal Waste,Western Ghats Board Reclamation Co Facility,Thiruvananthapuram,8.425787,76.977423,65.93
+Southern Fibre Recycling Works,buyer,Metal Waste,Southern Fibre Recycling Works Facility,Ernakulam,9.878911,76.377394,75.57
+Anamudi Element Reclamation Co,buyer,Metal Waste,Anamudi Element Reclamation Co Facility,Thiruvananthapuram,8.463604,76.823117,56.67
+Malabar Green Materials Pvt Ltd,buyer,Metal Waste,Malabar Green Materials Pvt Ltd Facility,Kollam,9.002905,76.721192,66.82
+Malabar Fibre Recycling Works,buyer,Metal Waste,Malabar Fibre Recycling Works Facility,Thrissur,10.5036,76.317804,84.49
+Malabar Foundry Recovery Systems,buyer,Metal Waste,Malabar Foundry Recovery Systems Facility,Palakkad,10.767869,76.697626,60.54
+Kuttanad Salvage Resource Recovery,buyer,Metal Waste,Kuttanad Salvage Resource Recovery Facility,Alappuzha,9.554699,76.239829,71.94
+Malabar Green Reclamation Co,buyer,Metal Waste,Malabar Green Reclamation Co Facility,Kollam,8.932727,76.529711,82.64
+Western Ghats Fibre Processing LLP,buyer,Metal Waste,Western Ghats Fibre Processing LLP Facility,Thrissur,10.640804,76.325552,71.29
+Vembanad Foundry Processing LLP,buyer,Metal Waste,Vembanad Foundry Processing LLP Facility,Alappuzha,9.597884,76.352353,90.63
+Pamba Industrial Processing LLP,buyer,Metal Waste,Pamba Industrial Processing LLP Facility,Kannur,11.780247,75.268638,64.88
+Vembanad Element Circular Industries,buyer,Metal Waste,Vembanad Element Circular Industries Facility,Thiruvananthapuram,8.606022,76.900333,88.07
+Western Ghats Composite Materials Pvt Ltd,buyer,Metal Waste,Western Ghats Composite Materials Pvt Ltd Facility,Thrissur,10.463404,76.244274,56.83
+Nilgiri Foundry Reclamation Co,buyer,Metal Waste,Nilgiri Foundry Reclamation Co Facility,Kozhikode,11.279751,75.665674,94.75
+Chalakudy Alloy Materials Pvt Ltd,buyer,Metal Waste,Chalakudy Alloy Materials Pvt Ltd Facility,Kozhikode,11.307216,75.714777,56.96
+Vembanad Salvage Circular Industries,buyer,Metal Waste,Vembanad Salvage Circular Industries Facility,Palakkad,10.73598,76.638576,73.63
+Nilgiri Foundry Recycling Works,buyer,Metal Waste,Nilgiri Foundry Recycling Works Facility,Ernakulam,9.873524,76.32551,73.56
+Pamba Element Resource Recovery,buyer,Metal Waste,Pamba Element Resource Recovery Facility,Kannur,11.941233,75.279239,69.76
+Chalakudy Fibre Circular Industries,buyer,Metal Waste,Chalakudy Fibre Circular Industries Facility,Kollam,8.886929,76.724178,73.16
+Malabar Metals Recovery Systems,buyer,Metal Waste,Malabar Metals Recovery Systems Facility,Alappuzha,9.472166,76.371985,62.33
+Backwater Board Reprocessing Ltd,buyer,Metal Waste,Backwater Board Reprocessing Ltd Facility,Thiruvananthapuram,8.619148,76.95458,79.01
+Bharata Fibre Reprocessing Ltd,buyer,Metal Waste,Bharata Fibre Reprocessing Ltd Facility,Kannur,11.937107,75.310921,74.86
+Coastal Green Recovery Systems,buyer,Metal Waste,Coastal Green Recovery Systems Facility,Kozhikode,11.247667,75.765654,89.07
+Wayanad Board Circular Industries,competitor,Metal Waste,Wayanad Board Circular Industries Facility,Thiruvananthapuram,8.48677,76.831709,87.24
+Kuttanad Fibre Processing LLP,competitor,Metal Waste,Kuttanad Fibre Processing LLP Facility,Kannur,11.881923,75.278233,51.0
+Backwater Polymer Materials Pvt Ltd,competitor,Metal Waste,Backwater Polymer Materials Pvt Ltd Facility,Kannur,11.852339,75.420903,86.42
+Backwater Element Reclamation Co,competitor,Metal Waste,Backwater Element Reclamation Co Facility,Kollam,8.77453,76.574842,62.13
+Kuttanad Timber Circular Industries,competitor,Metal Waste,Kuttanad Timber Circular Industries Facility,Thrissur,10.449933,76.267504,78.96
+Vembanad Alloy Reprocessing Ltd,competitor,Metal Waste,Vembanad Alloy Reprocessing Ltd Facility,Thrissur,10.435657,76.145615,69.99
+Backwater Board Resource Recovery,competitor,Metal Waste,Backwater Board Resource Recovery Facility,Kozhikode,11.275178,75.897372,89.45
+Vembanad Green Recovery Systems,competitor,Metal Waste,Vembanad Green Recovery Systems Facility,Thrissur,10.516467,76.136315,87.05
+Chalakudy Metals Reprocessing Ltd,competitor,Metal Waste,Chalakudy Metals Reprocessing Ltd Facility,Thiruvananthapuram,8.449062,76.948022,68.76
+Western Ghats Board Recovery Systems,competitor,Metal Waste,Western Ghats Board Recovery Systems Facility,Ernakulam,9.891593,76.399109,76.74
+Western Ghats Timber Circular Industries,competitor,Metal Waste,Western Ghats Timber Circular Industries Facility,Kannur,11.909301,75.362391,79.14
+Kuttanad Alloy Resource Recovery,competitor,Metal Waste,Kuttanad Alloy Resource Recovery Facility,Thiruvananthapuram,8.50032,77.001434,67.21
+Malabar Foundry Materials Pvt Ltd,competitor,Metal Waste,Malabar Foundry Materials Pvt Ltd Facility,Palakkad,10.695253,76.690753,89.22
+Pamba Timber Reclamation Co,competitor,Metal Waste,Pamba Timber Reclamation Co Facility,Ernakulam,10.001599,76.335746,78.63
+Malabar Board Recycling Works,competitor,Metal Waste,Malabar Board Recycling Works Facility,Kannur,11.876738,75.331787,88.86
+Pamba Metals Reprocessing Ltd,competitor,Metal Waste,Pamba Metals Reprocessing Ltd Facility,Thiruvananthapuram,8.541571,76.971682,89.7
+Backwater Board Recycling Works,competitor,Metal Waste,Backwater Board Recycling Works Facility,Kannur,11.991668,75.445287,83.73
+Coastal Industrial Reclamation Co,competitor,Metal Waste,Coastal Industrial Reclamation Co Facility,Kannur,11.872766,75.289859,55.27
+Nilgiri Alloy Recovery Systems,buyer,Metal Offcuts,Nilgiri Alloy Recovery Systems Facility,Thiruvananthapuram,8.42302,76.838052,58.99
+Arabian Salvage Reprocessing Ltd,buyer,Metal Offcuts,Arabian Salvage Reprocessing Ltd Facility,Kannur,11.801613,75.349091,72.07
+Anamudi Board Resource Recovery,buyer,Metal Offcuts,Anamudi Board Resource Recovery Facility,Kollam,8.776614,76.507308,66.54
+Pamba Alloy Reclamation Co,buyer,Metal Offcuts,Pamba Alloy Reclamation Co Facility,Thrissur,10.40851,76.171937,87.76
+Southern Board Reclamation Co,buyer,Metal Offcuts,Southern Board Reclamation Co Facility,Kozhikode,11.215365,75.772241,92.47
+Periyar Metals Recycling Works,buyer,Metal Offcuts,Periyar Metals Recycling Works Facility,Thrissur,10.490989,76.17114,69.14
+Anamudi Foundry Reprocessing Ltd,buyer,Metal Offcuts,Anamudi Foundry Reprocessing Ltd Facility,Kannur,11.954898,75.312548,63.45
+Kuttanad Industrial Circular Industries,buyer,Metal Offcuts,Kuttanad Industrial Circular Industries Facility,Alappuzha,9.503006,76.345291,74.62
+Pamba Polymer Processing LLP,buyer,Metal Offcuts,Pamba Polymer Processing LLP Facility,Palakkad,10.722246,76.705949,74.07
+Nilgiri Salvage Recycling Works,buyer,Metal Offcuts,Nilgiri Salvage Recycling Works Facility,Palakkad,10.749503,76.66721,69.0
+Malabar Board Circular Industries,buyer,Metal Offcuts,Malabar Board Circular Industries Facility,Kozhikode,11.201386,75.739525,94.69
+Pamba Metals Materials Pvt Ltd,buyer,Metal Offcuts,Pamba Metals Materials Pvt Ltd Facility,Thrissur,10.58168,76.132363,61.15
+Wayanad Element Recycling Works,buyer,Metal Offcuts,Wayanad Element Recycling Works Facility,Alappuzha,9.463526,76.278183,80.44
+Wayanad Element Processing LLP,buyer,Metal Offcuts,Wayanad Element Processing LLP Facility,Kozhikode,11.363211,75.686386,63.66
+Pamba Metals Recycling Works,buyer,Metal Offcuts,Pamba Metals Recycling Works Facility,Kollam,8.951779,76.550965,59.42
+Chalakudy Timber Circular Industries,buyer,Metal Offcuts,Chalakudy Timber Circular Industries Facility,Kozhikode,11.251809,75.741975,77.61
+Southern Element Recycling Works,buyer,Metal Offcuts,Southern Element Recycling Works Facility,Kollam,8.842594,76.64414,77.23
+Anamudi Metals Recycling Works,buyer,Metal Offcuts,Anamudi Metals Recycling Works Facility,Thiruvananthapuram,8.533063,76.944039,88.39
+Anamudi Green Resource Recovery,buyer,Metal Offcuts,Anamudi Green Resource Recovery Facility,Ernakulam,9.908797,76.241791,86.62
+Arabian Industrial Circular Industries,buyer,Metal Offcuts,Arabian Industrial Circular Industries Facility,Palakkad,10.757634,76.662758,81.48
+Southern Polymer Reprocessing Ltd,buyer,Metal Offcuts,Southern Polymer Reprocessing Ltd Facility,Thrissur,10.514538,76.235702,93.03
+Wayanad Element Recovery Systems,buyer,Metal Offcuts,Wayanad Element Recovery Systems Facility,Kannur,11.767345,75.357077,69.41
+Periyar Timber Materials Pvt Ltd,buyer,Metal Offcuts,Periyar Timber Materials Pvt Ltd Facility,Thiruvananthapuram,8.626065,76.90332,78.98
+Wayanad Industrial Recycling Works,buyer,Metal Offcuts,Wayanad Industrial Recycling Works Facility,Kannur,11.783573,75.436941,63.64
+Kuttanad Timber Reclamation Co,buyer,Metal Offcuts,Kuttanad Timber Reclamation Co Facility,Kollam,8.959213,76.690885,78.35
+Bharata Element Resource Recovery,buyer,Metal Offcuts,Bharata Element Resource Recovery Facility,Thiruvananthapuram,8.451617,76.965952,73.15
+Pamba Timber Recycling Works,buyer,Metal Offcuts,Pamba Timber Recycling Works Facility,Thrissur,10.561842,76.190422,90.0
+Bharata Composite Recovery Systems,buyer,Metal Offcuts,Bharata Composite Recovery Systems Facility,Alappuzha,9.594663,76.392469,86.36
+Nilgiri Fibre Recovery Systems,buyer,Metal Offcuts,Nilgiri Fibre Recovery Systems Facility,Kollam,8.891712,76.515501,66.64
+Malabar Fibre Reclamation Co,buyer,Metal Offcuts,Malabar Fibre Reclamation Co Facility,Ernakulam,10.061962,76.219481,80.71
+Nilgiri Green Recycling Works,competitor,Metal Offcuts,Nilgiri Green Recycling Works Facility,Kollam,9.003199,76.695226,64.45
+Southern Alloy Reprocessing Ltd,competitor,Metal Offcuts,Southern Alloy Reprocessing Ltd Facility,Kannur,11.822777,75.319149,79.72
+Coastal Polymer Materials Pvt Ltd,competitor,Metal Offcuts,Coastal Polymer Materials Pvt Ltd Facility,Palakkad,10.884644,76.592647,77.72
+Chalakudy Element Reprocessing Ltd,competitor,Metal Offcuts,Chalakudy Element Reprocessing Ltd Facility,Thiruvananthapuram,8.408774,77.029111,83.88
+Chalakudy Foundry Reprocessing Ltd,competitor,Metal Offcuts,Chalakudy Foundry Reprocessing Ltd Facility,Kannur,11.87357,75.356979,81.36
+Arabian Composite Recycling Works,competitor,Metal Offcuts,Arabian Composite Recycling Works Facility,Thiruvananthapuram,8.425915,76.973389,84.91
+Pamba Element Circular Industries,competitor,Metal Offcuts,Pamba Element Circular Industries Facility,Palakkad,10.831631,76.700237,59.28
+Vembanad Composite Circular Industries,competitor,Metal Offcuts,Vembanad Composite Circular Industries Facility,Alappuzha,9.53766,76.352048,85.9
+Coastal Salvage Reclamation Co,competitor,Metal Offcuts,Coastal Salvage Reclamation Co Facility,Thiruvananthapuram,8.413641,77.023602,79.31
+Periyar Metals Resource Recovery,competitor,Metal Offcuts,Periyar Metals Resource Recovery Facility,Alappuzha,9.514766,76.432933,89.8
+Bharata Board Circular Industries,competitor,Metal Offcuts,Bharata Board Circular Industries Facility,Palakkad,10.756377,76.664363,74.9
+Pamba Timber Materials Pvt Ltd,competitor,Metal Offcuts,Pamba Timber Materials Pvt Ltd Facility,Thrissur,10.608447,76.108644,58.78
+Wayanad Element Reprocessing Ltd,competitor,Metal Offcuts,Wayanad Element Reprocessing Ltd Facility,Kollam,8.879051,76.554126,82.13
+Chalakudy Polymer Circular Industries,competitor,Metal Offcuts,Chalakudy Polymer Circular Industries Facility,Thrissur,10.44193,76.23889,52.1
+Southern Foundry Recovery Systems,competitor,Metal Offcuts,Southern Foundry Recovery Systems Facility,Kozhikode,11.153367,75.734746,70.53
+Western Ghats Metals Recycling Works,competitor,Metal Offcuts,Western Ghats Metals Recycling Works Facility,Alappuzha,9.558015,76.413179,65.95
+Chalakudy Composite Reclamation Co,competitor,Metal Offcuts,Chalakudy Composite Reclamation Co Facility,Kozhikode,11.168949,75.866652,81.17
+Western Ghats Industrial Processing LLP,competitor,Metal Offcuts,Western Ghats Industrial Processing LLP Facility,Palakkad,10.68357,76.565715,70.87
+Pamba Fibre Circular Industries,buyer,MDF Board Offcuts,Pamba Fibre Circular Industries Facility,Ernakulam,10.071507,76.283353,82.83
+Chalakudy Board Recycling Works,buyer,MDF Board Offcuts,Chalakudy Board Recycling Works Facility,Kannur,11.784977,75.422712,82.44
+Vembanad Green Processing LLP,buyer,MDF Board Offcuts,Vembanad Green Processing LLP Facility,Kannur,11.824413,75.480763,78.12
+Periyar Composite Materials Pvt Ltd,buyer,MDF Board Offcuts,Periyar Composite Materials Pvt Ltd Facility,Kannur,11.766234,75.457104,74.42
+Anamudi Polymer Processing LLP,buyer,MDF Board Offcuts,Anamudi Polymer Processing LLP Facility,Kannur,11.900673,75.33584,72.93
+Bharata Industrial Reprocessing Ltd,buyer,MDF Board Offcuts,Bharata Industrial Reprocessing Ltd Facility,Kozhikode,11.233374,75.719047,72.73
+Coastal Green Reprocessing Ltd,buyer,MDF Board Offcuts,Coastal Green Reprocessing Ltd Facility,Kollam,8.790681,76.726069,79.75
+Wayanad Alloy Circular Industries,buyer,MDF Board Offcuts,Wayanad Alloy Circular Industries Facility,Alappuzha,9.424923,76.301237,74.28
+Backwater Metals Processing LLP,buyer,MDF Board Offcuts,Backwater Metals Processing LLP Facility,Ernakulam,10.084867,76.331353,92.18
+Wayanad Composite Processing LLP,buyer,MDF Board Offcuts,Wayanad Composite Processing LLP Facility,Ernakulam,9.932385,76.274313,71.41
+Vembanad Composite Recycling Works,buyer,MDF Board Offcuts,Vembanad Composite Recycling Works Facility,Thrissur,10.493559,76.22435,67.29
+Bharata Alloy Recovery Systems,buyer,MDF Board Offcuts,Bharata Alloy Recovery Systems Facility,Palakkad,10.766778,76.589261,87.89
+Vembanad Polymer Resource Recovery,buyer,MDF Board Offcuts,Vembanad Polymer Resource Recovery Facility,Thiruvananthapuram,8.532738,76.886266,87.26
+Kuttanad Alloy Processing LLP,buyer,MDF Board Offcuts,Kuttanad Alloy Processing LLP Facility,Kollam,8.925876,76.645529,55.94
+Wayanad Green Recycling Works,buyer,MDF Board Offcuts,Wayanad Green Recycling Works Facility,Ernakulam,10.089421,76.418559,82.73
+Arabian Salvage Resource Recovery,buyer,MDF Board Offcuts,Arabian Salvage Resource Recovery Facility,Thiruvananthapuram,8.489109,76.96459,89.31
+Backwater Timber Circular Industries,buyer,MDF Board Offcuts,Backwater Timber Circular Industries Facility,Kozhikode,11.167376,75.739308,91.2
+Periyar Element Reprocessing Ltd,buyer,MDF Board Offcuts,Periyar Element Reprocessing Ltd Facility,Thiruvananthapuram,8.546664,76.902881,60.87
+Bharata Element Reclamation Co,buyer,MDF Board Offcuts,Bharata Element Reclamation Co Facility,Kozhikode,11.189663,75.880835,55.84
+Vembanad Foundry Circular Industries,buyer,MDF Board Offcuts,Vembanad Foundry Circular Industries Facility,Ernakulam,9.865323,76.287749,88.91
+Anamudi Salvage Materials Pvt Ltd,buyer,MDF Board Offcuts,Anamudi Salvage Materials Pvt Ltd Facility,Kannur,11.814559,75.376243,59.77
+Nilgiri Foundry Resource Recovery,buyer,MDF Board Offcuts,Nilgiri Foundry Resource Recovery Facility,Thiruvananthapuram,8.610943,77.040932,82.13
+Anamudi Timber Reclamation Co,buyer,MDF Board Offcuts,Anamudi Timber Reclamation Co Facility,Kollam,8.775209,76.691808,77.87
+Bharata Timber Materials Pvt Ltd,buyer,MDF Board Offcuts,Bharata Timber Materials Pvt Ltd Facility,Kannur,11.847437,75.27622,59.29
+Western Ghats Green Recovery Systems,buyer,MDF Board Offcuts,Western Ghats Green Recovery Systems Facility,Alappuzha,9.615185,76.452976,65.67
+Periyar Polymer Reprocessing Ltd,buyer,MDF Board Offcuts,Periyar Polymer Reprocessing Ltd Facility,Ernakulam,10.083986,76.284601,63.42
+Malabar Board Reclamation Co,buyer,MDF Board Offcuts,Malabar Board Reclamation Co Facility,Kannur,11.898636,75.332537,63.83
+Arabian Board Processing LLP,buyer,MDF Board Offcuts,Arabian Board Processing LLP Facility,Kollam,8.97066,76.558293,83.81
+Kuttanad Foundry Resource Recovery,buyer,MDF Board Offcuts,Kuttanad Foundry Resource Recovery Facility,Thrissur,10.642338,76.102897,91.32
+Periyar Composite Resource Recovery,buyer,MDF Board Offcuts,Periyar Composite Resource Recovery Facility,Kannur,11.942277,75.335224,61.98
+Pamba Industrial Circular Industries,competitor,MDF Board Offcuts,Pamba Industrial Circular Industries Facility,Thrissur,10.528925,76.282994,87.07
+Kuttanad Fibre Recovery Systems,competitor,MDF Board Offcuts,Kuttanad Fibre Recovery Systems Facility,Thiruvananthapuram,8.57167,76.973973,79.38
+Chalakudy Polymer Recovery Systems,competitor,MDF Board Offcuts,Chalakudy Polymer Recovery Systems Facility,Thiruvananthapuram,8.634086,77.03707,67.43
+Backwater Foundry Recovery Systems,competitor,MDF Board Offcuts,Backwater Foundry Recovery Systems Facility,Alappuzha,9.526473,76.441202,88.83
+Nilgiri Element Recovery Systems,competitor,MDF Board Offcuts,Nilgiri Element Recovery Systems Facility,Kannur,11.81722,75.262903,87.31
+Nilgiri Board Reprocessing Ltd,competitor,MDF Board Offcuts,Nilgiri Board Reprocessing Ltd Facility,Kollam,8.949082,76.541968,60.71
+Malabar Board Resource Recovery,competitor,MDF Board Offcuts,Malabar Board Resource Recovery Facility,Kollam,8.962818,76.614717,72.99
+Vembanad Salvage Processing LLP,competitor,MDF Board Offcuts,Vembanad Salvage Processing LLP Facility,Thrissur,10.627155,76.164711,54.04
+Western Ghats Alloy Materials Pvt Ltd,competitor,MDF Board Offcuts,Western Ghats Alloy Materials Pvt Ltd Facility,Thrissur,10.448462,76.133709,79.57
+Wayanad Board Materials Pvt Ltd,competitor,MDF Board Offcuts,Wayanad Board Materials Pvt Ltd Facility,Thrissur,10.449278,76.151387,68.6
+Chalakudy Composite Materials Pvt Ltd,competitor,MDF Board Offcuts,Chalakudy Composite Materials Pvt Ltd Facility,Thrissur,10.438235,76.15991,53.59
+Arabian Composite Circular Industries,competitor,MDF Board Offcuts,Arabian Composite Circular Industries Facility,Ernakulam,9.913687,76.418935,69.35
+Arabian Salvage Processing LLP,competitor,MDF Board Offcuts,Arabian Salvage Processing LLP Facility,Kozhikode,11.262901,75.872093,87.31
+Bharata Board Reprocessing Ltd,competitor,MDF Board Offcuts,Bharata Board Reprocessing Ltd Facility,Kollam,8.916899,76.616873,80.66
+Backwater Foundry Resource Recovery,competitor,MDF Board Offcuts,Backwater Foundry Resource Recovery Facility,Palakkad,10.675662,76.557195,73.16
+Periyar Board Recycling Works,competitor,MDF Board Offcuts,Periyar Board Recycling Works Facility,Alappuzha,9.474251,76.24789,81.71
+Nilgiri Alloy Reclamation Co,competitor,MDF Board Offcuts,Nilgiri Alloy Reclamation Co Facility,Thrissur,10.485206,76.22051,76.34
+Pamba Foundry Circular Industries,competitor,MDF Board Offcuts,Pamba Foundry Circular Industries Facility,Ernakulam,10.064363,76.365208,68.97
+Backwater Board Reclamation Co,buyer,Glass Cutting Waste,Backwater Board Reclamation Co Facility,Thrissur,10.433539,76.11376,79.8
+Backwater Salvage Materials Pvt Ltd,buyer,Glass Cutting Waste,Backwater Salvage Materials Pvt Ltd Facility,Thiruvananthapuram,8.514341,77.008059,66.52
+Coastal Metals Materials Pvt Ltd,buyer,Glass Cutting Waste,Coastal Metals Materials Pvt Ltd Facility,Kannur,11.866435,75.335619,90.53
+Coastal Salvage Resource Recovery,buyer,Glass Cutting Waste,Coastal Salvage Resource Recovery Facility,Thiruvananthapuram,8.549041,76.899093,82.7
+Nilgiri Fibre Recycling Works,buyer,Glass Cutting Waste,Nilgiri Fibre Recycling Works Facility,Kannur,11.838163,75.380953,84.16
+Coastal Element Recovery Systems,buyer,Glass Cutting Waste,Coastal Element Recovery Systems Facility,Thrissur,10.514132,76.198887,71.06
+Arabian Polymer Recovery Systems,buyer,Glass Cutting Waste,Arabian Polymer Recovery Systems Facility,Kollam,8.954262,76.500025,84.32
+Bharata Salvage Circular Industries,buyer,Glass Cutting Waste,Bharata Salvage Circular Industries Facility,Thiruvananthapuram,8.526063,77.013585,72.49
+Arabian Alloy Reprocessing Ltd,buyer,Glass Cutting Waste,Arabian Alloy Reprocessing Ltd Facility,Ernakulam,9.927041,76.292524,93.54
+Periyar Timber Reclamation Co,buyer,Glass Cutting Waste,Periyar Timber Reclamation Co Facility,Thrissur,10.50654,76.22062,61.46
+Chalakudy Salvage Reclamation Co,buyer,Glass Cutting Waste,Chalakudy Salvage Reclamation Co Facility,Thrissur,10.615883,76.145948,73.73
+Coastal Element Processing LLP,buyer,Glass Cutting Waste,Coastal Element Processing LLP Facility,Alappuzha,9.549658,76.282917,81.76
+Arabian Board Recycling Works,buyer,Glass Cutting Waste,Arabian Board Recycling Works Facility,Ernakulam,9.942598,76.263081,79.03
+Anamudi Metals Processing LLP,buyer,Glass Cutting Waste,Anamudi Metals Processing LLP Facility,Thrissur,10.645433,76.322807,72.86
+Pamba Polymer Circular Industries,buyer,Glass Cutting Waste,Pamba Polymer Circular Industries Facility,Kannur,11.937166,75.314252,88.09
+Anamudi Composite Recovery Systems,buyer,Glass Cutting Waste,Anamudi Composite Recovery Systems Facility,Alappuzha,9.470754,76.277588,83.8
+Anamudi Industrial Reprocessing Ltd,buyer,Glass Cutting Waste,Anamudi Industrial Reprocessing Ltd Facility,Kozhikode,11.159518,75.835359,79.38
+Arabian Foundry Processing LLP,buyer,Glass Cutting Waste,Arabian Foundry Processing LLP Facility,Kannur,11.89964,75.460892,60.09
+Southern Metals Recycling Works,buyer,Glass Cutting Waste,Southern Metals Recycling Works Facility,Kollam,8.97034,76.682728,55.25
+Nilgiri Salvage Recovery Systems,buyer,Glass Cutting Waste,Nilgiri Salvage Recovery Systems Facility,Kannur,11.756046,75.260888,87.75
+Southern Element Recovery Systems,buyer,Glass Cutting Waste,Southern Element Recovery Systems Facility,Thrissur,10.591491,76.173345,80.45
+Coastal Foundry Circular Industries,buyer,Glass Cutting Waste,Coastal Foundry Circular Industries Facility,Alappuzha,9.416076,76.382608,93.71
+Bharata Alloy Processing LLP,buyer,Glass Cutting Waste,Bharata Alloy Processing LLP Facility,Thiruvananthapuram,8.462693,77.043368,81.37
+Arabian Salvage Reclamation Co,buyer,Glass Cutting Waste,Arabian Salvage Reclamation Co Facility,Kollam,8.975562,76.552887,78.32
+Western Ghats Alloy Reclamation Co,buyer,Glass Cutting Waste,Western Ghats Alloy Reclamation Co Facility,Kannur,11.863479,75.286528,69.88
+Periyar Polymer Recycling Works,buyer,Glass Cutting Waste,Periyar Polymer Recycling Works Facility,Palakkad,10.753731,76.669174,61.74
+Bharata Salvage Processing LLP,buyer,Glass Cutting Waste,Bharata Salvage Processing LLP Facility,Alappuzha,9.46091,76.423875,86.89
+Nilgiri Alloy Resource Recovery,buyer,Glass Cutting Waste,Nilgiri Alloy Resource Recovery Facility,Ernakulam,9.875409,76.303731,56.13
+Arabian Polymer Circular Industries,buyer,Glass Cutting Waste,Arabian Polymer Circular Industries Facility,Thiruvananthapuram,8.602841,77.04953,65.04
+Anamudi Green Recycling Works,buyer,Glass Cutting Waste,Anamudi Green Recycling Works Facility,Kannur,11.873284,75.342342,76.4
+Pamba Green Resource Recovery,competitor,Glass Cutting Waste,Pamba Green Resource Recovery Facility,Kozhikode,11.309331,75.740839,64.68
+Kuttanad Polymer Recovery Systems,competitor,Glass Cutting Waste,Kuttanad Polymer Recovery Systems Facility,Ernakulam,10.08387,76.215174,69.59
+Southern Polymer Processing LLP,competitor,Glass Cutting Waste,Southern Polymer Processing LLP Facility,Kozhikode,11.163905,75.748214,80.53
+Coastal Green Materials Pvt Ltd,competitor,Glass Cutting Waste,Coastal Green Materials Pvt Ltd Facility,Kozhikode,11.164522,75.842212,78.04
+Periyar Alloy Recovery Systems,competitor,Glass Cutting Waste,Periyar Alloy Recovery Systems Facility,Thrissur,10.602904,76.136254,89.03
+Pamba Board Circular Industries,competitor,Glass Cutting Waste,Pamba Board Circular Industries Facility,Kollam,8.783213,76.695815,52.58
+Chalakudy Element Reclamation Co,competitor,Glass Cutting Waste,Chalakudy Element Reclamation Co Facility,Kannur,11.907691,75.362618,62.4
+Western Ghats Composite Resource Recovery,competitor,Glass Cutting Waste,Western Ghats Composite Resource Recovery Facility,Kozhikode,11.145041,75.735596,60.29
+Coastal Composite Reprocessing Ltd,competitor,Glass Cutting Waste,Coastal Composite Reprocessing Ltd Facility,Thiruvananthapuram,8.607869,76.926875,75.3
+Periyar Board Materials Pvt Ltd,competitor,Glass Cutting Waste,Periyar Board Materials Pvt Ltd Facility,Ernakulam,9.8628,76.201816,62.1
+Anamudi Fibre Recovery Systems,competitor,Glass Cutting Waste,Anamudi Fibre Recovery Systems Facility,Ernakulam,10.003268,76.388818,89.37
+Southern Green Processing LLP,competitor,Glass Cutting Waste,Southern Green Processing LLP Facility,Alappuzha,9.419699,76.218909,52.34
+Chalakudy Element Recycling Works,competitor,Glass Cutting Waste,Chalakudy Element Recycling Works Facility,Thiruvananthapuram,8.438964,77.049867,60.12
+Chalakudy Timber Materials Pvt Ltd,competitor,Glass Cutting Waste,Chalakudy Timber Materials Pvt Ltd Facility,Kannur,11.924322,75.276396,86.65
+Wayanad Alloy Resource Recovery,competitor,Glass Cutting Waste,Wayanad Alloy Resource Recovery Facility,Kollam,8.875199,76.573462,81.64
+Nilgiri Timber Reprocessing Ltd,competitor,Glass Cutting Waste,Nilgiri Timber Reprocessing Ltd Facility,Palakkad,10.675668,76.578589,56.07
+Coastal Board Recovery Systems,competitor,Glass Cutting Waste,Coastal Board Recovery Systems Facility,Thrissur,10.423651,76.226877,86.97
+Kuttanad Alloy Reclamation Co,competitor,Glass Cutting Waste,Kuttanad Alloy Reclamation Co Facility,Kollam,8.818491,76.733574,74.18

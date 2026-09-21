@@ -29,6 +29,7 @@ Runs after the KINFRA ingest, so the materials it matches against are real.
 
 from __future__ import annotations
 
+import csv
 import logging
 import math
 import random
@@ -36,6 +37,7 @@ import uuid
 from collections import defaultdict
 from datetime import date, datetime, timedelta
 from decimal import Decimal
+from pathlib import Path
 
 from app.core.database import SessionLocal
 from app.core.security import hash_password
@@ -100,13 +102,22 @@ DISTRICTS = [
     ("Alappuzha", 9.4981, 76.3388),
 ]
 
+# Three parts rather than two. Ten prefixes and six suffixes give sixty
+# names, and this creates several hundred companies -- the rest fell through
+# to "Kerala Materials 412", which is no use to anyone reading the data.
 BUYER_PREFIXES = [
     "Southern", "Malabar", "Coastal", "Western Ghats", "Backwater",
     "Periyar", "Anamudi", "Vembanad", "Nilgiri", "Arabian",
+    "Kuttanad", "Wayanad", "Bharata", "Pamba", "Chalakudy",
+]
+BUYER_MIDDLES = [
+    "Polymer", "Metals", "Timber", "Composite", "Industrial",
+    "Green", "Salvage", "Foundry", "Fibre", "Alloy", "Board", "Element",
 ]
 BUYER_SUFFIXES = [
     "Recycling Works", "Reprocessing Ltd", "Materials Pvt Ltd",
     "Circular Industries", "Resource Recovery", "Reclamation Co",
+    "Recovery Systems", "Processing LLP",
 ]
 
 # How strongly a partner's endorsement counts toward a deal closing. Matched
@@ -122,13 +133,31 @@ INTERCEPT = -4.10
 NOISE_SD = 0.35
 
 
+# Written out purely so the generated market can be read, diffed and quoted.
+# Kept apart from datasets/csv, which holds authored source data: these are an
+# output of each rebuild, not an input to it, and editing them changes nothing.
+OUTPUT_DIR = Path(__file__).resolve().parents[2] / "datasets" / "generated"
+
+
 def _sigmoid(z: float) -> float:
     return 1.0 / (1.0 + math.exp(-z))
 
 
+def _write_csv(filename: str, header: list[str], rows: list[list]) -> None:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    with open(OUTPUT_DIR / filename, "w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(header)
+        writer.writerows(rows)
+
+
 def _company_name(rng: random.Random, used: set[str]) -> str:
-    for _ in range(200):
-        name = f"{rng.choice(BUYER_PREFIXES)} {rng.choice(BUYER_SUFFIXES)}"
+    """A distinct, plausible company name. 1,440 combinations before repeats."""
+    for _ in range(500):
+        name = (
+            f"{rng.choice(BUYER_PREFIXES)} {rng.choice(BUYER_MIDDLES)} "
+            f"{rng.choice(BUYER_SUFFIXES)}"
+        )
         if name not in used:
             used.add(name)
             return name
@@ -210,6 +239,12 @@ def generate_market_partners() -> dict[str, int]:
 
         used_names: set[str] = {c.company_name for c in db.query(Company).all()}
         serial = 0
+        # Collected as we go, then written to datasets/generated so the market
+        # is inspectable rather than existing only inside the database.
+        out_companies: list[list] = []
+        out_requirements: list[list] = []
+        out_listings: list[list] = []
+        out_exchanges: list[list] = []
         today = date.today()
         buyer_plants: list[tuple[Plant, Material, Requirement]] = []
 
@@ -237,6 +272,19 @@ def generate_market_partners() -> dict[str, int]:
                 db.flush()
                 buyer_plants.append((plant, material, requirement))
                 counts["buyers"] += 1
+                out_companies.append([
+                    plant.company.company_name, "buyer", material.material_name,
+                    plant.plant_name, plant.district,
+                    float(plant.latitude), float(plant.longitude),
+                    float(plant.company.trust_score),
+                ])
+                out_requirements.append([
+                    plant.company.company_name, material.material_name,
+                    float(requirement.quantity), requirement.unit.value,
+                    float(requirement.minimum_purity),
+                    float(requirement.maximum_budget_per_unit),
+                    requirement.required_before.isoformat(),
+                ])
 
             # Competitors: they sell the same material, so a buyer has real
             # alternatives and the ranking has to discriminate.
@@ -259,6 +307,12 @@ def generate_market_partners() -> dict[str, int]:
                     status=WasteStatus.AVAILABLE,
                 ))
                 counts["competitors"] += 1
+                out_companies.append([
+                    plant.company.company_name, "competitor", material.material_name,
+                    plant.plant_name, plant.district,
+                    float(plant.latitude), float(plant.longitude),
+                    float(plant.company.trust_score),
+                ])
 
         db.flush()
 
@@ -274,6 +328,9 @@ def generate_market_partners() -> dict[str, int]:
 
         successes: dict[tuple[uuid.UUID, uuid.UUID], int] = defaultdict(int)
         partners: dict[uuid.UUID, set[uuid.UUID]] = defaultdict(set)
+        # Who buys from each seller, so a buyer can be linked to its peers --
+        # the other customers of its own suppliers.
+        buyers_of: dict[uuid.UUID, set[uuid.UUID]] = defaultdict(set)
 
         attempts = []
         for plant, material, requirement in buyer_plants:
@@ -309,13 +366,26 @@ def generate_market_partners() -> dict[str, int]:
             pair = (seller_plant.id, buyer_plant.id)
             dyadic = min(successes[pair] / 3.0, 1.0)
 
-            # The referral term: how many of this buyer's existing partners
-            # already trade with this seller.
+            # The referral term: of the buyers this one shares a supplier with,
+            # how many already buy from this seller?
+            #
+            # The reach has to be to peers, not to partners. A buyer's partners
+            # are sellers, and sellers never buy from sellers, so asking
+            # whether a partner had bought from this seller was a condition
+            # that could not be met -- it fired on 0 of 2,880 attempts, and the
+            # network effect was simply absent from the data.
+            #
+            # Peers are reached at two hops: the buyer's suppliers, then the
+            # other buyers those suppliers serve. That is how word of mouth
+            # actually travels in a market.
             referral = 0.0
-            if partners[buyer_plant.id]:
+            peers: set[uuid.UUID] = set()
+            for supplier in partners[buyer_plant.id]:
+                peers |= buyers_of[supplier]
+            peers.discard(buyer_plant.id)
+            if peers:
                 endorsing = sum(
-                    1 for other in partners[buyer_plant.id]
-                    if successes[(seller_plant.id, other)] > 0
+                    1 for peer in peers if successes[(seller_plant.id, peer)] > 0
                 )
                 referral = min(endorsing / 2.0, 1.0)
 
@@ -370,6 +440,15 @@ def generate_market_partners() -> dict[str, int]:
             request.created_at = datetime(when.year, when.month, when.day)
             db.add(request)
             counts["requests"] += 1
+            out_exchanges.append([
+                seller_plant.company.company_name,
+                buyer_plant.company.company_name,
+                listing.material.material_name,
+                round(traded, 2), round(distance_km, 2),
+                round(quantity_fit, 3), round(referral, 3),
+                "Accepted" if accepted else "Rejected",
+                request.created_at.date().isoformat(),
+            ])
 
             if not accepted:
                 continue
@@ -379,6 +458,7 @@ def generate_market_partners() -> dict[str, int]:
             successes[pair] += 1
             partners[buyer_plant.id].add(seller_plant.id)
             partners[seller_plant.id].add(buyer_plant.id)
+            buyers_of[seller_plant.id].add(buyer_plant.id)
 
             exchange = Exchange(
                 id=uuid.uuid4(),
@@ -404,7 +484,27 @@ def generate_market_partners() -> dict[str, int]:
                 buyer_feedback="Collection and payment went smoothly.",
             ))
 
+        _write_csv(
+            "market_companies.csv",
+            ["company_name", "role", "material", "plant_name", "district",
+             "latitude", "longitude", "trust_score"],
+            out_companies,
+        )
+        _write_csv(
+            "market_requirements.csv",
+            ["company_name", "material", "quantity_kg", "unit",
+             "minimum_purity", "max_budget_per_kg_inr", "required_before"],
+            out_requirements,
+        )
+        _write_csv(
+            "market_exchanges.csv",
+            ["supplier", "buyer", "material", "quantity_kg", "distance_km",
+             "quantity_fit", "referral_strength", "outcome", "date"],
+            out_exchanges,
+        )
+
         db.commit()
+        logger.info("Market written to %s", OUTPUT_DIR)
         logger.info(
             "Market partners: %d buyers, %d competitors, %d requests (%d accepted)",
             counts["buyers"], counts["competitors"], counts["requests"], counts["accepted"],
