@@ -344,11 +344,19 @@ def ingest_kinfra_data() -> int:
             if plant_uuid is None or material_uuid is None:
                 continue
 
+            # Keyed on the availability date as well as the plant and
+            # material. A plant's waste is a recurring stream, not a single
+            # consignment: RC Interiors generates plywood offcuts every month,
+            # and the batch sold to Al-Fas has to stay on record as history
+            # while this month's sits on the market. Matching on plant and
+            # material alone would make the second batch overwrite the first.
+            available_from = _as_date(row.get("availability_date"), today)
             listing = (
                 db.query(WasteListing)
                 .filter(
                     WasteListing.plant_id == plant_uuid,
                     WasteListing.material_id == material_uuid,
+                    WasteListing.available_from == available_from,
                 )
                 .first()
             )
@@ -369,7 +377,7 @@ def ingest_kinfra_data() -> int:
                 listing.unit = QuantityUnit.KG
             listing.purity_percentage = _as_decimal(row.get("purity_percentage"), "0")
             listing.price_per_unit = _as_decimal(row.get("asking_price_per_kg_inr"))
-            listing.available_from = _as_date(row.get("availability_date"), today)
+            listing.available_from = available_from
             listing.available_until = _as_date(
                 row.get("expiry_date"), today + timedelta(days=365)
             )
