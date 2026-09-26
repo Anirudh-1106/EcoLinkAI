@@ -26,6 +26,18 @@ from app.models.requirement import Requirement
 from app.models.review import Review
 from app.models.waste_listing import WasteListing
 
+# Values a plant receives when the platform knows nothing about it yet: a
+# company with no trust score, a seller with no reviews. Named so that any
+# other data source fed to the model -- the EPA real-data study, for one --
+# fills the same gaps with the same neutral values rather than its own guesses.
+NEUTRAL_TRUST = 0.5
+NEUTRAL_RATING = 0.7
+
+# Counts are divided by these and capped at 1.0.
+LISTINGS_SATURATION = 20.0
+REQUIREMENTS_SATURATION = 20.0
+EXCHANGES_SATURATION = 50.0
+
 # Standard industry sectors for one-hot encoding
 INDUSTRY_SECTORS = [
     "Chemicals & Petrochemicals",
@@ -63,7 +75,7 @@ def extract_node_features(db: Session) -> tuple[list[Plant], np.ndarray, dict[st
         lon = float(plant.longitude) / 180.0
 
         # Trust score
-        trust = float(comp.trust_score) / 100.0 if comp and comp.trust_score else 0.5
+        trust = float(comp.trust_score) / 100.0 if comp and comp.trust_score else NEUTRAL_TRUST
 
         # Listing count
         active_listings = (
@@ -72,7 +84,7 @@ def extract_node_features(db: Session) -> tuple[list[Plant], np.ndarray, dict[st
             .scalar()
             or 0
         )
-        norm_listings = min(active_listings / 20.0, 1.0)
+        norm_listings = min(active_listings / LISTINGS_SATURATION, 1.0)
 
         # Requirement count
         open_reqs = (
@@ -81,7 +93,7 @@ def extract_node_features(db: Session) -> tuple[list[Plant], np.ndarray, dict[st
             .scalar()
             or 0
         )
-        norm_reqs = min(open_reqs / 20.0, 1.0)
+        norm_reqs = min(open_reqs / REQUIREMENTS_SATURATION, 1.0)
 
         # Historical completed exchanges
         ex_count = (
@@ -95,7 +107,7 @@ def extract_node_features(db: Session) -> tuple[list[Plant], np.ndarray, dict[st
             .scalar()
             or 0
         )
-        norm_ex = min(ex_count / 50.0, 1.0)
+        norm_ex = min(ex_count / EXCHANGES_SATURATION, 1.0)
 
         # Average rating
         avg_rating = (
@@ -105,7 +117,7 @@ def extract_node_features(db: Session) -> tuple[list[Plant], np.ndarray, dict[st
             .filter(ExchangeRequest.supplier_plant_id == plant.id)
             .scalar()
         )
-        norm_rating = (float(avg_rating) / 5.0) if avg_rating else 0.7
+        norm_rating = (float(avg_rating) / 5.0) if avg_rating else NEUTRAL_RATING
 
         # Industry sector one-hot
         sector_vec = [0.0] * len(INDUSTRY_SECTORS)
