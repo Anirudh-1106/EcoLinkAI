@@ -31,6 +31,14 @@ from ai.models.hsic import hsic_loss
 # eight orders of magnitude above its setting.
 HSIC_GAMMA = 1e-10
 
+# HSIC compares every node with every other: its Gram matrices are N x N. At
+# the platform's few hundred plants that is trivial; at the ~20,000 facilities
+# of the EPA transfer network it would need several GB and hours per epoch.
+# Past this many nodes the disparity is estimated on a fresh random subset
+# each step. Graphs at or below it -- the platform's own included -- are
+# untouched, and draw no random numbers, so their training is unchanged.
+HSIC_MAX_NODES = 2048
+
 
 class AttentionFusion(nn.Module):
     """
@@ -228,6 +236,10 @@ class MCGNN(nn.Module):
 
         # HSIC regularization across pairs of channels
         z1, z2, z3 = channel_embs
+        n = z1.size(0)
+        if n > HSIC_MAX_NODES:
+            idx = torch.randperm(n, device=z1.device)[:HSIC_MAX_NODES]
+            z1, z2, z3 = z1[idx], z2[idx], z3[idx]
         h_loss = (
             hsic_loss(z1, z2) + hsic_loss(z1, z3) + hsic_loss(z2, z3)
         ) / 3.0
