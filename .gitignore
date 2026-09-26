@@ -62,3 +62,6 @@ ai/checkpoints/mc_gnn_2*.json
 
 # Retraining job logs
 logs/
+
+# Raw EPA TRI / FRS downloads for the real-data study (hundreds of MB, public, re-downloadable)
+us data/
