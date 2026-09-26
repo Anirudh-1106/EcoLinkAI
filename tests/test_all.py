@@ -869,3 +869,105 @@ def test_trust_counts_ratings_earned_on_both_sides():
     finally:
         db.rollback()
         db.close()
+
+
+# =====================================================
+# Real-data study (EPA TRI)
+# =====================================================
+
+
+def _tri_toy_dataset():
+    """Two senders, four receivers, one year of history and one target year."""
+    from ai.experiments.tri_loader import Site, TRIDataset, Transfer
+
+    sites = {
+        k: Site(k, lat=40.0 + i * 0.1, lon=-80.0 - i * 0.1, naics=n)
+        for i, (k, n) in enumerate([
+            ("A", "331110"), ("B", "325412"), ("R1", "562211"),
+            ("R2", "331492"), ("R3", ""), ("R4", "331492"),
+        ])
+    }
+    transfers = [
+        # history
+        Transfer(2023, "A", "R1", "X", "M24", 1000.0),
+        Transfer(2023, "B", "R2", "X", "M24", 800.0),
+        Transfer(2023, "B", "R3", "Y", "M56", 500.0),
+        Transfer(2023, "B", "R4", "X", "M24", 900.0),
+        # the year being scored
+        Transfer(2024, "A", "R1", "X", "M24", 1200.0),
+        Transfer(2024, "A", "R2", "X", "M24", 1100.0),
+    ]
+    return TRIDataset(transfers, sites)
+
+
+def test_tri_features_are_built_from_history_only():
+    """
+    Nothing from the year being scored may reach an input.
+
+    The 2024 A->R1 transfer is the answer; if it were counted, A would have
+    two past dealings with R1 instead of one and the model would be reading
+    the label off its own input.
+    """
+    from app.utils.edge_encoding import EDGE_FEATURE_NAMES
+
+    g = _tri_toy_dataset().build_graph(2024)
+    idx = {k: i for i, k in enumerate(g["node_keys"])}
+    prior = EDGE_FEATURE_NAMES.index("prior_successes")
+    by_pair = {
+        (g["node_keys"][s], g["node_keys"][r]): g["edge_attr"][e]
+        for e, (s, r) in enumerate(g["edge_index"].T)
+    }
+
+    assert by_pair[("A", "R1")][prior] > 0, "one real past dealing"
+    assert by_pair[("A", "R2")][prior] == 0, "A never dealt with R2 before 2024"
+
+    history_links = {
+        (g["node_keys"][s], g["node_keys"][r]) for s, r in g["message_edge_index"].T
+    }
+    assert history_links == {("A", "R1"), ("B", "R2"), ("B", "R3"), ("B", "R4")}
+
+    exchanges_col = 5  # historical exchange count, as in node_features
+    assert g["x"][idx["A"], exchanges_col] == pytest.approx(1 / 50.0), "one past transfer, not two"
+
+
+def test_tri_negatives_never_include_a_real_partner():
+    """A receiver the sender actually used that year is never sampled as 'did not happen'."""
+    g = _tri_toy_dataset().build_graph(2024)
+    keys = g["node_keys"]
+    labelled = {
+        (keys[s], keys[r]): y for (s, r), y in zip(g["edge_index"].T, g["y"])
+    }
+    assert labelled[("A", "R1")] == 1.0
+    assert labelled[("A", "R2")] == 1.0
+    assert labelled[("A", "R4")] == 0.0, "R4 took chemical X before and was not used"
+    assert ("A", "R3") not in labelled, "R3 never handled X or its recovery method"
+
+
+def test_tri_inputs_match_the_model_contract():
+    """17 plant inputs and 8 pair inputs, every one inside 0-1."""
+    from ai.experiments.tri_loader import EDGE_FEATURE_DIM, NODE_FEATURE_DIM
+
+    g = _tri_toy_dataset().build_graph(2024)
+    assert g["x"].shape[1] == NODE_FEATURE_DIM == 17
+    assert g["edge_attr"].shape[1] == EDGE_FEATURE_DIM == 8
+    assert (g["edge_attr"] >= 0).all() and (g["edge_attr"] <= 1).all()
+    assert (g["x"][:, 2:] >= 0).all() and (g["x"][:, 2:] <= 1).all()
+
+
+def test_tri_without_history_nothing_is_scored():
+    """With no past to learn candidates from, the loader asks no questions rather than guessing."""
+    g = _tri_toy_dataset().build_graph(2024, history_start=2024)
+    assert g["stats"].get("queries_used", 0) == 0
+    assert g["stats"]["history_transfers"] == 0
+
+
+def test_tri_units_and_sector_mapping():
+    from ai.experiments.tri_loader import naics_to_sector, to_kg
+
+    assert to_kg(100, "Pounds") == pytest.approx(45.359237)
+    assert to_kg(1000, "Grams") == pytest.approx(1.0)
+    assert naics_to_sector("331110") == "Metal & Metallurgy"
+    assert naics_to_sector("325412") == "Pharmaceuticals", "longest prefix wins over 325"
+    assert naics_to_sector("325110") == "Chemicals & Petrochemicals"
+    assert naics_to_sector("562211") == "General Manufacturing", "the platform's own fallback"
+    assert naics_to_sector("") == "General Manufacturing"
