@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-09-28T23:07:30.630769",
+  "checkpoint_file": "mc_gnn_tri_20260928_230730.pt",
+  "trained_on": "EPA TRI off-site recovery transfers, learn 2022 (history 2019-2021), select 2023, test 2024",
+  "location_frame": "market",
+  "node_features": 17,
+  "edge_features": 8,
+  "device": "cuda",
+  "seed": 13,
+  "seeds_tried": [
+    {
+      "seed": 42,
+      "val_auc": 0.986536,
+      "best_epoch": 354,
+      "epochs_run": 394
+    },
+    {
+      "seed": 7,
+      "val_auc": 0.986702,
+      "best_epoch": 223,
+      "epochs_run": 263
+    },
+    {
+      "seed": 13,
+      "val_auc": 0.986938,
+      "best_epoch": 424,
+      "epochs_run": 464
+    }
+  ],
+  "epochs": 500,
+  "epochs_run": 464,
+  "best_epoch": 424,
+  "patience": 40,
+  "learning_rate": 0.01,
+  "weight_decay": 0.0001,
+  "hsic_weight": 1e-10,
+  "validation_metrics": {
+    "auc": 0.986938
+  },
+  "calibration": [
+    0.973001586133658,
+    -0.139137884774503
+  ],
+  "calibration_ece": {
+    "before": 0.002703,
+    "after": 0.002192
+  },
+  "selection_metric": "auc",
+  "metric_type": "held_out",
+  "us_test_metrics": {
+    "precision@5": 0.31114,
+    "recall@5": 0.979174,
+    "ndcg@5": 0.972468,
+    "auc": 0.988183,
+    "hit@1": 0.964304
+  },
+  "us_baseline_metrics": {
+    "precision@5": 0.29066,
+    "recall@5": 0.943683,
+    "ndcg@5": 0.912857,
+    "auc": 0.950752,
+    "hit@1": 0.885832
+  },
+  "num_train_edges": 391450,
+  "num_val_edges": 392670,
+  "num_test_edges": 388450,
+  "num_nodes": 14708
+}
