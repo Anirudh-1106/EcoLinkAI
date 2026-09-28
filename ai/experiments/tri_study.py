@@ -54,7 +54,7 @@ for _p in (str(PROJECT_ROOT), str(BACKEND_DIR)):
 import numpy as np
 import torch
 
-from ai.evaluation.metrics import evaluate_model
+from ai.evaluation.metrics import evaluate_model, roc_auc
 from ai.experiments.tri_loader import (
     CANDIDATE_DISTANCE_QUANTILE,
     DATA_DIR,
@@ -89,7 +89,13 @@ WEIGHT_DECAY = 1e-4
 # ── tensors and scoring ──────────────────────────────────────────────────
 
 
-def _tensors(g: dict, *, with_graph: bool = True, coords: np.ndarray | None = None):
+def pick_device(force_cpu: bool = False) -> torch.device:
+    """The GPU when PyTorch can reach one, else the CPU; results are the same either way."""
+    return torch.device("cuda" if torch.cuda.is_available() and not force_cpu else "cpu")
+
+
+def _tensors(g: dict, *, with_graph: bool = True, coords: np.ndarray | None = None,
+             device: torch.device | str = "cpu"):
     x = torch.tensor(g["x"] if coords is None else coords)
     edge_index = torch.tensor(g["edge_index"])
     edge_attr = torch.tensor(g["edge_attr"])
@@ -97,15 +103,16 @@ def _tensors(g: dict, *, with_graph: bool = True, coords: np.ndarray | None = No
         torch.tensor(g["message_edge_index"]) if with_graph
         else torch.empty((2, 0), dtype=torch.long)
     )
-    return x, edge_index, edge_attr, message
+    return tuple(t.to(device) for t in (x, edge_index, edge_attr, message))
 
 
 @torch.no_grad()
 def score(model: MCGNN, g: dict, *, with_graph: bool = True, coords: np.ndarray | None = None) -> np.ndarray:
     model.eval()
-    x, ei, ea, msg = _tensors(g, with_graph=with_graph, coords=coords)
+    device = next(model.parameters()).device
+    x, ei, ea, msg = _tensors(g, with_graph=with_graph, coords=coords, device=device)
     out, _ = model(x, ei, ea, message_edge_index=msg)
-    return out.numpy()
+    return out.cpu().numpy()
 
 
 def measure(g: dict, scores: np.ndarray) -> dict:
@@ -206,14 +213,22 @@ def transfer_test(g_test: dict) -> dict:
 # ── the control ──────────────────────────────────────────────────────────
 
 
-def train_control(g_train: dict, g_val: dict, seed: int, *, with_graph: bool, epochs: int) -> tuple[MCGNN, dict]:
+def train_control(g_train: dict, g_val: dict, seed: int, *, with_graph: bool, epochs: int,
+                  location_frame: str = "absolute", device: torch.device | str = "cpu",
+                  patience: int = PATIENCE) -> tuple[MCGNN, dict]:
     torch.manual_seed(seed)
     np.random.seed(seed)
-    model = MCGNN(in_features=NODE_FEATURE_DIM, edge_dim=EDGE_FEATURE_DIM)
+    model = MCGNN(in_features=NODE_FEATURE_DIM, edge_dim=EDGE_FEATURE_DIM,
+                  location_frame=location_frame).to(device)
     opt = torch.optim.Adam(model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
 
-    xt, eit, eat, mt = _tensors(g_train, with_graph=with_graph)
-    yt = torch.tensor(g_train["y"])
+    xt, eit, eat, mt = _tensors(g_train, with_graph=with_graph, device=device)
+    yt = torch.tensor(g_train["y"]).to(device)
+    # Validation inputs move to the device once, not every epoch. Selection
+    # needs only AUC, which is one rank computation; the per-query metrics
+    # are measured once, on the test year, after training.
+    xv, eiv, eav, mv = _tensors(g_val, with_graph=with_graph, device=device)
+    yv = g_val["y"]
     best = {"auc": -1.0, "loss": float("inf"), "epoch": 0}
     best_state, stale = None, 0
 
@@ -225,8 +240,10 @@ def train_control(g_train: dict, g_val: dict, seed: int, *, with_graph: bool, ep
         loss.backward()
         opt.step()
 
-        val_scores = score(model, g_val, with_graph=with_graph)
-        val_auc = measure(g_val, val_scores)["auc"]
+        model.eval()
+        with torch.no_grad():
+            val_scores, _ = model(xv, eiv, eav, message_edge_index=mv)
+        val_auc = roc_auc(yv, val_scores.cpu().numpy())
         improved = val_auc > best["auc"] + 1e-9 or (
             abs(val_auc - best["auc"]) <= 1e-9 and loss.item() < best["loss"])
         if improved:
@@ -234,21 +251,23 @@ def train_control(g_train: dict, g_val: dict, seed: int, *, with_graph: bool, ep
             best_state, stale = copy.deepcopy(model.state_dict()), 0
         else:
             stale += 1
-        if stale >= PATIENCE:
+        if stale >= patience:
             break
 
     model.load_state_dict(best_state)
     return model, {"best_epoch": best["epoch"], "val_auc": best["auc"], "epochs_run": epoch}
 
 
-def control(g_train: dict, g_val: dict, g_test: dict, seeds: list[int], epochs: int) -> dict:
+def control(g_train: dict, g_val: dict, g_test: dict, seeds: list[int], epochs: int,
+            device: torch.device | str = "cpu") -> dict:
     out = {}
     for with_graph in (True, False):
         label = "with graph" if with_graph else "no graph"
         runs = []
         for seed in seeds:
             t0 = time.time()
-            model, info = train_control(g_train, g_val, seed, with_graph=with_graph, epochs=epochs)
+            model, info = train_control(g_train, g_val, seed, with_graph=with_graph, epochs=epochs,
+                                        device=device)
             m = measure(g_test, score(model, g_test, with_graph=with_graph))
             runs.append({**m, **info, "seed": seed, "seconds": round(time.time() - t0, 1)})
             print(f"    control {label:<10} seed {seed:<5} AUC {m['auc']:.4f}  NDCG@5 {m['ndcg@5']:.4f}"
@@ -302,7 +321,9 @@ def main() -> None:
     ap.add_argument("--epochs", type=int, default=300)
     ap.add_argument("--skip-control", action="store_true")
     ap.add_argument("--min-located", type=float, default=MIN_LOCATED_SHARE)
+    ap.add_argument("--cpu", action="store_true", help="train on the CPU even when a GPU is available")
     args = ap.parse_args()
+    device = pick_device(args.cpu)
     logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     years = list(range(HISTORY_START, TEST_YEAR + 1))
@@ -354,7 +375,9 @@ def main() -> None:
 
     if not args.skip_control:
         print("\nControl: same architecture, trained on US history ...")
-        results["control"] = control(graphs[TRAIN_YEAR], graphs[VAL_YEAR], g_test, args.seeds, args.epochs)
+        print(f"  training on {device}")
+        results["control"] = control(graphs[TRAIN_YEAR], graphs[VAL_YEAR], g_test, args.seeds, args.epochs,
+                                     device=device)
 
     results["references"] = {
         name: measure(g_test, s) for name, s in reference_rankers(g_test, args.seeds[0]).items()
