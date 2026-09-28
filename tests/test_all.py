@@ -971,3 +971,52 @@ def test_tri_units_and_sector_mapping():
     assert naics_to_sector("325110") == "Chemicals & Petrochemicals"
     assert naics_to_sector("562211") == "General Manufacturing", "the platform's own fallback"
     assert naics_to_sector("") == "General Manufacturing"
+
+
+def _tiny_graph():
+    import torch
+
+    torch.manual_seed(0)
+    x = torch.rand(6, 17)
+    x[:, 0] = torch.tensor([0.10, 0.11, 0.12, 0.13, 0.14, 0.15])  # lat / 90
+    x[:, 1] = torch.tensor([0.42, 0.43, 0.41, 0.44, 0.42, 0.43])  # lon / 180
+    edge_index = torch.tensor([[0, 1, 2, 3], [4, 5, 4, 5]])
+    edge_attr = torch.rand(4, 8)
+    message = torch.tensor([[0, 1], [4, 5]])
+    return x, edge_index, edge_attr, message
+
+
+def test_checkpoints_without_a_location_frame_read_coordinates_as_before():
+    """Models saved before the setting existed must score exactly as they did."""
+    import torch
+    from ai.models.mc_gnn import MCGNN
+
+    x, ei, ea, msg = _tiny_graph()
+    model = MCGNN(in_features=17, edge_dim=8).eval()
+    with torch.no_grad():
+        current, _ = model(x, ei, ea, message_edge_index=msg)
+        del model.location_frame  # as unpickled from an older checkpoint
+        legacy, _ = model(x, ei, ea, message_edge_index=msg)
+    assert torch.equal(current, legacy)
+
+
+def test_market_frame_scores_do_not_depend_on_where_the_market_is():
+    """Moving every plant by the same offset -- Kerala to the US -- changes nothing."""
+    import torch
+    from ai.models.mc_gnn import MCGNN
+
+    x, ei, ea, msg = _tiny_graph()
+    moved = x.clone()
+    moved[:, 0] += 0.3
+    moved[:, 1] -= 0.95
+
+    market = MCGNN(in_features=17, edge_dim=8, location_frame="market").eval()
+    absolute = MCGNN(in_features=17, edge_dim=8).eval()
+    absolute.load_state_dict(market.state_dict())
+    with torch.no_grad():
+        here, _ = market(x, ei, ea, message_edge_index=msg)
+        there, _ = market(moved, ei, ea, message_edge_index=msg)
+        abs_here, _ = absolute(x, ei, ea, message_edge_index=msg)
+        abs_there, _ = absolute(moved, ei, ea, message_edge_index=msg)
+    assert torch.allclose(here, there, atol=1e-5)
+    assert not torch.allclose(abs_here, abs_there, atol=1e-5), "absolute frame should notice the move"

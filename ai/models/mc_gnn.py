@@ -39,6 +39,28 @@ HSIC_GAMMA = 1e-10
 # untouched, and draw no random numbers, so their training is unchanged.
 HSIC_MAX_NODES = 2048
 
+# How the first two node inputs, latitude/90 and longitude/180, are read.
+#
+#   "absolute"  as given. Every model trained on the platform's own graph.
+#   "market"    re-centred on the graph being encoded and scaled by its own
+#               spread, so they say where a plant sits within its market
+#               rather than where on Earth it is.
+#
+# A model trained on one country's facilities learns that country's
+# coordinate range; handed plants from another, every location input falls
+# outside anything it saw. Read relative to the market, a plant at the edge of
+# the US network and one at the edge of Kerala's look alike, and distance
+# itself still reaches the model through the pair features in kilometres.
+LOCATION_FRAMES = ("absolute", "market")
+
+
+def market_relative_location(x: torch.Tensor) -> torch.Tensor:
+    """x with its two location columns standardised over the nodes present."""
+    loc = x[:, :2]
+    spread = loc.std(dim=0, unbiased=False)
+    spread = torch.where(spread > 0, spread, torch.ones_like(spread))
+    return torch.cat([(loc - loc.mean(dim=0)) / spread, x[:, 2:]], dim=1)
+
 
 class AttentionFusion(nn.Module):
     """
@@ -113,9 +135,13 @@ class MCGNN(nn.Module):
         hidden_dim: int = 64,
         out_dim: int = 32,
         edge_dim: int = 4,
+        location_frame: str = "absolute",
     ):
         super().__init__()
+        if location_frame not in LOCATION_FRAMES:
+            raise ValueError(f"location_frame must be one of {LOCATION_FRAMES}")
         self.hidden_dim = hidden_dim
+        self.location_frame = location_frame
 
         # Platt scaling parameters (a, b) fitted on validation after training,
         # mapping the link predictor's raw score to an honest probability. The
@@ -164,6 +190,11 @@ class MCGNN(nn.Module):
 
     def encode(self, x: torch.Tensor, edge_index: torch.Tensor) -> tuple[torch.Tensor, list[torch.Tensor]]:
         """Encode nodes through 3 channels and fuse them."""
+        # Checkpoints saved before location_frame existed carry no such
+        # attribute and were all trained on absolute coordinates.
+        if getattr(self, "location_frame", "absolute") == "market":
+            x = market_relative_location(x)
+
         # Each channel aggregates over the graph, then adds the plant's own
         # features back so two rounds of averaging cannot wash them away.
         # Channel 1: GCN
