@@ -215,11 +215,21 @@ def transfer_test(g_test: dict) -> dict:
 
 def train_control(g_train: dict, g_val: dict, seed: int, *, with_graph: bool, epochs: int,
                   location_frame: str = "absolute", device: torch.device | str = "cpu",
-                  patience: int = PATIENCE) -> tuple[MCGNN, dict]:
+                  patience: int = PATIENCE, model_factory=None) -> tuple[MCGNN, dict]:
+    """
+    Train one model on g_train, keeping the weights with the best g_val AUC.
+
+    model_factory builds a different architecture under the identical
+    regime -- same data, optimiser, stopping rule and selection -- so that a
+    comparison measures the architecture and nothing else. It must return a
+    module with MCGNN's forward and compute_loss signatures.
+    """
     torch.manual_seed(seed)
     np.random.seed(seed)
-    model = MCGNN(in_features=NODE_FEATURE_DIM, edge_dim=EDGE_FEATURE_DIM,
-                  location_frame=location_frame).to(device)
+    model = (
+        model_factory() if model_factory is not None
+        else MCGNN(in_features=NODE_FEATURE_DIM, edge_dim=EDGE_FEATURE_DIM, location_frame=location_frame)
+    ).to(device)
     opt = torch.optim.Adam(model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
 
     xt, eit, eat, mt = _tensors(g_train, with_graph=with_graph, device=device)
