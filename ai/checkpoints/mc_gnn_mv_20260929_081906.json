@@ -1,0 +1,34 @@
+{
+  "checkpoint_file": "mc_gnn_mv_20260929_081906.pt",
+  "model": "MultiViewMCGNN",
+  "views": [
+    "relationship",
+    "capability",
+    "peer"
+  ],
+  "needs": "message_edge_index as three edge indices (relationship, capability, peer) built by ai/experiments/tri_views.py; not servable by the platform as it stands",
+  "trained_on": "EPA TRI, learn [2020, 2021, 2022], select 2023",
+  "seed": 42,
+  "best_epoch": 483,
+  "val_auc": 0.9860537575016127,
+  "epochs_run": 500,
+  "us_test_metrics": {
+    "auc": 0.9860450933234142,
+    "ndcg@5": 0.9681935349629068,
+    "recall@5": 0.9762498683861913,
+    "hit@1": 0.959015694302286,
+    "queries": 23448,
+    "best_epoch": 483,
+    "val_auc": 0.9860537575016127,
+    "epochs_run": 500,
+    "seed": 42,
+    "seconds": 394.4,
+    "new_senders": {
+      "auc": 0.9187106164342395,
+      "ndcg@5": 0.8281332736798273,
+      "recall@5": 0.930599589705334,
+      "hit@1": 0.706266318537859,
+      "queries": 766
+    }
+  }
+}
