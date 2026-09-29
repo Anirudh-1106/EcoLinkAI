@@ -530,6 +530,7 @@ class TRIDataset:
         negatives_per_positive: int = NEGATIVES_PER_POSITIVE,
         distance_quantile: float = CANDIDATE_DISTANCE_QUANTILE,
         seed: int = SAMPLING_SEED,
+        views: bool = False,
     ) -> dict:
         """
         The graph the model sees when asked about `target_year`.
@@ -539,6 +540,10 @@ class TRIDataset:
         the message-passing graph are all built from history alone; the
         target year contributes only the questions -- which facility had
         which waste -- and their answers.
+
+        With views=True the result also carries the relationship, capability
+        and peer networks of ai/experiments/tri_views.py, and the pair-level
+        numbers they imply for models that cannot read a graph.
         """
         rng = random.Random(seed)
         hist = [
@@ -643,13 +648,29 @@ class TRIDataset:
         ], dtype=np.float32).reshape(len(nodes), NODE_FEATURE_DIM)
 
         msg_pairs = sorted({(t.sender, t.receiver) for t in hist})
+        src = np.array([index[r[0]] for r in rows], dtype=np.int64)
+        dst = np.array([index[r[1]] for r in rows], dtype=np.int64)
+        # A sender with no recovery transfers in history: the newly
+        # registered company of the platform, with nothing to go on but what
+        # it lists and what it is.
+        hist_senders = {t.sender for t in hist}
+        extra = {"sender_is_new": np.array([r[0] not in hist_senders for r in rows], dtype=bool)}
+        if views:
+            from ai.experiments.tri_views import build_views, pair_graph_features, view_stats
+
+            listings: dict[str, set] = defaultdict(set)
+            for sender, cas in queries:
+                if sender in index:
+                    listings[sender].add(cas)
+            built = build_views(nodes, hist, listings, {k: self.sites[k].naics for k in nodes})
+            extra["views"] = built["views"]
+            extra["pair_graph_features"] = pair_graph_features(built, src, dst)
+            stats["views"] = view_stats(built["views"], len(nodes))
         return {
             "target_year": target_year,
             "node_keys": nodes,
             "x": x,
-            "edge_index": np.array(
-                [[index[r[0]] for r in rows], [index[r[1]] for r in rows]], dtype=np.int64
-            ).reshape(2, len(rows)),
+            "edge_index": np.stack([src, dst]).reshape(2, len(rows)),
             "edge_attr": np.array([r[4] for r in rows], dtype=np.float32).reshape(len(rows), EDGE_FEATURE_DIM),
             "y": np.array([r[2] for r in rows], dtype=np.float32),
             "group_ids": np.array([r[3] for r in rows], dtype=np.int64),
@@ -664,6 +685,7 @@ class TRIDataset:
                 "message_edges": len(msg_pairs),
                 "candidate_distance_cap_km": distance_cap,
             },
+            **extra,
         }
 
     def _edge_features(self, sender, receiver, cas, method, kg, pair_count,

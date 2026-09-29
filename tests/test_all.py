@@ -1020,3 +1020,72 @@ def test_market_frame_scores_do_not_depend_on_where_the_market_is():
         abs_there, _ = absolute(moved, ei, ea, message_edge_index=msg)
     assert torch.allclose(here, there, atol=1e-5)
     assert not torch.allclose(abs_here, abs_there, atol=1e-5), "absolute frame should notice the move"
+
+
+def _tri_toy_with_newcomer():
+    """The toy market plus C, a facility with no history that lists chemical X in 2024."""
+    from ai.experiments.tri_loader import Site, TRIDataset, Transfer
+
+    base = _tri_toy_dataset()
+    sites = dict(base.sites)
+    sites["C"] = Site("C", lat=40.3, lon=-80.3, naics="331110")
+    transfers = base.transfers + [Transfer(2024, "C", "R4", "X", "M24", 700.0)]
+    return TRIDataset(transfers, sites)
+
+
+def test_tri_views_let_a_newcomer_join_from_its_listing():
+    """No history, so no relationships -- but its listed waste links it to those who process it."""
+    g = _tri_toy_with_newcomer().build_graph(2024, views=True)
+    keys = g["node_keys"]
+    c = keys.index("C")
+
+    def neighbours(view):
+        ei = g["views"][view]
+        return {keys[b] for a, b in ei.T if a == c}
+
+    assert neighbours("relationship") == set()
+    assert {"R1", "R2", "R4"} <= neighbours("capability"), "C's chemical X is what R1, R2, R4 take in"
+    assert neighbours("peer"), "same industry and waste stream as A and B"
+    rows_from_c = g["edge_index"][0] == c
+    assert g["sender_is_new"][rows_from_c].all()
+    assert not g["sender_is_new"][~rows_from_c].any()
+
+
+def test_tri_views_never_see_where_the_scored_year_went():
+    """2024's A->R2 and C->R4 are answers; no network or pair column may know them."""
+    g = _tri_toy_with_newcomer().build_graph(2024, views=True)
+    keys = g["node_keys"]
+    rel = {(keys[a], keys[b]) for a, b in g["views"]["relationship"].T}
+    assert ("A", "R2") not in rel and ("C", "R4") not in rel
+
+    votes = {
+        (keys[s], keys[r]): v
+        for (s, r), v in zip(g["edge_index"].T, g["pair_graph_features"][:, 1])
+    }
+    # Peer votes count history only. A and B are both peers of C; B sent to
+    # R2 in 2023, A only in 2024 -- an answer -- so R2 has one vote, not two.
+    from ai.experiments.tri_views import NEIGHBOURS_PER_FACILITY
+
+    assert votes[("C", "R2")] == pytest.approx(1 / NEIGHBOURS_PER_FACILITY)
+    assert votes[("C", "R4")] > 0, "B, a peer, sent to R4 in 2023"
+
+
+def test_multiview_mcgnn_reads_three_networks_and_weighs_them():
+    import torch
+    from ai.models.mc_gnn import VIEW_NAMES, MultiViewMCGNN
+
+    x, ei, ea, msg = _tiny_graph()
+    views = [msg, torch.tensor([[0, 2], [5, 4]]), torch.tensor([[1, 3], [0, 2]])]
+    model = MultiViewMCGNN(in_features=17, edge_dim=8).eval()
+    with torch.no_grad():
+        scores, channels = model(x, ei, ea, message_edge_index=views)
+        weights = model.channel_weights(x, views)
+    assert scores.shape == (4,) and len(channels) == 3
+    assert weights.shape == (6, len(VIEW_NAMES))
+    assert torch.allclose(weights.sum(dim=1), torch.ones(6))
+    # Swapping in a different capability network must change the result:
+    # each channel reads its own graph.
+    other = [views[0], torch.tensor([[1, 3], [4, 5]]), views[2]]
+    with torch.no_grad():
+        changed, _ = model(x, ei, ea, message_edge_index=other)
+    assert not torch.allclose(scores, changed)
