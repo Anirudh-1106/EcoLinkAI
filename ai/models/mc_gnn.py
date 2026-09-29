@@ -104,7 +104,11 @@ class AttentionFusion(nn.Module):
         """
         # Stack: (num_channels, N, D)
         stacked = torch.stack(channel_embeddings, dim=0)
+        # Weighted sum: (N, D)
+        return torch.sum(self.weights(channel_embeddings) * stacked, dim=0)
 
+    def weights(self, channel_embeddings: list[torch.Tensor]) -> torch.Tensor:
+        """How much each node leans on each channel: (num_channels, N, 1), summing to 1."""
         # w_i^v = q . sigma(W_i z_i^v + b_i), one score per node per channel.
         # tanh rather than ReLU: a rectifier floors every negative score at
         # exactly zero, so channels scoring below zero become indistinguishable
@@ -117,11 +121,7 @@ class AttentionFusion(nn.Module):
         weights = torch.stack(weights, dim=0).unsqueeze(-1)    # (num_channels, N, 1)
 
         # Softmax across channels
-        attn_weights = F.softmax(weights, dim=0)  # (num_channels, N, 1)
-
-        # Weighted sum: (N, D)
-        fused = torch.sum(attn_weights * stacked, dim=0)
-        return fused
+        return F.softmax(weights, dim=0)  # (num_channels, N, 1)
 
 
 class MCGNN(nn.Module):
@@ -190,6 +190,16 @@ class MCGNN(nn.Module):
 
     def encode(self, x: torch.Tensor, edge_index: torch.Tensor) -> tuple[torch.Tensor, list[torch.Tensor]]:
         """Encode nodes through 3 channels and fuse them."""
+        return self._encode_channels(x, edge_index, edge_index, edge_index)
+
+    def _encode_channels(
+        self,
+        x: torch.Tensor,
+        gcn_edges: torch.Tensor,
+        gat_edges: torch.Tensor,
+        sage_edges: torch.Tensor,
+    ) -> tuple[torch.Tensor, list[torch.Tensor]]:
+        """Run each channel over its own graph and fuse the results."""
         # Checkpoints saved before location_frame existed carry no such
         # attribute and were all trained on absolute coordinates.
         if getattr(self, "location_frame", "absolute") == "market":
@@ -198,16 +208,16 @@ class MCGNN(nn.Module):
         # Each channel aggregates over the graph, then adds the plant's own
         # features back so two rounds of averaging cannot wash them away.
         # Channel 1: GCN
-        z1 = F.relu(self.gcn_conv1(x, edge_index))
-        z1 = self.gcn_conv2(z1, edge_index) + self.gcn_skip(x)
+        z1 = F.relu(self.gcn_conv1(x, gcn_edges))
+        z1 = self.gcn_conv2(z1, gcn_edges) + self.gcn_skip(x)
 
         # Channel 2: GAT
-        z2 = F.relu(self.gat_conv1(x, edge_index))
-        z2 = self.gat_conv2(z2, edge_index) + self.gat_skip(x)
+        z2 = F.relu(self.gat_conv1(x, gat_edges))
+        z2 = self.gat_conv2(z2, gat_edges) + self.gat_skip(x)
 
         # Channel 3: GraphSAGE
-        z3 = F.relu(self.sage_conv1(x, edge_index))
-        z3 = self.sage_conv2(z3, edge_index) + self.sage_skip(x)
+        z3 = F.relu(self.sage_conv1(x, sage_edges))
+        z3 = self.sage_conv2(z3, sage_edges) + self.sage_skip(x)
 
         channel_embeddings = [z1, z2, z3]
 
@@ -276,3 +286,53 @@ class MCGNN(nn.Module):
         ) / 3.0
 
         return bce + hsic_weight * h_loss
+
+
+# The three networks a multi-view MC-GNN reads, in the order it expects them.
+# Each is one reason facilities end up trading, as the industrial symbiosis
+# literature frames it:
+#
+#   relationship  who has traded with whom -- the social tie
+#   capability    whose waste another facility can process -- technical fit
+#   peer          which facilities resemble each other -- "firms like you"
+VIEW_NAMES = ("relationship", "capability", "peer")
+
+
+class MultiViewMCGNN(MCGNN):
+    """
+    An MC-GNN whose channels differ in what they read, not only in how.
+
+    MCGNN runs GCN, GAT and GraphSAGE over one graph, so its channels are
+    three readings of the same evidence -- and a single GCN, measured on real
+    recovery trade, does as well as all three. Here each channel has a network
+    of its own and the backbone suited to it:
+
+      GAT        relationship  partners differ in how much they matter, and
+                               attention learns which
+      GraphSAGE  capability    very large neighbourhoods (every facility
+                               handling a common chemical), which mean
+                               aggregation and a separate self-weight handle,
+                               and which a new facility joins from its first
+                               listing
+      GCN        peer          similar facilities count roughly equally, so
+                               a normalised average suits
+
+    HSIC now keeps three genuinely different viewpoints independent, and the
+    attention fusion chooses per facility which one to lean on -- a facility
+    with no trading history has nothing on its relationship channel.
+
+    message_edge_index is a sequence of three edge indices in VIEW_NAMES order.
+    """
+
+    views = VIEW_NAMES
+
+    def encode(self, x: torch.Tensor, message_edge_index) -> tuple[torch.Tensor, list[torch.Tensor]]:
+        relationship, capability, peer = message_edge_index
+        return self._encode_channels(x, gcn_edges=peer, gat_edges=relationship, sage_edges=capability)
+
+    @torch.no_grad()
+    def channel_weights(self, x: torch.Tensor, message_edge_index) -> torch.Tensor:
+        """Attention on each view per node, (N, 3) in VIEW_NAMES order."""
+        _, (z_peer, z_rel, z_cap) = self.encode(x, message_edge_index)
+        w = self.fusion.weights([z_peer, z_rel, z_cap]).squeeze(-1)  # GCN, GAT, SAGE order
+        return torch.stack([w[1], w[2], w[0]], dim=1)
