@@ -1,0 +1,15 @@
+{
+  "checkpoint_file": "mc_gnn_improved_20260930_195221.pt",
+  "model": "MCGNN",
+  "pair_inputs": 10,
+  "extra_pair_inputs": [
+    "capability_score",
+    "peer_votes"
+  ],
+  "needs": "pair inputs = the 8 platform edge features + capability_score, peer_votes (ai/experiments/tri_views.py); not servable by the platform as it stands",
+  "trained_on": "EPA TRI, learn [2020, 2021, 2022], select 2023",
+  "seed": 42,
+  "best_epoch": 381,
+  "val_auc": 0.9893819072017319,
+  "epochs_run": 421
+}
