@@ -1,0 +1,12 @@
+{
+  "checkpoint_file": "mc_gnn_mv_cd_20260930_221806.pt",
+  "model": "MultiViewMCGNN",
+  "variant": "Multi-view MC-GNN + channel dropout",
+  "channel_dropout": 0.3,
+  "pair_inputs": 10,
+  "seed": 42,
+  "best_epoch": 312,
+  "val_auc": 0.9889684564744341,
+  "epochs_run": 352,
+  "needs": "three message graphs from ai/experiments/tri_views.py and pair inputs with capability_score, peer_votes"
+}
