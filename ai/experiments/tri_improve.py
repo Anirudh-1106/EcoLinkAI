@@ -121,11 +121,16 @@ def listwise_loss(probs: torch.Tensor, labels: torch.Tensor, groups: torch.Tenso
     return -log_share[positive].mean()
 
 
-def train(ranking_weight: float, train_set, val: OnDevice, seed: int, epochs: int, device):
+def train(ranking_weight: float, train_set, val: OnDevice, seed: int, epochs: int, device,
+          model_factory=None, mode: str = "relationship"):
+    """
+    One model under the improved regime. model_factory and mode swap in a
+    different architecture and message graph with everything else held equal.
+    """
     torch.manual_seed(seed)
     np.random.seed(seed)
     generator = torch.Generator(device=device).manual_seed(seed)
-    model = MCGNN(NODE_FEATURE_DIM, edge_dim=PAIR_INPUTS).to(device)
+    model = (model_factory() if model_factory else MCGNN(NODE_FEATURE_DIM, edge_dim=PAIR_INPUTS)).to(device)
     opt = torch.optim.Adam(model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
     best = {"auc": -1.0, "epoch": 0}
     best_state, stale, epoch = None, 0, 0
@@ -136,14 +141,14 @@ def train(ranking_weight: float, train_set, val: OnDevice, seed: int, epochs: in
         for d, sampler in train_set:
             idx = sampler.draw(generator)
             probs, channels = model(d.x, d.edge_index[:, idx], d.edge_attr[idx],
-                                    message_edge_index=d.messages["relationship"])
+                                    message_edge_index=d.messages[mode])
             loss = model.compute_loss(probs, d.y[idx], channels, hsic_weight=HSIC_GAMMA)
             if ranking_weight:
                 loss = loss + ranking_weight * listwise_loss(probs, d.y[idx], d.groups[idx])
             (loss / len(train_set)).backward()
         opt.step()
 
-        val_auc = roc_auc(val.g["y"], predict(model, val, "relationship"))
+        val_auc = roc_auc(val.g["y"], predict(model, val, mode))
         if val_auc > best["auc"] + 1e-9:
             best = {"auc": val_auc, "epoch": epoch}
             best_state, stale = copy.deepcopy(model.state_dict()), 0
