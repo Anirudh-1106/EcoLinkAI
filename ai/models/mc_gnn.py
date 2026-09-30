@@ -79,9 +79,10 @@ class AttentionFusion(nn.Module):
     standard deviation of 0.002 -- an average wearing the name of attention.
     """
 
-    def __init__(self, in_features: int, num_channels: int = 3):
+    def __init__(self, in_features: int, num_channels: int = 3, channel_dropout: float = 0.0):
         super().__init__()
         hidden = max(in_features // 2, 1)
+        self.channel_dropout = channel_dropout
 
         # W_i and b_i: one transformation per channel.
         self.channel_transforms = nn.ModuleList(
@@ -119,6 +120,21 @@ class AttentionFusion(nn.Module):
             projected = torch.tanh(transform(embedding))       # (N, hidden)
             weights.append(projected @ self.attention_vector)  # (N,)
         weights = torch.stack(weights, dim=0).unsqueeze(-1)    # (num_channels, N, 1)
+
+        # Channel dropout: in training, each node loses one randomly chosen
+        # channel with this probability and must be served by the others.
+        # Without it, attention on the multi-view model settled 94% on a
+        # single channel for nearly every node, leaving the other two
+        # untrained -- one channel doing the work of three. Off unless set;
+        # checkpoints saved before it existed carry no such attribute.
+        p = getattr(self, "channel_dropout", 0.0)
+        if self.training and p > 0:
+            num_channels, n = weights.shape[0], weights.shape[1]
+            nodes = torch.nonzero(torch.rand(n, device=weights.device) < p).squeeze(1)
+            dropped = torch.randint(num_channels, (len(nodes),), device=weights.device)
+            mask = torch.zeros(num_channels, n, 1, dtype=torch.bool, device=weights.device)
+            mask[dropped, nodes] = True
+            weights = weights.masked_fill(mask, float("-inf"))
 
         # Softmax across channels
         return F.softmax(weights, dim=0)  # (num_channels, N, 1)
