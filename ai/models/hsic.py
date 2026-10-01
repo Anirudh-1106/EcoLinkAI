@@ -60,3 +60,33 @@ def hsic_loss(Z1: torch.Tensor, Z2: torch.Tensor) -> torch.Tensor:
 
     hsic = torch.trace(K1_centered @ K2_centered) / ((N - 1) ** 2)
     return torch.clamp(hsic, min=0.0)
+
+
+def normalized_hsic(Z1: torch.Tensor, Z2: torch.Tensor) -> torch.Tensor:
+    """
+    HSIC scaled to 0-1: HSIC(Z1, Z2) / sqrt(HSIC(Z1, Z1) * HSIC(Z2, Z2)).
+
+    With inner-product kernels this is linear centered kernel alignment (CKA;
+    Kornblith et al., "Similarity of Neural Network Representations
+    Revisited", ICML 2019): 0 when the channels share no linear structure, 1
+    when one is a rotation and rescaling of the other.
+
+    The unnormalised term above grows with the square of the embeddings'
+    magnitude in each channel, so a model can lower it by shrinking its
+    embeddings without making the channels any more different -- and its
+    weight has to sit near 1e-10 to stay below the task loss. Normalised, the
+    value cannot be reduced by rescaling, a weight between 0.01 and 1 is
+    meaningful, and it states directly how alike two channels are.
+
+    Computed through the d x d cross-covariance rather than the N x N Gram
+    matrices -- the same quantity, since tr(K1 H K2 H) = ||Z1c^T Z2c||_F^2 --
+    at O(N d^2) instead of O(N^2 d).
+    """
+    if Z1.size(0) <= 1:
+        return torch.tensor(0.0, device=Z1.device)
+    a = Z1 - Z1.mean(dim=0, keepdim=True)
+    b = Z2 - Z2.mean(dim=0, keepdim=True)
+    cross = (a.t() @ b).pow(2).sum()
+    self_a = (a.t() @ a).pow(2).sum()
+    self_b = (b.t() @ b).pow(2).sum()
+    return cross / torch.sqrt(self_a * self_b).clamp_min(1e-12)

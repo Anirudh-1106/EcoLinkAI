@@ -352,3 +352,96 @@ class MultiViewMCGNN(MCGNN):
         _, (z_peer, z_rel, z_cap) = self.encode(x, message_edge_index)
         w = self.fusion.weights([z_peer, z_rel, z_cap]).squeeze(-1)  # GCN, GAT, SAGE order
         return torch.stack([w[1], w[2], w[0]], dim=1)
+
+
+# ── Pair-aware MC-GNN ───────────────────────────────────────────────────
+
+
+class PairPooling(nn.Module):
+    """
+    Scores a pair from what the two facilities are and what they share.
+
+    Neural Common Neighbor (Wang, Yang and Zhang, ICLR 2024): one
+    message-passing run, then per pair the two embeddings, their Hadamard
+    product, and the mean embedding of each pair-dependent node set, with the
+    pair's edge features and the sets' sizes. A node-wise scorer -- the
+    concatenation MCGNN uses -- cannot represent what two nodes share; this
+    can.
+
+    Sets arrive as (rows, k) index tensors padded with -1. Pooling is a sparse
+    product, so memory grows with the members present, not rows x k x dim.
+    """
+
+    def __init__(self, out_dim: int, edge_dim: int, num_sets: int, num_counts: int):
+        super().__init__()
+        in_dim = out_dim * (3 + num_sets) + edge_dim + num_counts
+        self.mlp = nn.Sequential(
+            nn.Linear(in_dim, 64), nn.ReLU(), nn.Dropout(0.2),
+            nn.Linear(64, 32), nn.ReLU(), nn.Linear(32, 1), nn.Sigmoid(),
+        )
+
+    @staticmethod
+    def _mean_of(z: torch.Tensor, members: torch.Tensor) -> torch.Tensor:
+        present = members >= 0
+        rows = torch.arange(members.size(0), device=z.device).unsqueeze(1).expand_as(members)[present]
+        size = present.sum(dim=1).clamp_min(1).to(z.dtype)
+        weights = torch.sparse_coo_tensor(
+            torch.stack([rows, members[present].long()]), 1.0 / size[rows],
+            (members.size(0), z.size(0)),
+        )
+        return torch.sparse.mm(weights, z)
+
+    def forward(self, z, edge_index, edge_attr, pair_sets, pair_counts):
+        src, dst = edge_index
+        parts = [z[src], z[dst], z[src] * z[dst]]
+        parts += [self._mean_of(z, members) for members in pair_sets]
+        return self.mlp(torch.cat(parts + [edge_attr, pair_counts], dim=-1)).squeeze(-1)
+
+
+class PairAwareMCGNN(MultiViewMCGNN):
+    """
+    The multi-view MC-GNN with a pair-aware scorer and normalised HSIC.
+
+    The encoder is unchanged: GAT on relationships, GraphSAGE on capability,
+    GCN on peers, skip connections, attention fusion with channel dropout.
+    Two things differ:
+
+      scorer  PairPooling in place of the concatenation head, reading the
+              pair sets of ai/experiments/tri_pairs.py
+      HSIC    normalised (linear CKA, ai.models.hsic.normalized_hsic), so the
+              disparity term is scale-free and its weight acts. Measured on
+              the earlier models, the raw term at gamma = 1e-10 was about
+              1e-11 against a cross-entropy near 0.07: it never shaped
+              training.
+
+    forward takes pair_sets (a sequence of (rows, k) index tensors) and
+    pair_counts (rows, num_counts) beside the usual arguments.
+    """
+
+    def __init__(self, in_features: int, edge_dim: int, num_sets: int = 2, num_counts: int = 2,
+                 hsic_weight: float = 0.1, channel_dropout: float = 0.3, **kwargs):
+        super().__init__(in_features, edge_dim=edge_dim, **kwargs)
+        self.fusion.channel_dropout = channel_dropout
+        self.hsic_weight = hsic_weight
+        out_dim = self.gcn_conv2.out_channels
+        self.link_predictor = PairPooling(out_dim, edge_dim, num_sets, num_counts)
+
+    def forward(self, x, edge_index, edge_attr, message_edge_index=None, pair_sets=(), pair_counts=None):
+        z, channel_embs = self.encode(x, message_edge_index)
+        if pair_counts is None:
+            pair_counts = edge_attr.new_zeros((edge_attr.size(0), 0))
+        return self.link_predictor(z, edge_index, edge_attr, pair_sets, pair_counts), channel_embs
+
+    def compute_loss(self, pred_scores, targets, channel_embs, hsic_weight=None):
+        from ai.models.hsic import normalized_hsic
+
+        weight = self.hsic_weight if hsic_weight is None else hsic_weight
+        bce = F.binary_cross_entropy(pred_scores, targets)
+        if not weight:
+            return bce
+        z1, z2, z3 = channel_embs
+        if z1.size(0) > HSIC_MAX_NODES:
+            idx = torch.randperm(z1.size(0), device=z1.device)[:HSIC_MAX_NODES]
+            z1, z2, z3 = z1[idx], z2[idx], z3[idx]
+        disparity = (normalized_hsic(z1, z2) + normalized_hsic(z1, z3) + normalized_hsic(z2, z3)) / 3.0
+        return bce + weight * disparity
