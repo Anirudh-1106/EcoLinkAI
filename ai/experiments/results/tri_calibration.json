@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-10-01T09:34:03+00:00",
+  "fit_years": [
+    2020,
+    2021,
+    2022
+  ],
+  "acceptance": {
+    "weights": {
+      "proximity": 1.8193,
+      "quantity_fit": 1.2342,
+      "prior_successes": 7.8827
+    },
+    "single_term_auc": {
+      "proximity": 0.7314,
+      "quantity_fit": 0.7,
+      "prior_successes": 0.9117
+    },
+    "rows": 1169200,
+    "positive_share": 0.1
+  },
+  "retention": {
+    "per_year": {
+      "2019->2020": {
+        "retained_share": 0.7328,
+        "new_pair_share": 0.2361
+      },
+      "2020->2021": {
+        "retained_share": 0.7438,
+        "new_pair_share": 0.2225
+      },
+      "2021->2022": {
+        "retained_share": 0.7542,
+        "new_pair_share": 0.2073
+      },
+      "2022->2023": {
+        "retained_share": 0.7364,
+        "new_pair_share": 0.1968
+      }
+    },
+    "retained_share_mean": 0.7418,
+    "new_pair_share_mean": 0.2157
+  },
+  "caveat": "alternatives sampled preferentially within the 90th percentile of real transfer distance, so the proximity weight is conservative"
+}
