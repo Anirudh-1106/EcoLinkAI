@@ -83,11 +83,29 @@ SEED = 2026
 BUYERS_PER_MATERIAL = 30
 COMPETITORS_PER_MATERIAL = 18
 
-# Not every buyer approaches every seller: at this size that would be tens of
-# thousands of enquiries and a graph as dense as the one being fixed. Each
-# buyer contacts a random subset, which also leaves room for referrals to
-# matter -- a buyer who has not met a seller can still hear about them.
-SELLERS_CONTACTED_PER_BUYER = 8
+# Trading happens in rounds, as real procurement does: a buyer goes back to
+# the suppliers it already uses and also tries a few new ones.
+#
+# Before rounds, every buyer approached each seller exactly once, so a pair's
+# own history was zero at every enquiry and "has traded before" could not
+# predict anything -- it separated accepted from rejected requests at AUC
+# 0.508 here against 0.924 in real EPA TRI recovery trade. In TRI 74% of
+# trading pairs trade again the next year and about a fifth of each year's
+# pairs are new (ai/experiments/results/tri_calibration.json).
+#
+# Not every buyer approaches every seller: that would be tens of thousands of
+# enquiries and a graph too dense for a neighbourhood to describe anyone. A
+# random subset also leaves room for referrals to matter.
+ROUNDS = 4
+SELLERS_CONTACTED_FIRST_ROUND = 6
+NEW_SELLERS_PER_ROUND = 3
+DAYS_PER_ROUND = 60
+# Not every partnership continues: in TRI 74.2% of pairs trading one year
+# trade again the next. Returning approaches are accepted about 97.5% of the
+# time under the weights below, so a past partner is approached again with
+# probability 0.742 / 0.975. Returning to every partner every time kept 94-99%
+# of pairs together, a market more loyal than any real one.
+REPEAT_CONTACT_PROBABILITY = 0.76
 
 # Kerala's industrial districts, so partners are spread across the state
 # rather than stacked on the park.
@@ -120,16 +138,24 @@ BUYER_SUFFIXES = [
     "Recovery Systems", "Processing LLP",
 ]
 
-# How strongly a partner's endorsement counts toward a deal closing. Matched
-# to the weight of a pair's own trading history: in this industry a bad
-# consignment is expensive, so who vouches for a supplier matters about as
-# much as having dealt with them before.
-W_REFERRAL = 1.60
-W_PROXIMITY = 2.60
-W_QUANTITY = 2.40
+# Acceptance weights. Proximity, quantity fit and the pair's own history are
+# measured, not chosen: a logistic regression on EPA TRI recovery transfers
+# 2020-2022 over the same 0-1 encodings computed below
+# (ai/experiments/tri_calibration.py). Real trade is dominated by repeat
+# partnerships -- the pair's history weighs over four times proximity.
+W_PROXIMITY = 1.82
+W_QUANTITY = 1.23
+W_DYADIC = 7.88
+# TRI records no trust scores and no referral network on the buyer's side,
+# so these two keep their earlier, judged values. Who vouches for a supplier
+# is a documented feature of industrial networks; its size is not measured.
 W_TRUST = 1.20
-W_DYADIC = 1.60
-INTERCEPT = -4.10
+W_REFERRAL = 1.60
+# Sets how often a first approach succeeds -- about a third for a typical
+# pair. TRI records only transfers that happened, never a refusal, so the
+# base rate cannot be measured there; under case-control fitting only the
+# slopes carry over.
+INTERCEPT = -3.00
 NOISE_SD = 0.35
 
 
@@ -332,166 +358,214 @@ def generate_market_partners() -> dict[str, int]:
         # the other customers of its own suppliers.
         buyers_of: dict[uuid.UUID, set[uuid.UUID]] = defaultdict(set)
 
-        attempts = []
-        for plant, material, requirement in buyer_plants:
-            candidates = [
-                listing for listing in sellers.get(material.id, [])
-                if listing.plant_id != plant.id
-            ]
-            # A subset, not everyone: approaching every seller of a material
-            # would connect the market almost completely, which is the shape
-            # this is meant to avoid.
-            if len(candidates) > SELLERS_CONTACTED_PER_BUYER:
-                candidates = rng.sample(candidates, SELLERS_CONTACTED_PER_BUYER)
-            for listing in candidates:
-                attempts.append((rng.uniform(0, 240), plant, requirement, listing))
-        attempts.sort(key=lambda a: a[0])
+        timeline_days = ROUNDS * DAYS_PER_ROUND
+        for round_no in range(ROUNDS):
+            # A round is a new order: each buyer closes its last requirement
+            # and posts a fresh one for the same material. A requirement is
+            # one purchase on this platform -- a request is unique per
+            # listing and requirement -- so repeat trade with a supplier has
+            # to arrive as a new order, which is also how buyers re-order.
+            # Only the latest stays open, so buyers remain recommendable.
+            if round_no > 0:
+                reordered = []
+                for plant, material, previous in buyer_plants:
+                    previous.status = RequirementStatus.CLOSED
+                    requirement = Requirement(
+                        id=uuid.uuid4(),
+                        plant_id=plant.id,
+                        material_id=material.id,
+                        quantity=Decimal(str(round(float(previous.quantity) * rng.uniform(0.8, 1.2), 2))),
+                        unit=previous.unit,
+                        minimum_purity=previous.minimum_purity,
+                        maximum_budget_per_unit=previous.maximum_budget_per_unit,
+                        required_before=today + timedelta(days=rng.randint(60, 300)),
+                        status=RequirementStatus.OPEN,
+                        notes=previous.notes,
+                    )
+                    db.add(requirement)
+                    reordered.append((plant, material, requirement))
+                    out_requirements.append([
+                        plant.company.company_name, material.material_name,
+                        float(requirement.quantity), requirement.unit.value,
+                        float(requirement.minimum_purity),
+                        float(requirement.maximum_budget_per_unit),
+                        requirement.required_before.isoformat(),
+                    ])
+                db.flush()
+                buyer_plants = reordered
 
-        for day_offset, buyer_plant, requirement, listing in attempts:
-            seller_plant = listing.plant
-            if seller_plant is None:
-                continue
+            # Each round, a buyer returns to every seller it has completed a
+            # deal with and approaches a few it has not. Who it returns to
+            # depends on earlier rounds, so rounds run one after another.
+            attempts = []
+            for plant, material, requirement in buyer_plants:
+                listings = [
+                    listing for listing in sellers.get(material.id, [])
+                    if listing.plant_id != plant.id
+                ]
+                returning = [
+                    l for l in listings
+                    if successes[(l.plant_id, plant.id)] > 0 and rng.random() < REPEAT_CONTACT_PROBABILITY
+                ]
+                fresh = [l for l in listings if successes[(l.plant_id, plant.id)] == 0]
+                k = SELLERS_CONTACTED_FIRST_ROUND if round_no == 0 else NEW_SELLERS_PER_ROUND
+                contacted = returning + rng.sample(fresh, min(k, len(fresh)))
+                window = round_no * DAYS_PER_ROUND
+                for listing in contacted:
+                    attempts.append(
+                        (rng.uniform(window, window + DAYS_PER_ROUND), plant, requirement, listing)
+                    )
+            attempts.sort(key=lambda a: a[0])
 
-            distance_km = haversine_distance(
-                float(seller_plant.latitude), float(seller_plant.longitude),
-                float(buyer_plant.latitude), float(buyer_plant.longitude),
-            )
-            proximity = 1.0 - min(distance_km / 500.0, 1.0)
-            quantity_fit = quantity_fit_pct(
-                float(listing.quantity), listing.unit,
-                float(requirement.quantity), requirement.unit,
-            ) / 100.0
-            trust = float(seller_plant.company.trust_score or 60) / 100.0
+            for day_offset, buyer_plant, requirement, listing in attempts:
+                returning_pair = successes[(listing.plant_id, buyer_plant.id)] > 0
+                seller_plant = listing.plant
+                if seller_plant is None:
+                    continue
 
-            pair = (seller_plant.id, buyer_plant.id)
-            dyadic = min(successes[pair] / 3.0, 1.0)
-
-            # The referral term: of the buyers this one shares a supplier with,
-            # how many already buy from this seller?
-            #
-            # The reach has to be to peers, not to partners. A buyer's partners
-            # are sellers, and sellers never buy from sellers, so asking
-            # whether a partner had bought from this seller was a condition
-            # that could not be met -- it fired on 0 of 2,880 attempts, and the
-            # network effect was simply absent from the data.
-            #
-            # Peers are reached at two hops: the buyer's suppliers, then the
-            # other buyers those suppliers serve. That is how word of mouth
-            # actually travels in a market.
-            # Expressed as the share of peers endorsing, not how many.
-            #
-            # A raw count saturates as the market matures: by the last fifth
-            # of the timeline 93% of enquiries had at least two endorsements,
-            # so the term was near-constant exactly where the held-out split
-            # measures it, and predicted acceptance at AUC 0.47 -- below
-            # chance. A proportion keeps discriminating, because two
-            # endorsements out of three says something two out of twenty does
-            # not.
-            referral = 0.0
-            peers: set[uuid.UUID] = set()
-            for supplier in partners[buyer_plant.id]:
-                peers |= buyers_of[supplier]
-            peers.discard(buyer_plant.id)
-            if peers:
-                endorsing = sum(
-                    1 for peer in peers if successes[(seller_plant.id, peer)] > 0
+                distance_km = haversine_distance(
+                    float(seller_plant.latitude), float(seller_plant.longitude),
+                    float(buyer_plant.latitude), float(buyer_plant.longitude),
                 )
-                referral = endorsing / len(peers)
+                proximity = 1.0 - min(distance_km / 500.0, 1.0)
+                quantity_fit = quantity_fit_pct(
+                    float(listing.quantity), listing.unit,
+                    float(requirement.quantity), requirement.unit,
+                ) / 100.0
+                trust = float(seller_plant.company.trust_score or 60) / 100.0
 
-            z = (
-                INTERCEPT
-                + W_PROXIMITY * proximity
-                + W_QUANTITY * quantity_fit
-                + W_TRUST * trust
-                + W_DYADIC * dyadic
-                + W_REFERRAL * referral
-                + rng.gauss(0.0, NOISE_SD)
-            )
-            accepted = rng.random() < _sigmoid(z)
+                pair = (seller_plant.id, buyer_plant.id)
+                dyadic = min(successes[pair] / 3.0, 1.0)
 
-            traded = min(float(listing.quantity), float(requirement.quantity))
-            tons = transport_tons(traded, QuantityUnit.KG)
-            carbon_factor = (
-                float(listing.material.carbon_factor)
-                if listing.material.carbon_factor else None
-            )
+                # The referral term: of the buyers this one shares a supplier with,
+                # how many already buy from this seller?
+                #
+                # The reach has to be to peers, not to partners. A buyer's partners
+                # are sellers, and sellers never buy from sellers, so asking
+                # whether a partner had bought from this seller was a condition
+                # that could not be met -- it fired on 0 of 2,880 attempts, and the
+                # network effect was simply absent from the data.
+                #
+                # Peers are reached at two hops: the buyer's suppliers, then the
+                # other buyers those suppliers serve. That is how word of mouth
+                # actually travels in a market.
+                # Expressed as the share of peers endorsing, not how many.
+                #
+                # A raw count saturates as the market matures: by the last fifth
+                # of the timeline 93% of enquiries had at least two endorsements,
+                # so the term was near-constant exactly where the held-out split
+                # measures it, and predicted acceptance at AUC 0.47 -- below
+                # chance. A proportion keeps discriminating, because two
+                # endorsements out of three says something two out of twenty does
+                # not.
+                referral = 0.0
+                peers: set[uuid.UUID] = set()
+                for supplier in partners[buyer_plant.id]:
+                    peers |= buyers_of[supplier]
+                peers.discard(buyer_plant.id)
+                if peers:
+                    endorsing = sum(
+                        1 for peer in peers if successes[(seller_plant.id, peer)] > 0
+                    )
+                    referral = endorsing / len(peers)
 
-            request = ExchangeRequest(
-                id=uuid.uuid4(),
-                supplier_plant_id=seller_plant.id,
-                buyer_plant_id=buyer_plant.id,
-                waste_listing_id=listing.id,
-                requirement_id=requirement.id,
-                requested_quantity=Decimal(str(round(traded, 2))),
-                compatibility_score=Decimal(str(round(50 + 30 * quantity_fit + 20, 2))),
-                material_compatibility=Decimal("100.00"),
-                quantity_compatibility=Decimal(str(round(quantity_fit * 100, 2))),
-                quality_compatibility=Decimal("100.00"),
-                ai_confidence_score=Decimal("50.00"),
-                recommendation_rank=1,
-                distance_km=Decimal(str(round(distance_km, 2))),
-                estimated_transport_cost=Decimal(
-                    str(round(estimate_transport_cost(distance_km, tons), 2))
-                ),
-                estimated_carbon_emission=Decimal(
-                    str(round(estimate_transport_emission(distance_km, tons), 2))
-                ),
-                estimated_carbon_saving=Decimal(
-                    str(round(carbon_saving_for_quantity(traded, QuantityUnit.KG, carbon_factor), 2))
-                ),
-                recommendation_reason="Market exchange between material counterparties.",
-                status=(
-                    ExchangeRequestStatus.ACCEPTED if accepted
-                    else ExchangeRequestStatus.REJECTED
-                ),
-            )
-            when = today - timedelta(days=int(240 - day_offset))
-            request.created_at = datetime(when.year, when.month, when.day)
-            db.add(request)
-            counts["requests"] += 1
-            out_exchanges.append([
-                seller_plant.company.company_name,
-                buyer_plant.company.company_name,
-                listing.material.material_name,
-                round(traded, 2), round(distance_km, 2),
-                round(quantity_fit, 3), round(referral, 3),
-                "Accepted" if accepted else "Rejected",
-                request.created_at.date().isoformat(),
-            ])
+                z = (
+                    INTERCEPT
+                    + W_PROXIMITY * proximity
+                    + W_QUANTITY * quantity_fit
+                    + W_TRUST * trust
+                    + W_DYADIC * dyadic
+                    + W_REFERRAL * referral
+                    + rng.gauss(0.0, NOISE_SD)
+                )
+                accepted = rng.random() < _sigmoid(z)
 
-            if not accepted:
-                continue
+                traded = min(float(listing.quantity), float(requirement.quantity))
+                tons = transport_tons(traded, QuantityUnit.KG)
+                carbon_factor = (
+                    float(listing.material.carbon_factor)
+                    if listing.material.carbon_factor else None
+                )
 
-            db.flush()
-            counts["accepted"] += 1
-            successes[pair] += 1
-            partners[buyer_plant.id].add(seller_plant.id)
-            partners[seller_plant.id].add(buyer_plant.id)
-            buyers_of[seller_plant.id].add(buyer_plant.id)
+                request = ExchangeRequest(
+                    id=uuid.uuid4(),
+                    supplier_plant_id=seller_plant.id,
+                    buyer_plant_id=buyer_plant.id,
+                    waste_listing_id=listing.id,
+                    requirement_id=requirement.id,
+                    requested_quantity=Decimal(str(round(traded, 2))),
+                    compatibility_score=Decimal(str(round(50 + 30 * quantity_fit + 20, 2))),
+                    material_compatibility=Decimal("100.00"),
+                    quantity_compatibility=Decimal(str(round(quantity_fit * 100, 2))),
+                    quality_compatibility=Decimal("100.00"),
+                    ai_confidence_score=Decimal("50.00"),
+                    recommendation_rank=1,
+                    distance_km=Decimal(str(round(distance_km, 2))),
+                    estimated_transport_cost=Decimal(
+                        str(round(estimate_transport_cost(distance_km, tons), 2))
+                    ),
+                    estimated_carbon_emission=Decimal(
+                        str(round(estimate_transport_emission(distance_km, tons), 2))
+                    ),
+                    estimated_carbon_saving=Decimal(
+                        str(round(carbon_saving_for_quantity(traded, QuantityUnit.KG, carbon_factor), 2))
+                    ),
+                    recommendation_reason="Market exchange between material counterparties.",
+                    status=(
+                        ExchangeRequestStatus.ACCEPTED if accepted
+                        else ExchangeRequestStatus.REJECTED
+                    ),
+                )
+                when = today - timedelta(days=int(timeline_days - day_offset))
+                request.created_at = datetime(when.year, when.month, when.day)
+                db.add(request)
+                counts["requests"] += 1
+                out_exchanges.append([
+                    seller_plant.company.company_name,
+                    buyer_plant.company.company_name,
+                    listing.material.material_name,
+                    round(traded, 2), round(distance_km, 2),
+                    round(quantity_fit, 3), round(referral, 3),
+                    "Accepted" if accepted else "Rejected",
+                    request.created_at.date().isoformat(),
+                    round_no + 1,
+                    "returning" if returning_pair else "new",
+                ])
 
-            exchange = Exchange(
-                id=uuid.uuid4(),
-                exchange_request_id=request.id,
-                exchange_status=ExchangeStatus.COMPLETED,
-                shipment_status=ShipmentStatus.DELIVERED,
-                agreed_price=Decimal(str(round(traded * float(listing.price_per_unit or 0), 2))),
-                transport_cost=request.estimated_transport_cost,
-                actual_quantity=request.requested_quantity,
-                actual_carbon_emission=request.estimated_carbon_emission,
-                actual_carbon_saving=request.estimated_carbon_saving,
-            )
-            db.add(exchange)
-            db.flush()
+                if not accepted:
+                    continue
 
-            rating = rng.choices([5, 4, 3, 2], weights=[45, 35, 15, 5], k=1)[0]
-            db.add(Review(
-                id=uuid.uuid4(),
-                exchange_id=exchange.id,
-                supplier_rating=rating,
-                buyer_rating=rng.choices([5, 4, 3], weights=[50, 35, 15], k=1)[0],
-                supplier_feedback="Material as described.",
-                buyer_feedback="Collection and payment went smoothly.",
-            ))
+                db.flush()
+                counts["accepted"] += 1
+                counts["accepted_returning" if returning_pair else "accepted_new"] += 1
+                successes[pair] += 1
+                partners[buyer_plant.id].add(seller_plant.id)
+                partners[seller_plant.id].add(buyer_plant.id)
+                buyers_of[seller_plant.id].add(buyer_plant.id)
+
+                exchange = Exchange(
+                    id=uuid.uuid4(),
+                    exchange_request_id=request.id,
+                    exchange_status=ExchangeStatus.COMPLETED,
+                    shipment_status=ShipmentStatus.DELIVERED,
+                    agreed_price=Decimal(str(round(traded * float(listing.price_per_unit or 0), 2))),
+                    transport_cost=request.estimated_transport_cost,
+                    actual_quantity=request.requested_quantity,
+                    actual_carbon_emission=request.estimated_carbon_emission,
+                    actual_carbon_saving=request.estimated_carbon_saving,
+                )
+                db.add(exchange)
+                db.flush()
+
+                rating = rng.choices([5, 4, 3, 2], weights=[45, 35, 15, 5], k=1)[0]
+                db.add(Review(
+                    id=uuid.uuid4(),
+                    exchange_id=exchange.id,
+                    supplier_rating=rating,
+                    buyer_rating=rng.choices([5, 4, 3], weights=[50, 35, 15], k=1)[0],
+                    supplier_feedback="Material as described.",
+                    buyer_feedback="Collection and payment went smoothly.",
+                ))
 
         _write_csv(
             "market_companies.csv",
@@ -508,15 +582,17 @@ def generate_market_partners() -> dict[str, int]:
         _write_csv(
             "market_exchanges.csv",
             ["supplier", "buyer", "material", "quantity_kg", "distance_km",
-             "quantity_fit", "referral_strength", "outcome", "date"],
+             "quantity_fit", "referral_strength", "outcome", "date", "round", "pair"],
             out_exchanges,
         )
 
         db.commit()
         logger.info("Market written to %s", OUTPUT_DIR)
         logger.info(
-            "Market partners: %d buyers, %d competitors, %d requests (%d accepted)",
+            "Market partners: %d buyers, %d competitors, %d requests (%d accepted: "
+            "%d with a returning partner, %d with a new one)",
             counts["buyers"], counts["competitors"], counts["requests"], counts["accepted"],
+            counts["accepted_returning"], counts["accepted_new"],
         )
         return dict(counts)
     finally:

@@ -1,361 +1,1441 @@
 company_name,material,quantity_kg,unit,minimum_purity,max_budget_per_kg_inr,required_before
-Chalakudy Composite Recovery Systems,Rubber Dust,6790.42,kg,74.2,108.88,2027-04-19
-Arabian Metals Reprocessing Ltd,Rubber Dust,894.21,kg,77.27,76.29,2027-02-08
-Periyar Green Recovery Systems,Rubber Dust,1425.82,kg,63.51,84.68,2027-02-02
-Chalakudy Board Resource Recovery,Rubber Dust,3781.05,kg,65.56,64.85,2027-04-18
-Anamudi Fibre Processing LLP,Rubber Dust,7724.72,kg,69.1,137.78,2027-03-31
-Arabian Composite Materials Pvt Ltd,Rubber Dust,5090.38,kg,71.76,104.66,2027-03-09
-Chalakudy Composite Reprocessing Ltd,Rubber Dust,4649.13,kg,78.24,138.4,2027-04-08
-Kuttanad Industrial Processing LLP,Rubber Dust,2460.76,kg,75.8,16.16,2026-12-28
-Bharata Fibre Processing LLP,Rubber Dust,6479.71,kg,66.67,110.84,2027-03-27
-Pamba Industrial Reclamation Co,Rubber Dust,4395.3,kg,72.91,135.28,2027-01-25
-Anamudi Element Processing LLP,Rubber Dust,8206.76,kg,64.25,39.32,2027-06-27
-Chalakudy Polymer Reprocessing Ltd,Rubber Dust,8443.86,kg,57.08,114.22,2027-01-22
-Bharata Fibre Resource Recovery,Rubber Dust,2069.04,kg,62.84,87.88,2027-06-04
-Wayanad Element Materials Pvt Ltd,Rubber Dust,1875.97,kg,69.95,101.57,2027-02-02
-Chalakudy Timber Resource Recovery,Rubber Dust,2018.0,kg,75.17,62.0,2026-12-17
-Southern Green Reclamation Co,Rubber Dust,1009.77,kg,66.9,100.35,2027-03-15
-Vembanad Foundry Materials Pvt Ltd,Rubber Dust,4355.58,kg,63.41,89.78,2027-05-12
-Southern Composite Materials Pvt Ltd,Rubber Dust,7679.64,kg,66.3,109.34,2027-01-07
-Coastal Board Circular Industries,Rubber Dust,8644.02,kg,59.01,120.55,2027-02-27
-Pamba Metals Recovery Systems,Rubber Dust,2960.24,kg,67.44,112.53,2027-03-06
-Periyar Fibre Processing LLP,Rubber Dust,5102.53,kg,61.85,26.82,2027-01-13
-Chalakudy Foundry Reclamation Co,Rubber Dust,7765.85,kg,71.76,135.15,2027-02-18
-Nilgiri Board Circular Industries,Rubber Dust,5357.56,kg,69.2,41.8,2027-02-03
-Malabar Industrial Reprocessing Ltd,Rubber Dust,6413.29,kg,73.98,105.29,2027-01-06
-Nilgiri Green Resource Recovery,Rubber Dust,8440.91,kg,59.03,47.02,2026-11-23
-Anamudi Polymer Recycling Works,Rubber Dust,1808.77,kg,72.15,87.06,2027-07-17
-Bharata Foundry Recycling Works,Rubber Dust,2568.22,kg,66.57,137.39,2027-07-02
-Pamba Fibre Resource Recovery,Rubber Dust,3721.81,kg,73.38,69.59,2026-11-26
-Backwater Element Reprocessing Ltd,Rubber Dust,5601.97,kg,55.51,134.6,2027-01-09
-Coastal Alloy Reprocessing Ltd,Rubber Dust,3703.13,kg,71.2,96.97,2026-11-27
-Pamba Foundry Processing LLP,Plywood Waste,2602.94,kg,58.02,121.49,2027-01-27
-Bharata Foundry Resource Recovery,Plywood Waste,5357.27,kg,59.69,111.12,2026-12-14
-Vembanad Composite Materials Pvt Ltd,Plywood Waste,4219.72,kg,68.05,88.63,2026-12-24
-Anamudi Polymer Materials Pvt Ltd,Plywood Waste,2697.1,kg,78.59,73.85,2027-05-08
-Periyar Alloy Processing LLP,Plywood Waste,7679.48,kg,55.92,76.25,2026-11-25
-Backwater Foundry Circular Industries,Plywood Waste,6803.6,kg,62.6,87.72,2027-06-16
-Wayanad Element Resource Recovery,Plywood Waste,7795.01,kg,79.36,89.48,2027-03-25
-Periyar Timber Reprocessing Ltd,Plywood Waste,2229.65,kg,61.44,133.43,2027-07-01
-Kuttanad Metals Circular Industries,Plywood Waste,4317.7,kg,76.39,30.81,2027-01-13
-Bharata Element Processing LLP,Plywood Waste,7825.83,kg,64.09,96.36,2027-04-05
-Coastal Alloy Materials Pvt Ltd,Plywood Waste,7490.28,kg,71.42,22.63,2027-05-09
-Bharata Industrial Materials Pvt Ltd,Plywood Waste,6482.19,kg,58.2,36.04,2027-05-16
-Kuttanad Timber Recovery Systems,Plywood Waste,5277.78,kg,55.73,42.62,2027-02-21
-Vembanad Board Recovery Systems,Plywood Waste,6661.5,kg,56.01,15.95,2026-12-14
-Periyar Polymer Materials Pvt Ltd,Plywood Waste,1538.44,kg,71.58,39.93,2027-06-23
-Kuttanad Foundry Circular Industries,Plywood Waste,7937.26,kg,73.03,72.42,2027-02-20
-Kuttanad Element Processing LLP,Plywood Waste,4750.82,kg,76.97,41.38,2027-01-09
-Periyar Element Materials Pvt Ltd,Plywood Waste,4355.41,kg,77.49,135.73,2027-03-09
-Kuttanad Board Resource Recovery,Plywood Waste,878.08,kg,68.03,125.84,2027-06-23
-Malabar Timber Circular Industries,Plywood Waste,5790.04,kg,69.83,131.34,2027-05-10
-Kuttanad Metals Processing LLP,Plywood Waste,7330.91,kg,75.52,133.3,2027-06-16
-Malabar Alloy Recycling Works,Plywood Waste,5427.9,kg,64.66,95.68,2027-04-16
-Nilgiri Polymer Materials Pvt Ltd,Plywood Waste,1662.26,kg,57.3,81.85,2027-01-24
-Wayanad Metals Reprocessing Ltd,Plywood Waste,3546.29,kg,58.83,134.78,2027-01-20
-Wayanad Composite Recovery Systems,Plywood Waste,3363.46,kg,56.03,46.15,2027-01-06
-Arabian Foundry Recovery Systems,Plywood Waste,8552.59,kg,64.62,19.26,2027-03-19
-Western Ghats Fibre Reclamation Co,Plywood Waste,6829.16,kg,55.66,90.28,2027-04-02
-Arabian Green Circular Industries,Plywood Waste,4549.75,kg,75.19,115.22,2027-06-14
-Southern Composite Circular Industries,Plywood Waste,2185.78,kg,61.66,61.78,2027-01-24
-Western Ghats Element Reprocessing Ltd,Plywood Waste,1091.7,kg,79.0,137.35,2027-05-16
-Pamba Composite Processing LLP,Aluminium Roll Scrap,1510.08,kg,60.92,70.42,2027-06-26
-Bharata Timber Reprocessing Ltd,Aluminium Roll Scrap,7986.39,kg,56.57,77.23,2027-03-14
-Southern Salvage Materials Pvt Ltd,Aluminium Roll Scrap,6645.57,kg,68.1,68.08,2027-02-17
-Pamba Timber Resource Recovery,Aluminium Roll Scrap,7244.33,kg,72.37,60.61,2027-05-31
-Arabian Alloy Resource Recovery,Aluminium Roll Scrap,7907.34,kg,62.77,107.7,2027-04-23
-Backwater Polymer Resource Recovery,Aluminium Roll Scrap,6855.36,kg,76.73,40.99,2027-07-16
-Coastal Green Resource Recovery,Aluminium Roll Scrap,7952.27,kg,61.17,129.7,2027-04-22
-Wayanad Board Reprocessing Ltd,Aluminium Roll Scrap,4279.3,kg,66.54,62.04,2026-12-17
-Bharata Board Processing LLP,Aluminium Roll Scrap,3737.75,kg,74.02,63.29,2027-02-17
-Southern Green Recovery Systems,Aluminium Roll Scrap,7882.12,kg,62.35,136.95,2027-06-11
-Anamudi Industrial Recovery Systems,Aluminium Roll Scrap,6619.08,kg,55.06,42.29,2026-12-09
-Wayanad Green Processing LLP,Aluminium Roll Scrap,5032.56,kg,70.44,51.14,2026-12-17
-Malabar Element Reprocessing Ltd,Aluminium Roll Scrap,1388.98,kg,69.73,106.88,2027-02-27
-Pamba Fibre Recycling Works,Aluminium Roll Scrap,4153.42,kg,64.28,99.55,2027-06-11
-Backwater Board Materials Pvt Ltd,Aluminium Roll Scrap,1361.79,kg,79.14,66.57,2027-03-22
-Bharata Polymer Resource Recovery,Aluminium Roll Scrap,1856.0,kg,59.79,135.42,2027-03-18
-Western Ghats Green Materials Pvt Ltd,Aluminium Roll Scrap,1054.52,kg,57.58,73.29,2026-12-09
-Pamba Polymer Reclamation Co,Aluminium Roll Scrap,5330.17,kg,59.86,47.02,2027-02-05
-Pamba Fibre Reprocessing Ltd,Aluminium Roll Scrap,3651.31,kg,74.6,32.21,2026-12-28
-Kuttanad Metals Recovery Systems,Aluminium Roll Scrap,3777.82,kg,59.69,37.25,2027-02-20
-Arabian Industrial Recycling Works,Aluminium Roll Scrap,8471.19,kg,72.97,74.22,2027-07-13
-Coastal Industrial Processing LLP,Aluminium Roll Scrap,8768.39,kg,57.58,53.37,2027-01-25
-Malabar Foundry Reclamation Co,Aluminium Roll Scrap,8522.1,kg,77.76,20.92,2026-12-07
-Malabar Composite Circular Industries,Aluminium Roll Scrap,8872.68,kg,60.05,93.26,2027-02-09
-Nilgiri Salvage Reclamation Co,Aluminium Roll Scrap,1150.41,kg,76.05,86.98,2027-03-26
-Wayanad Salvage Recycling Works,Aluminium Roll Scrap,3777.25,kg,68.54,46.75,2027-05-01
-Nilgiri Metals Recycling Works,Aluminium Roll Scrap,1228.95,kg,69.96,74.05,2027-06-30
-Malabar Element Reclamation Co,Aluminium Roll Scrap,2792.21,kg,60.64,40.95,2027-01-13
-Malabar Polymer Processing LLP,Aluminium Roll Scrap,7381.32,kg,71.07,116.82,2027-05-18
-Backwater Salvage Resource Recovery,Aluminium Roll Scrap,4346.66,kg,57.24,61.99,2027-02-22
-Coastal Board Materials Pvt Ltd,Wood Waste,4108.52,kg,68.04,133.11,2027-05-16
-Southern Salvage Recycling Works,Wood Waste,5247.94,kg,68.02,98.83,2027-03-15
-Periyar Metals Processing LLP,Wood Waste,1663.03,kg,60.78,93.15,2027-02-15
-Arabian Green Recovery Systems,Wood Waste,6091.24,kg,68.15,118.04,2026-12-25
-Wayanad Polymer Materials Pvt Ltd,Wood Waste,4103.06,kg,57.73,26.73,2027-04-04
-Southern Foundry Recycling Works,Wood Waste,5258.3,kg,79.9,101.21,2027-02-28
-Western Ghats Industrial Circular Industries,Wood Waste,4042.53,kg,62.96,55.07,2026-12-06
-Malabar Polymer Recycling Works,Wood Waste,6698.06,kg,79.15,105.58,2027-07-13
-Malabar Board Reprocessing Ltd,Wood Waste,3014.6,kg,60.89,60.74,2027-03-06
-Southern Alloy Recovery Systems,Wood Waste,1663.88,kg,61.34,28.54,2026-12-09
-Coastal Timber Reclamation Co,Wood Waste,7706.34,kg,55.05,137.23,2026-12-20
-Arabian Board Resource Recovery,Wood Waste,8883.51,kg,62.22,85.93,2027-06-28
-Nilgiri Salvage Reprocessing Ltd,Wood Waste,1883.05,kg,57.85,104.99,2027-01-06
-Wayanad Fibre Recovery Systems,Wood Waste,8499.19,kg,68.31,75.69,2026-12-01
-Periyar Industrial Materials Pvt Ltd,Wood Waste,6440.93,kg,62.17,34.04,2026-12-25
-Backwater Metals Materials Pvt Ltd,Wood Waste,5950.13,kg,67.26,46.89,2027-04-30
-Southern Industrial Processing LLP,Wood Waste,4008.38,kg,56.29,60.19,2026-11-25
-Periyar Foundry Recycling Works,Wood Waste,4302.55,kg,72.4,43.53,2027-03-30
-Vembanad Metals Recycling Works,Wood Waste,4090.49,kg,61.37,64.94,2027-04-22
-Coastal Polymer Reclamation Co,Wood Waste,7808.63,kg,58.19,67.61,2027-05-12
-Periyar Metals Recovery Systems,Wood Waste,4896.42,kg,68.1,20.56,2027-07-05
-Coastal Timber Recycling Works,Wood Waste,4420.45,kg,69.34,46.03,2027-07-11
-Malabar Metals Recycling Works,Wood Waste,5707.86,kg,67.49,98.64,2026-11-27
-Coastal Polymer Processing LLP,Wood Waste,8350.2,kg,65.61,92.08,2027-04-27
-Coastal Foundry Materials Pvt Ltd,Wood Waste,8799.67,kg,58.83,121.84,2027-01-14
-Anamudi Salvage Resource Recovery,Wood Waste,1726.73,kg,72.47,127.86,2027-03-14
-Backwater Metals Reclamation Co,Wood Waste,8954.94,kg,79.87,52.43,2027-05-03
-Vembanad Timber Reclamation Co,Wood Waste,8349.97,kg,69.39,114.7,2027-01-14
-Wayanad Salvage Recovery Systems,Wood Waste,2088.49,kg,76.95,73.19,2026-12-12
-Bharata Metals Materials Pvt Ltd,Wood Waste,8417.64,kg,57.27,98.1,2027-07-06
-Malabar Timber Materials Pvt Ltd,Plastic Scrap,904.32,kg,67.5,48.55,2027-02-14
-Bharata Timber Reclamation Co,Plastic Scrap,5843.12,kg,71.92,81.83,2027-06-20
-Nilgiri Industrial Recovery Systems,Plastic Scrap,5670.0,kg,68.53,127.68,2027-02-16
-Anamudi Salvage Recycling Works,Plastic Scrap,7050.89,kg,71.03,38.87,2027-06-24
-Vembanad Polymer Processing LLP,Plastic Scrap,4012.57,kg,59.68,112.16,2027-07-03
-Vembanad Foundry Resource Recovery,Plastic Scrap,4138.8,kg,61.96,117.6,2026-12-25
-Vembanad Timber Materials Pvt Ltd,Plastic Scrap,3478.64,kg,63.52,54.1,2026-11-30
-Vembanad Fibre Reclamation Co,Plastic Scrap,5611.77,kg,55.73,137.04,2027-06-28
-Chalakudy Alloy Circular Industries,Plastic Scrap,2366.29,kg,66.15,134.28,2027-07-01
-Bharata Metals Resource Recovery,Plastic Scrap,1772.5,kg,69.38,77.37,2027-03-31
-Anamudi Foundry Resource Recovery,Plastic Scrap,4633.09,kg,58.46,26.4,2027-06-01
-Vembanad Metals Circular Industries,Plastic Scrap,2865.04,kg,76.61,16.71,2027-01-16
-Backwater Timber Materials Pvt Ltd,Plastic Scrap,7585.16,kg,75.75,134.57,2027-06-20
-Arabian Metals Circular Industries,Plastic Scrap,3177.7,kg,70.41,56.74,2027-03-21
-Malabar Green Recovery Systems,Plastic Scrap,4665.27,kg,79.43,60.43,2026-12-28
-Periyar Metals Reprocessing Ltd,Plastic Scrap,8058.76,kg,64.69,64.2,2027-06-17
-Nilgiri Composite Reclamation Co,Plastic Scrap,8348.2,kg,59.43,116.18,2026-12-02
-Coastal Fibre Recovery Systems,Plastic Scrap,4321.97,kg,63.09,26.67,2027-06-17
-Southern Polymer Recycling Works,Plastic Scrap,3956.37,kg,76.71,135.4,2027-03-15
-Southern Timber Materials Pvt Ltd,Plastic Scrap,5828.36,kg,55.83,88.55,2027-01-02
-Western Ghats Polymer Reclamation Co,Plastic Scrap,7220.29,kg,72.34,29.29,2027-04-26
-Periyar Green Circular Industries,Plastic Scrap,7648.51,kg,74.85,50.42,2027-01-27
-Malabar Alloy Reclamation Co,Plastic Scrap,7961.03,kg,70.52,38.78,2027-04-24
-Vembanad Polymer Circular Industries,Plastic Scrap,2363.13,kg,68.89,41.45,2027-05-06
-Periyar Foundry Recovery Systems,Plastic Scrap,1731.15,kg,72.06,95.71,2027-01-14
-Anamudi Metals Materials Pvt Ltd,Plastic Scrap,5371.5,kg,78.45,38.08,2027-02-15
-Western Ghats Polymer Recycling Works,Plastic Scrap,8684.19,kg,66.16,43.28,2027-03-07
-Periyar Timber Processing LLP,Plastic Scrap,6008.0,kg,74.35,48.34,2026-12-20
-Vembanad Timber Recovery Systems,Plastic Scrap,1916.9,kg,63.39,138.0,2027-02-10
-Anamudi Board Reclamation Co,Plastic Scrap,7307.12,kg,71.53,115.68,2027-03-04
-Wayanad Alloy Reprocessing Ltd,Mixed Recyclable Waste,1903.46,kg,64.74,37.54,2027-04-14
-Bharata Board Recycling Works,Mixed Recyclable Waste,6773.21,kg,62.44,107.58,2027-04-15
-Nilgiri Board Resource Recovery,Mixed Recyclable Waste,2149.55,kg,71.15,132.17,2027-04-29
-Bharata Green Reprocessing Ltd,Mixed Recyclable Waste,4265.96,kg,56.09,39.54,2027-01-12
-Coastal Metals Recovery Systems,Mixed Recyclable Waste,5910.36,kg,63.47,79.34,2027-07-05
-Coastal Metals Recycling Works,Mixed Recyclable Waste,2733.84,kg,63.13,38.21,2027-03-22
-Pamba Element Processing LLP,Mixed Recyclable Waste,6792.05,kg,78.04,61.49,2027-02-06
-Coastal Composite Materials Pvt Ltd,Mixed Recyclable Waste,2483.35,kg,65.76,114.01,2027-07-15
-Vembanad Salvage Materials Pvt Ltd,Mixed Recyclable Waste,6619.66,kg,75.82,130.71,2027-01-03
-Periyar Composite Circular Industries,Mixed Recyclable Waste,1742.25,kg,68.83,47.85,2027-06-03
-Western Ghats Foundry Recovery Systems,Mixed Recyclable Waste,8874.67,kg,77.54,25.32,2027-04-29
-Anamudi Salvage Reprocessing Ltd,Mixed Recyclable Waste,3472.64,kg,63.38,85.57,2027-06-05
-Nilgiri Timber Reclamation Co,Mixed Recyclable Waste,6313.27,kg,74.65,26.19,2027-03-04
-Malabar Timber Recovery Systems,Mixed Recyclable Waste,5500.97,kg,60.06,96.46,2026-12-15
-Kuttanad Timber Recycling Works,Mixed Recyclable Waste,3567.58,kg,71.09,78.34,2027-04-07
-Vembanad Metals Recovery Systems,Mixed Recyclable Waste,2342.63,kg,76.38,32.36,2027-02-12
-Coastal Alloy Resource Recovery,Mixed Recyclable Waste,3130.75,kg,59.0,30.3,2027-01-30
-Periyar Foundry Processing LLP,Mixed Recyclable Waste,7274.99,kg,78.78,45.48,2027-05-22
-Wayanad Alloy Recovery Systems,Mixed Recyclable Waste,6547.23,kg,59.84,89.81,2027-02-14
-Chalakudy Board Reprocessing Ltd,Mixed Recyclable Waste,4167.79,kg,67.16,32.51,2027-05-01
-Chalakudy Salvage Processing LLP,Mixed Recyclable Waste,7841.74,kg,57.76,121.43,2027-05-12
-Chalakudy Salvage Resource Recovery,Mixed Recyclable Waste,5930.31,kg,72.39,46.91,2026-12-07
-Southern Fibre Circular Industries,Mixed Recyclable Waste,5191.93,kg,73.69,88.97,2027-02-05
-Chalakudy Alloy Reprocessing Ltd,Mixed Recyclable Waste,5650.82,kg,67.23,23.42,2027-01-26
-Arabian Alloy Materials Pvt Ltd,Mixed Recyclable Waste,7756.92,kg,74.16,50.5,2027-05-22
-Periyar Board Circular Industries,Mixed Recyclable Waste,1331.55,kg,57.6,88.15,2027-02-27
-Southern Composite Resource Recovery,Mixed Recyclable Waste,818.21,kg,60.04,19.08,2027-03-17
-Periyar Timber Resource Recovery,Mixed Recyclable Waste,990.8,kg,60.77,62.91,2027-02-24
-Southern Fibre Processing LLP,Mixed Recyclable Waste,4889.06,kg,55.3,101.22,2026-11-23
-Periyar Element Circular Industries,Mixed Recyclable Waste,8066.28,kg,55.33,71.55,2027-07-07
-Periyar Industrial Recovery Systems,Aerospace Metal Scrap,3751.42,kg,77.31,83.84,2027-02-10
-Coastal Composite Recovery Systems,Aerospace Metal Scrap,2303.61,kg,68.09,62.5,2027-02-25
-Bharata Polymer Processing LLP,Aerospace Metal Scrap,2479.54,kg,61.02,138.46,2027-04-13
-Bharata Fibre Recovery Systems,Aerospace Metal Scrap,4535.65,kg,77.54,122.73,2026-12-02
-Vembanad Composite Reclamation Co,Aerospace Metal Scrap,3744.02,kg,64.76,103.6,2026-12-21
-Coastal Polymer Recovery Systems,Aerospace Metal Scrap,4721.28,kg,74.4,28.08,2026-11-23
-Chalakudy Industrial Recycling Works,Aerospace Metal Scrap,1802.12,kg,73.22,34.42,2027-01-21
-Chalakudy Industrial Reprocessing Ltd,Aerospace Metal Scrap,1200.31,kg,67.22,50.37,2027-01-31
-Southern Foundry Reprocessing Ltd,Aerospace Metal Scrap,4060.21,kg,75.41,78.7,2027-01-16
-Periyar Composite Reprocessing Ltd,Aerospace Metal Scrap,860.36,kg,63.51,52.43,2027-04-29
-Vembanad Board Resource Recovery,Aerospace Metal Scrap,3553.91,kg,69.5,115.62,2027-01-31
-Backwater Salvage Processing LLP,Aerospace Metal Scrap,1417.29,kg,58.04,54.37,2027-05-14
-Pamba Fibre Processing LLP,Aerospace Metal Scrap,6349.95,kg,67.56,108.97,2026-12-02
-Nilgiri Industrial Reprocessing Ltd,Aerospace Metal Scrap,8663.08,kg,64.34,68.67,2027-05-28
-Nilgiri Alloy Reprocessing Ltd,Aerospace Metal Scrap,1555.24,kg,55.54,59.59,2027-03-05
-Chalakudy Green Resource Recovery,Aerospace Metal Scrap,1473.84,kg,63.63,39.83,2027-01-23
-Coastal Foundry Reclamation Co,Aerospace Metal Scrap,2166.25,kg,65.14,45.1,2027-03-16
-Southern Industrial Recycling Works,Aerospace Metal Scrap,1749.15,kg,78.71,47.28,2027-07-12
-Kuttanad Timber Resource Recovery,Aerospace Metal Scrap,3785.64,kg,79.61,48.81,2027-06-15
-Western Ghats Timber Processing LLP,Aerospace Metal Scrap,2668.4,kg,75.06,92.1,2027-01-19
-Vembanad Metals Materials Pvt Ltd,Aerospace Metal Scrap,2941.19,kg,60.84,97.45,2027-07-16
-Pamba Board Recovery Systems,Aerospace Metal Scrap,7295.99,kg,61.61,105.47,2026-11-29
-Nilgiri Metals Reclamation Co,Aerospace Metal Scrap,5879.06,kg,59.36,116.66,2026-12-26
-Malabar Composite Reprocessing Ltd,Aerospace Metal Scrap,8338.78,kg,56.21,105.22,2027-03-24
-Pamba Board Processing LLP,Aerospace Metal Scrap,6240.67,kg,68.73,29.8,2027-04-20
-Southern Alloy Circular Industries,Aerospace Metal Scrap,2569.05,kg,62.12,124.79,2027-02-05
-Kuttanad Element Circular Industries,Aerospace Metal Scrap,8645.32,kg,62.36,41.2,2027-01-02
-Vembanad Board Processing LLP,Aerospace Metal Scrap,4757.1,kg,57.32,76.37,2027-05-16
-Backwater Salvage Reclamation Co,Aerospace Metal Scrap,5806.28,kg,64.37,76.21,2026-12-04
-Western Ghats Salvage Materials Pvt Ltd,Aerospace Metal Scrap,1615.17,kg,74.2,135.72,2027-02-15
-Backwater Industrial Reprocessing Ltd,Plastic Packaging Waste,5476.44,kg,60.5,111.03,2027-05-23
-Western Ghats Green Resource Recovery,Plastic Packaging Waste,7781.47,kg,59.9,138.59,2027-04-17
-Wayanad Polymer Circular Industries,Plastic Packaging Waste,8072.32,kg,76.36,119.3,2027-03-26
-Chalakudy Foundry Materials Pvt Ltd,Plastic Packaging Waste,1030.94,kg,71.29,42.08,2027-07-11
-Pamba Composite Recycling Works,Plastic Packaging Waste,7049.35,kg,74.6,108.27,2027-06-08
-Anamudi Alloy Resource Recovery,Plastic Packaging Waste,7632.01,kg,76.57,39.74,2027-05-03
-Anamudi Industrial Recycling Works,Plastic Packaging Waste,2200.56,kg,57.66,129.57,2027-06-11
-Wayanad Metals Materials Pvt Ltd,Plastic Packaging Waste,3261.36,kg,79.23,34.04,2026-12-19
-Bharata Alloy Reclamation Co,Plastic Packaging Waste,8687.97,kg,68.18,123.34,2026-12-12
-Nilgiri Composite Materials Pvt Ltd,Plastic Packaging Waste,8693.81,kg,76.56,99.83,2027-04-28
-Backwater Alloy Reprocessing Ltd,Plastic Packaging Waste,2015.28,kg,79.02,40.19,2027-01-23
-Western Ghats Metals Resource Recovery,Plastic Packaging Waste,3935.07,kg,71.83,82.18,2027-01-01
-Periyar Fibre Reprocessing Ltd,Plastic Packaging Waste,5874.32,kg,55.14,102.34,2027-01-16
-Malabar Metals Processing LLP,Plastic Packaging Waste,7527.09,kg,58.63,63.43,2027-01-23
-Chalakudy Composite Circular Industries,Plastic Packaging Waste,5818.55,kg,78.23,21.91,2027-04-25
-Periyar Fibre Circular Industries,Plastic Packaging Waste,8044.96,kg,63.03,46.47,2027-04-05
-Backwater Board Recovery Systems,Plastic Packaging Waste,8315.12,kg,68.81,131.67,2027-01-05
-Western Ghats Composite Circular Industries,Plastic Packaging Waste,6155.76,kg,76.86,122.29,2026-12-26
-Southern Board Materials Pvt Ltd,Plastic Packaging Waste,8473.67,kg,63.02,74.99,2027-02-23
-Arabian Element Materials Pvt Ltd,Plastic Packaging Waste,8718.88,kg,74.63,139.43,2026-11-30
-Malabar Green Resource Recovery,Plastic Packaging Waste,4148.8,kg,72.83,128.26,2027-05-08
-Backwater Polymer Recovery Systems,Plastic Packaging Waste,1985.74,kg,58.24,18.77,2027-05-19
-Vembanad Industrial Resource Recovery,Plastic Packaging Waste,902.62,kg,69.36,112.52,2027-01-08
-Southern Composite Reprocessing Ltd,Plastic Packaging Waste,2002.78,kg,70.16,138.21,2026-12-25
-Bharata Polymer Circular Industries,Plastic Packaging Waste,6903.79,kg,63.81,64.18,2027-07-02
-Western Ghats Foundry Reclamation Co,Plastic Packaging Waste,5220.74,kg,69.46,15.03,2027-04-08
-Nilgiri Composite Resource Recovery,Plastic Packaging Waste,5061.63,kg,59.71,131.54,2026-12-23
-Nilgiri Timber Processing LLP,Plastic Packaging Waste,3739.79,kg,55.97,44.0,2027-01-11
-Southern Board Recycling Works,Plastic Packaging Waste,5728.16,kg,79.41,111.01,2027-04-29
-Wayanad Board Processing LLP,Plastic Packaging Waste,5547.05,kg,78.49,23.76,2027-06-07
-Vembanad Salvage Reclamation Co,Metal Waste,3789.71,kg,73.37,22.36,2027-02-25
-Wayanad Industrial Reprocessing Ltd,Metal Waste,2422.73,kg,69.98,86.73,2027-07-13
-Vembanad Green Recycling Works,Metal Waste,4431.14,kg,58.07,116.53,2027-07-07
-Chalakudy Element Recovery Systems,Metal Waste,4693.66,kg,71.65,68.66,2027-01-03
-Backwater Foundry Materials Pvt Ltd,Metal Waste,4185.0,kg,55.31,87.25,2027-06-03
-Coastal Industrial Recovery Systems,Metal Waste,8621.49,kg,60.93,103.21,2027-04-02
-Coastal Foundry Processing LLP,Metal Waste,8990.19,kg,59.55,116.09,2027-05-26
-Western Ghats Board Reclamation Co,Metal Waste,3318.9,kg,63.8,63.48,2027-01-19
-Southern Fibre Recycling Works,Metal Waste,6489.35,kg,71.51,61.19,2027-07-02
-Anamudi Element Reclamation Co,Metal Waste,5398.94,kg,68.36,79.19,2027-02-27
-Malabar Green Materials Pvt Ltd,Metal Waste,7415.15,kg,72.98,54.16,2027-01-02
-Malabar Fibre Recycling Works,Metal Waste,3038.34,kg,56.45,43.91,2027-01-29
-Malabar Foundry Recovery Systems,Metal Waste,2297.63,kg,73.97,61.03,2026-11-29
-Kuttanad Salvage Resource Recovery,Metal Waste,3474.92,kg,67.2,62.03,2027-01-17
-Malabar Green Reclamation Co,Metal Waste,6651.88,kg,58.89,105.67,2027-01-25
-Western Ghats Fibre Processing LLP,Metal Waste,8226.54,kg,58.28,86.54,2026-11-23
-Vembanad Foundry Processing LLP,Metal Waste,2906.77,kg,56.44,36.14,2027-02-14
-Pamba Industrial Processing LLP,Metal Waste,6039.74,kg,59.26,106.69,2027-01-20
-Vembanad Element Circular Industries,Metal Waste,3261.97,kg,59.67,33.31,2027-04-04
-Western Ghats Composite Materials Pvt Ltd,Metal Waste,3906.89,kg,66.93,73.72,2027-01-30
-Nilgiri Foundry Reclamation Co,Metal Waste,2161.17,kg,72.44,97.63,2027-01-29
-Chalakudy Alloy Materials Pvt Ltd,Metal Waste,5308.77,kg,79.85,91.02,2027-05-28
-Vembanad Salvage Circular Industries,Metal Waste,8788.13,kg,56.72,49.63,2027-07-08
-Nilgiri Foundry Recycling Works,Metal Waste,8732.14,kg,65.8,71.32,2027-03-28
-Pamba Element Resource Recovery,Metal Waste,8049.51,kg,75.44,41.34,2027-05-04
-Chalakudy Fibre Circular Industries,Metal Waste,8846.23,kg,59.52,108.13,2027-01-19
-Malabar Metals Recovery Systems,Metal Waste,4581.97,kg,65.72,18.63,2027-01-10
-Backwater Board Reprocessing Ltd,Metal Waste,2667.14,kg,62.93,110.47,2026-12-25
-Bharata Fibre Reprocessing Ltd,Metal Waste,6778.95,kg,67.9,137.52,2027-05-24
-Coastal Green Recovery Systems,Metal Waste,5504.58,kg,70.38,114.95,2027-05-11
-Nilgiri Alloy Recovery Systems,Metal Offcuts,7997.01,kg,70.72,29.13,2027-07-10
-Arabian Salvage Reprocessing Ltd,Metal Offcuts,6389.11,kg,61.75,29.99,2027-07-05
-Anamudi Board Resource Recovery,Metal Offcuts,8442.4,kg,56.62,94.07,2027-04-14
-Pamba Alloy Reclamation Co,Metal Offcuts,6940.89,kg,62.96,116.88,2027-05-06
-Southern Board Reclamation Co,Metal Offcuts,4253.06,kg,74.11,42.01,2027-02-19
-Periyar Metals Recycling Works,Metal Offcuts,4665.66,kg,59.29,107.69,2027-05-18
-Anamudi Foundry Reprocessing Ltd,Metal Offcuts,2031.37,kg,69.95,59.0,2027-01-05
-Kuttanad Industrial Circular Industries,Metal Offcuts,1633.4,kg,76.24,48.22,2027-03-23
-Pamba Polymer Processing LLP,Metal Offcuts,1089.8,kg,58.16,93.44,2027-03-09
-Nilgiri Salvage Recycling Works,Metal Offcuts,1289.4,kg,62.34,42.19,2026-12-21
-Malabar Board Circular Industries,Metal Offcuts,1100.39,kg,73.2,46.62,2027-06-15
-Pamba Metals Materials Pvt Ltd,Metal Offcuts,1662.76,kg,61.53,121.79,2027-04-29
-Wayanad Element Recycling Works,Metal Offcuts,8227.9,kg,63.97,17.96,2026-11-20
-Wayanad Element Processing LLP,Metal Offcuts,6090.96,kg,66.9,61.67,2026-11-22
-Pamba Metals Recycling Works,Metal Offcuts,5878.26,kg,60.7,28.15,2027-05-31
-Chalakudy Timber Circular Industries,Metal Offcuts,8642.24,kg,64.84,30.46,2026-12-08
-Southern Element Recycling Works,Metal Offcuts,7731.1,kg,62.29,58.1,2027-06-25
-Anamudi Metals Recycling Works,Metal Offcuts,7480.03,kg,57.33,95.77,2026-12-24
-Anamudi Green Resource Recovery,Metal Offcuts,7077.8,kg,73.09,100.69,2027-04-14
-Arabian Industrial Circular Industries,Metal Offcuts,5789.9,kg,58.1,42.4,2027-02-26
-Southern Polymer Reprocessing Ltd,Metal Offcuts,1550.93,kg,79.87,84.35,2027-03-13
-Wayanad Element Recovery Systems,Metal Offcuts,3013.17,kg,68.46,108.76,2027-02-06
-Periyar Timber Materials Pvt Ltd,Metal Offcuts,6590.13,kg,79.75,63.02,2027-02-23
-Wayanad Industrial Recycling Works,Metal Offcuts,1333.42,kg,69.12,59.15,2027-01-02
-Kuttanad Timber Reclamation Co,Metal Offcuts,1295.43,kg,79.43,139.47,2027-04-14
-Bharata Element Resource Recovery,Metal Offcuts,4454.08,kg,72.64,37.72,2027-03-31
-Pamba Timber Recycling Works,Metal Offcuts,7268.37,kg,61.65,112.02,2026-12-02
-Bharata Composite Recovery Systems,Metal Offcuts,8150.56,kg,75.99,106.96,2027-01-02
-Nilgiri Fibre Recovery Systems,Metal Offcuts,920.89,kg,75.06,66.22,2027-06-09
-Malabar Fibre Reclamation Co,Metal Offcuts,7768.1,kg,60.68,77.33,2027-03-06
-Pamba Fibre Circular Industries,MDF Board Offcuts,3060.24,kg,55.42,68.29,2027-05-27
-Chalakudy Board Recycling Works,MDF Board Offcuts,4635.55,kg,55.62,88.53,2027-01-25
-Vembanad Green Processing LLP,MDF Board Offcuts,8415.68,kg,74.84,115.05,2027-07-01
-Periyar Composite Materials Pvt Ltd,MDF Board Offcuts,5489.06,kg,71.44,22.59,2027-02-08
-Anamudi Polymer Processing LLP,MDF Board Offcuts,1618.84,kg,59.53,132.67,2026-12-27
-Bharata Industrial Reprocessing Ltd,MDF Board Offcuts,4914.77,kg,55.55,104.51,2027-04-30
-Coastal Green Reprocessing Ltd,MDF Board Offcuts,2093.91,kg,76.32,61.25,2027-02-26
-Wayanad Alloy Circular Industries,MDF Board Offcuts,1066.64,kg,76.58,65.45,2027-07-12
-Backwater Metals Processing LLP,MDF Board Offcuts,2487.71,kg,78.38,56.38,2027-06-08
-Wayanad Composite Processing LLP,MDF Board Offcuts,4114.42,kg,79.79,24.15,2027-04-21
-Vembanad Composite Recycling Works,MDF Board Offcuts,8774.81,kg,79.37,111.33,2027-06-07
-Bharata Alloy Recovery Systems,MDF Board Offcuts,4325.09,kg,70.71,48.62,2027-02-26
-Vembanad Polymer Resource Recovery,MDF Board Offcuts,7254.91,kg,57.92,80.62,2027-02-22
-Kuttanad Alloy Processing LLP,MDF Board Offcuts,7551.57,kg,65.36,94.19,2027-03-18
-Wayanad Green Recycling Works,MDF Board Offcuts,6103.63,kg,78.81,78.69,2027-02-19
-Arabian Salvage Resource Recovery,MDF Board Offcuts,920.35,kg,73.8,133.46,2026-12-27
-Backwater Timber Circular Industries,MDF Board Offcuts,2324.28,kg,79.23,135.2,2027-05-14
-Periyar Element Reprocessing Ltd,MDF Board Offcuts,2300.07,kg,59.49,123.12,2027-01-02
-Bharata Element Reclamation Co,MDF Board Offcuts,1896.74,kg,68.61,18.83,2027-02-03
-Vembanad Foundry Circular Industries,MDF Board Offcuts,7322.53,kg,66.15,117.56,2027-07-09
-Anamudi Salvage Materials Pvt Ltd,MDF Board Offcuts,3891.16,kg,60.41,43.87,2027-05-11
-Nilgiri Foundry Resource Recovery,MDF Board Offcuts,1557.06,kg,74.11,122.32,2027-03-17
-Anamudi Timber Reclamation Co,MDF Board Offcuts,8992.43,kg,79.68,23.85,2027-06-17
-Bharata Timber Materials Pvt Ltd,MDF Board Offcuts,7263.08,kg,68.4,16.57,2027-03-06
-Western Ghats Green Recovery Systems,MDF Board Offcuts,1833.42,kg,74.47,54.39,2027-06-28
-Periyar Polymer Reprocessing Ltd,MDF Board Offcuts,3816.35,kg,58.64,94.34,2027-06-22
-Malabar Board Reclamation Co,MDF Board Offcuts,5231.19,kg,62.3,36.56,2027-06-04
-Arabian Board Processing LLP,MDF Board Offcuts,2984.01,kg,63.18,138.67,2027-04-09
-Kuttanad Foundry Resource Recovery,MDF Board Offcuts,1465.15,kg,72.59,97.99,2027-03-10
-Periyar Composite Resource Recovery,MDF Board Offcuts,5401.0,kg,72.63,108.86,2027-05-12
-Backwater Board Reclamation Co,Glass Cutting Waste,7349.62,kg,67.29,135.26,2026-12-12
-Backwater Salvage Materials Pvt Ltd,Glass Cutting Waste,6333.99,kg,73.58,36.75,2027-02-01
-Coastal Metals Materials Pvt Ltd,Glass Cutting Waste,2418.71,kg,65.01,109.39,2027-02-22
-Coastal Salvage Resource Recovery,Glass Cutting Waste,900.12,kg,74.34,67.88,2027-03-24
-Nilgiri Fibre Recycling Works,Glass Cutting Waste,1367.1,kg,71.15,44.01,2027-02-20
-Coastal Element Recovery Systems,Glass Cutting Waste,6185.54,kg,71.94,121.86,2027-05-11
-Arabian Polymer Recovery Systems,Glass Cutting Waste,5619.6,kg,57.34,43.78,2027-01-26
-Bharata Salvage Circular Industries,Glass Cutting Waste,4979.0,kg,62.1,124.23,2027-06-24
-Arabian Alloy Reprocessing Ltd,Glass Cutting Waste,1350.79,kg,58.16,50.23,2027-05-17
-Periyar Timber Reclamation Co,Glass Cutting Waste,2517.62,kg,64.96,70.94,2027-06-14
-Chalakudy Salvage Reclamation Co,Glass Cutting Waste,2892.1,kg,65.28,29.76,2027-06-16
-Coastal Element Processing LLP,Glass Cutting Waste,1628.11,kg,68.17,28.64,2027-02-02
-Arabian Board Recycling Works,Glass Cutting Waste,6541.04,kg,76.21,106.43,2027-01-06
-Anamudi Metals Processing LLP,Glass Cutting Waste,6567.93,kg,76.0,31.66,2027-04-07
-Pamba Polymer Circular Industries,Glass Cutting Waste,6042.92,kg,60.83,130.05,2027-05-12
-Anamudi Composite Recovery Systems,Glass Cutting Waste,7784.94,kg,78.3,137.86,2026-12-09
-Anamudi Industrial Reprocessing Ltd,Glass Cutting Waste,3070.64,kg,60.67,109.78,2026-12-08
-Arabian Foundry Processing LLP,Glass Cutting Waste,4076.26,kg,77.89,126.15,2026-12-19
-Southern Metals Recycling Works,Glass Cutting Waste,1342.96,kg,78.52,90.88,2027-01-05
-Nilgiri Salvage Recovery Systems,Glass Cutting Waste,3680.45,kg,57.49,100.25,2027-06-14
-Southern Element Recovery Systems,Glass Cutting Waste,8681.02,kg,56.69,95.91,2027-05-12
-Coastal Foundry Circular Industries,Glass Cutting Waste,7361.58,kg,71.21,110.8,2026-12-28
-Bharata Alloy Processing LLP,Glass Cutting Waste,3611.89,kg,62.73,121.73,2027-04-29
-Arabian Salvage Reclamation Co,Glass Cutting Waste,5588.6,kg,75.49,132.17,2027-06-25
-Western Ghats Alloy Reclamation Co,Glass Cutting Waste,803.32,kg,78.04,17.35,2027-01-09
-Periyar Polymer Recycling Works,Glass Cutting Waste,1090.21,kg,69.58,29.9,2027-02-02
-Bharata Salvage Processing LLP,Glass Cutting Waste,3260.37,kg,73.54,139.03,2027-03-15
-Nilgiri Alloy Resource Recovery,Glass Cutting Waste,2348.67,kg,59.57,139.79,2027-04-23
-Arabian Polymer Circular Industries,Glass Cutting Waste,6770.52,kg,64.72,36.25,2026-12-08
-Anamudi Green Recycling Works,Glass Cutting Waste,7066.24,kg,66.97,76.77,2026-12-13
+Chalakudy Composite Recovery Systems,Rubber Dust,6790.42,kg,74.2,108.88,2027-04-29
+Arabian Metals Reprocessing Ltd,Rubber Dust,894.21,kg,77.27,76.29,2027-02-18
+Periyar Green Recovery Systems,Rubber Dust,1425.82,kg,63.51,84.68,2027-02-12
+Chalakudy Board Resource Recovery,Rubber Dust,3781.05,kg,65.56,64.85,2027-04-28
+Anamudi Fibre Processing LLP,Rubber Dust,7724.72,kg,69.1,137.78,2027-04-10
+Arabian Composite Materials Pvt Ltd,Rubber Dust,5090.38,kg,71.76,104.66,2027-03-19
+Chalakudy Composite Reprocessing Ltd,Rubber Dust,4649.13,kg,78.24,138.4,2027-04-18
+Kuttanad Industrial Processing LLP,Rubber Dust,2460.76,kg,75.8,16.16,2027-01-07
+Bharata Fibre Processing LLP,Rubber Dust,6479.71,kg,66.67,110.84,2027-04-06
+Pamba Industrial Reclamation Co,Rubber Dust,4395.3,kg,72.91,135.28,2027-02-04
+Anamudi Element Processing LLP,Rubber Dust,8206.76,kg,64.25,39.32,2027-07-07
+Chalakudy Polymer Reprocessing Ltd,Rubber Dust,8443.86,kg,57.08,114.22,2027-02-01
+Bharata Fibre Resource Recovery,Rubber Dust,2069.04,kg,62.84,87.88,2027-06-14
+Wayanad Element Materials Pvt Ltd,Rubber Dust,1875.97,kg,69.95,101.57,2027-02-12
+Chalakudy Timber Resource Recovery,Rubber Dust,2018.0,kg,75.17,62.0,2026-12-27
+Southern Green Reclamation Co,Rubber Dust,1009.77,kg,66.9,100.35,2027-03-25
+Vembanad Foundry Materials Pvt Ltd,Rubber Dust,4355.58,kg,63.41,89.78,2027-05-22
+Southern Composite Materials Pvt Ltd,Rubber Dust,7679.64,kg,66.3,109.34,2027-01-17
+Coastal Board Circular Industries,Rubber Dust,8644.02,kg,59.01,120.55,2027-03-09
+Pamba Metals Recovery Systems,Rubber Dust,2960.24,kg,67.44,112.53,2027-03-16
+Periyar Fibre Processing LLP,Rubber Dust,5102.53,kg,61.85,26.82,2027-01-23
+Chalakudy Foundry Reclamation Co,Rubber Dust,7765.85,kg,71.76,135.15,2027-02-28
+Nilgiri Board Circular Industries,Rubber Dust,5357.56,kg,69.2,41.8,2027-02-13
+Malabar Industrial Reprocessing Ltd,Rubber Dust,6413.29,kg,73.98,105.29,2027-01-16
+Nilgiri Green Resource Recovery,Rubber Dust,8440.91,kg,59.03,47.02,2026-12-03
+Anamudi Polymer Recycling Works,Rubber Dust,1808.77,kg,72.15,87.06,2027-07-27
+Bharata Foundry Recycling Works,Rubber Dust,2568.22,kg,66.57,137.39,2027-07-12
+Pamba Fibre Resource Recovery,Rubber Dust,3721.81,kg,73.38,69.59,2026-12-06
+Backwater Element Reprocessing Ltd,Rubber Dust,5601.97,kg,55.51,134.6,2027-01-19
+Coastal Alloy Reprocessing Ltd,Rubber Dust,3703.13,kg,71.2,96.97,2026-12-07
+Pamba Foundry Processing LLP,Plywood Waste,2602.94,kg,58.02,121.49,2027-02-06
+Bharata Foundry Resource Recovery,Plywood Waste,5357.27,kg,59.69,111.12,2026-12-24
+Vembanad Composite Materials Pvt Ltd,Plywood Waste,4219.72,kg,68.05,88.63,2027-01-03
+Anamudi Polymer Materials Pvt Ltd,Plywood Waste,2697.1,kg,78.59,73.85,2027-05-18
+Periyar Alloy Processing LLP,Plywood Waste,7679.48,kg,55.92,76.25,2026-12-05
+Backwater Foundry Circular Industries,Plywood Waste,6803.6,kg,62.6,87.72,2027-06-26
+Wayanad Element Resource Recovery,Plywood Waste,7795.01,kg,79.36,89.48,2027-04-04
+Periyar Timber Reprocessing Ltd,Plywood Waste,2229.65,kg,61.44,133.43,2027-07-11
+Kuttanad Metals Circular Industries,Plywood Waste,4317.7,kg,76.39,30.81,2027-01-23
+Bharata Element Processing LLP,Plywood Waste,7825.83,kg,64.09,96.36,2027-04-15
+Coastal Alloy Materials Pvt Ltd,Plywood Waste,7490.28,kg,71.42,22.63,2027-05-19
+Bharata Industrial Materials Pvt Ltd,Plywood Waste,6482.19,kg,58.2,36.04,2027-05-26
+Kuttanad Timber Recovery Systems,Plywood Waste,5277.78,kg,55.73,42.62,2027-03-03
+Vembanad Board Recovery Systems,Plywood Waste,6661.5,kg,56.01,15.95,2026-12-24
+Periyar Polymer Materials Pvt Ltd,Plywood Waste,1538.44,kg,71.58,39.93,2027-07-03
+Kuttanad Foundry Circular Industries,Plywood Waste,7937.26,kg,73.03,72.42,2027-03-02
+Kuttanad Element Processing LLP,Plywood Waste,4750.82,kg,76.97,41.38,2027-01-19
+Periyar Element Materials Pvt Ltd,Plywood Waste,4355.41,kg,77.49,135.73,2027-03-19
+Kuttanad Board Resource Recovery,Plywood Waste,878.08,kg,68.03,125.84,2027-07-03
+Malabar Timber Circular Industries,Plywood Waste,5790.04,kg,69.83,131.34,2027-05-20
+Kuttanad Metals Processing LLP,Plywood Waste,7330.91,kg,75.52,133.3,2027-06-26
+Malabar Alloy Recycling Works,Plywood Waste,5427.9,kg,64.66,95.68,2027-04-26
+Nilgiri Polymer Materials Pvt Ltd,Plywood Waste,1662.26,kg,57.3,81.85,2027-02-03
+Wayanad Metals Reprocessing Ltd,Plywood Waste,3546.29,kg,58.83,134.78,2027-01-30
+Wayanad Composite Recovery Systems,Plywood Waste,3363.46,kg,56.03,46.15,2027-01-16
+Arabian Foundry Recovery Systems,Plywood Waste,8552.59,kg,64.62,19.26,2027-03-29
+Western Ghats Fibre Reclamation Co,Plywood Waste,6829.16,kg,55.66,90.28,2027-04-12
+Arabian Green Circular Industries,Plywood Waste,4549.75,kg,75.19,115.22,2027-06-24
+Southern Composite Circular Industries,Plywood Waste,2185.78,kg,61.66,61.78,2027-02-03
+Western Ghats Element Reprocessing Ltd,Plywood Waste,1091.7,kg,79.0,137.35,2027-05-26
+Pamba Composite Processing LLP,Aluminium Roll Scrap,1510.08,kg,60.92,70.42,2027-07-06
+Bharata Timber Reprocessing Ltd,Aluminium Roll Scrap,7986.39,kg,56.57,77.23,2027-03-24
+Southern Salvage Materials Pvt Ltd,Aluminium Roll Scrap,6645.57,kg,68.1,68.08,2027-02-27
+Pamba Timber Resource Recovery,Aluminium Roll Scrap,7244.33,kg,72.37,60.61,2027-06-10
+Arabian Alloy Resource Recovery,Aluminium Roll Scrap,7907.34,kg,62.77,107.7,2027-05-03
+Backwater Polymer Resource Recovery,Aluminium Roll Scrap,6855.36,kg,76.73,40.99,2027-07-26
+Coastal Green Resource Recovery,Aluminium Roll Scrap,7952.27,kg,61.17,129.7,2027-05-02
+Wayanad Board Reprocessing Ltd,Aluminium Roll Scrap,4279.3,kg,66.54,62.04,2026-12-27
+Bharata Board Processing LLP,Aluminium Roll Scrap,3737.75,kg,74.02,63.29,2027-02-27
+Southern Green Recovery Systems,Aluminium Roll Scrap,7882.12,kg,62.35,136.95,2027-06-21
+Anamudi Industrial Recovery Systems,Aluminium Roll Scrap,6619.08,kg,55.06,42.29,2026-12-19
+Wayanad Green Processing LLP,Aluminium Roll Scrap,5032.56,kg,70.44,51.14,2026-12-27
+Malabar Element Reprocessing Ltd,Aluminium Roll Scrap,1388.98,kg,69.73,106.88,2027-03-09
+Pamba Fibre Recycling Works,Aluminium Roll Scrap,4153.42,kg,64.28,99.55,2027-06-21
+Backwater Board Materials Pvt Ltd,Aluminium Roll Scrap,1361.79,kg,79.14,66.57,2027-04-01
+Bharata Polymer Resource Recovery,Aluminium Roll Scrap,1856.0,kg,59.79,135.42,2027-03-28
+Western Ghats Green Materials Pvt Ltd,Aluminium Roll Scrap,1054.52,kg,57.58,73.29,2026-12-19
+Pamba Polymer Reclamation Co,Aluminium Roll Scrap,5330.17,kg,59.86,47.02,2027-02-15
+Pamba Fibre Reprocessing Ltd,Aluminium Roll Scrap,3651.31,kg,74.6,32.21,2027-01-07
+Kuttanad Metals Recovery Systems,Aluminium Roll Scrap,3777.82,kg,59.69,37.25,2027-03-02
+Arabian Industrial Recycling Works,Aluminium Roll Scrap,8471.19,kg,72.97,74.22,2027-07-23
+Coastal Industrial Processing LLP,Aluminium Roll Scrap,8768.39,kg,57.58,53.37,2027-02-04
+Malabar Foundry Reclamation Co,Aluminium Roll Scrap,8522.1,kg,77.76,20.92,2026-12-17
+Malabar Composite Circular Industries,Aluminium Roll Scrap,8872.68,kg,60.05,93.26,2027-02-19
+Nilgiri Salvage Reclamation Co,Aluminium Roll Scrap,1150.41,kg,76.05,86.98,2027-04-05
+Wayanad Salvage Recycling Works,Aluminium Roll Scrap,3777.25,kg,68.54,46.75,2027-05-11
+Nilgiri Metals Recycling Works,Aluminium Roll Scrap,1228.95,kg,69.96,74.05,2027-07-10
+Malabar Element Reclamation Co,Aluminium Roll Scrap,2792.21,kg,60.64,40.95,2027-01-23
+Malabar Polymer Processing LLP,Aluminium Roll Scrap,7381.32,kg,71.07,116.82,2027-05-28
+Backwater Salvage Resource Recovery,Aluminium Roll Scrap,4346.66,kg,57.24,61.99,2027-03-04
+Coastal Board Materials Pvt Ltd,Wood Waste,4108.52,kg,68.04,133.11,2027-05-26
+Southern Salvage Recycling Works,Wood Waste,5247.94,kg,68.02,98.83,2027-03-25
+Periyar Metals Processing LLP,Wood Waste,1663.03,kg,60.78,93.15,2027-02-25
+Arabian Green Recovery Systems,Wood Waste,6091.24,kg,68.15,118.04,2027-01-04
+Wayanad Polymer Materials Pvt Ltd,Wood Waste,4103.06,kg,57.73,26.73,2027-04-14
+Southern Foundry Recycling Works,Wood Waste,5258.3,kg,79.9,101.21,2027-03-10
+Western Ghats Industrial Circular Industries,Wood Waste,4042.53,kg,62.96,55.07,2026-12-16
+Malabar Polymer Recycling Works,Wood Waste,6698.06,kg,79.15,105.58,2027-07-23
+Malabar Board Reprocessing Ltd,Wood Waste,3014.6,kg,60.89,60.74,2027-03-16
+Southern Alloy Recovery Systems,Wood Waste,1663.88,kg,61.34,28.54,2026-12-19
+Coastal Timber Reclamation Co,Wood Waste,7706.34,kg,55.05,137.23,2026-12-30
+Arabian Board Resource Recovery,Wood Waste,8883.51,kg,62.22,85.93,2027-07-08
+Nilgiri Salvage Reprocessing Ltd,Wood Waste,1883.05,kg,57.85,104.99,2027-01-16
+Wayanad Fibre Recovery Systems,Wood Waste,8499.19,kg,68.31,75.69,2026-12-11
+Periyar Industrial Materials Pvt Ltd,Wood Waste,6440.93,kg,62.17,34.04,2027-01-04
+Backwater Metals Materials Pvt Ltd,Wood Waste,5950.13,kg,67.26,46.89,2027-05-10
+Southern Industrial Processing LLP,Wood Waste,4008.38,kg,56.29,60.19,2026-12-05
+Periyar Foundry Recycling Works,Wood Waste,4302.55,kg,72.4,43.53,2027-04-09
+Vembanad Metals Recycling Works,Wood Waste,4090.49,kg,61.37,64.94,2027-05-02
+Coastal Polymer Reclamation Co,Wood Waste,7808.63,kg,58.19,67.61,2027-05-22
+Periyar Metals Recovery Systems,Wood Waste,4896.42,kg,68.1,20.56,2027-07-15
+Coastal Timber Recycling Works,Wood Waste,4420.45,kg,69.34,46.03,2027-07-21
+Malabar Metals Recycling Works,Wood Waste,5707.86,kg,67.49,98.64,2026-12-07
+Coastal Polymer Processing LLP,Wood Waste,8350.2,kg,65.61,92.08,2027-05-07
+Coastal Foundry Materials Pvt Ltd,Wood Waste,8799.67,kg,58.83,121.84,2027-01-24
+Anamudi Salvage Resource Recovery,Wood Waste,1726.73,kg,72.47,127.86,2027-03-24
+Backwater Metals Reclamation Co,Wood Waste,8954.94,kg,79.87,52.43,2027-05-13
+Vembanad Timber Reclamation Co,Wood Waste,8349.97,kg,69.39,114.7,2027-01-24
+Wayanad Salvage Recovery Systems,Wood Waste,2088.49,kg,76.95,73.19,2026-12-22
+Bharata Metals Materials Pvt Ltd,Wood Waste,8417.64,kg,57.27,98.1,2027-07-16
+Malabar Timber Materials Pvt Ltd,Plastic Scrap,904.32,kg,67.5,48.55,2027-02-24
+Bharata Timber Reclamation Co,Plastic Scrap,5843.12,kg,71.92,81.83,2027-06-30
+Nilgiri Industrial Recovery Systems,Plastic Scrap,5670.0,kg,68.53,127.68,2027-02-26
+Anamudi Salvage Recycling Works,Plastic Scrap,7050.89,kg,71.03,38.87,2027-07-04
+Vembanad Polymer Processing LLP,Plastic Scrap,4012.57,kg,59.68,112.16,2027-07-13
+Vembanad Foundry Resource Recovery,Plastic Scrap,4138.8,kg,61.96,117.6,2027-01-04
+Vembanad Timber Materials Pvt Ltd,Plastic Scrap,3478.64,kg,63.52,54.1,2026-12-10
+Vembanad Fibre Reclamation Co,Plastic Scrap,5611.77,kg,55.73,137.04,2027-07-08
+Chalakudy Alloy Circular Industries,Plastic Scrap,2366.29,kg,66.15,134.28,2027-07-11
+Bharata Metals Resource Recovery,Plastic Scrap,1772.5,kg,69.38,77.37,2027-04-10
+Anamudi Foundry Resource Recovery,Plastic Scrap,4633.09,kg,58.46,26.4,2027-06-11
+Vembanad Metals Circular Industries,Plastic Scrap,2865.04,kg,76.61,16.71,2027-01-26
+Backwater Timber Materials Pvt Ltd,Plastic Scrap,7585.16,kg,75.75,134.57,2027-06-30
+Arabian Metals Circular Industries,Plastic Scrap,3177.7,kg,70.41,56.74,2027-03-31
+Malabar Green Recovery Systems,Plastic Scrap,4665.27,kg,79.43,60.43,2027-01-07
+Periyar Metals Reprocessing Ltd,Plastic Scrap,8058.76,kg,64.69,64.2,2027-06-27
+Nilgiri Composite Reclamation Co,Plastic Scrap,8348.2,kg,59.43,116.18,2026-12-12
+Coastal Fibre Recovery Systems,Plastic Scrap,4321.97,kg,63.09,26.67,2027-06-27
+Southern Polymer Recycling Works,Plastic Scrap,3956.37,kg,76.71,135.4,2027-03-25
+Southern Timber Materials Pvt Ltd,Plastic Scrap,5828.36,kg,55.83,88.55,2027-01-12
+Western Ghats Polymer Reclamation Co,Plastic Scrap,7220.29,kg,72.34,29.29,2027-05-06
+Periyar Green Circular Industries,Plastic Scrap,7648.51,kg,74.85,50.42,2027-02-06
+Malabar Alloy Reclamation Co,Plastic Scrap,7961.03,kg,70.52,38.78,2027-05-04
+Vembanad Polymer Circular Industries,Plastic Scrap,2363.13,kg,68.89,41.45,2027-05-16
+Periyar Foundry Recovery Systems,Plastic Scrap,1731.15,kg,72.06,95.71,2027-01-24
+Anamudi Metals Materials Pvt Ltd,Plastic Scrap,5371.5,kg,78.45,38.08,2027-02-25
+Western Ghats Polymer Recycling Works,Plastic Scrap,8684.19,kg,66.16,43.28,2027-03-17
+Periyar Timber Processing LLP,Plastic Scrap,6008.0,kg,74.35,48.34,2026-12-30
+Vembanad Timber Recovery Systems,Plastic Scrap,1916.9,kg,63.39,138.0,2027-02-20
+Anamudi Board Reclamation Co,Plastic Scrap,7307.12,kg,71.53,115.68,2027-03-14
+Wayanad Alloy Reprocessing Ltd,Mixed Recyclable Waste,1903.46,kg,64.74,37.54,2027-04-24
+Bharata Board Recycling Works,Mixed Recyclable Waste,6773.21,kg,62.44,107.58,2027-04-25
+Nilgiri Board Resource Recovery,Mixed Recyclable Waste,2149.55,kg,71.15,132.17,2027-05-09
+Bharata Green Reprocessing Ltd,Mixed Recyclable Waste,4265.96,kg,56.09,39.54,2027-01-22
+Coastal Metals Recovery Systems,Mixed Recyclable Waste,5910.36,kg,63.47,79.34,2027-07-15
+Coastal Metals Recycling Works,Mixed Recyclable Waste,2733.84,kg,63.13,38.21,2027-04-01
+Pamba Element Processing LLP,Mixed Recyclable Waste,6792.05,kg,78.04,61.49,2027-02-16
+Coastal Composite Materials Pvt Ltd,Mixed Recyclable Waste,2483.35,kg,65.76,114.01,2027-07-25
+Vembanad Salvage Materials Pvt Ltd,Mixed Recyclable Waste,6619.66,kg,75.82,130.71,2027-01-13
+Periyar Composite Circular Industries,Mixed Recyclable Waste,1742.25,kg,68.83,47.85,2027-06-13
+Western Ghats Foundry Recovery Systems,Mixed Recyclable Waste,8874.67,kg,77.54,25.32,2027-05-09
+Anamudi Salvage Reprocessing Ltd,Mixed Recyclable Waste,3472.64,kg,63.38,85.57,2027-06-15
+Nilgiri Timber Reclamation Co,Mixed Recyclable Waste,6313.27,kg,74.65,26.19,2027-03-14
+Malabar Timber Recovery Systems,Mixed Recyclable Waste,5500.97,kg,60.06,96.46,2026-12-25
+Kuttanad Timber Recycling Works,Mixed Recyclable Waste,3567.58,kg,71.09,78.34,2027-04-17
+Vembanad Metals Recovery Systems,Mixed Recyclable Waste,2342.63,kg,76.38,32.36,2027-02-22
+Coastal Alloy Resource Recovery,Mixed Recyclable Waste,3130.75,kg,59.0,30.3,2027-02-09
+Periyar Foundry Processing LLP,Mixed Recyclable Waste,7274.99,kg,78.78,45.48,2027-06-01
+Wayanad Alloy Recovery Systems,Mixed Recyclable Waste,6547.23,kg,59.84,89.81,2027-02-24
+Chalakudy Board Reprocessing Ltd,Mixed Recyclable Waste,4167.79,kg,67.16,32.51,2027-05-11
+Chalakudy Salvage Processing LLP,Mixed Recyclable Waste,7841.74,kg,57.76,121.43,2027-05-22
+Chalakudy Salvage Resource Recovery,Mixed Recyclable Waste,5930.31,kg,72.39,46.91,2026-12-17
+Southern Fibre Circular Industries,Mixed Recyclable Waste,5191.93,kg,73.69,88.97,2027-02-15
+Chalakudy Alloy Reprocessing Ltd,Mixed Recyclable Waste,5650.82,kg,67.23,23.42,2027-02-05
+Arabian Alloy Materials Pvt Ltd,Mixed Recyclable Waste,7756.92,kg,74.16,50.5,2027-06-01
+Periyar Board Circular Industries,Mixed Recyclable Waste,1331.55,kg,57.6,88.15,2027-03-09
+Southern Composite Resource Recovery,Mixed Recyclable Waste,818.21,kg,60.04,19.08,2027-03-27
+Periyar Timber Resource Recovery,Mixed Recyclable Waste,990.8,kg,60.77,62.91,2027-03-06
+Southern Fibre Processing LLP,Mixed Recyclable Waste,4889.06,kg,55.3,101.22,2026-12-03
+Periyar Element Circular Industries,Mixed Recyclable Waste,8066.28,kg,55.33,71.55,2027-07-17
+Periyar Industrial Recovery Systems,Aerospace Metal Scrap,3751.42,kg,77.31,83.84,2027-02-20
+Coastal Composite Recovery Systems,Aerospace Metal Scrap,2303.61,kg,68.09,62.5,2027-03-07
+Bharata Polymer Processing LLP,Aerospace Metal Scrap,2479.54,kg,61.02,138.46,2027-04-23
+Bharata Fibre Recovery Systems,Aerospace Metal Scrap,4535.65,kg,77.54,122.73,2026-12-12
+Vembanad Composite Reclamation Co,Aerospace Metal Scrap,3744.02,kg,64.76,103.6,2026-12-31
+Coastal Polymer Recovery Systems,Aerospace Metal Scrap,4721.28,kg,74.4,28.08,2026-12-03
+Chalakudy Industrial Recycling Works,Aerospace Metal Scrap,1802.12,kg,73.22,34.42,2027-01-31
+Chalakudy Industrial Reprocessing Ltd,Aerospace Metal Scrap,1200.31,kg,67.22,50.37,2027-02-10
+Southern Foundry Reprocessing Ltd,Aerospace Metal Scrap,4060.21,kg,75.41,78.7,2027-01-26
+Periyar Composite Reprocessing Ltd,Aerospace Metal Scrap,860.36,kg,63.51,52.43,2027-05-09
+Vembanad Board Resource Recovery,Aerospace Metal Scrap,3553.91,kg,69.5,115.62,2027-02-10
+Backwater Salvage Processing LLP,Aerospace Metal Scrap,1417.29,kg,58.04,54.37,2027-05-24
+Pamba Fibre Processing LLP,Aerospace Metal Scrap,6349.95,kg,67.56,108.97,2026-12-12
+Nilgiri Industrial Reprocessing Ltd,Aerospace Metal Scrap,8663.08,kg,64.34,68.67,2027-06-07
+Nilgiri Alloy Reprocessing Ltd,Aerospace Metal Scrap,1555.24,kg,55.54,59.59,2027-03-15
+Chalakudy Green Resource Recovery,Aerospace Metal Scrap,1473.84,kg,63.63,39.83,2027-02-02
+Coastal Foundry Reclamation Co,Aerospace Metal Scrap,2166.25,kg,65.14,45.1,2027-03-26
+Southern Industrial Recycling Works,Aerospace Metal Scrap,1749.15,kg,78.71,47.28,2027-07-22
+Kuttanad Timber Resource Recovery,Aerospace Metal Scrap,3785.64,kg,79.61,48.81,2027-06-25
+Western Ghats Timber Processing LLP,Aerospace Metal Scrap,2668.4,kg,75.06,92.1,2027-01-29
+Vembanad Metals Materials Pvt Ltd,Aerospace Metal Scrap,2941.19,kg,60.84,97.45,2027-07-26
+Pamba Board Recovery Systems,Aerospace Metal Scrap,7295.99,kg,61.61,105.47,2026-12-09
+Nilgiri Metals Reclamation Co,Aerospace Metal Scrap,5879.06,kg,59.36,116.66,2027-01-05
+Malabar Composite Reprocessing Ltd,Aerospace Metal Scrap,8338.78,kg,56.21,105.22,2027-04-03
+Pamba Board Processing LLP,Aerospace Metal Scrap,6240.67,kg,68.73,29.8,2027-04-30
+Southern Alloy Circular Industries,Aerospace Metal Scrap,2569.05,kg,62.12,124.79,2027-02-15
+Kuttanad Element Circular Industries,Aerospace Metal Scrap,8645.32,kg,62.36,41.2,2027-01-12
+Vembanad Board Processing LLP,Aerospace Metal Scrap,4757.1,kg,57.32,76.37,2027-05-26
+Backwater Salvage Reclamation Co,Aerospace Metal Scrap,5806.28,kg,64.37,76.21,2026-12-14
+Western Ghats Salvage Materials Pvt Ltd,Aerospace Metal Scrap,1615.17,kg,74.2,135.72,2027-02-25
+Backwater Industrial Reprocessing Ltd,Plastic Packaging Waste,5476.44,kg,60.5,111.03,2027-06-02
+Western Ghats Green Resource Recovery,Plastic Packaging Waste,7781.47,kg,59.9,138.59,2027-04-27
+Wayanad Polymer Circular Industries,Plastic Packaging Waste,8072.32,kg,76.36,119.3,2027-04-05
+Chalakudy Foundry Materials Pvt Ltd,Plastic Packaging Waste,1030.94,kg,71.29,42.08,2027-07-21
+Pamba Composite Recycling Works,Plastic Packaging Waste,7049.35,kg,74.6,108.27,2027-06-18
+Anamudi Alloy Resource Recovery,Plastic Packaging Waste,7632.01,kg,76.57,39.74,2027-05-13
+Anamudi Industrial Recycling Works,Plastic Packaging Waste,2200.56,kg,57.66,129.57,2027-06-21
+Wayanad Metals Materials Pvt Ltd,Plastic Packaging Waste,3261.36,kg,79.23,34.04,2026-12-29
+Bharata Alloy Reclamation Co,Plastic Packaging Waste,8687.97,kg,68.18,123.34,2026-12-22
+Nilgiri Composite Materials Pvt Ltd,Plastic Packaging Waste,8693.81,kg,76.56,99.83,2027-05-08
+Backwater Alloy Reprocessing Ltd,Plastic Packaging Waste,2015.28,kg,79.02,40.19,2027-02-02
+Western Ghats Metals Resource Recovery,Plastic Packaging Waste,3935.07,kg,71.83,82.18,2027-01-11
+Periyar Fibre Reprocessing Ltd,Plastic Packaging Waste,5874.32,kg,55.14,102.34,2027-01-26
+Malabar Metals Processing LLP,Plastic Packaging Waste,7527.09,kg,58.63,63.43,2027-02-02
+Chalakudy Composite Circular Industries,Plastic Packaging Waste,5818.55,kg,78.23,21.91,2027-05-05
+Periyar Fibre Circular Industries,Plastic Packaging Waste,8044.96,kg,63.03,46.47,2027-04-15
+Backwater Board Recovery Systems,Plastic Packaging Waste,8315.12,kg,68.81,131.67,2027-01-15
+Western Ghats Composite Circular Industries,Plastic Packaging Waste,6155.76,kg,76.86,122.29,2027-01-05
+Southern Board Materials Pvt Ltd,Plastic Packaging Waste,8473.67,kg,63.02,74.99,2027-03-05
+Arabian Element Materials Pvt Ltd,Plastic Packaging Waste,8718.88,kg,74.63,139.43,2026-12-10
+Malabar Green Resource Recovery,Plastic Packaging Waste,4148.8,kg,72.83,128.26,2027-05-18
+Backwater Polymer Recovery Systems,Plastic Packaging Waste,1985.74,kg,58.24,18.77,2027-05-29
+Vembanad Industrial Resource Recovery,Plastic Packaging Waste,902.62,kg,69.36,112.52,2027-01-18
+Southern Composite Reprocessing Ltd,Plastic Packaging Waste,2002.78,kg,70.16,138.21,2027-01-04
+Bharata Polymer Circular Industries,Plastic Packaging Waste,6903.79,kg,63.81,64.18,2027-07-12
+Western Ghats Foundry Reclamation Co,Plastic Packaging Waste,5220.74,kg,69.46,15.03,2027-04-18
+Nilgiri Composite Resource Recovery,Plastic Packaging Waste,5061.63,kg,59.71,131.54,2027-01-02
+Nilgiri Timber Processing LLP,Plastic Packaging Waste,3739.79,kg,55.97,44.0,2027-01-21
+Southern Board Recycling Works,Plastic Packaging Waste,5728.16,kg,79.41,111.01,2027-05-09
+Wayanad Board Processing LLP,Plastic Packaging Waste,5547.05,kg,78.49,23.76,2027-06-17
+Vembanad Salvage Reclamation Co,Metal Waste,3789.71,kg,73.37,22.36,2027-03-07
+Wayanad Industrial Reprocessing Ltd,Metal Waste,2422.73,kg,69.98,86.73,2027-07-23
+Vembanad Green Recycling Works,Metal Waste,4431.14,kg,58.07,116.53,2027-07-17
+Chalakudy Element Recovery Systems,Metal Waste,4693.66,kg,71.65,68.66,2027-01-13
+Backwater Foundry Materials Pvt Ltd,Metal Waste,4185.0,kg,55.31,87.25,2027-06-13
+Coastal Industrial Recovery Systems,Metal Waste,8621.49,kg,60.93,103.21,2027-04-12
+Coastal Foundry Processing LLP,Metal Waste,8990.19,kg,59.55,116.09,2027-06-05
+Western Ghats Board Reclamation Co,Metal Waste,3318.9,kg,63.8,63.48,2027-01-29
+Southern Fibre Recycling Works,Metal Waste,6489.35,kg,71.51,61.19,2027-07-12
+Anamudi Element Reclamation Co,Metal Waste,5398.94,kg,68.36,79.19,2027-03-09
+Malabar Green Materials Pvt Ltd,Metal Waste,7415.15,kg,72.98,54.16,2027-01-12
+Malabar Fibre Recycling Works,Metal Waste,3038.34,kg,56.45,43.91,2027-02-08
+Malabar Foundry Recovery Systems,Metal Waste,2297.63,kg,73.97,61.03,2026-12-09
+Kuttanad Salvage Resource Recovery,Metal Waste,3474.92,kg,67.2,62.03,2027-01-27
+Malabar Green Reclamation Co,Metal Waste,6651.88,kg,58.89,105.67,2027-02-04
+Western Ghats Fibre Processing LLP,Metal Waste,8226.54,kg,58.28,86.54,2026-12-03
+Vembanad Foundry Processing LLP,Metal Waste,2906.77,kg,56.44,36.14,2027-02-24
+Pamba Industrial Processing LLP,Metal Waste,6039.74,kg,59.26,106.69,2027-01-30
+Vembanad Element Circular Industries,Metal Waste,3261.97,kg,59.67,33.31,2027-04-14
+Western Ghats Composite Materials Pvt Ltd,Metal Waste,3906.89,kg,66.93,73.72,2027-02-09
+Nilgiri Foundry Reclamation Co,Metal Waste,2161.17,kg,72.44,97.63,2027-02-08
+Chalakudy Alloy Materials Pvt Ltd,Metal Waste,5308.77,kg,79.85,91.02,2027-06-07
+Vembanad Salvage Circular Industries,Metal Waste,8788.13,kg,56.72,49.63,2027-07-18
+Nilgiri Foundry Recycling Works,Metal Waste,8732.14,kg,65.8,71.32,2027-04-07
+Pamba Element Resource Recovery,Metal Waste,8049.51,kg,75.44,41.34,2027-05-14
+Chalakudy Fibre Circular Industries,Metal Waste,8846.23,kg,59.52,108.13,2027-01-29
+Malabar Metals Recovery Systems,Metal Waste,4581.97,kg,65.72,18.63,2027-01-20
+Backwater Board Reprocessing Ltd,Metal Waste,2667.14,kg,62.93,110.47,2027-01-04
+Bharata Fibre Reprocessing Ltd,Metal Waste,6778.95,kg,67.9,137.52,2027-06-03
+Coastal Green Recovery Systems,Metal Waste,5504.58,kg,70.38,114.95,2027-05-21
+Nilgiri Alloy Recovery Systems,Metal Offcuts,7997.01,kg,70.72,29.13,2027-07-20
+Arabian Salvage Reprocessing Ltd,Metal Offcuts,6389.11,kg,61.75,29.99,2027-07-15
+Anamudi Board Resource Recovery,Metal Offcuts,8442.4,kg,56.62,94.07,2027-04-24
+Pamba Alloy Reclamation Co,Metal Offcuts,6940.89,kg,62.96,116.88,2027-05-16
+Southern Board Reclamation Co,Metal Offcuts,4253.06,kg,74.11,42.01,2027-03-01
+Periyar Metals Recycling Works,Metal Offcuts,4665.66,kg,59.29,107.69,2027-05-28
+Anamudi Foundry Reprocessing Ltd,Metal Offcuts,2031.37,kg,69.95,59.0,2027-01-15
+Kuttanad Industrial Circular Industries,Metal Offcuts,1633.4,kg,76.24,48.22,2027-04-02
+Pamba Polymer Processing LLP,Metal Offcuts,1089.8,kg,58.16,93.44,2027-03-19
+Nilgiri Salvage Recycling Works,Metal Offcuts,1289.4,kg,62.34,42.19,2026-12-31
+Malabar Board Circular Industries,Metal Offcuts,1100.39,kg,73.2,46.62,2027-06-25
+Pamba Metals Materials Pvt Ltd,Metal Offcuts,1662.76,kg,61.53,121.79,2027-05-09
+Wayanad Element Recycling Works,Metal Offcuts,8227.9,kg,63.97,17.96,2026-11-30
+Wayanad Element Processing LLP,Metal Offcuts,6090.96,kg,66.9,61.67,2026-12-02
+Pamba Metals Recycling Works,Metal Offcuts,5878.26,kg,60.7,28.15,2027-06-10
+Chalakudy Timber Circular Industries,Metal Offcuts,8642.24,kg,64.84,30.46,2026-12-18
+Southern Element Recycling Works,Metal Offcuts,7731.1,kg,62.29,58.1,2027-07-05
+Anamudi Metals Recycling Works,Metal Offcuts,7480.03,kg,57.33,95.77,2027-01-03
+Anamudi Green Resource Recovery,Metal Offcuts,7077.8,kg,73.09,100.69,2027-04-24
+Arabian Industrial Circular Industries,Metal Offcuts,5789.9,kg,58.1,42.4,2027-03-08
+Southern Polymer Reprocessing Ltd,Metal Offcuts,1550.93,kg,79.87,84.35,2027-03-23
+Wayanad Element Recovery Systems,Metal Offcuts,3013.17,kg,68.46,108.76,2027-02-16
+Periyar Timber Materials Pvt Ltd,Metal Offcuts,6590.13,kg,79.75,63.02,2027-03-05
+Wayanad Industrial Recycling Works,Metal Offcuts,1333.42,kg,69.12,59.15,2027-01-12
+Kuttanad Timber Reclamation Co,Metal Offcuts,1295.43,kg,79.43,139.47,2027-04-24
+Bharata Element Resource Recovery,Metal Offcuts,4454.08,kg,72.64,37.72,2027-04-10
+Pamba Timber Recycling Works,Metal Offcuts,7268.37,kg,61.65,112.02,2026-12-12
+Bharata Composite Recovery Systems,Metal Offcuts,8150.56,kg,75.99,106.96,2027-01-12
+Nilgiri Fibre Recovery Systems,Metal Offcuts,920.89,kg,75.06,66.22,2027-06-19
+Malabar Fibre Reclamation Co,Metal Offcuts,7768.1,kg,60.68,77.33,2027-03-16
+Pamba Fibre Circular Industries,MDF Board Offcuts,3060.24,kg,55.42,68.29,2027-06-06
+Chalakudy Board Recycling Works,MDF Board Offcuts,4635.55,kg,55.62,88.53,2027-02-04
+Vembanad Green Processing LLP,MDF Board Offcuts,8415.68,kg,74.84,115.05,2027-07-11
+Periyar Composite Materials Pvt Ltd,MDF Board Offcuts,5489.06,kg,71.44,22.59,2027-02-18
+Anamudi Polymer Processing LLP,MDF Board Offcuts,1618.84,kg,59.53,132.67,2027-01-06
+Bharata Industrial Reprocessing Ltd,MDF Board Offcuts,4914.77,kg,55.55,104.51,2027-05-10
+Coastal Green Reprocessing Ltd,MDF Board Offcuts,2093.91,kg,76.32,61.25,2027-03-08
+Wayanad Alloy Circular Industries,MDF Board Offcuts,1066.64,kg,76.58,65.45,2027-07-22
+Backwater Metals Processing LLP,MDF Board Offcuts,2487.71,kg,78.38,56.38,2027-06-18
+Wayanad Composite Processing LLP,MDF Board Offcuts,4114.42,kg,79.79,24.15,2027-05-01
+Vembanad Composite Recycling Works,MDF Board Offcuts,8774.81,kg,79.37,111.33,2027-06-17
+Bharata Alloy Recovery Systems,MDF Board Offcuts,4325.09,kg,70.71,48.62,2027-03-08
+Vembanad Polymer Resource Recovery,MDF Board Offcuts,7254.91,kg,57.92,80.62,2027-03-04
+Kuttanad Alloy Processing LLP,MDF Board Offcuts,7551.57,kg,65.36,94.19,2027-03-28
+Wayanad Green Recycling Works,MDF Board Offcuts,6103.63,kg,78.81,78.69,2027-03-01
+Arabian Salvage Resource Recovery,MDF Board Offcuts,920.35,kg,73.8,133.46,2027-01-06
+Backwater Timber Circular Industries,MDF Board Offcuts,2324.28,kg,79.23,135.2,2027-05-24
+Periyar Element Reprocessing Ltd,MDF Board Offcuts,2300.07,kg,59.49,123.12,2027-01-12
+Bharata Element Reclamation Co,MDF Board Offcuts,1896.74,kg,68.61,18.83,2027-02-13
+Vembanad Foundry Circular Industries,MDF Board Offcuts,7322.53,kg,66.15,117.56,2027-07-19
+Anamudi Salvage Materials Pvt Ltd,MDF Board Offcuts,3891.16,kg,60.41,43.87,2027-05-21
+Nilgiri Foundry Resource Recovery,MDF Board Offcuts,1557.06,kg,74.11,122.32,2027-03-27
+Anamudi Timber Reclamation Co,MDF Board Offcuts,8992.43,kg,79.68,23.85,2027-06-27
+Bharata Timber Materials Pvt Ltd,MDF Board Offcuts,7263.08,kg,68.4,16.57,2027-03-16
+Western Ghats Green Recovery Systems,MDF Board Offcuts,1833.42,kg,74.47,54.39,2027-07-08
+Periyar Polymer Reprocessing Ltd,MDF Board Offcuts,3816.35,kg,58.64,94.34,2027-07-02
+Malabar Board Reclamation Co,MDF Board Offcuts,5231.19,kg,62.3,36.56,2027-06-14
+Arabian Board Processing LLP,MDF Board Offcuts,2984.01,kg,63.18,138.67,2027-04-19
+Kuttanad Foundry Resource Recovery,MDF Board Offcuts,1465.15,kg,72.59,97.99,2027-03-20
+Periyar Composite Resource Recovery,MDF Board Offcuts,5401.0,kg,72.63,108.86,2027-05-22
+Backwater Board Reclamation Co,Glass Cutting Waste,7349.62,kg,67.29,135.26,2026-12-22
+Backwater Salvage Materials Pvt Ltd,Glass Cutting Waste,6333.99,kg,73.58,36.75,2027-02-11
+Coastal Metals Materials Pvt Ltd,Glass Cutting Waste,2418.71,kg,65.01,109.39,2027-03-04
+Coastal Salvage Resource Recovery,Glass Cutting Waste,900.12,kg,74.34,67.88,2027-04-03
+Nilgiri Fibre Recycling Works,Glass Cutting Waste,1367.1,kg,71.15,44.01,2027-03-02
+Coastal Element Recovery Systems,Glass Cutting Waste,6185.54,kg,71.94,121.86,2027-05-21
+Arabian Polymer Recovery Systems,Glass Cutting Waste,5619.6,kg,57.34,43.78,2027-02-05
+Bharata Salvage Circular Industries,Glass Cutting Waste,4979.0,kg,62.1,124.23,2027-07-04
+Arabian Alloy Reprocessing Ltd,Glass Cutting Waste,1350.79,kg,58.16,50.23,2027-05-27
+Periyar Timber Reclamation Co,Glass Cutting Waste,2517.62,kg,64.96,70.94,2027-06-24
+Chalakudy Salvage Reclamation Co,Glass Cutting Waste,2892.1,kg,65.28,29.76,2027-06-26
+Coastal Element Processing LLP,Glass Cutting Waste,1628.11,kg,68.17,28.64,2027-02-12
+Arabian Board Recycling Works,Glass Cutting Waste,6541.04,kg,76.21,106.43,2027-01-16
+Anamudi Metals Processing LLP,Glass Cutting Waste,6567.93,kg,76.0,31.66,2027-04-17
+Pamba Polymer Circular Industries,Glass Cutting Waste,6042.92,kg,60.83,130.05,2027-05-22
+Anamudi Composite Recovery Systems,Glass Cutting Waste,7784.94,kg,78.3,137.86,2026-12-19
+Anamudi Industrial Reprocessing Ltd,Glass Cutting Waste,3070.64,kg,60.67,109.78,2026-12-18
+Arabian Foundry Processing LLP,Glass Cutting Waste,4076.26,kg,77.89,126.15,2026-12-29
+Southern Metals Recycling Works,Glass Cutting Waste,1342.96,kg,78.52,90.88,2027-01-15
+Nilgiri Salvage Recovery Systems,Glass Cutting Waste,3680.45,kg,57.49,100.25,2027-06-24
+Southern Element Recovery Systems,Glass Cutting Waste,8681.02,kg,56.69,95.91,2027-05-22
+Coastal Foundry Circular Industries,Glass Cutting Waste,7361.58,kg,71.21,110.8,2027-01-07
+Bharata Alloy Processing LLP,Glass Cutting Waste,3611.89,kg,62.73,121.73,2027-05-09
+Arabian Salvage Reclamation Co,Glass Cutting Waste,5588.6,kg,75.49,132.17,2027-07-05
+Western Ghats Alloy Reclamation Co,Glass Cutting Waste,803.32,kg,78.04,17.35,2027-01-19
+Periyar Polymer Recycling Works,Glass Cutting Waste,1090.21,kg,69.58,29.9,2027-02-12
+Bharata Salvage Processing LLP,Glass Cutting Waste,3260.37,kg,73.54,139.03,2027-03-25
+Nilgiri Alloy Resource Recovery,Glass Cutting Waste,2348.67,kg,59.57,139.79,2027-05-03
+Arabian Polymer Circular Industries,Glass Cutting Waste,6770.52,kg,64.72,36.25,2026-12-18
+Anamudi Green Recycling Works,Glass Cutting Waste,7066.24,kg,66.97,76.77,2026-12-23
+Chalakudy Composite Recovery Systems,Rubber Dust,7556.15,kg,74.2,108.88,2026-12-17
+Arabian Metals Reprocessing Ltd,Rubber Dust,969.62,kg,77.27,76.29,2027-06-26
+Periyar Green Recovery Systems,Rubber Dust,1474.25,kg,63.51,84.68,2027-06-17
+Chalakudy Board Resource Recovery,Rubber Dust,3838.63,kg,65.56,64.85,2026-12-29
+Anamudi Fibre Processing LLP,Rubber Dust,9110.62,kg,69.1,137.78,2027-01-10
+Arabian Composite Materials Pvt Ltd,Rubber Dust,4518.74,kg,71.76,104.66,2027-04-18
+Chalakudy Composite Reprocessing Ltd,Rubber Dust,5020.95,kg,78.24,138.4,2027-03-21
+Kuttanad Industrial Processing LLP,Rubber Dust,2035.93,kg,75.8,16.16,2027-07-09
+Bharata Fibre Processing LLP,Rubber Dust,7036.32,kg,66.67,110.84,2027-03-10
+Pamba Industrial Reclamation Co,Rubber Dust,5233.05,kg,72.91,135.28,2027-06-22
+Anamudi Element Processing LLP,Rubber Dust,8611.64,kg,64.25,39.32,2027-03-28
+Chalakudy Polymer Reprocessing Ltd,Rubber Dust,9361.58,kg,57.08,114.22,2026-12-13
+Bharata Fibre Resource Recovery,Rubber Dust,2320.32,kg,62.84,87.88,2027-05-02
+Wayanad Element Materials Pvt Ltd,Rubber Dust,1655.12,kg,69.95,101.57,2027-02-06
+Chalakudy Timber Resource Recovery,Rubber Dust,2379.49,kg,75.17,62.0,2026-12-19
+Southern Green Reclamation Co,Rubber Dust,1204.85,kg,66.9,100.35,2027-04-12
+Vembanad Foundry Materials Pvt Ltd,Rubber Dust,4069.58,kg,63.41,89.78,2026-12-28
+Southern Composite Materials Pvt Ltd,Rubber Dust,6887.1,kg,66.3,109.34,2026-12-24
+Coastal Board Circular Industries,Rubber Dust,9579.57,kg,59.01,120.55,2027-07-24
+Pamba Metals Recovery Systems,Rubber Dust,3062.21,kg,67.44,112.53,2026-12-20
+Periyar Fibre Processing LLP,Rubber Dust,5377.35,kg,61.85,26.82,2027-06-15
+Chalakudy Foundry Reclamation Co,Rubber Dust,7547.58,kg,71.76,135.15,2027-06-06
+Nilgiri Board Circular Industries,Rubber Dust,5387.2,kg,69.2,41.8,2027-02-04
+Malabar Industrial Reprocessing Ltd,Rubber Dust,5381.35,kg,73.98,105.29,2027-03-30
+Nilgiri Green Resource Recovery,Rubber Dust,8650.48,kg,59.03,47.02,2026-12-10
+Anamudi Polymer Recycling Works,Rubber Dust,1452.38,kg,72.15,87.06,2027-05-21
+Bharata Foundry Recycling Works,Rubber Dust,2963.92,kg,66.57,137.39,2026-12-31
+Pamba Fibre Resource Recovery,Rubber Dust,4036.83,kg,73.38,69.59,2027-06-14
+Backwater Element Reprocessing Ltd,Rubber Dust,4691.47,kg,55.51,134.6,2027-04-07
+Coastal Alloy Reprocessing Ltd,Rubber Dust,3664.24,kg,71.2,96.97,2027-02-17
+Pamba Foundry Processing LLP,Plywood Waste,2369.16,kg,58.02,121.49,2027-01-05
+Bharata Foundry Resource Recovery,Plywood Waste,4550.49,kg,59.69,111.12,2027-04-07
+Vembanad Composite Materials Pvt Ltd,Plywood Waste,4617.94,kg,68.05,88.63,2027-01-27
+Anamudi Polymer Materials Pvt Ltd,Plywood Waste,2837.13,kg,78.59,73.85,2027-07-02
+Periyar Alloy Processing LLP,Plywood Waste,7186.75,kg,55.92,76.25,2027-03-02
+Backwater Foundry Circular Industries,Plywood Waste,7471.66,kg,62.6,87.72,2027-03-11
+Wayanad Element Resource Recovery,Plywood Waste,7806.49,kg,79.36,89.48,2026-12-08
+Periyar Timber Reprocessing Ltd,Plywood Waste,2602.03,kg,61.44,133.43,2027-03-05
+Kuttanad Metals Circular Industries,Plywood Waste,3634.96,kg,76.39,30.81,2027-03-16
+Bharata Element Processing LLP,Plywood Waste,7593.75,kg,64.09,96.36,2027-01-07
+Coastal Alloy Materials Pvt Ltd,Plywood Waste,8728.65,kg,71.42,22.63,2027-05-16
+Bharata Industrial Materials Pvt Ltd,Plywood Waste,5219.97,kg,58.2,36.04,2026-12-12
+Kuttanad Timber Recovery Systems,Plywood Waste,6050.73,kg,55.73,42.62,2026-12-25
+Vembanad Board Recovery Systems,Plywood Waste,6463.11,kg,56.01,15.95,2027-06-05
+Periyar Polymer Materials Pvt Ltd,Plywood Waste,1733.5,kg,71.58,39.93,2027-01-15
+Kuttanad Foundry Circular Industries,Plywood Waste,8840.81,kg,73.03,72.42,2027-07-02
+Kuttanad Element Processing LLP,Plywood Waste,5251.04,kg,76.97,41.38,2027-05-19
+Periyar Element Materials Pvt Ltd,Plywood Waste,5045.94,kg,77.49,135.73,2027-01-05
+Kuttanad Board Resource Recovery,Plywood Waste,956.37,kg,68.03,125.84,2027-07-21
+Malabar Timber Circular Industries,Plywood Waste,5967.0,kg,69.83,131.34,2026-12-30
+Kuttanad Metals Processing LLP,Plywood Waste,8499.71,kg,75.52,133.3,2026-12-17
+Malabar Alloy Recycling Works,Plywood Waste,5453.55,kg,64.66,95.68,2026-12-21
+Nilgiri Polymer Materials Pvt Ltd,Plywood Waste,1864.64,kg,57.3,81.85,2026-12-14
+Wayanad Metals Reprocessing Ltd,Plywood Waste,4129.15,kg,58.83,134.78,2027-07-25
+Wayanad Composite Recovery Systems,Plywood Waste,3356.89,kg,56.03,46.15,2027-05-05
+Arabian Foundry Recovery Systems,Plywood Waste,9762.47,kg,64.62,19.26,2027-02-06
+Western Ghats Fibre Reclamation Co,Plywood Waste,6899.56,kg,55.66,90.28,2027-04-01
+Arabian Green Circular Industries,Plywood Waste,3911.65,kg,75.19,115.22,2027-03-15
+Southern Composite Circular Industries,Plywood Waste,2026.85,kg,61.66,61.78,2027-02-18
+Western Ghats Element Reprocessing Ltd,Plywood Waste,1260.09,kg,79.0,137.35,2026-12-06
+Pamba Composite Processing LLP,Aluminium Roll Scrap,1793.94,kg,60.92,70.42,2027-03-08
+Bharata Timber Reprocessing Ltd,Aluminium Roll Scrap,9119.99,kg,56.57,77.23,2026-12-12
+Southern Salvage Materials Pvt Ltd,Aluminium Roll Scrap,7205.8,kg,68.1,68.08,2027-05-10
+Pamba Timber Resource Recovery,Aluminium Roll Scrap,7909.75,kg,72.37,60.61,2027-07-08
+Arabian Alloy Resource Recovery,Aluminium Roll Scrap,8034.5,kg,62.77,107.7,2027-04-15
+Backwater Polymer Resource Recovery,Aluminium Roll Scrap,7878.89,kg,76.73,40.99,2027-05-19
+Coastal Green Resource Recovery,Aluminium Roll Scrap,7856.81,kg,61.17,129.7,2027-05-29
+Wayanad Board Reprocessing Ltd,Aluminium Roll Scrap,5118.59,kg,66.54,62.04,2027-03-23
+Bharata Board Processing LLP,Aluminium Roll Scrap,3218.37,kg,74.02,63.29,2027-01-10
+Southern Green Recovery Systems,Aluminium Roll Scrap,7642.98,kg,62.35,136.95,2027-05-14
+Anamudi Industrial Recovery Systems,Aluminium Roll Scrap,7909.49,kg,55.06,42.29,2027-01-07
+Wayanad Green Processing LLP,Aluminium Roll Scrap,5217.55,kg,70.44,51.14,2027-05-08
+Malabar Element Reprocessing Ltd,Aluminium Roll Scrap,1271.07,kg,69.73,106.88,2027-03-31
+Pamba Fibre Recycling Works,Aluminium Roll Scrap,4478.42,kg,64.28,99.55,2027-06-02
+Backwater Board Materials Pvt Ltd,Aluminium Roll Scrap,1406.56,kg,79.14,66.57,2026-12-24
+Bharata Polymer Resource Recovery,Aluminium Roll Scrap,1914.24,kg,59.79,135.42,2026-12-05
+Western Ghats Green Materials Pvt Ltd,Aluminium Roll Scrap,846.48,kg,57.58,73.29,2027-02-18
+Pamba Polymer Reclamation Co,Aluminium Roll Scrap,5486.18,kg,59.86,47.02,2027-04-09
+Pamba Fibre Reprocessing Ltd,Aluminium Roll Scrap,3720.42,kg,74.6,32.21,2027-01-08
+Kuttanad Metals Recovery Systems,Aluminium Roll Scrap,4512.42,kg,59.69,37.25,2027-06-11
+Arabian Industrial Recycling Works,Aluminium Roll Scrap,8112.46,kg,72.97,74.22,2027-04-13
+Coastal Industrial Processing LLP,Aluminium Roll Scrap,7414.55,kg,57.58,53.37,2027-01-24
+Malabar Foundry Reclamation Co,Aluminium Roll Scrap,10068.67,kg,77.76,20.92,2026-11-30
+Malabar Composite Circular Industries,Aluminium Roll Scrap,8939.62,kg,60.05,93.26,2027-05-07
+Nilgiri Salvage Reclamation Co,Aluminium Roll Scrap,1174.89,kg,76.05,86.98,2027-04-21
+Wayanad Salvage Recycling Works,Aluminium Roll Scrap,4100.47,kg,68.54,46.75,2027-03-04
+Nilgiri Metals Recycling Works,Aluminium Roll Scrap,1389.34,kg,69.96,74.05,2027-01-15
+Malabar Element Reclamation Co,Aluminium Roll Scrap,2375.93,kg,60.64,40.95,2027-06-04
+Malabar Polymer Processing LLP,Aluminium Roll Scrap,6383.82,kg,71.07,116.82,2027-01-06
+Backwater Salvage Resource Recovery,Aluminium Roll Scrap,3857.89,kg,57.24,61.99,2027-01-29
+Coastal Board Materials Pvt Ltd,Wood Waste,4332.0,kg,68.04,133.11,2027-05-03
+Southern Salvage Recycling Works,Wood Waste,6161.5,kg,68.02,98.83,2027-04-16
+Periyar Metals Processing LLP,Wood Waste,1778.01,kg,60.78,93.15,2026-12-03
+Arabian Green Recovery Systems,Wood Waste,6993.14,kg,68.15,118.04,2027-05-19
+Wayanad Polymer Materials Pvt Ltd,Wood Waste,3381.15,kg,57.73,26.73,2027-04-03
+Southern Foundry Recycling Works,Wood Waste,4392.26,kg,79.9,101.21,2027-03-21
+Western Ghats Industrial Circular Industries,Wood Waste,4275.88,kg,62.96,55.07,2027-03-21
+Malabar Polymer Recycling Works,Wood Waste,6774.12,kg,79.15,105.58,2027-02-16
+Malabar Board Reprocessing Ltd,Wood Waste,2574.02,kg,60.89,60.74,2026-12-14
+Southern Alloy Recovery Systems,Wood Waste,1463.39,kg,61.34,28.54,2026-12-12
+Coastal Timber Reclamation Co,Wood Waste,9162.3,kg,55.05,137.23,2027-06-23
+Arabian Board Resource Recovery,Wood Waste,7826.14,kg,62.22,85.93,2027-03-19
+Nilgiri Salvage Reprocessing Ltd,Wood Waste,1825.94,kg,57.85,104.99,2027-06-18
+Wayanad Fibre Recovery Systems,Wood Waste,7876.2,kg,68.31,75.69,2027-03-30
+Periyar Industrial Materials Pvt Ltd,Wood Waste,7389.65,kg,62.17,34.04,2027-07-20
+Backwater Metals Materials Pvt Ltd,Wood Waste,5618.77,kg,67.26,46.89,2026-12-11
+Southern Industrial Processing LLP,Wood Waste,4773.82,kg,56.29,60.19,2026-12-12
+Periyar Foundry Recycling Works,Wood Waste,4328.07,kg,72.4,43.53,2027-05-06
+Vembanad Metals Recycling Works,Wood Waste,4514.68,kg,61.37,64.94,2027-07-07
+Coastal Polymer Reclamation Co,Wood Waste,8886.45,kg,58.19,67.61,2027-01-20
+Periyar Metals Recovery Systems,Wood Waste,4052.85,kg,68.1,20.56,2027-03-21
+Coastal Timber Recycling Works,Wood Waste,5027.44,kg,69.34,46.03,2027-03-30
+Malabar Metals Recycling Works,Wood Waste,6748.85,kg,67.49,98.64,2027-07-12
+Coastal Polymer Processing LLP,Wood Waste,6810.03,kg,65.61,92.08,2027-02-21
+Coastal Foundry Materials Pvt Ltd,Wood Waste,10100.18,kg,58.83,121.84,2026-12-05
+Anamudi Salvage Resource Recovery,Wood Waste,1925.11,kg,72.47,127.86,2027-01-28
+Backwater Metals Reclamation Co,Wood Waste,7452.41,kg,79.87,52.43,2027-02-21
+Vembanad Timber Reclamation Co,Wood Waste,9699.78,kg,69.39,114.7,2027-04-20
+Wayanad Salvage Recovery Systems,Wood Waste,1785.38,kg,76.95,73.19,2027-04-11
+Bharata Metals Materials Pvt Ltd,Wood Waste,7526.63,kg,57.27,98.1,2027-03-24
+Malabar Timber Materials Pvt Ltd,Plastic Scrap,758.13,kg,67.5,48.55,2027-05-11
+Bharata Timber Reclamation Co,Plastic Scrap,6104.04,kg,71.92,81.83,2027-07-28
+Nilgiri Industrial Recovery Systems,Plastic Scrap,5990.21,kg,68.53,127.68,2027-01-23
+Anamudi Salvage Recycling Works,Plastic Scrap,7479.04,kg,71.03,38.87,2027-01-31
+Vembanad Polymer Processing LLP,Plastic Scrap,3773.23,kg,59.68,112.16,2027-04-04
+Vembanad Foundry Resource Recovery,Plastic Scrap,3315.19,kg,61.96,117.6,2027-06-15
+Vembanad Timber Materials Pvt Ltd,Plastic Scrap,2828.52,kg,63.52,54.1,2027-01-29
+Vembanad Fibre Reclamation Co,Plastic Scrap,4496.58,kg,55.73,137.04,2026-12-31
+Chalakudy Alloy Circular Industries,Plastic Scrap,2112.82,kg,66.15,134.28,2027-05-03
+Bharata Metals Resource Recovery,Plastic Scrap,1653.0,kg,69.38,77.37,2027-03-22
+Anamudi Foundry Resource Recovery,Plastic Scrap,4739.64,kg,58.46,26.4,2027-05-19
+Vembanad Metals Circular Industries,Plastic Scrap,2763.21,kg,76.61,16.71,2026-12-28
+Backwater Timber Materials Pvt Ltd,Plastic Scrap,7831.08,kg,75.75,134.57,2027-01-07
+Arabian Metals Circular Industries,Plastic Scrap,3676.51,kg,70.41,56.74,2027-07-24
+Malabar Green Recovery Systems,Plastic Scrap,4957.11,kg,79.43,60.43,2026-12-20
+Periyar Metals Reprocessing Ltd,Plastic Scrap,9223.44,kg,64.69,64.2,2027-03-17
+Nilgiri Composite Reclamation Co,Plastic Scrap,7353.71,kg,59.43,116.18,2026-12-04
+Coastal Fibre Recovery Systems,Plastic Scrap,4779.29,kg,63.09,26.67,2027-05-15
+Southern Polymer Recycling Works,Plastic Scrap,4183.57,kg,76.71,135.4,2027-07-15
+Southern Timber Materials Pvt Ltd,Plastic Scrap,5619.81,kg,55.83,88.55,2027-07-03
+Western Ghats Polymer Reclamation Co,Plastic Scrap,7221.57,kg,72.34,29.29,2027-03-13
+Periyar Green Circular Industries,Plastic Scrap,9171.29,kg,74.85,50.42,2027-01-19
+Malabar Alloy Reclamation Co,Plastic Scrap,8483.16,kg,70.52,38.78,2026-11-30
+Vembanad Polymer Circular Industries,Plastic Scrap,2340.72,kg,68.89,41.45,2027-06-23
+Periyar Foundry Recovery Systems,Plastic Scrap,1447.27,kg,72.06,95.71,2027-01-01
+Anamudi Metals Materials Pvt Ltd,Plastic Scrap,5588.71,kg,78.45,38.08,2027-03-22
+Western Ghats Polymer Recycling Works,Plastic Scrap,7683.18,kg,66.16,43.28,2027-01-03
+Periyar Timber Processing LLP,Plastic Scrap,5517.57,kg,74.35,48.34,2027-04-13
+Vembanad Timber Recovery Systems,Plastic Scrap,1899.97,kg,63.39,138.0,2027-06-07
+Anamudi Board Reclamation Co,Plastic Scrap,6160.99,kg,71.53,115.68,2027-02-18
+Wayanad Alloy Reprocessing Ltd,Mixed Recyclable Waste,2003.29,kg,64.74,37.54,2027-03-09
+Bharata Board Recycling Works,Mixed Recyclable Waste,5874.96,kg,62.44,107.58,2027-06-18
+Nilgiri Board Resource Recovery,Mixed Recyclable Waste,2125.95,kg,71.15,132.17,2027-02-07
+Bharata Green Reprocessing Ltd,Mixed Recyclable Waste,4485.34,kg,56.09,39.54,2027-03-23
+Coastal Metals Recovery Systems,Mixed Recyclable Waste,4857.16,kg,63.47,79.34,2027-06-20
+Coastal Metals Recycling Works,Mixed Recyclable Waste,3019.36,kg,63.13,38.21,2027-07-04
+Pamba Element Processing LLP,Mixed Recyclable Waste,7779.66,kg,78.04,61.49,2027-01-03
+Coastal Composite Materials Pvt Ltd,Mixed Recyclable Waste,2761.92,kg,65.76,114.01,2027-04-16
+Vembanad Salvage Materials Pvt Ltd,Mixed Recyclable Waste,5792.56,kg,75.82,130.71,2027-01-16
+Periyar Composite Circular Industries,Mixed Recyclable Waste,2010.42,kg,68.83,47.85,2027-07-28
+Western Ghats Foundry Recovery Systems,Mixed Recyclable Waste,9153.48,kg,77.54,25.32,2026-12-23
+Anamudi Salvage Reprocessing Ltd,Mixed Recyclable Waste,3245.97,kg,63.38,85.57,2027-04-28
+Nilgiri Timber Reclamation Co,Mixed Recyclable Waste,5898.29,kg,74.65,26.19,2027-02-18
+Malabar Timber Recovery Systems,Mixed Recyclable Waste,4626.85,kg,60.06,96.46,2027-07-19
+Kuttanad Timber Recycling Works,Mixed Recyclable Waste,2887.76,kg,71.09,78.34,2027-05-27
+Vembanad Metals Recovery Systems,Mixed Recyclable Waste,1918.26,kg,76.38,32.36,2026-12-18
+Coastal Alloy Resource Recovery,Mixed Recyclable Waste,3491.22,kg,59.0,30.3,2026-12-29
+Periyar Foundry Processing LLP,Mixed Recyclable Waste,7850.36,kg,78.78,45.48,2027-03-14
+Wayanad Alloy Recovery Systems,Mixed Recyclable Waste,5867.22,kg,59.84,89.81,2027-02-26
+Chalakudy Board Reprocessing Ltd,Mixed Recyclable Waste,3445.78,kg,67.16,32.51,2027-04-11
+Chalakudy Salvage Processing LLP,Mixed Recyclable Waste,8560.84,kg,57.76,121.43,2027-04-07
+Chalakudy Salvage Resource Recovery,Mixed Recyclable Waste,4852.08,kg,72.39,46.91,2027-02-01
+Southern Fibre Circular Industries,Mixed Recyclable Waste,5370.91,kg,73.69,88.97,2027-07-18
+Chalakudy Alloy Reprocessing Ltd,Mixed Recyclable Waste,5783.32,kg,67.23,23.42,2027-04-12
+Arabian Alloy Materials Pvt Ltd,Mixed Recyclable Waste,8954.63,kg,74.16,50.5,2027-05-17
+Periyar Board Circular Industries,Mixed Recyclable Waste,1496.02,kg,57.6,88.15,2027-01-22
+Southern Composite Resource Recovery,Mixed Recyclable Waste,657.34,kg,60.04,19.08,2027-06-13
+Periyar Timber Resource Recovery,Mixed Recyclable Waste,1053.13,kg,60.77,62.91,2026-12-14
+Southern Fibre Processing LLP,Mixed Recyclable Waste,4197.36,kg,55.3,101.22,2027-07-23
+Periyar Element Circular Industries,Mixed Recyclable Waste,8724.42,kg,55.33,71.55,2027-04-12
+Periyar Industrial Recovery Systems,Aerospace Metal Scrap,3242.59,kg,77.31,83.84,2027-03-19
+Coastal Composite Recovery Systems,Aerospace Metal Scrap,2571.65,kg,68.09,62.5,2027-01-10
+Bharata Polymer Processing LLP,Aerospace Metal Scrap,2719.79,kg,61.02,138.46,2027-01-17
+Bharata Fibre Recovery Systems,Aerospace Metal Scrap,3899.76,kg,77.54,122.73,2027-06-29
+Vembanad Composite Reclamation Co,Aerospace Metal Scrap,3519.12,kg,64.76,103.6,2027-07-24
+Coastal Polymer Recovery Systems,Aerospace Metal Scrap,5084.77,kg,74.4,28.08,2027-06-30
+Chalakudy Industrial Recycling Works,Aerospace Metal Scrap,1607.53,kg,73.22,34.42,2026-12-29
+Chalakudy Industrial Reprocessing Ltd,Aerospace Metal Scrap,1200.8,kg,67.22,50.37,2027-03-07
+Southern Foundry Reprocessing Ltd,Aerospace Metal Scrap,4819.91,kg,75.41,78.7,2027-03-09
+Periyar Composite Reprocessing Ltd,Aerospace Metal Scrap,937.15,kg,63.51,52.43,2027-06-05
+Vembanad Board Resource Recovery,Aerospace Metal Scrap,3813.0,kg,69.5,115.62,2027-07-28
+Backwater Salvage Processing LLP,Aerospace Metal Scrap,1324.06,kg,58.04,54.37,2027-02-02
+Pamba Fibre Processing LLP,Aerospace Metal Scrap,7066.16,kg,67.56,108.97,2027-05-30
+Nilgiri Industrial Reprocessing Ltd,Aerospace Metal Scrap,8761.87,kg,64.34,68.67,2027-02-16
+Nilgiri Alloy Reprocessing Ltd,Aerospace Metal Scrap,1671.92,kg,55.54,59.59,2027-06-16
+Chalakudy Green Resource Recovery,Aerospace Metal Scrap,1434.45,kg,63.63,39.83,2027-06-17
+Coastal Foundry Reclamation Co,Aerospace Metal Scrap,1993.73,kg,65.14,45.1,2027-03-11
+Southern Industrial Recycling Works,Aerospace Metal Scrap,1974.36,kg,78.71,47.28,2027-02-23
+Kuttanad Timber Resource Recovery,Aerospace Metal Scrap,4156.81,kg,79.61,48.81,2027-05-31
+Western Ghats Timber Processing LLP,Aerospace Metal Scrap,2588.69,kg,75.06,92.1,2027-01-28
+Vembanad Metals Materials Pvt Ltd,Aerospace Metal Scrap,2626.69,kg,60.84,97.45,2027-06-10
+Pamba Board Recovery Systems,Aerospace Metal Scrap,6936.28,kg,61.61,105.47,2027-02-28
+Nilgiri Metals Reclamation Co,Aerospace Metal Scrap,4873.63,kg,59.36,116.66,2027-02-22
+Malabar Composite Reprocessing Ltd,Aerospace Metal Scrap,9130.99,kg,56.21,105.22,2027-02-28
+Pamba Board Processing LLP,Aerospace Metal Scrap,6526.83,kg,68.73,29.8,2027-05-19
+Southern Alloy Circular Industries,Aerospace Metal Scrap,2343.53,kg,62.12,124.79,2027-04-12
+Kuttanad Element Circular Industries,Aerospace Metal Scrap,7719.17,kg,62.36,41.2,2027-06-17
+Vembanad Board Processing LLP,Aerospace Metal Scrap,4725.97,kg,57.32,76.37,2027-06-08
+Backwater Salvage Reclamation Co,Aerospace Metal Scrap,6953.01,kg,64.37,76.21,2027-06-28
+Western Ghats Salvage Materials Pvt Ltd,Aerospace Metal Scrap,1303.21,kg,74.2,135.72,2027-03-01
+Backwater Industrial Reprocessing Ltd,Plastic Packaging Waste,5036.73,kg,60.5,111.03,2027-07-17
+Western Ghats Green Resource Recovery,Plastic Packaging Waste,6792.14,kg,59.9,138.59,2027-06-02
+Wayanad Polymer Circular Industries,Plastic Packaging Waste,7356.7,kg,76.36,119.3,2027-04-13
+Chalakudy Foundry Materials Pvt Ltd,Plastic Packaging Waste,1036.55,kg,71.29,42.08,2027-02-23
+Pamba Composite Recycling Works,Plastic Packaging Waste,7066.69,kg,74.6,108.27,2027-07-03
+Anamudi Alloy Resource Recovery,Plastic Packaging Waste,8295.83,kg,76.57,39.74,2026-12-09
+Anamudi Industrial Recycling Works,Plastic Packaging Waste,1950.18,kg,57.66,129.57,2027-03-29
+Wayanad Metals Materials Pvt Ltd,Plastic Packaging Waste,3231.58,kg,79.23,34.04,2027-04-18
+Bharata Alloy Reclamation Co,Plastic Packaging Waste,9299.51,kg,68.18,123.34,2027-06-23
+Nilgiri Composite Materials Pvt Ltd,Plastic Packaging Waste,7599.9,kg,76.56,99.83,2027-03-12
+Backwater Alloy Reprocessing Ltd,Plastic Packaging Waste,1834.18,kg,79.02,40.19,2027-04-14
+Western Ghats Metals Resource Recovery,Plastic Packaging Waste,3462.38,kg,71.83,82.18,2027-01-08
+Periyar Fibre Reprocessing Ltd,Plastic Packaging Waste,5214.96,kg,55.14,102.34,2027-04-14
+Malabar Metals Processing LLP,Plastic Packaging Waste,7593.58,kg,58.63,63.43,2027-02-23
+Chalakudy Composite Circular Industries,Plastic Packaging Waste,6435.55,kg,78.23,21.91,2027-02-12
+Periyar Fibre Circular Industries,Plastic Packaging Waste,8487.17,kg,63.03,46.47,2026-12-09
+Backwater Board Recovery Systems,Plastic Packaging Waste,8569.76,kg,68.81,131.67,2026-12-07
+Western Ghats Composite Circular Industries,Plastic Packaging Waste,7058.4,kg,76.86,122.29,2027-06-21
+Southern Board Materials Pvt Ltd,Plastic Packaging Waste,8047.99,kg,63.02,74.99,2027-07-27
+Arabian Element Materials Pvt Ltd,Plastic Packaging Waste,10351.47,kg,74.63,139.43,2027-03-20
+Malabar Green Resource Recovery,Plastic Packaging Waste,3421.99,kg,72.83,128.26,2026-12-26
+Backwater Polymer Recovery Systems,Plastic Packaging Waste,1690.11,kg,58.24,18.77,2027-04-10
+Vembanad Industrial Resource Recovery,Plastic Packaging Waste,1051.08,kg,69.36,112.52,2027-06-13
+Southern Composite Reprocessing Ltd,Plastic Packaging Waste,2095.75,kg,70.16,138.21,2027-05-19
+Bharata Polymer Circular Industries,Plastic Packaging Waste,6449.51,kg,63.81,64.18,2027-04-21
+Western Ghats Foundry Reclamation Co,Plastic Packaging Waste,4553.15,kg,69.46,15.03,2027-07-20
+Nilgiri Composite Resource Recovery,Plastic Packaging Waste,4934.71,kg,59.71,131.54,2027-07-25
+Nilgiri Timber Processing LLP,Plastic Packaging Waste,4039.89,kg,55.97,44.0,2027-04-29
+Southern Board Recycling Works,Plastic Packaging Waste,5681.14,kg,79.41,111.01,2027-03-17
+Wayanad Board Processing LLP,Plastic Packaging Waste,5954.46,kg,78.49,23.76,2027-07-21
+Vembanad Salvage Reclamation Co,Metal Waste,4512.71,kg,73.37,22.36,2027-03-14
+Wayanad Industrial Reprocessing Ltd,Metal Waste,2593.76,kg,69.98,86.73,2027-07-22
+Vembanad Green Recycling Works,Metal Waste,5292.93,kg,58.07,116.53,2027-01-13
+Chalakudy Element Recovery Systems,Metal Waste,5331.43,kg,71.65,68.66,2027-06-07
+Backwater Foundry Materials Pvt Ltd,Metal Waste,4754.04,kg,55.31,87.25,2027-05-20
+Coastal Industrial Recovery Systems,Metal Waste,6975.4,kg,60.93,103.21,2027-02-25
+Coastal Foundry Processing LLP,Metal Waste,9723.46,kg,59.55,116.09,2027-07-15
+Western Ghats Board Reclamation Co,Metal Waste,2841.06,kg,63.8,63.48,2026-12-10
+Southern Fibre Recycling Works,Metal Waste,6978.11,kg,71.51,61.19,2027-07-28
+Anamudi Element Reclamation Co,Metal Waste,4338.26,kg,68.36,79.19,2027-03-28
+Malabar Green Materials Pvt Ltd,Metal Waste,7140.57,kg,72.98,54.16,2026-12-17
+Malabar Fibre Recycling Works,Metal Waste,2446.0,kg,56.45,43.91,2027-04-03
+Malabar Foundry Recovery Systems,Metal Waste,2482.3,kg,73.97,61.03,2027-01-21
+Kuttanad Salvage Resource Recovery,Metal Waste,4012.43,kg,67.2,62.03,2027-01-16
+Malabar Green Reclamation Co,Metal Waste,5370.52,kg,58.89,105.67,2027-01-04
+Western Ghats Fibre Processing LLP,Metal Waste,9318.58,kg,58.28,86.54,2027-01-04
+Vembanad Foundry Processing LLP,Metal Waste,2823.34,kg,56.44,36.14,2027-03-11
+Pamba Industrial Processing LLP,Metal Waste,6009.88,kg,59.26,106.69,2027-06-12
+Vembanad Element Circular Industries,Metal Waste,3422.01,kg,59.67,33.31,2026-12-06
+Western Ghats Composite Materials Pvt Ltd,Metal Waste,3651.61,kg,66.93,73.72,2027-06-28
+Nilgiri Foundry Reclamation Co,Metal Waste,1955.55,kg,72.44,97.63,2027-07-11
+Chalakudy Alloy Materials Pvt Ltd,Metal Waste,4414.41,kg,79.85,91.02,2026-12-07
+Vembanad Salvage Circular Industries,Metal Waste,9818.28,kg,56.72,49.63,2027-05-30
+Nilgiri Foundry Recycling Works,Metal Waste,8477.42,kg,65.8,71.32,2027-06-01
+Pamba Element Resource Recovery,Metal Waste,8272.64,kg,75.44,41.34,2027-07-03
+Chalakudy Fibre Circular Industries,Metal Waste,9719.92,kg,59.52,108.13,2027-07-11
+Malabar Metals Recovery Systems,Metal Waste,5066.3,kg,65.72,18.63,2026-12-17
+Backwater Board Reprocessing Ltd,Metal Waste,3178.11,kg,62.93,110.47,2027-04-28
+Bharata Fibre Reprocessing Ltd,Metal Waste,8134.17,kg,67.9,137.52,2027-07-02
+Coastal Green Recovery Systems,Metal Waste,5994.43,kg,70.38,114.95,2027-06-09
+Nilgiri Alloy Recovery Systems,Metal Offcuts,6580.43,kg,70.72,29.13,2027-01-07
+Arabian Salvage Reprocessing Ltd,Metal Offcuts,7480.52,kg,61.75,29.99,2027-06-01
+Anamudi Board Resource Recovery,Metal Offcuts,9892.44,kg,56.62,94.07,2027-03-04
+Pamba Alloy Reclamation Co,Metal Offcuts,7367.99,kg,62.96,116.88,2027-05-09
+Southern Board Reclamation Co,Metal Offcuts,3883.86,kg,74.11,42.01,2027-02-23
+Periyar Metals Recycling Works,Metal Offcuts,5068.15,kg,59.29,107.69,2027-01-04
+Anamudi Foundry Reprocessing Ltd,Metal Offcuts,2152.0,kg,69.95,59.0,2027-01-19
+Kuttanad Industrial Circular Industries,Metal Offcuts,1692.93,kg,76.24,48.22,2027-04-01
+Pamba Polymer Processing LLP,Metal Offcuts,1006.57,kg,58.16,93.44,2026-12-28
+Nilgiri Salvage Recycling Works,Metal Offcuts,1281.43,kg,62.34,42.19,2027-02-20
+Malabar Board Circular Industries,Metal Offcuts,1039.36,kg,73.2,46.62,2027-04-07
+Pamba Metals Materials Pvt Ltd,Metal Offcuts,1674.24,kg,61.53,121.79,2027-03-21
+Wayanad Element Recycling Works,Metal Offcuts,7409.54,kg,63.97,17.96,2027-02-16
+Wayanad Element Processing LLP,Metal Offcuts,5146.14,kg,66.9,61.67,2027-01-29
+Pamba Metals Recycling Works,Metal Offcuts,5724.61,kg,60.7,28.15,2027-03-28
+Chalakudy Timber Circular Industries,Metal Offcuts,7276.24,kg,64.84,30.46,2027-02-20
+Southern Element Recycling Works,Metal Offcuts,7002.78,kg,62.29,58.1,2027-01-25
+Anamudi Metals Recycling Works,Metal Offcuts,7956.57,kg,57.33,95.77,2026-12-07
+Anamudi Green Resource Recovery,Metal Offcuts,8154.71,kg,73.09,100.69,2027-03-24
+Arabian Industrial Circular Industries,Metal Offcuts,6863.91,kg,58.1,42.4,2026-12-07
+Southern Polymer Reprocessing Ltd,Metal Offcuts,1611.76,kg,79.87,84.35,2027-01-09
+Wayanad Element Recovery Systems,Metal Offcuts,2641.77,kg,68.46,108.76,2027-01-20
+Periyar Timber Materials Pvt Ltd,Metal Offcuts,6545.98,kg,79.75,63.02,2027-07-15
+Wayanad Industrial Recycling Works,Metal Offcuts,1313.93,kg,69.12,59.15,2027-05-04
+Kuttanad Timber Reclamation Co,Metal Offcuts,1493.81,kg,79.43,139.47,2027-06-22
+Bharata Element Resource Recovery,Metal Offcuts,4440.43,kg,72.64,37.72,2027-06-24
+Pamba Timber Recycling Works,Metal Offcuts,8304.16,kg,61.65,112.02,2027-05-20
+Bharata Composite Recovery Systems,Metal Offcuts,6653.84,kg,75.99,106.96,2027-06-23
+Nilgiri Fibre Recovery Systems,Metal Offcuts,756.21,kg,75.06,66.22,2027-02-02
+Malabar Fibre Reclamation Co,Metal Offcuts,6747.14,kg,60.68,77.33,2027-07-23
+Pamba Fibre Circular Industries,MDF Board Offcuts,2578.52,kg,55.42,68.29,2026-12-20
+Chalakudy Board Recycling Works,MDF Board Offcuts,3922.23,kg,55.62,88.53,2027-07-26
+Vembanad Green Processing LLP,MDF Board Offcuts,9618.32,kg,74.84,115.05,2027-01-19
+Periyar Composite Materials Pvt Ltd,MDF Board Offcuts,4637.73,kg,71.44,22.59,2027-07-10
+Anamudi Polymer Processing LLP,MDF Board Offcuts,1773.42,kg,59.53,132.67,2027-04-02
+Bharata Industrial Reprocessing Ltd,MDF Board Offcuts,5138.58,kg,55.55,104.51,2027-03-26
+Coastal Green Reprocessing Ltd,MDF Board Offcuts,2329.4,kg,76.32,61.25,2027-04-09
+Wayanad Alloy Circular Industries,MDF Board Offcuts,1065.01,kg,76.58,65.45,2027-02-10
+Backwater Metals Processing LLP,MDF Board Offcuts,2825.87,kg,78.38,56.38,2027-01-17
+Wayanad Composite Processing LLP,MDF Board Offcuts,3863.28,kg,79.79,24.15,2027-06-02
+Vembanad Composite Recycling Works,MDF Board Offcuts,10307.05,kg,79.37,111.33,2027-07-05
+Bharata Alloy Recovery Systems,MDF Board Offcuts,5009.17,kg,70.71,48.62,2027-06-15
+Vembanad Polymer Resource Recovery,MDF Board Offcuts,7809.99,kg,57.92,80.62,2027-05-01
+Kuttanad Alloy Processing LLP,MDF Board Offcuts,7254.6,kg,65.36,94.19,2027-01-31
+Wayanad Green Recycling Works,MDF Board Offcuts,6860.58,kg,78.81,78.69,2027-07-02
+Arabian Salvage Resource Recovery,MDF Board Offcuts,925.54,kg,73.8,133.46,2027-03-14
+Backwater Timber Circular Industries,MDF Board Offcuts,2252.76,kg,79.23,135.2,2027-04-02
+Periyar Element Reprocessing Ltd,MDF Board Offcuts,2340.66,kg,59.49,123.12,2026-12-17
+Bharata Element Reclamation Co,MDF Board Offcuts,1578.09,kg,68.61,18.83,2026-12-13
+Vembanad Foundry Circular Industries,MDF Board Offcuts,6780.4,kg,66.15,117.56,2027-07-20
+Anamudi Salvage Materials Pvt Ltd,MDF Board Offcuts,3860.62,kg,60.41,43.87,2027-03-28
+Nilgiri Foundry Resource Recovery,MDF Board Offcuts,1671.2,kg,74.11,122.32,2027-07-09
+Anamudi Timber Reclamation Co,MDF Board Offcuts,8874.39,kg,79.68,23.85,2027-01-08
+Bharata Timber Materials Pvt Ltd,MDF Board Offcuts,8686.53,kg,68.4,16.57,2027-04-22
+Western Ghats Green Recovery Systems,MDF Board Offcuts,1497.59,kg,74.47,54.39,2027-02-18
+Periyar Polymer Reprocessing Ltd,MDF Board Offcuts,4323.6,kg,58.64,94.34,2027-06-01
+Malabar Board Reclamation Co,MDF Board Offcuts,6073.73,kg,62.3,36.56,2027-02-11
+Arabian Board Processing LLP,MDF Board Offcuts,3344.46,kg,63.18,138.67,2027-07-26
+Kuttanad Foundry Resource Recovery,MDF Board Offcuts,1694.97,kg,72.59,97.99,2027-07-14
+Periyar Composite Resource Recovery,MDF Board Offcuts,5455.07,kg,72.63,108.86,2027-02-20
+Backwater Board Reclamation Co,Glass Cutting Waste,8099.44,kg,67.29,135.26,2027-06-01
+Backwater Salvage Materials Pvt Ltd,Glass Cutting Waste,6045.2,kg,73.58,36.75,2027-02-26
+Coastal Metals Materials Pvt Ltd,Glass Cutting Waste,2606.49,kg,65.01,109.39,2027-07-26
+Coastal Salvage Resource Recovery,Glass Cutting Waste,750.01,kg,74.34,67.88,2027-06-15
+Nilgiri Fibre Recycling Works,Glass Cutting Waste,1460.06,kg,71.15,44.01,2027-04-19
+Coastal Element Recovery Systems,Glass Cutting Waste,5502.87,kg,71.94,121.86,2027-05-19
+Arabian Polymer Recovery Systems,Glass Cutting Waste,6545.91,kg,57.34,43.78,2027-02-05
+Bharata Salvage Circular Industries,Glass Cutting Waste,4497.3,kg,62.1,124.23,2027-07-04
+Arabian Alloy Reprocessing Ltd,Glass Cutting Waste,1150.02,kg,58.16,50.23,2027-05-28
+Periyar Timber Reclamation Co,Glass Cutting Waste,2548.63,kg,64.96,70.94,2027-06-27
+Chalakudy Salvage Reclamation Co,Glass Cutting Waste,2714.71,kg,65.28,29.76,2027-03-18
+Coastal Element Processing LLP,Glass Cutting Waste,1591.86,kg,68.17,28.64,2027-04-14
+Arabian Board Recycling Works,Glass Cutting Waste,7673.84,kg,76.21,106.43,2027-05-01
+Anamudi Metals Processing LLP,Glass Cutting Waste,7292.0,kg,76.0,31.66,2026-12-25
+Pamba Polymer Circular Industries,Glass Cutting Waste,6699.46,kg,60.83,130.05,2027-01-06
+Anamudi Composite Recovery Systems,Glass Cutting Waste,7325.45,kg,78.3,137.86,2027-04-06
+Anamudi Industrial Reprocessing Ltd,Glass Cutting Waste,3646.07,kg,60.67,109.78,2027-03-09
+Arabian Foundry Processing LLP,Glass Cutting Waste,4823.42,kg,77.89,126.15,2027-04-28
+Southern Metals Recycling Works,Glass Cutting Waste,1330.43,kg,78.52,90.88,2027-02-23
+Nilgiri Salvage Recovery Systems,Glass Cutting Waste,3648.43,kg,57.49,100.25,2027-04-26
+Southern Element Recovery Systems,Glass Cutting Waste,8345.34,kg,56.69,95.91,2027-06-16
+Coastal Foundry Circular Industries,Glass Cutting Waste,7274.01,kg,71.21,110.8,2027-04-06
+Bharata Alloy Processing LLP,Glass Cutting Waste,3144.66,kg,62.73,121.73,2027-04-11
+Arabian Salvage Reclamation Co,Glass Cutting Waste,6569.46,kg,75.49,132.17,2027-03-21
+Western Ghats Alloy Reclamation Co,Glass Cutting Waste,674.59,kg,78.04,17.35,2027-07-26
+Periyar Polymer Recycling Works,Glass Cutting Waste,1054.02,kg,69.58,29.9,2027-01-29
+Bharata Salvage Processing LLP,Glass Cutting Waste,2657.78,kg,73.54,139.03,2026-12-26
+Nilgiri Alloy Resource Recovery,Glass Cutting Waste,1891.01,kg,59.57,139.79,2027-04-06
+Arabian Polymer Circular Industries,Glass Cutting Waste,7925.8,kg,64.72,36.25,2027-06-28
+Anamudi Green Recycling Works,Glass Cutting Waste,7827.39,kg,66.97,76.77,2027-01-19
+Chalakudy Composite Recovery Systems,Rubber Dust,6852.89,kg,74.2,108.88,2027-01-27
+Arabian Metals Reprocessing Ltd,Rubber Dust,866.87,kg,77.27,76.29,2027-04-10
+Periyar Green Recovery Systems,Rubber Dust,1300.61,kg,63.51,84.68,2027-03-19
+Chalakudy Board Resource Recovery,Rubber Dust,4095.84,kg,65.56,64.85,2027-02-19
+Anamudi Fibre Processing LLP,Rubber Dust,10403.11,kg,69.1,137.78,2026-12-17
+Arabian Composite Materials Pvt Ltd,Rubber Dust,5074.61,kg,71.76,104.66,2027-01-19
+Chalakudy Composite Reprocessing Ltd,Rubber Dust,4387.18,kg,78.24,138.4,2027-01-11
+Kuttanad Industrial Processing LLP,Rubber Dust,1987.08,kg,75.8,16.16,2027-06-03
+Bharata Fibre Processing LLP,Rubber Dust,6306.37,kg,66.67,110.84,2027-05-15
+Pamba Industrial Reclamation Co,Rubber Dust,4890.19,kg,72.91,135.28,2027-01-03
+Anamudi Element Processing LLP,Rubber Dust,7604.32,kg,64.25,39.32,2027-04-19
+Chalakudy Polymer Reprocessing Ltd,Rubber Dust,7594.24,kg,57.08,114.22,2027-02-21
+Bharata Fibre Resource Recovery,Rubber Dust,1914.92,kg,62.84,87.88,2027-02-22
+Wayanad Element Materials Pvt Ltd,Rubber Dust,1762.85,kg,69.95,101.57,2027-05-30
+Chalakudy Timber Resource Recovery,Rubber Dust,2741.59,kg,75.17,62.0,2027-07-18
+Southern Green Reclamation Co,Rubber Dust,1098.13,kg,66.9,100.35,2027-04-25
+Vembanad Foundry Materials Pvt Ltd,Rubber Dust,3735.12,kg,63.41,89.78,2027-03-03
+Southern Composite Materials Pvt Ltd,Rubber Dust,6078.27,kg,66.3,109.34,2026-12-04
+Coastal Board Circular Industries,Rubber Dust,8935.08,kg,59.01,120.55,2027-05-27
+Pamba Metals Recovery Systems,Rubber Dust,2487.65,kg,67.44,112.53,2027-02-27
+Periyar Fibre Processing LLP,Rubber Dust,4715.77,kg,61.85,26.82,2027-05-26
+Chalakudy Foundry Reclamation Co,Rubber Dust,7963.89,kg,71.76,135.15,2027-07-05
+Nilgiri Board Circular Industries,Rubber Dust,5414.19,kg,69.2,41.8,2026-12-22
+Malabar Industrial Reprocessing Ltd,Rubber Dust,4973.65,kg,73.98,105.29,2027-03-14
+Nilgiri Green Resource Recovery,Rubber Dust,8313.67,kg,59.03,47.02,2027-01-21
+Anamudi Polymer Recycling Works,Rubber Dust,1244.36,kg,72.15,87.06,2027-02-25
+Bharata Foundry Recycling Works,Rubber Dust,3396.45,kg,66.57,137.39,2027-04-14
+Pamba Fibre Resource Recovery,Rubber Dust,4279.28,kg,73.38,69.59,2027-06-10
+Backwater Element Reprocessing Ltd,Rubber Dust,4818.45,kg,55.51,134.6,2027-05-30
+Coastal Alloy Reprocessing Ltd,Rubber Dust,3404.24,kg,71.2,96.97,2027-01-26
+Pamba Foundry Processing LLP,Plywood Waste,2225.02,kg,58.02,121.49,2027-05-07
+Bharata Foundry Resource Recovery,Plywood Waste,3823.7,kg,59.69,111.12,2027-03-22
+Vembanad Composite Materials Pvt Ltd,Plywood Waste,4073.31,kg,68.05,88.63,2027-05-05
+Anamudi Polymer Materials Pvt Ltd,Plywood Waste,2644.68,kg,78.59,73.85,2027-07-03
+Periyar Alloy Processing LLP,Plywood Waste,7219.4,kg,55.92,76.25,2027-06-03
+Backwater Foundry Circular Industries,Plywood Waste,8332.22,kg,62.6,87.72,2027-02-20
+Wayanad Element Resource Recovery,Plywood Waste,7369.93,kg,79.36,89.48,2027-03-10
+Periyar Timber Reprocessing Ltd,Plywood Waste,2757.69,kg,61.44,133.43,2027-05-20
+Kuttanad Metals Circular Industries,Plywood Waste,4094.37,kg,76.39,30.81,2027-04-27
+Bharata Element Processing LLP,Plywood Waste,8851.77,kg,64.09,96.36,2026-12-28
+Coastal Alloy Materials Pvt Ltd,Plywood Waste,8309.62,kg,71.42,22.63,2027-07-05
+Bharata Industrial Materials Pvt Ltd,Plywood Waste,6158.96,kg,58.2,36.04,2027-07-06
+Kuttanad Timber Recovery Systems,Plywood Waste,5484.75,kg,55.73,42.62,2027-06-03
+Vembanad Board Recovery Systems,Plywood Waste,7143.56,kg,56.01,15.95,2027-02-04
+Periyar Polymer Materials Pvt Ltd,Plywood Waste,1874.88,kg,71.58,39.93,2027-04-06
+Kuttanad Foundry Circular Industries,Plywood Waste,9908.41,kg,73.03,72.42,2027-02-12
+Kuttanad Element Processing LLP,Plywood Waste,4395.32,kg,76.97,41.38,2027-07-17
+Periyar Element Materials Pvt Ltd,Plywood Waste,5350.53,kg,77.49,135.73,2027-05-17
+Kuttanad Board Resource Recovery,Plywood Waste,791.67,kg,68.03,125.84,2026-12-14
+Malabar Timber Circular Industries,Plywood Waste,6106.96,kg,69.83,131.34,2027-07-15
+Kuttanad Metals Processing LLP,Plywood Waste,7405.14,kg,75.52,133.3,2027-07-27
+Malabar Alloy Recycling Works,Plywood Waste,4790.58,kg,64.66,95.68,2027-02-06
+Nilgiri Polymer Materials Pvt Ltd,Plywood Waste,2209.05,kg,57.3,81.85,2027-06-07
+Wayanad Metals Reprocessing Ltd,Plywood Waste,4866.83,kg,58.83,134.78,2027-07-27
+Wayanad Composite Recovery Systems,Plywood Waste,3269.81,kg,56.03,46.15,2027-02-01
+Arabian Foundry Recovery Systems,Plywood Waste,9198.4,kg,64.62,19.26,2027-07-28
+Western Ghats Fibre Reclamation Co,Plywood Waste,6872.95,kg,55.66,90.28,2027-06-15
+Arabian Green Circular Industries,Plywood Waste,4620.48,kg,75.19,115.22,2027-03-01
+Southern Composite Circular Industries,Plywood Waste,2296.26,kg,61.66,61.78,2027-02-16
+Western Ghats Element Reprocessing Ltd,Plywood Waste,1069.48,kg,79.0,137.35,2027-06-01
+Pamba Composite Processing LLP,Aluminium Roll Scrap,1903.29,kg,60.92,70.42,2027-05-23
+Bharata Timber Reprocessing Ltd,Aluminium Roll Scrap,7683.41,kg,56.57,77.23,2027-05-28
+Southern Salvage Materials Pvt Ltd,Aluminium Roll Scrap,8144.41,kg,68.1,68.08,2027-05-15
+Pamba Timber Resource Recovery,Aluminium Roll Scrap,6403.89,kg,72.37,60.61,2027-02-07
+Arabian Alloy Resource Recovery,Aluminium Roll Scrap,7314.75,kg,62.77,107.7,2027-02-27
+Backwater Polymer Resource Recovery,Aluminium Roll Scrap,8759.58,kg,76.73,40.99,2027-01-26
+Coastal Green Resource Recovery,Aluminium Roll Scrap,9088.3,kg,61.17,129.7,2027-04-03
+Wayanad Board Reprocessing Ltd,Aluminium Roll Scrap,6005.25,kg,66.54,62.04,2027-04-05
+Bharata Board Processing LLP,Aluminium Roll Scrap,3266.8,kg,74.02,63.29,2027-07-06
+Southern Green Recovery Systems,Aluminium Roll Scrap,8773.08,kg,62.35,136.95,2027-05-29
+Anamudi Industrial Recovery Systems,Aluminium Roll Scrap,8367.23,kg,55.06,42.29,2027-03-04
+Wayanad Green Processing LLP,Aluminium Roll Scrap,4619.54,kg,70.44,51.14,2027-02-24
+Malabar Element Reprocessing Ltd,Aluminium Roll Scrap,1191.44,kg,69.73,106.88,2027-02-11
+Pamba Fibre Recycling Works,Aluminium Roll Scrap,3652.3,kg,64.28,99.55,2026-12-10
+Backwater Board Materials Pvt Ltd,Aluminium Roll Scrap,1280.63,kg,79.14,66.57,2026-12-05
+Bharata Polymer Resource Recovery,Aluminium Roll Scrap,1752.79,kg,59.79,135.42,2027-05-06
+Western Ghats Green Materials Pvt Ltd,Aluminium Roll Scrap,1012.44,kg,57.58,73.29,2026-12-20
+Pamba Polymer Reclamation Co,Aluminium Roll Scrap,6432.82,kg,59.86,47.02,2027-04-18
+Pamba Fibre Reprocessing Ltd,Aluminium Roll Scrap,4246.5,kg,74.6,32.21,2027-04-05
+Kuttanad Metals Recovery Systems,Aluminium Roll Scrap,5190.68,kg,59.69,37.25,2027-06-18
+Arabian Industrial Recycling Works,Aluminium Roll Scrap,8363.45,kg,72.97,74.22,2027-04-04
+Coastal Industrial Processing LLP,Aluminium Roll Scrap,8002.16,kg,57.58,53.37,2027-01-20
+Malabar Foundry Reclamation Co,Aluminium Roll Scrap,9240.22,kg,77.76,20.92,2027-02-27
+Malabar Composite Circular Industries,Aluminium Roll Scrap,7455.85,kg,60.05,93.26,2026-12-28
+Nilgiri Salvage Reclamation Co,Aluminium Roll Scrap,1366.39,kg,76.05,86.98,2027-07-25
+Wayanad Salvage Recycling Works,Aluminium Roll Scrap,4474.83,kg,68.54,46.75,2027-05-15
+Nilgiri Metals Recycling Works,Aluminium Roll Scrap,1461.88,kg,69.96,74.05,2026-12-04
+Malabar Element Reclamation Co,Aluminium Roll Scrap,2507.42,kg,60.64,40.95,2027-05-11
+Malabar Polymer Processing LLP,Aluminium Roll Scrap,6966.34,kg,71.07,116.82,2027-03-02
+Backwater Salvage Resource Recovery,Aluminium Roll Scrap,3825.78,kg,57.24,61.99,2026-12-03
+Coastal Board Materials Pvt Ltd,Wood Waste,4885.31,kg,68.04,133.11,2027-02-13
+Southern Salvage Recycling Works,Wood Waste,6249.54,kg,68.02,98.83,2027-01-25
+Periyar Metals Processing LLP,Wood Waste,1561.76,kg,60.78,93.15,2027-03-18
+Arabian Green Recovery Systems,Wood Waste,5931.65,kg,68.15,118.04,2027-06-10
+Wayanad Polymer Materials Pvt Ltd,Wood Waste,3843.43,kg,57.73,26.73,2027-05-15
+Southern Foundry Recycling Works,Wood Waste,3757.59,kg,79.9,101.21,2027-07-08
+Western Ghats Industrial Circular Industries,Wood Waste,5098.4,kg,62.96,55.07,2027-05-24
+Malabar Polymer Recycling Works,Wood Waste,6109.67,kg,79.15,105.58,2027-02-13
+Malabar Board Reprocessing Ltd,Wood Waste,2355.14,kg,60.89,60.74,2027-06-16
+Southern Alloy Recovery Systems,Wood Waste,1186.23,kg,61.34,28.54,2027-07-12
+Coastal Timber Reclamation Co,Wood Waste,8751.07,kg,55.05,137.23,2027-01-24
+Arabian Board Resource Recovery,Wood Waste,6578.88,kg,62.22,85.93,2027-05-17
+Nilgiri Salvage Reprocessing Ltd,Wood Waste,1722.18,kg,57.85,104.99,2027-02-25
+Wayanad Fibre Recovery Systems,Wood Waste,8518.31,kg,68.31,75.69,2027-04-09
+Periyar Industrial Materials Pvt Ltd,Wood Waste,8620.58,kg,62.17,34.04,2027-05-10
+Backwater Metals Materials Pvt Ltd,Wood Waste,5946.62,kg,67.26,46.89,2027-05-09
+Southern Industrial Processing LLP,Wood Waste,4904.83,kg,56.29,60.19,2027-04-30
+Periyar Foundry Recycling Works,Wood Waste,5114.35,kg,72.4,43.53,2027-03-05
+Vembanad Metals Recycling Works,Wood Waste,4770.8,kg,61.37,64.94,2027-06-18
+Coastal Polymer Reclamation Co,Wood Waste,8586.02,kg,58.19,67.61,2027-04-30
+Periyar Metals Recovery Systems,Wood Waste,3655.77,kg,68.1,20.56,2027-03-28
+Coastal Timber Recycling Works,Wood Waste,4951.4,kg,69.34,46.03,2027-05-12
+Malabar Metals Recycling Works,Wood Waste,7717.1,kg,67.49,98.64,2027-04-13
+Coastal Polymer Processing LLP,Wood Waste,6217.2,kg,65.61,92.08,2027-04-04
+Coastal Foundry Materials Pvt Ltd,Wood Waste,9463.77,kg,58.83,121.84,2027-02-26
+Anamudi Salvage Resource Recovery,Wood Waste,2297.8,kg,72.47,127.86,2026-12-27
+Backwater Metals Reclamation Co,Wood Waste,6890.57,kg,79.87,52.43,2027-06-26
+Vembanad Timber Reclamation Co,Wood Waste,7945.19,kg,69.39,114.7,2027-04-28
+Wayanad Salvage Recovery Systems,Wood Waste,1530.46,kg,76.95,73.19,2027-04-22
+Bharata Metals Materials Pvt Ltd,Wood Waste,8737.17,kg,57.27,98.1,2027-02-10
+Malabar Timber Materials Pvt Ltd,Plastic Scrap,720.65,kg,67.5,48.55,2027-07-23
+Bharata Timber Reclamation Co,Plastic Scrap,6247.68,kg,71.92,81.83,2027-02-25
+Nilgiri Industrial Recovery Systems,Plastic Scrap,7052.31,kg,68.53,127.68,2026-12-05
+Anamudi Salvage Recycling Works,Plastic Scrap,8041.08,kg,71.03,38.87,2027-06-11
+Vembanad Polymer Processing LLP,Plastic Scrap,4081.19,kg,59.68,112.16,2027-03-09
+Vembanad Foundry Resource Recovery,Plastic Scrap,3081.18,kg,61.96,117.6,2027-02-02
+Vembanad Timber Materials Pvt Ltd,Plastic Scrap,2853.94,kg,63.52,54.1,2027-06-30
+Vembanad Fibre Reclamation Co,Plastic Scrap,5114.17,kg,55.73,137.04,2027-03-25
+Chalakudy Alloy Circular Industries,Plastic Scrap,1924.25,kg,66.15,134.28,2027-05-22
+Bharata Metals Resource Recovery,Plastic Scrap,1688.78,kg,69.38,77.37,2027-02-28
+Anamudi Foundry Resource Recovery,Plastic Scrap,5127.44,kg,58.46,26.4,2027-04-07
+Vembanad Metals Circular Industries,Plastic Scrap,2468.49,kg,76.61,16.71,2026-12-02
+Backwater Timber Materials Pvt Ltd,Plastic Scrap,9201.62,kg,75.75,134.57,2027-04-09
+Arabian Metals Circular Industries,Plastic Scrap,4273.46,kg,70.41,56.74,2027-04-02
+Malabar Green Recovery Systems,Plastic Scrap,5795.7,kg,79.43,60.43,2027-07-23
+Periyar Metals Reprocessing Ltd,Plastic Scrap,7789.96,kg,64.69,64.2,2027-02-24
+Nilgiri Composite Reclamation Co,Plastic Scrap,7787.94,kg,59.43,116.18,2027-07-16
+Coastal Fibre Recovery Systems,Plastic Scrap,5430.76,kg,63.09,26.67,2027-07-23
+Southern Polymer Recycling Works,Plastic Scrap,4287.47,kg,76.71,135.4,2027-01-18
+Southern Timber Materials Pvt Ltd,Plastic Scrap,6341.79,kg,55.83,88.55,2027-03-30
+Western Ghats Polymer Reclamation Co,Plastic Scrap,7172.79,kg,72.34,29.29,2027-03-31
+Periyar Green Circular Industries,Plastic Scrap,10465.24,kg,74.85,50.42,2027-05-14
+Malabar Alloy Reclamation Co,Plastic Scrap,7963.25,kg,70.52,38.78,2027-01-21
+Vembanad Polymer Circular Industries,Plastic Scrap,2232.17,kg,68.89,41.45,2027-06-30
+Periyar Foundry Recovery Systems,Plastic Scrap,1389.88,kg,72.06,95.71,2027-02-07
+Anamudi Metals Materials Pvt Ltd,Plastic Scrap,5252.64,kg,78.45,38.08,2027-06-12
+Western Ghats Polymer Recycling Works,Plastic Scrap,6954.31,kg,66.16,43.28,2027-06-09
+Periyar Timber Processing LLP,Plastic Scrap,4580.96,kg,74.35,48.34,2026-12-14
+Vembanad Timber Recovery Systems,Plastic Scrap,2120.36,kg,63.39,138.0,2027-06-14
+Anamudi Board Reclamation Co,Plastic Scrap,6400.74,kg,71.53,115.68,2027-05-14
+Wayanad Alloy Reprocessing Ltd,Mixed Recyclable Waste,2065.54,kg,64.74,37.54,2027-07-02
+Bharata Board Recycling Works,Mixed Recyclable Waste,6517.87,kg,62.44,107.58,2027-07-04
+Nilgiri Board Resource Recovery,Mixed Recyclable Waste,2342.45,kg,71.15,132.17,2027-06-10
+Bharata Green Reprocessing Ltd,Mixed Recyclable Waste,5367.22,kg,56.09,39.54,2026-12-15
+Coastal Metals Recovery Systems,Mixed Recyclable Waste,5447.04,kg,63.47,79.34,2027-03-20
+Coastal Metals Recycling Works,Mixed Recyclable Waste,2768.02,kg,63.13,38.21,2027-02-28
+Pamba Element Processing LLP,Mixed Recyclable Waste,7541.45,kg,78.04,61.49,2027-04-15
+Coastal Composite Materials Pvt Ltd,Mixed Recyclable Waste,3077.88,kg,65.76,114.01,2027-04-24
+Vembanad Salvage Materials Pvt Ltd,Mixed Recyclable Waste,6315.09,kg,75.82,130.71,2027-06-17
+Periyar Composite Circular Industries,Mixed Recyclable Waste,1852.77,kg,68.83,47.85,2027-01-04
+Western Ghats Foundry Recovery Systems,Mixed Recyclable Waste,8353.56,kg,77.54,25.32,2027-03-27
+Anamudi Salvage Reprocessing Ltd,Mixed Recyclable Waste,3086.86,kg,63.38,85.57,2026-12-17
+Nilgiri Timber Reclamation Co,Mixed Recyclable Waste,5955.29,kg,74.65,26.19,2027-06-26
+Malabar Timber Recovery Systems,Mixed Recyclable Waste,3782.65,kg,60.06,96.46,2027-05-30
+Kuttanad Timber Recycling Works,Mixed Recyclable Waste,2903.19,kg,71.09,78.34,2027-02-26
+Vembanad Metals Recovery Systems,Mixed Recyclable Waste,1995.03,kg,76.38,32.36,2026-12-17
+Coastal Alloy Resource Recovery,Mixed Recyclable Waste,2952.96,kg,59.0,30.3,2027-01-31
+Periyar Foundry Processing LLP,Mixed Recyclable Waste,8561.87,kg,78.78,45.48,2027-06-09
+Wayanad Alloy Recovery Systems,Mixed Recyclable Waste,5058.95,kg,59.84,89.81,2027-07-03
+Chalakudy Board Reprocessing Ltd,Mixed Recyclable Waste,2919.99,kg,67.16,32.51,2027-07-20
+Chalakudy Salvage Processing LLP,Mixed Recyclable Waste,9509.03,kg,57.76,121.43,2027-02-04
+Chalakudy Salvage Resource Recovery,Mixed Recyclable Waste,4926.82,kg,72.39,46.91,2026-12-30
+Southern Fibre Circular Industries,Mixed Recyclable Waste,4485.57,kg,73.69,88.97,2027-04-28
+Chalakudy Alloy Reprocessing Ltd,Mixed Recyclable Waste,5048.47,kg,67.23,23.42,2027-03-07
+Arabian Alloy Materials Pvt Ltd,Mixed Recyclable Waste,9066.66,kg,74.16,50.5,2027-03-05
+Periyar Board Circular Industries,Mixed Recyclable Waste,1740.72,kg,57.6,88.15,2027-01-16
+Southern Composite Resource Recovery,Mixed Recyclable Waste,597.0,kg,60.04,19.08,2027-01-26
+Periyar Timber Resource Recovery,Mixed Recyclable Waste,1023.46,kg,60.77,62.91,2027-05-16
+Southern Fibre Processing LLP,Mixed Recyclable Waste,3395.74,kg,55.3,101.22,2027-02-22
+Periyar Element Circular Industries,Mixed Recyclable Waste,7720.56,kg,55.33,71.55,2026-12-10
+Periyar Industrial Recovery Systems,Aerospace Metal Scrap,2831.56,kg,77.31,83.84,2027-04-25
+Coastal Composite Recovery Systems,Aerospace Metal Scrap,2207.26,kg,68.09,62.5,2027-02-21
+Bharata Polymer Processing LLP,Aerospace Metal Scrap,2775.36,kg,61.02,138.46,2027-06-08
+Bharata Fibre Recovery Systems,Aerospace Metal Scrap,3919.3,kg,77.54,122.73,2027-04-16
+Vembanad Composite Reclamation Co,Aerospace Metal Scrap,3700.44,kg,64.76,103.6,2027-01-29
+Coastal Polymer Recovery Systems,Aerospace Metal Scrap,5520.92,kg,74.4,28.08,2027-05-13
+Chalakudy Industrial Recycling Works,Aerospace Metal Scrap,1928.75,kg,73.22,34.42,2027-01-03
+Chalakudy Industrial Reprocessing Ltd,Aerospace Metal Scrap,1314.89,kg,67.22,50.37,2027-05-11
+Southern Foundry Reprocessing Ltd,Aerospace Metal Scrap,4685.77,kg,75.41,78.7,2027-06-26
+Periyar Composite Reprocessing Ltd,Aerospace Metal Scrap,762.74,kg,63.51,52.43,2027-04-04
+Vembanad Board Resource Recovery,Aerospace Metal Scrap,3246.31,kg,69.5,115.62,2027-02-15
+Backwater Salvage Processing LLP,Aerospace Metal Scrap,1545.81,kg,58.04,54.37,2027-04-01
+Pamba Fibre Processing LLP,Aerospace Metal Scrap,6954.55,kg,67.56,108.97,2027-06-19
+Nilgiri Industrial Reprocessing Ltd,Aerospace Metal Scrap,7202.16,kg,64.34,68.67,2027-07-13
+Nilgiri Alloy Reprocessing Ltd,Aerospace Metal Scrap,1556.12,kg,55.54,59.59,2027-05-01
+Chalakudy Green Resource Recovery,Aerospace Metal Scrap,1410.99,kg,63.63,39.83,2027-05-01
+Coastal Foundry Reclamation Co,Aerospace Metal Scrap,2327.01,kg,65.14,45.1,2026-12-20
+Southern Industrial Recycling Works,Aerospace Metal Scrap,2253.66,kg,78.71,47.28,2027-03-22
+Kuttanad Timber Resource Recovery,Aerospace Metal Scrap,4891.17,kg,79.61,48.81,2027-05-10
+Western Ghats Timber Processing LLP,Aerospace Metal Scrap,2380.24,kg,75.06,92.1,2027-02-16
+Vembanad Metals Materials Pvt Ltd,Aerospace Metal Scrap,2452.23,kg,60.84,97.45,2027-01-15
+Pamba Board Recovery Systems,Aerospace Metal Scrap,7585.51,kg,61.61,105.47,2027-07-02
+Nilgiri Metals Reclamation Co,Aerospace Metal Scrap,3999.17,kg,59.36,116.66,2027-05-15
+Malabar Composite Reprocessing Ltd,Aerospace Metal Scrap,7734.63,kg,56.21,105.22,2027-06-10
+Pamba Board Processing LLP,Aerospace Metal Scrap,5561.44,kg,68.73,29.8,2027-06-30
+Southern Alloy Circular Industries,Aerospace Metal Scrap,2541.85,kg,62.12,124.79,2027-03-02
+Kuttanad Element Circular Industries,Aerospace Metal Scrap,7902.28,kg,62.36,41.2,2027-06-14
+Vembanad Board Processing LLP,Aerospace Metal Scrap,5323.81,kg,57.32,76.37,2027-04-05
+Backwater Salvage Reclamation Co,Aerospace Metal Scrap,6460.17,kg,64.37,76.21,2027-02-09
+Western Ghats Salvage Materials Pvt Ltd,Aerospace Metal Scrap,1325.07,kg,74.2,135.72,2027-06-20
+Backwater Industrial Reprocessing Ltd,Plastic Packaging Waste,5766.69,kg,60.5,111.03,2027-05-27
+Western Ghats Green Resource Recovery,Plastic Packaging Waste,5621.65,kg,59.9,138.59,2027-03-01
+Wayanad Polymer Circular Industries,Plastic Packaging Waste,7251.15,kg,76.36,119.3,2027-02-06
+Chalakudy Foundry Materials Pvt Ltd,Plastic Packaging Waste,1221.5,kg,71.29,42.08,2027-04-05
+Pamba Composite Recycling Works,Plastic Packaging Waste,5756.47,kg,74.6,108.27,2026-12-23
+Anamudi Alloy Resource Recovery,Plastic Packaging Waste,9023.22,kg,76.57,39.74,2026-12-02
+Anamudi Industrial Recycling Works,Plastic Packaging Waste,1637.58,kg,57.66,129.57,2027-06-08
+Wayanad Metals Materials Pvt Ltd,Plastic Packaging Waste,3871.95,kg,79.23,34.04,2027-01-11
+Bharata Alloy Reclamation Co,Plastic Packaging Waste,10578.77,kg,68.18,123.34,2026-12-27
+Nilgiri Composite Materials Pvt Ltd,Plastic Packaging Waste,7950.27,kg,76.56,99.83,2027-05-07
+Backwater Alloy Reprocessing Ltd,Plastic Packaging Waste,1844.82,kg,79.02,40.19,2027-06-01
+Western Ghats Metals Resource Recovery,Plastic Packaging Waste,3937.61,kg,71.83,82.18,2027-01-14
+Periyar Fibre Reprocessing Ltd,Plastic Packaging Waste,5199.34,kg,55.14,102.34,2027-02-15
+Malabar Metals Processing LLP,Plastic Packaging Waste,7055.77,kg,58.63,63.43,2027-06-17
+Chalakudy Composite Circular Industries,Plastic Packaging Waste,6484.26,kg,78.23,21.91,2027-06-28
+Periyar Fibre Circular Industries,Plastic Packaging Waste,9926.14,kg,63.03,46.47,2027-03-14
+Backwater Board Recovery Systems,Plastic Packaging Waste,8022.71,kg,68.81,131.67,2027-07-13
+Western Ghats Composite Circular Industries,Plastic Packaging Waste,8356.67,kg,76.86,122.29,2027-07-25
+Southern Board Materials Pvt Ltd,Plastic Packaging Waste,8824.33,kg,63.02,74.99,2027-03-04
+Arabian Element Materials Pvt Ltd,Plastic Packaging Waste,10551.66,kg,74.63,139.43,2027-06-18
+Malabar Green Resource Recovery,Plastic Packaging Waste,3670.8,kg,72.83,128.26,2027-01-17
+Backwater Polymer Recovery Systems,Plastic Packaging Waste,1445.22,kg,58.24,18.77,2026-12-28
+Vembanad Industrial Resource Recovery,Plastic Packaging Waste,1209.11,kg,69.36,112.52,2027-03-03
+Southern Composite Reprocessing Ltd,Plastic Packaging Waste,2139.06,kg,70.16,138.21,2027-03-15
+Bharata Polymer Circular Industries,Plastic Packaging Waste,6933.07,kg,63.81,64.18,2027-03-21
+Western Ghats Foundry Reclamation Co,Plastic Packaging Waste,3742.28,kg,69.46,15.03,2027-02-02
+Nilgiri Composite Resource Recovery,Plastic Packaging Waste,5448.64,kg,59.71,131.54,2027-05-29
+Nilgiri Timber Processing LLP,Plastic Packaging Waste,4014.5,kg,55.97,44.0,2027-02-25
+Southern Board Recycling Works,Plastic Packaging Waste,6737.75,kg,79.41,111.01,2027-02-03
+Wayanad Board Processing LLP,Plastic Packaging Waste,6403.66,kg,78.49,23.76,2027-01-03
+Vembanad Salvage Reclamation Co,Metal Waste,4069.41,kg,73.37,22.36,2027-05-15
+Wayanad Industrial Reprocessing Ltd,Metal Waste,2434.23,kg,69.98,86.73,2026-12-31
+Vembanad Green Recycling Works,Metal Waste,5835.02,kg,58.07,116.53,2027-01-12
+Chalakudy Element Recovery Systems,Metal Waste,5118.49,kg,71.65,68.66,2027-05-12
+Backwater Foundry Materials Pvt Ltd,Metal Waste,5329.75,kg,55.31,87.25,2027-03-05
+Coastal Industrial Recovery Systems,Metal Waste,6760.82,kg,60.93,103.21,2027-06-02
+Coastal Foundry Processing LLP,Metal Waste,9552.84,kg,59.55,116.09,2027-03-11
+Western Ghats Board Reclamation Co,Metal Waste,3295.77,kg,63.8,63.48,2026-12-17
+Southern Fibre Recycling Works,Metal Waste,6348.17,kg,71.51,61.19,2027-03-22
+Anamudi Element Reclamation Co,Metal Waste,3667.16,kg,68.36,79.19,2027-05-24
+Malabar Green Materials Pvt Ltd,Metal Waste,7944.31,kg,72.98,54.16,2027-07-09
+Malabar Fibre Recycling Works,Metal Waste,2358.32,kg,56.45,43.91,2027-02-09
+Malabar Foundry Recovery Systems,Metal Waste,2810.75,kg,73.97,61.03,2027-01-24
+Kuttanad Salvage Resource Recovery,Metal Waste,3465.37,kg,67.2,62.03,2027-01-20
+Malabar Green Reclamation Co,Metal Waste,5656.16,kg,58.89,105.67,2027-02-17
+Western Ghats Fibre Processing LLP,Metal Waste,10172.93,kg,58.28,86.54,2027-03-24
+Vembanad Foundry Processing LLP,Metal Waste,3044.6,kg,56.44,36.14,2027-02-02
+Pamba Industrial Processing LLP,Metal Waste,6047.36,kg,59.26,106.69,2027-03-15
+Vembanad Element Circular Industries,Metal Waste,3416.17,kg,59.67,33.31,2027-07-23
+Western Ghats Composite Materials Pvt Ltd,Metal Waste,3648.08,kg,66.93,73.72,2027-06-10
+Nilgiri Foundry Reclamation Co,Metal Waste,2286.22,kg,72.44,97.63,2027-03-06
+Chalakudy Alloy Materials Pvt Ltd,Metal Waste,4943.05,kg,79.85,91.02,2027-01-07
+Vembanad Salvage Circular Industries,Metal Waste,10013.23,kg,56.72,49.63,2026-12-22
+Nilgiri Foundry Recycling Works,Metal Waste,7444.43,kg,65.8,71.32,2027-04-02
+Pamba Element Resource Recovery,Metal Waste,7767.68,kg,75.44,41.34,2027-06-09
+Chalakudy Fibre Circular Industries,Metal Waste,11450.95,kg,59.52,108.13,2027-01-27
+Malabar Metals Recovery Systems,Metal Waste,4166.51,kg,65.72,18.63,2027-03-13
+Backwater Board Reprocessing Ltd,Metal Waste,3789.76,kg,62.93,110.47,2027-02-12
+Bharata Fibre Reprocessing Ltd,Metal Waste,6725.43,kg,67.9,137.52,2027-07-02
+Coastal Green Recovery Systems,Metal Waste,6367.4,kg,70.38,114.95,2027-02-08
+Nilgiri Alloy Recovery Systems,Metal Offcuts,7673.96,kg,70.72,29.13,2027-07-09
+Arabian Salvage Reprocessing Ltd,Metal Offcuts,7256.94,kg,61.75,29.99,2027-06-19
+Anamudi Board Resource Recovery,Metal Offcuts,11609.62,kg,56.62,94.07,2027-01-26
+Pamba Alloy Reclamation Co,Metal Offcuts,7202.35,kg,62.96,116.88,2027-01-28
+Southern Board Reclamation Co,Metal Offcuts,4544.35,kg,74.11,42.01,2026-12-13
+Periyar Metals Recycling Works,Metal Offcuts,4301.17,kg,59.29,107.69,2027-02-14
+Anamudi Foundry Reprocessing Ltd,Metal Offcuts,2387.81,kg,69.95,59.0,2027-04-09
+Kuttanad Industrial Circular Industries,Metal Offcuts,1772.33,kg,76.24,48.22,2027-05-31
+Pamba Polymer Processing LLP,Metal Offcuts,933.67,kg,58.16,93.44,2027-01-11
+Nilgiri Salvage Recycling Works,Metal Offcuts,1108.26,kg,62.34,42.19,2027-06-10
+Malabar Board Circular Industries,Metal Offcuts,956.51,kg,73.2,46.62,2027-07-04
+Pamba Metals Materials Pvt Ltd,Metal Offcuts,1704.02,kg,61.53,121.79,2027-02-07
+Wayanad Element Recycling Works,Metal Offcuts,8560.57,kg,63.97,17.96,2027-07-02
+Wayanad Element Processing LLP,Metal Offcuts,6049.55,kg,66.9,61.67,2027-04-04
+Pamba Metals Recycling Works,Metal Offcuts,6570.6,kg,60.7,28.15,2027-06-29
+Chalakudy Timber Circular Industries,Metal Offcuts,8097.58,kg,64.84,30.46,2027-06-18
+Southern Element Recycling Works,Metal Offcuts,6588.59,kg,62.29,58.1,2026-12-15
+Anamudi Metals Recycling Works,Metal Offcuts,7662.99,kg,57.33,95.77,2027-02-12
+Anamudi Green Resource Recovery,Metal Offcuts,9039.45,kg,73.09,100.69,2027-03-09
+Arabian Industrial Circular Industries,Metal Offcuts,6607.08,kg,58.1,42.4,2027-04-27
+Southern Polymer Reprocessing Ltd,Metal Offcuts,1797.38,kg,79.87,84.35,2027-05-19
+Wayanad Element Recovery Systems,Metal Offcuts,3072.04,kg,68.46,108.76,2026-12-06
+Periyar Timber Materials Pvt Ltd,Metal Offcuts,6284.42,kg,79.75,63.02,2027-05-16
+Wayanad Industrial Recycling Works,Metal Offcuts,1550.9,kg,69.12,59.15,2027-03-30
+Kuttanad Timber Reclamation Co,Metal Offcuts,1331.0,kg,79.43,139.47,2027-05-03
+Bharata Element Resource Recovery,Metal Offcuts,3678.05,kg,72.64,37.72,2027-01-18
+Pamba Timber Recycling Works,Metal Offcuts,9192.65,kg,61.65,112.02,2026-12-28
+Bharata Composite Recovery Systems,Metal Offcuts,5485.67,kg,75.99,106.96,2027-04-05
+Nilgiri Fibre Recovery Systems,Metal Offcuts,679.62,kg,75.06,66.22,2027-01-30
+Malabar Fibre Reclamation Co,Metal Offcuts,5945.64,kg,60.68,77.33,2027-03-22
+Pamba Fibre Circular Industries,MDF Board Offcuts,2901.19,kg,55.42,68.29,2027-01-26
+Chalakudy Board Recycling Works,MDF Board Offcuts,4116.25,kg,55.62,88.53,2027-07-21
+Vembanad Green Processing LLP,MDF Board Offcuts,8166.42,kg,74.84,115.05,2027-02-15
+Periyar Composite Materials Pvt Ltd,MDF Board Offcuts,5458.22,kg,71.44,22.59,2027-03-31
+Anamudi Polymer Processing LLP,MDF Board Offcuts,2030.49,kg,59.53,132.67,2027-01-06
+Bharata Industrial Reprocessing Ltd,MDF Board Offcuts,5191.63,kg,55.55,104.51,2026-12-27
+Coastal Green Reprocessing Ltd,MDF Board Offcuts,2458.75,kg,76.32,61.25,2027-01-25
+Wayanad Alloy Circular Industries,MDF Board Offcuts,1035.73,kg,76.58,65.45,2027-04-04
+Backwater Metals Processing LLP,MDF Board Offcuts,3011.44,kg,78.38,56.38,2027-02-13
+Wayanad Composite Processing LLP,MDF Board Offcuts,3916.94,kg,79.79,24.15,2027-03-08
+Vembanad Composite Recycling Works,MDF Board Offcuts,10138.36,kg,79.37,111.33,2026-12-14
+Bharata Alloy Recovery Systems,MDF Board Offcuts,5838.62,kg,70.71,48.62,2027-03-06
+Vembanad Polymer Resource Recovery,MDF Board Offcuts,8358.02,kg,57.92,80.62,2026-12-30
+Kuttanad Alloy Processing LLP,MDF Board Offcuts,7439.06,kg,65.36,94.19,2027-07-03
+Wayanad Green Recycling Works,MDF Board Offcuts,5923.14,kg,78.81,78.69,2027-06-23
+Arabian Salvage Resource Recovery,MDF Board Offcuts,777.56,kg,73.8,133.46,2027-06-08
+Backwater Timber Circular Industries,MDF Board Offcuts,1958.41,kg,79.23,135.2,2027-02-22
+Periyar Element Reprocessing Ltd,MDF Board Offcuts,2198.38,kg,59.49,123.12,2027-07-14
+Bharata Element Reclamation Co,MDF Board Offcuts,1350.25,kg,68.61,18.83,2027-07-22
+Vembanad Foundry Circular Industries,MDF Board Offcuts,5519.18,kg,66.15,117.56,2027-03-17
+Anamudi Salvage Materials Pvt Ltd,MDF Board Offcuts,4097.31,kg,60.41,43.87,2027-03-14
+Nilgiri Foundry Resource Recovery,MDF Board Offcuts,1608.5,kg,74.11,122.32,2027-06-25
+Anamudi Timber Reclamation Co,MDF Board Offcuts,8414.45,kg,79.68,23.85,2027-04-23
+Bharata Timber Materials Pvt Ltd,MDF Board Offcuts,6997.66,kg,68.4,16.57,2027-03-16
+Western Ghats Green Recovery Systems,MDF Board Offcuts,1661.62,kg,74.47,54.39,2027-03-02
+Periyar Polymer Reprocessing Ltd,MDF Board Offcuts,4933.2,kg,58.64,94.34,2027-04-28
+Malabar Board Reclamation Co,MDF Board Offcuts,6584.88,kg,62.3,36.56,2026-12-27
+Arabian Board Processing LLP,MDF Board Offcuts,3587.04,kg,63.18,138.67,2027-07-18
+Kuttanad Foundry Resource Recovery,MDF Board Offcuts,1748.51,kg,72.59,97.99,2027-05-21
+Periyar Composite Resource Recovery,MDF Board Offcuts,4860.17,kg,72.63,108.86,2027-01-18
+Backwater Board Reclamation Co,Glass Cutting Waste,8883.79,kg,67.29,135.26,2027-05-01
+Backwater Salvage Materials Pvt Ltd,Glass Cutting Waste,6516.34,kg,73.58,36.75,2027-03-05
+Coastal Metals Materials Pvt Ltd,Glass Cutting Waste,2713.69,kg,65.01,109.39,2027-03-14
+Coastal Salvage Resource Recovery,Glass Cutting Waste,898.5,kg,74.34,67.88,2026-12-28
+Nilgiri Fibre Recycling Works,Glass Cutting Waste,1590.3,kg,71.15,44.01,2027-06-25
+Coastal Element Recovery Systems,Glass Cutting Waste,6360.9,kg,71.94,121.86,2027-01-08
+Arabian Polymer Recovery Systems,Glass Cutting Waste,5926.99,kg,57.34,43.78,2027-07-04
+Bharata Salvage Circular Industries,Glass Cutting Waste,4237.28,kg,62.1,124.23,2027-06-24
+Arabian Alloy Reprocessing Ltd,Glass Cutting Waste,1136.78,kg,58.16,50.23,2027-01-29
+Periyar Timber Reclamation Co,Glass Cutting Waste,2684.22,kg,64.96,70.94,2027-07-14
+Chalakudy Salvage Reclamation Co,Glass Cutting Waste,2772.4,kg,65.28,29.76,2027-05-28
+Coastal Element Processing LLP,Glass Cutting Waste,1878.7,kg,68.17,28.64,2027-01-15
+Arabian Board Recycling Works,Glass Cutting Waste,8047.14,kg,76.21,106.43,2027-04-29
+Anamudi Metals Processing LLP,Glass Cutting Waste,5987.72,kg,76.0,31.66,2027-01-19
+Pamba Polymer Circular Industries,Glass Cutting Waste,7260.19,kg,60.83,130.05,2026-11-30
+Anamudi Composite Recovery Systems,Glass Cutting Waste,6623.9,kg,78.3,137.86,2027-03-11
+Anamudi Industrial Reprocessing Ltd,Glass Cutting Waste,4156.1,kg,60.67,109.78,2027-06-01
+Arabian Foundry Processing LLP,Glass Cutting Waste,5469.79,kg,77.89,126.15,2026-12-01
+Southern Metals Recycling Works,Glass Cutting Waste,1194.03,kg,78.52,90.88,2027-07-16
+Nilgiri Salvage Recovery Systems,Glass Cutting Waste,3398.2,kg,57.49,100.25,2027-01-23
+Southern Element Recovery Systems,Glass Cutting Waste,7323.78,kg,56.69,95.91,2027-04-14
+Coastal Foundry Circular Industries,Glass Cutting Waste,7824.49,kg,71.21,110.8,2026-12-10
+Bharata Alloy Processing LLP,Glass Cutting Waste,3352.86,kg,62.73,121.73,2027-03-29
+Arabian Salvage Reclamation Co,Glass Cutting Waste,5532.4,kg,75.49,132.17,2027-07-18
+Western Ghats Alloy Reclamation Co,Glass Cutting Waste,793.23,kg,78.04,17.35,2027-03-30
+Periyar Polymer Recycling Works,Glass Cutting Waste,1059.79,kg,69.58,29.9,2027-06-03
+Bharata Salvage Processing LLP,Glass Cutting Waste,2242.84,kg,73.54,139.03,2027-05-25
+Nilgiri Alloy Resource Recovery,Glass Cutting Waste,1791.89,kg,59.57,139.79,2027-07-13
+Arabian Polymer Circular Industries,Glass Cutting Waste,8332.58,kg,64.72,36.25,2026-12-19
+Anamudi Green Recycling Works,Glass Cutting Waste,7031.57,kg,66.97,76.77,2027-06-22
+Chalakudy Composite Recovery Systems,Rubber Dust,5882.5,kg,74.2,108.88,2026-12-26
+Arabian Metals Reprocessing Ltd,Rubber Dust,781.47,kg,77.27,76.29,2027-07-27
+Periyar Green Recovery Systems,Rubber Dust,1391.62,kg,63.51,84.68,2027-07-12
+Chalakudy Board Resource Recovery,Rubber Dust,4426.89,kg,65.56,64.85,2027-04-13
+Anamudi Fibre Processing LLP,Rubber Dust,9212.67,kg,69.1,137.78,2027-01-27
+Arabian Composite Materials Pvt Ltd,Rubber Dust,5733.78,kg,71.76,104.66,2027-03-06
+Chalakudy Composite Reprocessing Ltd,Rubber Dust,4429.6,kg,78.24,138.4,2027-06-26
+Kuttanad Industrial Processing LLP,Rubber Dust,2060.73,kg,75.8,16.16,2027-06-14
+Bharata Fibre Processing LLP,Rubber Dust,6282.11,kg,66.67,110.84,2027-02-02
+Pamba Industrial Reclamation Co,Rubber Dust,5762.88,kg,72.91,135.28,2027-02-11
+Anamudi Element Processing LLP,Rubber Dust,8920.18,kg,64.25,39.32,2027-04-30
+Chalakudy Polymer Reprocessing Ltd,Rubber Dust,6876.51,kg,57.08,114.22,2027-03-23
+Bharata Fibre Resource Recovery,Rubber Dust,1792.3,kg,62.84,87.88,2027-05-15
+Wayanad Element Materials Pvt Ltd,Rubber Dust,1527.94,kg,69.95,101.57,2027-04-03
+Chalakudy Timber Resource Recovery,Rubber Dust,2331.33,kg,75.17,62.0,2026-12-30
+Southern Green Reclamation Co,Rubber Dust,1030.17,kg,66.9,100.35,2027-06-16
+Vembanad Foundry Materials Pvt Ltd,Rubber Dust,3018.86,kg,63.41,89.78,2027-06-21
+Southern Composite Materials Pvt Ltd,Rubber Dust,5336.1,kg,66.3,109.34,2027-02-05
+Coastal Board Circular Industries,Rubber Dust,7525.82,kg,59.01,120.55,2027-02-10
+Pamba Metals Recovery Systems,Rubber Dust,2675.82,kg,67.44,112.53,2027-04-23
+Periyar Fibre Processing LLP,Rubber Dust,4989.92,kg,61.85,26.82,2027-02-11
+Chalakudy Foundry Reclamation Co,Rubber Dust,6557.12,kg,71.76,135.15,2027-02-20
+Nilgiri Board Circular Industries,Rubber Dust,6467.14,kg,69.2,41.8,2027-05-31
+Malabar Industrial Reprocessing Ltd,Rubber Dust,5776.77,kg,73.98,105.29,2027-04-05
+Nilgiri Green Resource Recovery,Rubber Dust,7930.98,kg,59.03,47.02,2027-03-15
+Anamudi Polymer Recycling Works,Rubber Dust,1158.25,kg,72.15,87.06,2026-12-16
+Bharata Foundry Recycling Works,Rubber Dust,3128.16,kg,66.57,137.39,2027-04-18
+Pamba Fibre Resource Recovery,Rubber Dust,3834.27,kg,73.38,69.59,2027-07-02
+Backwater Element Reprocessing Ltd,Rubber Dust,4809.58,kg,55.51,134.6,2027-04-28
+Coastal Alloy Reprocessing Ltd,Rubber Dust,2958.86,kg,71.2,96.97,2027-06-18
+Pamba Foundry Processing LLP,Plywood Waste,2558.85,kg,58.02,121.49,2027-01-06
+Bharata Foundry Resource Recovery,Plywood Waste,3757.99,kg,59.69,111.12,2027-04-07
+Vembanad Composite Materials Pvt Ltd,Plywood Waste,4304.57,kg,68.05,88.63,2027-06-07
+Anamudi Polymer Materials Pvt Ltd,Plywood Waste,2946.7,kg,78.59,73.85,2027-04-24
+Periyar Alloy Processing LLP,Plywood Waste,7537.12,kg,55.92,76.25,2027-03-26
+Backwater Foundry Circular Industries,Plywood Waste,8209.08,kg,62.6,87.72,2027-06-26
+Wayanad Element Resource Recovery,Plywood Waste,6836.47,kg,79.36,89.48,2027-05-28
+Periyar Timber Reprocessing Ltd,Plywood Waste,3264.73,kg,61.44,133.43,2027-06-15
+Kuttanad Metals Circular Industries,Plywood Waste,4406.29,kg,76.39,30.81,2027-06-03
+Bharata Element Processing LLP,Plywood Waste,8256.67,kg,64.09,96.36,2027-07-09
+Coastal Alloy Materials Pvt Ltd,Plywood Waste,9703.02,kg,71.42,22.63,2026-12-10
+Bharata Industrial Materials Pvt Ltd,Plywood Waste,6319.48,kg,58.2,36.04,2027-06-09
+Kuttanad Timber Recovery Systems,Plywood Waste,6484.3,kg,55.73,42.62,2027-04-10
+Vembanad Board Recovery Systems,Plywood Waste,7386.19,kg,56.01,15.95,2027-05-19
+Periyar Polymer Materials Pvt Ltd,Plywood Waste,1739.27,kg,71.58,39.93,2027-04-05
+Kuttanad Foundry Circular Industries,Plywood Waste,8139.8,kg,73.03,72.42,2026-12-22
+Kuttanad Element Processing LLP,Plywood Waste,4010.21,kg,76.97,41.38,2027-06-30
+Periyar Element Materials Pvt Ltd,Plywood Waste,4543.75,kg,77.49,135.73,2027-01-09
+Kuttanad Board Resource Recovery,Plywood Waste,880.49,kg,68.03,125.84,2027-05-30
+Malabar Timber Circular Industries,Plywood Waste,5886.88,kg,69.83,131.34,2027-06-08
+Kuttanad Metals Processing LLP,Plywood Waste,7582.64,kg,75.52,133.3,2027-07-09
+Malabar Alloy Recycling Works,Plywood Waste,4778.36,kg,64.66,95.68,2027-01-24
+Nilgiri Polymer Materials Pvt Ltd,Plywood Waste,2565.38,kg,57.3,81.85,2027-03-21
+Wayanad Metals Reprocessing Ltd,Plywood Waste,4978.3,kg,58.83,134.78,2027-07-09
+Wayanad Composite Recovery Systems,Plywood Waste,3230.56,kg,56.03,46.15,2027-04-18
+Arabian Foundry Recovery Systems,Plywood Waste,10496.02,kg,64.62,19.26,2027-07-25
+Western Ghats Fibre Reclamation Co,Plywood Waste,7491.85,kg,55.66,90.28,2027-04-25
+Arabian Green Circular Industries,Plywood Waste,4932.51,kg,75.19,115.22,2027-01-17
+Southern Composite Circular Industries,Plywood Waste,2224.68,kg,61.66,61.78,2027-06-07
+Western Ghats Element Reprocessing Ltd,Plywood Waste,1008.15,kg,79.0,137.35,2027-02-26
+Pamba Composite Processing LLP,Aluminium Roll Scrap,1715.37,kg,60.92,70.42,2027-05-21
+Bharata Timber Reprocessing Ltd,Aluminium Roll Scrap,6535.72,kg,56.57,77.23,2027-01-30
+Southern Salvage Materials Pvt Ltd,Aluminium Roll Scrap,7534.77,kg,68.1,68.08,2027-05-12
+Pamba Timber Resource Recovery,Aluminium Roll Scrap,5643.57,kg,72.37,60.61,2027-04-25
+Arabian Alloy Resource Recovery,Aluminium Roll Scrap,6632.67,kg,62.77,107.7,2026-12-12
+Backwater Polymer Resource Recovery,Aluminium Roll Scrap,7165.59,kg,76.73,40.99,2027-05-22
+Coastal Green Resource Recovery,Aluminium Roll Scrap,7625.84,kg,61.17,129.7,2027-07-28
+Wayanad Board Reprocessing Ltd,Aluminium Roll Scrap,5131.05,kg,66.54,62.04,2027-01-17
+Bharata Board Processing LLP,Aluminium Roll Scrap,3843.93,kg,74.02,63.29,2026-12-21
+Southern Green Recovery Systems,Aluminium Roll Scrap,7079.8,kg,62.35,136.95,2027-05-22
+Anamudi Industrial Recovery Systems,Aluminium Roll Scrap,8874.02,kg,55.06,42.29,2027-04-21
+Wayanad Green Processing LLP,Aluminium Roll Scrap,4466.08,kg,70.44,51.14,2027-05-07
+Malabar Element Reprocessing Ltd,Aluminium Roll Scrap,1276.37,kg,69.73,106.88,2027-07-03
+Pamba Fibre Recycling Works,Aluminium Roll Scrap,4243.8,kg,64.28,99.55,2027-01-30
+Backwater Board Materials Pvt Ltd,Aluminium Roll Scrap,1080.44,kg,79.14,66.57,2027-02-06
+Bharata Polymer Resource Recovery,Aluminium Roll Scrap,1800.5,kg,59.79,135.42,2026-12-18
+Western Ghats Green Materials Pvt Ltd,Aluminium Roll Scrap,1062.24,kg,57.58,73.29,2027-01-19
+Pamba Polymer Reclamation Co,Aluminium Roll Scrap,5959.63,kg,59.86,47.02,2027-06-28
+Pamba Fibre Reprocessing Ltd,Aluminium Roll Scrap,3938.91,kg,74.6,32.21,2027-06-02
+Kuttanad Metals Recovery Systems,Aluminium Roll Scrap,5794.58,kg,59.69,37.25,2027-03-24
+Arabian Industrial Recycling Works,Aluminium Roll Scrap,7693.06,kg,72.97,74.22,2027-07-23
+Coastal Industrial Processing LLP,Aluminium Roll Scrap,6465.0,kg,57.58,53.37,2026-12-16
+Malabar Foundry Reclamation Co,Aluminium Roll Scrap,9890.88,kg,77.76,20.92,2027-04-05
+Malabar Composite Circular Industries,Aluminium Roll Scrap,6199.33,kg,60.05,93.26,2027-05-10
+Nilgiri Salvage Reclamation Co,Aluminium Roll Scrap,1210.85,kg,76.05,86.98,2027-05-01
+Wayanad Salvage Recycling Works,Aluminium Roll Scrap,4204.77,kg,68.54,46.75,2027-03-09
+Nilgiri Metals Recycling Works,Aluminium Roll Scrap,1568.46,kg,69.96,74.05,2027-03-21
+Malabar Element Reclamation Co,Aluminium Roll Scrap,2517.21,kg,60.64,40.95,2027-06-14
+Malabar Polymer Processing LLP,Aluminium Roll Scrap,6331.7,kg,71.07,116.82,2027-05-14
+Backwater Salvage Resource Recovery,Aluminium Roll Scrap,3434.21,kg,57.24,61.99,2026-12-19
+Coastal Board Materials Pvt Ltd,Wood Waste,4098.13,kg,68.04,133.11,2027-05-01
+Southern Salvage Recycling Works,Wood Waste,6414.61,kg,68.02,98.83,2026-11-30
+Periyar Metals Processing LLP,Wood Waste,1455.14,kg,60.78,93.15,2027-03-19
+Arabian Green Recovery Systems,Wood Waste,5589.76,kg,68.15,118.04,2027-03-10
+Wayanad Polymer Materials Pvt Ltd,Wood Waste,3991.95,kg,57.73,26.73,2027-07-13
+Southern Foundry Recycling Works,Wood Waste,3199.55,kg,79.9,101.21,2027-05-16
+Western Ghats Industrial Circular Industries,Wood Waste,5354.08,kg,62.96,55.07,2027-07-25
+Malabar Polymer Recycling Works,Wood Waste,6984.9,kg,79.15,105.58,2027-04-18
+Malabar Board Reprocessing Ltd,Wood Waste,2258.54,kg,60.89,60.74,2027-03-04
+Southern Alloy Recovery Systems,Wood Waste,977.16,kg,61.34,28.54,2027-03-28
+Coastal Timber Reclamation Co,Wood Waste,7925.07,kg,55.05,137.23,2027-02-08
+Arabian Board Resource Recovery,Wood Waste,5819.41,kg,62.22,85.93,2027-07-08
+Nilgiri Salvage Reprocessing Ltd,Wood Waste,1519.07,kg,57.85,104.99,2027-02-25
+Wayanad Fibre Recovery Systems,Wood Waste,8418.34,kg,68.31,75.69,2027-01-10
+Periyar Industrial Materials Pvt Ltd,Wood Waste,8388.81,kg,62.17,34.04,2027-07-26
+Backwater Metals Materials Pvt Ltd,Wood Waste,5930.49,kg,67.26,46.89,2026-12-17
+Southern Industrial Processing LLP,Wood Waste,3996.62,kg,56.29,60.19,2027-05-13
+Periyar Foundry Recycling Works,Wood Waste,6106.48,kg,72.4,43.53,2027-02-12
+Vembanad Metals Recycling Works,Wood Waste,5576.88,kg,61.37,64.94,2027-01-09
+Coastal Polymer Reclamation Co,Wood Waste,9982.3,kg,58.19,67.61,2027-01-24
+Periyar Metals Recovery Systems,Wood Waste,3231.91,kg,68.1,20.56,2027-03-16
+Coastal Timber Recycling Works,Wood Waste,4521.55,kg,69.34,46.03,2027-02-08
+Malabar Metals Recycling Works,Wood Waste,8075.52,kg,67.49,98.64,2027-01-21
+Coastal Polymer Processing LLP,Wood Waste,6351.43,kg,65.61,92.08,2027-03-21
+Coastal Foundry Materials Pvt Ltd,Wood Waste,9992.14,kg,58.83,121.84,2027-02-20
+Anamudi Salvage Resource Recovery,Wood Waste,2604.63,kg,72.47,127.86,2027-06-22
+Backwater Metals Reclamation Co,Wood Waste,6507.68,kg,79.87,52.43,2027-07-23
+Vembanad Timber Reclamation Co,Wood Waste,8049.25,kg,69.39,114.7,2027-01-10
+Wayanad Salvage Recovery Systems,Wood Waste,1716.85,kg,76.95,73.19,2027-03-20
+Bharata Metals Materials Pvt Ltd,Wood Waste,9064.01,kg,57.27,98.1,2027-01-12
+Malabar Timber Materials Pvt Ltd,Plastic Scrap,771.04,kg,67.5,48.55,2027-02-16
+Bharata Timber Reclamation Co,Plastic Scrap,5828.45,kg,71.92,81.83,2027-01-01
+Nilgiri Industrial Recovery Systems,Plastic Scrap,6943.44,kg,68.53,127.68,2027-02-13
+Anamudi Salvage Recycling Works,Plastic Scrap,7260.78,kg,71.03,38.87,2027-04-03
+Vembanad Polymer Processing LLP,Plastic Scrap,3574.12,kg,59.68,112.16,2026-12-18
+Vembanad Foundry Resource Recovery,Plastic Scrap,3599.29,kg,61.96,117.6,2026-12-30
+Vembanad Timber Materials Pvt Ltd,Plastic Scrap,3071.58,kg,63.52,54.1,2027-06-27
+Vembanad Fibre Reclamation Co,Plastic Scrap,5344.23,kg,55.73,137.04,2027-07-04
+Chalakudy Alloy Circular Industries,Plastic Scrap,1764.37,kg,66.15,134.28,2027-01-14
+Bharata Metals Resource Recovery,Plastic Scrap,1612.31,kg,69.38,77.37,2027-01-31
+Anamudi Foundry Resource Recovery,Plastic Scrap,4160.39,kg,58.46,26.4,2027-07-04
+Vembanad Metals Circular Industries,Plastic Scrap,2588.5,kg,76.61,16.71,2027-03-08
+Backwater Timber Materials Pvt Ltd,Plastic Scrap,9959.56,kg,75.75,134.57,2027-07-26
+Arabian Metals Circular Industries,Plastic Scrap,5055.17,kg,70.41,56.74,2027-04-24
+Malabar Green Recovery Systems,Plastic Scrap,4656.34,kg,79.43,60.43,2027-04-18
+Periyar Metals Reprocessing Ltd,Plastic Scrap,7473.36,kg,64.69,64.2,2027-07-06
+Nilgiri Composite Reclamation Co,Plastic Scrap,8776.7,kg,59.43,116.18,2027-03-05
+Coastal Fibre Recovery Systems,Plastic Scrap,5898.87,kg,63.09,26.67,2026-12-06
+Southern Polymer Recycling Works,Plastic Scrap,4500.39,kg,76.71,135.4,2026-12-04
+Southern Timber Materials Pvt Ltd,Plastic Scrap,5292.36,kg,55.83,88.55,2027-05-03
+Western Ghats Polymer Reclamation Co,Plastic Scrap,6988.11,kg,72.34,29.29,2027-02-10
+Periyar Green Circular Industries,Plastic Scrap,10016.58,kg,74.85,50.42,2027-07-24
+Malabar Alloy Reclamation Co,Plastic Scrap,7293.09,kg,70.52,38.78,2027-06-15
+Vembanad Polymer Circular Industries,Plastic Scrap,2309.34,kg,68.89,41.45,2026-12-21
+Periyar Foundry Recovery Systems,Plastic Scrap,1558.08,kg,72.06,95.71,2027-04-03
+Anamudi Metals Materials Pvt Ltd,Plastic Scrap,6040.2,kg,78.45,38.08,2026-12-30
+Western Ghats Polymer Recycling Works,Plastic Scrap,5907.8,kg,66.16,43.28,2026-12-01
+Periyar Timber Processing LLP,Plastic Scrap,4605.07,kg,74.35,48.34,2027-02-09
+Vembanad Timber Recovery Systems,Plastic Scrap,1846.95,kg,63.39,138.0,2027-02-14
+Anamudi Board Reclamation Co,Plastic Scrap,6460.05,kg,71.53,115.68,2027-06-13
+Wayanad Alloy Reprocessing Ltd,Mixed Recyclable Waste,1779.89,kg,64.74,37.54,2027-03-15
+Bharata Board Recycling Works,Mixed Recyclable Waste,6576.73,kg,62.44,107.58,2027-02-07
+Nilgiri Board Resource Recovery,Mixed Recyclable Waste,2769.45,kg,71.15,132.17,2027-07-08
+Bharata Green Reprocessing Ltd,Mixed Recyclable Waste,5201.62,kg,56.09,39.54,2027-02-12
+Coastal Metals Recovery Systems,Mixed Recyclable Waste,6135.92,kg,63.47,79.34,2027-07-06
+Coastal Metals Recycling Works,Mixed Recyclable Waste,3149.02,kg,63.13,38.21,2027-02-12
+Pamba Element Processing LLP,Mixed Recyclable Waste,8874.49,kg,78.04,61.49,2027-05-23
+Coastal Composite Materials Pvt Ltd,Mixed Recyclable Waste,3077.53,kg,65.76,114.01,2027-02-17
+Vembanad Salvage Materials Pvt Ltd,Mixed Recyclable Waste,5966.19,kg,75.82,130.71,2027-05-02
+Periyar Composite Circular Industries,Mixed Recyclable Waste,2074.55,kg,68.83,47.85,2026-12-08
+Western Ghats Foundry Recovery Systems,Mixed Recyclable Waste,8740.85,kg,77.54,25.32,2027-01-15
+Anamudi Salvage Reprocessing Ltd,Mixed Recyclable Waste,3617.69,kg,63.38,85.57,2027-05-19
+Nilgiri Timber Reclamation Co,Mixed Recyclable Waste,4833.61,kg,74.65,26.19,2027-03-05
+Malabar Timber Recovery Systems,Mixed Recyclable Waste,3866.98,kg,60.06,96.46,2027-07-23
+Kuttanad Timber Recycling Works,Mixed Recyclable Waste,2882.04,kg,71.09,78.34,2027-06-05
+Vembanad Metals Recovery Systems,Mixed Recyclable Waste,2129.27,kg,76.38,32.36,2026-12-09
+Coastal Alloy Resource Recovery,Mixed Recyclable Waste,3419.29,kg,59.0,30.3,2027-03-22
+Periyar Foundry Processing LLP,Mixed Recyclable Waste,7261.77,kg,78.78,45.48,2027-05-01
+Wayanad Alloy Recovery Systems,Mixed Recyclable Waste,5678.26,kg,59.84,89.81,2026-11-30
+Chalakudy Board Reprocessing Ltd,Mixed Recyclable Waste,3047.62,kg,67.16,32.51,2027-02-01
+Chalakudy Salvage Processing LLP,Mixed Recyclable Waste,11108.65,kg,57.76,121.43,2027-02-11
+Chalakudy Salvage Resource Recovery,Mixed Recyclable Waste,5814.86,kg,72.39,46.91,2027-04-05
+Southern Fibre Circular Industries,Mixed Recyclable Waste,5025.21,kg,73.69,88.97,2027-03-09
+Chalakudy Alloy Reprocessing Ltd,Mixed Recyclable Waste,5775.2,kg,67.23,23.42,2027-06-15
+Arabian Alloy Materials Pvt Ltd,Mixed Recyclable Waste,7439.23,kg,74.16,50.5,2027-02-19
+Periyar Board Circular Industries,Mixed Recyclable Waste,1767.07,kg,57.6,88.15,2027-04-16
+Southern Composite Resource Recovery,Mixed Recyclable Waste,646.57,kg,60.04,19.08,2027-02-09
+Periyar Timber Resource Recovery,Mixed Recyclable Waste,868.06,kg,60.77,62.91,2027-01-22
+Southern Fibre Processing LLP,Mixed Recyclable Waste,2834.46,kg,55.3,101.22,2026-12-05
+Periyar Element Circular Industries,Mixed Recyclable Waste,6264.37,kg,55.33,71.55,2026-12-18
+Periyar Industrial Recovery Systems,Aerospace Metal Scrap,2696.19,kg,77.31,83.84,2027-01-09
+Coastal Composite Recovery Systems,Aerospace Metal Scrap,2632.76,kg,68.09,62.5,2027-03-18
+Bharata Polymer Processing LLP,Aerospace Metal Scrap,2882.74,kg,61.02,138.46,2027-07-28
+Bharata Fibre Recovery Systems,Aerospace Metal Scrap,3431.47,kg,77.54,122.73,2027-05-07
+Vembanad Composite Reclamation Co,Aerospace Metal Scrap,4207.7,kg,64.76,103.6,2027-02-02
+Coastal Polymer Recovery Systems,Aerospace Metal Scrap,4430.18,kg,74.4,28.08,2027-05-15
+Chalakudy Industrial Recycling Works,Aerospace Metal Scrap,2254.42,kg,73.22,34.42,2026-12-25
+Chalakudy Industrial Reprocessing Ltd,Aerospace Metal Scrap,1488.99,kg,67.22,50.37,2027-05-12
+Southern Foundry Reprocessing Ltd,Aerospace Metal Scrap,5197.08,kg,75.41,78.7,2027-02-09
+Periyar Composite Reprocessing Ltd,Aerospace Metal Scrap,897.64,kg,63.51,52.43,2027-05-26
+Vembanad Board Resource Recovery,Aerospace Metal Scrap,3081.56,kg,69.5,115.62,2027-03-16
+Backwater Salvage Processing LLP,Aerospace Metal Scrap,1797.4,kg,58.04,54.37,2027-03-16
+Pamba Fibre Processing LLP,Aerospace Metal Scrap,7631.16,kg,67.56,108.97,2027-04-25
+Nilgiri Industrial Reprocessing Ltd,Aerospace Metal Scrap,5813.01,kg,64.34,68.67,2027-06-27
+Nilgiri Alloy Reprocessing Ltd,Aerospace Metal Scrap,1508.98,kg,55.54,59.59,2027-01-08
+Chalakudy Green Resource Recovery,Aerospace Metal Scrap,1263.79,kg,63.63,39.83,2027-02-12
+Coastal Foundry Reclamation Co,Aerospace Metal Scrap,2337.12,kg,65.14,45.1,2027-02-17
+Southern Industrial Recycling Works,Aerospace Metal Scrap,2181.28,kg,78.71,47.28,2027-02-27
+Kuttanad Timber Resource Recovery,Aerospace Metal Scrap,4686.11,kg,79.61,48.81,2027-02-17
+Western Ghats Timber Processing LLP,Aerospace Metal Scrap,2452.31,kg,75.06,92.1,2027-07-15
+Vembanad Metals Materials Pvt Ltd,Aerospace Metal Scrap,2178.43,kg,60.84,97.45,2027-03-10
+Pamba Board Recovery Systems,Aerospace Metal Scrap,7754.82,kg,61.61,105.47,2027-01-29
+Nilgiri Metals Reclamation Co,Aerospace Metal Scrap,3742.57,kg,59.36,116.66,2027-03-04
+Malabar Composite Reprocessing Ltd,Aerospace Metal Scrap,8585.33,kg,56.21,105.22,2027-06-15
+Pamba Board Processing LLP,Aerospace Metal Scrap,6430.22,kg,68.73,29.8,2027-03-08
+Southern Alloy Circular Industries,Aerospace Metal Scrap,2922.85,kg,62.12,124.79,2027-04-07
+Kuttanad Element Circular Industries,Aerospace Metal Scrap,6632.26,kg,62.36,41.2,2027-01-17
+Vembanad Board Processing LLP,Aerospace Metal Scrap,5569.09,kg,57.32,76.37,2027-04-28
+Backwater Salvage Reclamation Co,Aerospace Metal Scrap,5371.75,kg,64.37,76.21,2027-05-25
+Western Ghats Salvage Materials Pvt Ltd,Aerospace Metal Scrap,1082.15,kg,74.2,135.72,2027-04-14
+Backwater Industrial Reprocessing Ltd,Plastic Packaging Waste,6883.13,kg,60.5,111.03,2027-07-23
+Western Ghats Green Resource Recovery,Plastic Packaging Waste,6598.81,kg,59.9,138.59,2027-07-05
+Wayanad Polymer Circular Industries,Plastic Packaging Waste,6266.54,kg,76.36,119.3,2027-07-15
+Chalakudy Foundry Materials Pvt Ltd,Plastic Packaging Waste,1183.39,kg,71.29,42.08,2027-05-16
+Pamba Composite Recycling Works,Plastic Packaging Waste,5967.16,kg,74.6,108.27,2027-05-14
+Anamudi Alloy Resource Recovery,Plastic Packaging Waste,10693.98,kg,76.57,39.74,2027-05-15
+Anamudi Industrial Recycling Works,Plastic Packaging Waste,1828.48,kg,57.66,129.57,2027-07-22
+Wayanad Metals Materials Pvt Ltd,Plastic Packaging Waste,3958.77,kg,79.23,34.04,2027-04-10
+Bharata Alloy Reclamation Co,Plastic Packaging Waste,11113.98,kg,68.18,123.34,2027-04-09
+Nilgiri Composite Materials Pvt Ltd,Plastic Packaging Waste,7216.97,kg,76.56,99.83,2027-03-31
+Backwater Alloy Reprocessing Ltd,Plastic Packaging Waste,1777.95,kg,79.02,40.19,2027-06-12
+Western Ghats Metals Resource Recovery,Plastic Packaging Waste,4694.48,kg,71.83,82.18,2026-12-06
+Periyar Fibre Reprocessing Ltd,Plastic Packaging Waste,5553.09,kg,55.14,102.34,2027-07-08
+Malabar Metals Processing LLP,Plastic Packaging Waste,6643.99,kg,58.63,63.43,2027-04-05
+Chalakudy Composite Circular Industries,Plastic Packaging Waste,6778.59,kg,78.23,21.91,2027-03-11
+Periyar Fibre Circular Industries,Plastic Packaging Waste,8581.49,kg,63.03,46.47,2027-07-13
+Backwater Board Recovery Systems,Plastic Packaging Waste,6877.65,kg,68.81,131.67,2027-01-12
+Western Ghats Composite Circular Industries,Plastic Packaging Waste,7590.3,kg,76.86,122.29,2027-01-16
+Southern Board Materials Pvt Ltd,Plastic Packaging Waste,9113.54,kg,63.02,74.99,2027-05-28
+Arabian Element Materials Pvt Ltd,Plastic Packaging Waste,9122.24,kg,74.63,139.43,2027-05-07
+Malabar Green Resource Recovery,Plastic Packaging Waste,3980.81,kg,72.83,128.26,2026-12-27
+Backwater Polymer Recovery Systems,Plastic Packaging Waste,1239.73,kg,58.24,18.77,2027-05-17
+Vembanad Industrial Resource Recovery,Plastic Packaging Waste,1078.01,kg,69.36,112.52,2027-02-09
+Southern Composite Reprocessing Ltd,Plastic Packaging Waste,2460.65,kg,70.16,138.21,2027-04-06
+Bharata Polymer Circular Industries,Plastic Packaging Waste,6471.8,kg,63.81,64.18,2026-12-30
+Western Ghats Foundry Reclamation Co,Plastic Packaging Waste,3729.52,kg,69.46,15.03,2027-03-15
+Nilgiri Composite Resource Recovery,Plastic Packaging Waste,4902.14,kg,59.71,131.54,2027-06-06
+Nilgiri Timber Processing LLP,Plastic Packaging Waste,4213.09,kg,55.97,44.0,2027-02-10
+Southern Board Recycling Works,Plastic Packaging Waste,6757.98,kg,79.41,111.01,2027-01-20
+Wayanad Board Processing LLP,Plastic Packaging Waste,6139.51,kg,78.49,23.76,2027-02-14
+Vembanad Salvage Reclamation Co,Metal Waste,3693.72,kg,73.37,22.36,2026-12-26
+Wayanad Industrial Reprocessing Ltd,Metal Waste,2200.35,kg,69.98,86.73,2027-01-19
+Vembanad Green Recycling Works,Metal Waste,4706.2,kg,58.07,116.53,2027-01-03
+Chalakudy Element Recovery Systems,Metal Waste,4643.7,kg,71.65,68.66,2027-07-28
+Backwater Foundry Materials Pvt Ltd,Metal Waste,4738.22,kg,55.31,87.25,2027-02-24
+Coastal Industrial Recovery Systems,Metal Waste,5533.87,kg,60.93,103.21,2026-12-30
+Coastal Foundry Processing LLP,Metal Waste,8445.31,kg,59.55,116.09,2027-06-06
+Western Ghats Board Reclamation Co,Metal Waste,3087.36,kg,63.8,63.48,2027-01-04
+Southern Fibre Recycling Works,Metal Waste,6855.64,kg,71.51,61.19,2026-12-08
+Anamudi Element Reclamation Co,Metal Waste,4065.1,kg,68.36,79.19,2027-07-23
+Malabar Green Materials Pvt Ltd,Metal Waste,8375.69,kg,72.98,54.16,2027-05-31
+Malabar Fibre Recycling Works,Metal Waste,2357.55,kg,56.45,43.91,2027-06-11
+Malabar Foundry Recovery Systems,Metal Waste,3035.56,kg,73.97,61.03,2027-02-26
+Kuttanad Salvage Resource Recovery,Metal Waste,3985.6,kg,67.2,62.03,2027-03-10
+Malabar Green Reclamation Co,Metal Waste,6622.25,kg,58.89,105.67,2027-05-24
+Western Ghats Fibre Processing LLP,Metal Waste,10139.72,kg,58.28,86.54,2027-02-27
+Vembanad Foundry Processing LLP,Metal Waste,2824.27,kg,56.44,36.14,2027-03-14
+Pamba Industrial Processing LLP,Metal Waste,5369.19,kg,59.26,106.69,2027-03-25
+Vembanad Element Circular Industries,Metal Waste,3892.93,kg,59.67,33.31,2027-02-10
+Western Ghats Composite Materials Pvt Ltd,Metal Waste,4269.61,kg,66.93,73.72,2027-04-20
+Nilgiri Foundry Reclamation Co,Metal Waste,2729.17,kg,72.44,97.63,2027-02-25
+Chalakudy Alloy Materials Pvt Ltd,Metal Waste,5349.65,kg,79.85,91.02,2027-02-17
+Vembanad Salvage Circular Industries,Metal Waste,10379.27,kg,56.72,49.63,2027-06-21
+Nilgiri Foundry Recycling Works,Metal Waste,6099.89,kg,65.8,71.32,2027-05-10
+Pamba Element Resource Recovery,Metal Waste,6496.06,kg,75.44,41.34,2026-12-31
+Chalakudy Fibre Circular Industries,Metal Waste,11008.25,kg,59.52,108.13,2027-07-15
+Malabar Metals Recovery Systems,Metal Waste,4631.8,kg,65.72,18.63,2027-01-27
+Backwater Board Reprocessing Ltd,Metal Waste,3950.9,kg,62.93,110.47,2027-02-17
+Bharata Fibre Reprocessing Ltd,Metal Waste,5434.82,kg,67.9,137.52,2027-04-02
+Coastal Green Recovery Systems,Metal Waste,5144.98,kg,70.38,114.95,2027-01-26
+Nilgiri Alloy Recovery Systems,Metal Offcuts,6200.48,kg,70.72,29.13,2027-04-18
+Arabian Salvage Reprocessing Ltd,Metal Offcuts,8088.45,kg,61.75,29.99,2027-07-22
+Anamudi Board Resource Recovery,Metal Offcuts,12497.99,kg,56.62,94.07,2027-05-16
+Pamba Alloy Reclamation Co,Metal Offcuts,7258.89,kg,62.96,116.88,2027-07-16
+Southern Board Reclamation Co,Metal Offcuts,5383.89,kg,74.11,42.01,2027-03-23
+Periyar Metals Recycling Works,Metal Offcuts,3907.05,kg,59.29,107.69,2027-01-15
+Anamudi Foundry Reprocessing Ltd,Metal Offcuts,2574.45,kg,69.95,59.0,2027-04-08
+Kuttanad Industrial Circular Industries,Metal Offcuts,2101.77,kg,76.24,48.22,2027-06-08
+Pamba Polymer Processing LLP,Metal Offcuts,763.02,kg,58.16,93.44,2027-04-03
+Nilgiri Salvage Recycling Works,Metal Offcuts,1233.36,kg,62.34,42.19,2027-01-04
+Malabar Board Circular Industries,Metal Offcuts,846.4,kg,73.2,46.62,2027-02-05
+Pamba Metals Materials Pvt Ltd,Metal Offcuts,1399.93,kg,61.53,121.79,2027-01-23
+Wayanad Element Recycling Works,Metal Offcuts,8074.8,kg,63.97,17.96,2027-06-05
+Wayanad Element Processing LLP,Metal Offcuts,7234.09,kg,66.9,61.67,2027-02-14
+Pamba Metals Recycling Works,Metal Offcuts,7174.69,kg,60.7,28.15,2027-01-26
+Chalakudy Timber Circular Industries,Metal Offcuts,6857.34,kg,64.84,30.46,2026-12-29
+Southern Element Recycling Works,Metal Offcuts,6557.23,kg,62.29,58.1,2027-07-26
+Anamudi Metals Recycling Works,Metal Offcuts,6663.94,kg,57.33,95.77,2027-07-07
+Anamudi Green Resource Recovery,Metal Offcuts,8926.85,kg,73.09,100.69,2027-03-25
+Arabian Industrial Circular Industries,Metal Offcuts,7813.23,kg,58.1,42.4,2027-03-26
+Southern Polymer Reprocessing Ltd,Metal Offcuts,1915.85,kg,79.87,84.35,2027-04-29
+Wayanad Element Recovery Systems,Metal Offcuts,3676.2,kg,68.46,108.76,2027-01-13
+Periyar Timber Materials Pvt Ltd,Metal Offcuts,5768.31,kg,79.75,63.02,2027-07-23
+Wayanad Industrial Recycling Works,Metal Offcuts,1356.28,kg,69.12,59.15,2027-04-23
+Kuttanad Timber Reclamation Co,Metal Offcuts,1271.75,kg,79.43,139.47,2027-02-12
+Bharata Element Resource Recovery,Metal Offcuts,3212.55,kg,72.64,37.72,2026-12-20
+Pamba Timber Recycling Works,Metal Offcuts,8946.62,kg,61.65,112.02,2027-03-07
+Bharata Composite Recovery Systems,Metal Offcuts,5422.45,kg,75.99,106.96,2027-01-29
+Nilgiri Fibre Recovery Systems,Metal Offcuts,556.42,kg,75.06,66.22,2027-05-28
+Malabar Fibre Reclamation Co,Metal Offcuts,6143.62,kg,60.68,77.33,2027-01-21
+Pamba Fibre Circular Industries,MDF Board Offcuts,3401.47,kg,55.42,68.29,2027-04-27
+Chalakudy Board Recycling Works,MDF Board Offcuts,4753.67,kg,55.62,88.53,2027-02-15
+Vembanad Green Processing LLP,MDF Board Offcuts,9775.17,kg,74.84,115.05,2027-06-02
+Periyar Composite Materials Pvt Ltd,MDF Board Offcuts,6431.2,kg,71.44,22.59,2027-04-07
+Anamudi Polymer Processing LLP,MDF Board Offcuts,1828.91,kg,59.53,132.67,2026-12-28
+Bharata Industrial Reprocessing Ltd,MDF Board Offcuts,6076.69,kg,55.55,104.51,2027-05-25
+Coastal Green Reprocessing Ltd,MDF Board Offcuts,2510.33,kg,76.32,61.25,2026-12-20
+Wayanad Alloy Circular Industries,MDF Board Offcuts,1027.53,kg,76.58,65.45,2027-03-14
+Backwater Metals Processing LLP,MDF Board Offcuts,3511.51,kg,78.38,56.38,2027-06-22
+Wayanad Composite Processing LLP,MDF Board Offcuts,3743.77,kg,79.79,24.15,2026-12-21
+Vembanad Composite Recycling Works,MDF Board Offcuts,9362.73,kg,79.37,111.33,2027-07-01
+Bharata Alloy Recovery Systems,MDF Board Offcuts,5563.16,kg,70.71,48.62,2027-05-02
+Vembanad Polymer Resource Recovery,MDF Board Offcuts,9236.7,kg,57.92,80.62,2027-07-16
+Kuttanad Alloy Processing LLP,MDF Board Offcuts,7473.05,kg,65.36,94.19,2027-06-25
+Wayanad Green Recycling Works,MDF Board Offcuts,5161.87,kg,78.81,78.69,2027-07-07
+Arabian Salvage Resource Recovery,MDF Board Offcuts,853.92,kg,73.8,133.46,2027-06-26
+Backwater Timber Circular Industries,MDF Board Offcuts,1778.87,kg,79.23,135.2,2026-12-01
+Periyar Element Reprocessing Ltd,MDF Board Offcuts,2198.25,kg,59.49,123.12,2027-05-31
+Bharata Element Reclamation Co,MDF Board Offcuts,1388.86,kg,68.61,18.83,2027-03-12
+Vembanad Foundry Circular Industries,MDF Board Offcuts,5789.49,kg,66.15,117.56,2026-12-19
+Anamudi Salvage Materials Pvt Ltd,MDF Board Offcuts,4017.58,kg,60.41,43.87,2027-02-01
+Nilgiri Foundry Resource Recovery,MDF Board Offcuts,1386.19,kg,74.11,122.32,2027-05-12
+Anamudi Timber Reclamation Co,MDF Board Offcuts,8345.11,kg,79.68,23.85,2027-06-01
+Bharata Timber Materials Pvt Ltd,MDF Board Offcuts,5626.07,kg,68.4,16.57,2026-12-23
+Western Ghats Green Recovery Systems,MDF Board Offcuts,1562.32,kg,74.47,54.39,2027-03-04
+Periyar Polymer Reprocessing Ltd,MDF Board Offcuts,4145.68,kg,58.64,94.34,2027-04-14
+Malabar Board Reclamation Co,MDF Board Offcuts,7171.12,kg,62.3,36.56,2027-02-24
+Arabian Board Processing LLP,MDF Board Offcuts,3636.14,kg,63.18,138.67,2027-06-02
+Kuttanad Foundry Resource Recovery,MDF Board Offcuts,1894.52,kg,72.59,97.99,2027-06-15
+Periyar Composite Resource Recovery,MDF Board Offcuts,4782.91,kg,72.63,108.86,2027-03-16
+Backwater Board Reclamation Co,Glass Cutting Waste,10338.56,kg,67.29,135.26,2027-06-02
+Backwater Salvage Materials Pvt Ltd,Glass Cutting Waste,5521.34,kg,73.58,36.75,2026-12-31
+Coastal Metals Materials Pvt Ltd,Glass Cutting Waste,2621.97,kg,65.01,109.39,2027-02-25
+Coastal Salvage Resource Recovery,Glass Cutting Waste,734.82,kg,74.34,67.88,2027-05-18
+Nilgiri Fibre Recycling Works,Glass Cutting Waste,1832.81,kg,71.15,44.01,2027-07-21
+Coastal Element Recovery Systems,Glass Cutting Waste,5731.46,kg,71.94,121.86,2027-04-19
+Arabian Polymer Recovery Systems,Glass Cutting Waste,5414.96,kg,57.34,43.78,2027-03-13
+Bharata Salvage Circular Industries,Glass Cutting Waste,4076.24,kg,62.1,124.23,2027-01-11
+Arabian Alloy Reprocessing Ltd,Glass Cutting Waste,1038.47,kg,58.16,50.23,2026-12-30
+Periyar Timber Reclamation Co,Glass Cutting Waste,2293.66,kg,64.96,70.94,2026-12-27
+Chalakudy Salvage Reclamation Co,Glass Cutting Waste,2587.49,kg,65.28,29.76,2027-06-26
+Coastal Element Processing LLP,Glass Cutting Waste,1560.39,kg,68.17,28.64,2027-03-18
+Arabian Board Recycling Works,Glass Cutting Waste,7358.63,kg,76.21,106.43,2027-04-09
+Anamudi Metals Processing LLP,Glass Cutting Waste,5247.92,kg,76.0,31.66,2027-05-10
+Pamba Polymer Circular Industries,Glass Cutting Waste,6498.11,kg,60.83,130.05,2027-05-09
+Anamudi Composite Recovery Systems,Glass Cutting Waste,6921.79,kg,78.3,137.86,2027-02-24
+Anamudi Industrial Reprocessing Ltd,Glass Cutting Waste,3706.02,kg,60.67,109.78,2026-12-25
+Arabian Foundry Processing LLP,Glass Cutting Waste,5669.79,kg,77.89,126.15,2027-06-09
+Southern Metals Recycling Works,Glass Cutting Waste,1305.67,kg,78.52,90.88,2027-03-03
+Nilgiri Salvage Recovery Systems,Glass Cutting Waste,3983.3,kg,57.49,100.25,2027-03-19
+Southern Element Recovery Systems,Glass Cutting Waste,6929.09,kg,56.69,95.91,2027-06-18
+Coastal Foundry Circular Industries,Glass Cutting Waste,8767.96,kg,71.21,110.8,2026-12-02
+Bharata Alloy Processing LLP,Glass Cutting Waste,2684.57,kg,62.73,121.73,2027-05-16
+Arabian Salvage Reclamation Co,Glass Cutting Waste,6266.75,kg,75.49,132.17,2026-12-15
+Western Ghats Alloy Reclamation Co,Glass Cutting Waste,820.3,kg,78.04,17.35,2027-05-20
+Periyar Polymer Recycling Works,Glass Cutting Waste,921.23,kg,69.58,29.9,2027-01-27
+Bharata Salvage Processing LLP,Glass Cutting Waste,2519.32,kg,73.54,139.03,2027-01-19
+Nilgiri Alloy Resource Recovery,Glass Cutting Waste,1850.65,kg,59.57,139.79,2027-04-08
+Arabian Polymer Circular Industries,Glass Cutting Waste,8849.33,kg,64.72,36.25,2027-07-03
+Anamudi Green Recycling Works,Glass Cutting Waste,7444.53,kg,66.97,76.77,2027-01-11
