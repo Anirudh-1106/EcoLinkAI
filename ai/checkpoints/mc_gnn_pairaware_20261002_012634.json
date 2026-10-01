@@ -1,0 +1,11 @@
+{
+  "checkpoint_file": "mc_gnn_pairaware_20261002_012634.pt",
+  "model": "PairAwareMCGNN",
+  "seed": 13,
+  "best_epoch": 328,
+  "val_auc": 0.989834774879382,
+  "epochs_run": 368,
+  "hsic_weight": 0.2,
+  "lr": 0.01,
+  "needs": "three message graphs (tri_views), pair sets and counts (tri_pairs), and pair inputs with capability_score, peer_votes; not servable by the platform as it stands"
+}
