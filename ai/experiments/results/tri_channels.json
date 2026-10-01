@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-10-01T17:26:46+00:00",
+  "gamma": 1e-10,
+  "models": {
+    "Improved MC-GNN (one network)": {
+      "checkpoint": "mc_gnn_improved_20260930_195221.pt",
+      "normalised_hsic": {
+        "GCN-GAT": 0.4552,
+        "GCN-GraphSAGE": 0.3639,
+        "GAT-GraphSAGE": 0.3048
+      },
+      "normalised_hsic_mean": 0.3746,
+      "raw_hsic": 0.08376200497150421,
+      "weighted_hsic_term": 8.376200774651288e-12,
+      "bce": 0.07241056859493256,
+      "hsic_term_share_of_loss": 1.1567649615962239e-10
+    },
+    "Multi-view MC-GNN, no channel dropout": {
+      "checkpoint": "mc_gnn_mv_20260929_081906.pt",
+      "normalised_hsic": {
+        "GCN-GAT": 0.946,
+        "GCN-GraphSAGE": 0.7103,
+        "GAT-GraphSAGE": 0.677
+      },
+      "normalised_hsic_mean": 0.7778,
+      "raw_hsic": 0.000937132048420608,
+      "weighted_hsic_term": 9.371320451416476e-14,
+      "bce": 0.06612729281187057,
+      "hsic_term_share_of_loss": 1.417163803842103e-12
+    },
+    "Multi-view MC-GNN + channel dropout": {
+      "checkpoint": "mc_gnn_mv_cd_20260930_221806.pt",
+      "normalised_hsic": {
+        "GCN-GAT": 0.4512,
+        "GCN-GraphSAGE": 0.6129,
+        "GAT-GraphSAGE": 0.3976
+      },
+      "normalised_hsic_mean": 0.4872,
+      "raw_hsic": 0.05992181599140167,
+      "weighted_hsic_term": 5.992181577318956e-12,
+      "bce": 0.0769413560628891,
+      "hsic_term_share_of_loss": 7.787985534246644e-11
+    }
+  }
+}

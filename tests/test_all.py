@@ -1089,3 +1089,53 @@ def test_multiview_mcgnn_reads_three_networks_and_weighs_them():
     with torch.no_grad():
         changed, _ = model(x, ei, ea, message_edge_index=other)
     assert not torch.allclose(scores, changed)
+
+
+def test_normalized_hsic_cannot_be_lowered_by_shrinking_embeddings():
+    """The raw term falls with scale alone; the normalised one must not."""
+    import torch
+    from ai.models.hsic import hsic_loss, normalized_hsic
+
+    torch.manual_seed(0)
+    a, b = torch.randn(200, 16), torch.randn(200, 16)
+    gram = hsic_loss(a, b) / torch.sqrt(hsic_loss(a, a) * hsic_loss(b, b))
+    assert torch.allclose(normalized_hsic(a, b), gram, atol=1e-5), "same quantity as the Gram definition"
+    assert torch.allclose(normalized_hsic(a, b), normalized_hsic(0.01 * a, 0.01 * b), atol=1e-6)
+    assert hsic_loss(0.01 * a, 0.01 * b) < hsic_loss(a, b) * 1e-6
+    assert normalized_hsic(a, a).item() == pytest.approx(1.0, abs=1e-6)
+
+
+def test_tri_pair_sets_use_history_only():
+    """A pair set may only hold facilities linked by earlier trade, never by the year scored."""
+    from ai.experiments.tri_pairs import pair_neighbourhoods
+
+    g = _tri_toy_with_newcomer().build_graph(2024, views=True)
+    sets = pair_neighbourhoods(g)
+    keys = g["node_keys"]
+    rel = {(keys[a], keys[b]) for a, b in g["views"]["relationship"].T}
+    for row, (s, b) in enumerate(g["edge_index"].T):
+        for name in ("co_partners", "peers"):
+            for member in sets[name][row]:
+                if member >= 0:
+                    assert (keys[member], keys[b]) in rel, f"{name} member must have traded with the recycler before"
+
+
+def test_pair_aware_scorer_reads_shared_neighbours():
+    """Changing a shared neighbour changes only the pairs that share it."""
+    import torch
+    from ai.models.mc_gnn import PairAwareMCGNN
+
+    torch.manual_seed(0)
+    x = torch.rand(8, 17)
+    edges = torch.tensor([[0, 1, 2], [5, 6, 7]])
+    attr = torch.rand(3, 10)
+    views = [torch.tensor([[0, 5], [5, 0]]), torch.tensor([[1, 6], [6, 1]]), torch.tensor([[2, 3], [3, 2]])]
+    sets = [torch.tensor([[3, -1], [-1, -1], [4, 3]]), torch.tensor([[-1, -1], [2, -1], [-1, -1]])]
+    counts = torch.rand(3, 2)
+    model = PairAwareMCGNN(17, edge_dim=10).eval()
+    moved = x.clone()
+    moved[4] += 1.0
+    with torch.no_grad():
+        before, _ = model(x, edges, attr, views, sets, counts)
+        after, _ = model(moved, edges, attr, views, sets, counts)
+    assert (before != after).tolist() == [False, False, True]
