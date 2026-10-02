@@ -1,0 +1,12 @@
+{
+  "checkpoint_file": "mc_gnn_tuned_20261002_102041.pt",
+  "model": "PairAwareMCGNN",
+  "seed": 42,
+  "best_epoch": 324,
+  "val_auc": 0.9900509469019503,
+  "epochs_run": 364,
+  "ranking_weight": 1.0,
+  "hidden_dim": 128,
+  "out_dim": 64,
+  "hsic_weight": 0.2
+}
