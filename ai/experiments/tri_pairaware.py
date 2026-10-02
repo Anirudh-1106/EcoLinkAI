@@ -133,7 +133,8 @@ def predict(model, pg: PairGraph, mode: str) -> np.ndarray:
     return out.cpu().numpy()
 
 
-def train(factory, mode, train_set, val: PairGraph, seed: int, epochs: int, lr: float, device):
+def train(factory, mode, train_set, val: PairGraph, seed: int, epochs: int, lr: float, device,
+          ranking_weight: float = RANKING_WEIGHT):
     torch.manual_seed(seed)
     np.random.seed(seed)
     generator = torch.Generator(device=device).manual_seed(seed)
@@ -152,7 +153,7 @@ def train(factory, mode, train_set, val: PairGraph, seed: int, epochs: int, lr: 
             probs, channels = model(d.x, d.edge_index[:, idx], d.edge_attr[idx],
                                     message_edge_index=d.messages[mode], pair_sets=sets, pair_counts=counts)
             loss = model.compute_loss(probs, d.y[idx], channels)
-            loss = loss + RANKING_WEIGHT * listwise_loss(probs, d.y[idx], d.groups[idx])
+            loss = loss + ranking_weight * listwise_loss(probs, d.y[idx], d.groups[idx])
             (loss / len(train_set)).backward()
         opt.step()
 
