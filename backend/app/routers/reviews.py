@@ -125,9 +125,13 @@ def create_review(
 
     # Which side the caller is on decides which rating they may give. The
     # request never says, so a party cannot rate itself.
-    role = review_service.role_in_exchange(
-        db, data.exchange_id, current_user.company_id
-    )
+    company_id = current_user.company_id
+    if company_id is None:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only the two companies involved in an exchange can review it",
+        )
+    role = review_service.role_in_exchange(db, data.exchange_id, company_id)
     if role is None:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
@@ -142,6 +146,6 @@ def create_review(
         )
 
     review = review_service.submit_review(
-        db, data, reviewer_company_id=current_user.company_id, role=role
+        db, data, reviewer_company_id=company_id, role=role
     )
     return _to_response(review, role=role)
